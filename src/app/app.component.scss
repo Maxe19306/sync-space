@@ -1,0 +1,8 @@
+@import "../styles.scss";
+
+app-general-view {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--background-color-light-mode);
+}
