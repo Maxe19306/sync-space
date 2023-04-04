@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sync-space-cb937": {
+      "hosting": {
+        "sync-space": [
+          "sync-space-cb937"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sync-space-cb937"
+  }
+}
