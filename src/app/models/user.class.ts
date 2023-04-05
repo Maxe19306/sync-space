@@ -11,7 +11,7 @@ export class User {
 
     public toJSON() {
         return {
-            firstName: this.Name,
+            Name: this.Name,
             mail: this.mail,
             uid: this.uid,
         }

@@ -30,7 +30,9 @@ export class SignInComponent implements OnInit {
 
     addNewUserToFirebase(userID, userForm){
       this.user.uid = userID
-      console.log(this.user)
-      userForm.reset()
+     
+      this.firestore
+      .collection('users')
+      .add(this.user.toJSON())
 }
 }
