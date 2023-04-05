@@ -1,5 +1,4 @@
 .login-main-container {
-    background-color: #F5F5F5;
     padding-left: 30px;
     padding-right: 30px;
     height: 100vh;
@@ -28,9 +27,16 @@ a {
 
 .left-login-menü {
     display: flex;
+    align-items: center;
     img {
         height: 50px;
         width: 50px;
+    }
+    p {
+        margin-left: 10px;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
     }
 }
 
@@ -70,4 +76,8 @@ button {
 .guest-button {
     color: #444DF2;
     border: 2px solid #444DF2;
+}
+
+h2 {
+    color: #444DF2;
 }

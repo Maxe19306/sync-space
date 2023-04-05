@@ -1,42 +1,47 @@
-<div class="left-login-menü">
-    <img src="favicon.ico" alt="">
-    <p> SyncSpace </p>
-</div>
-<div class="sign-in-container">
-    <h2>Konto erstellen</h2>
-    <p>Mit deinem Namen und deiner E-Mail-Adresse hast du dein neues MySlack-Konto.</p>
+<div class="sign-in-main-container">
+    <div class="image">
+        <img src="favicon.ico" alt="">
+        <p> SyncSpace </p>
+    </div>
+    <div class="sign-in-container">
+        <span [routerLink]="''" class="material-icons">
+            arrow_back
+            </span>
+        <h2>Konto erstellen</h2>
+        <p>Mit deinem Namen und deiner E-Mail-Adresse hast du dein neues MySlack-Konto.</p>
 
-    <form class="example-form" #userForm="ngForm">
-        <mat-form-field class="example-full-width">
-            <mat-label> Name und Vorname</mat-label>
-            <input type="text" matInput placeholder="Vor- und Nachname" [(ngModel)]="user.Name" name="Name">
+        <form class="example-form" #userForm="ngForm">
+            <mat-form-field class="example-full-width">
+                <mat-label> Name und Vorname</mat-label>
+                <input type="text" matInput placeholder="Vor- und Nachname" [(ngModel)]="user.Name" name="Name">
 
-        </mat-form-field>
+            </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput placeholder="beispielname@email.com" [(ngModel)]="user.mail" name="mail">
-            <mat-error>
-                Please enter a valid email address
-            </mat-error>
-            <mat-error>
-                Email is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="beispielname@email.com" [(ngModel)]="user.mail" name="mail">
+                <mat-error>
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error>
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
 
-        <mat-form-field class="example-full-width">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput placeholder="password" #password>
-            <mat-error>
-                Please enter a valid email address
-            </mat-error>
-            <mat-error>
-                Email is <strong>required</strong>
-            </mat-error>
-        </mat-form-field>
-    </form>
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="password" #password>
+                <mat-error>
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error>
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </form>
 
-
-    <button (click)="createAccount(password, userForm)" mat-flat-button color="primary">Weiter</button>
-
+        <div class="button">
+            <button (click)="createAccount(password, userForm)" mat-flat-button color="primary">Weiter</button>
+        </div>
+    </div>
 </div>
