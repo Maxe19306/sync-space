@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail} from "firebase/auth";
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +9,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  userID;
+  CurrentUser = [];
+  constructor(
+    private firestore: AngularFirestore,
+    public router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
 
+
+  login(email, password){
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+  this.userID = userCredential.user.uid;
+  this.determineTheCurrentUser()
+  })
+  .catch((error) => {
+   console.log(error)
+  });
+  }
+
+  determineTheCurrentUser(){
+    this.firestore
+    .collection('users')
+    .valueChanges({idField: 'customIdName'})
+    .subscribe((allUsers:any) => {
+      this.CurrentUser = allUsers.find((user) => user.uid === this.userID)
+      console.log(this.CurrentUser)
+    })
+    this.router.navigate(["generalView"])
+  }
 }
