@@ -6,7 +6,7 @@
         </div>
         <div class="right-login-menü">
             <p>Neu bei SyncSpace?</p>
-            <a href="">Konto erstellen</a>
+            <a [routerLink]="'signin'">Konto erstellen</a>
         </div>
     </div>
 
@@ -37,8 +37,10 @@
             </mat-form-field>
         </form>
         <p>Passwort vergessen?</p>
-        <button mat-flat-button color="primary">Anmelden</button>
-        <button mat-flat-button>Gäste-Login</button>
 
+        <div class="button-container">
+            <button mat-flat-button color="primary">Anmelden</button>
+            <button class="guest-button" mat-flat-button>Gäste-Login</button>
+        </div>
     </div>
 </div>

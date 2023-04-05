@@ -19,6 +19,10 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { FormsModule } from '@angular/forms';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -30,13 +34,17 @@ import {MatButtonModule} from '@angular/material/button';
     SecondaryChatComponent,
     HomeWorkspacesComponent,
     ProfileMenuComponent,
-    LoginComponent
+    LoginComponent,
+    SignInComponent
   ],
   imports: [
+    AngularFireDatabaseModule,
+    FormsModule,
     MatButtonModule,
     BrowserModule,
     AppRoutingModule,
     MatInputModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
