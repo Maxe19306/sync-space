@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-:root {
-    --background-color-light-mode: #ECEEFE;
-}
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "./styles/settings/_variables.scss";
 
 body {
     margin: 0;
@@ -18,5 +17,3 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #ECEEFE;
 }
-
-@import "~@angular/material/prebuilt-themes/indigo-pink.css"

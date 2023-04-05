@@ -1,0 +1,7 @@
+@import "../../styles/settings/_variables.scss";
+.general__view__container {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: $background-color-light-mode;
+}
