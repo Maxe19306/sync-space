@@ -15,6 +15,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SecondaryChatComponent } from './secondary-chat/secondary-chat.component';
 import { HomeWorkspacesComponent } from './home-workspaces/home-workspaces.component';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
+import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,15 +29,19 @@ import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
     SearchBarComponent,
     SecondaryChatComponent,
     HomeWorkspacesComponent,
-    ProfileMenuComponent
+    ProfileMenuComponent,
+    LoginComponent
   ],
   imports: [
+    MatButtonModule,
     BrowserModule,
     AppRoutingModule,
+    MatInputModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
