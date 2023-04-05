@@ -9,8 +9,9 @@
 a {
     color: #797EF3;
     cursor: pointer;
+    text-decoration: none;
     &:hover {
-        text-decoration: underline #797EF3;
+        text-decoration: underline
     }
 }
 

@@ -16,7 +16,7 @@
         <form class="example-form">
             <mat-form-field class="example-full-width">
                 <mat-label> Email</mat-label>
-                <input type="email" matInput placeholder="Ex. pat@example.com">
+                <input type="email" matInput placeholder="Ex. pat@example.com" #mail>
                 <mat-error>
                     Please enter a valid email address
                 </mat-error>
@@ -27,7 +27,7 @@
 
             <mat-form-field class="example-full-width">
                 <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="password">
+                <input type="password" matInput placeholder="password" #password>
                 <mat-error>
                     Please enter a valid email address
                 </mat-error>
@@ -36,10 +36,10 @@
                 </mat-error>
             </mat-form-field>
         </form>
-        <p>Passwort vergessen?</p>
+        <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
 
         <div class="button-container">
-            <button [routerLink]="'generalView'" mat-flat-button color="primary">Anmelden</button>
+            <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
             <button class="guest-button" mat-flat-button>Gäste-Login</button>
         </div>
     </div>

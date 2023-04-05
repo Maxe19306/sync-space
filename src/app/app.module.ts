@@ -23,6 +23,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     HomeWorkspacesComponent,
     ProfileMenuComponent,
     LoginComponent,
-    SignInComponent
+    SignInComponent,
+    ResetPasswordComponent
   ],
   imports: [
     AngularFireDatabaseModule,
