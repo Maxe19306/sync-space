@@ -1,13 +1,19 @@
 @import "../../styles/settings/_variables.scss";
 
 .general__view__container {
-    height: 100vh;
+    height: calc(100vh - 50px);
     display: flex;
     justify-content: space-between;
     background-color: $background-color-light-mode;
 
     nav {
+        height: 100%;
         display: flex;
         flex-direction: column;
+
+        app-menu-sidebar-left {
+            flex: 2;
+            background-color: white;
+        }
     }
 }
