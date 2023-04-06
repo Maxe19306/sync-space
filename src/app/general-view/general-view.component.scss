@@ -35,6 +35,8 @@
         app-search-bar {
             height: 70px;
             margin-bottom: 20px;
+            background-color: $background-color-boxes-light-mode;
+            border-radius: 42px;
         }
 
         app-main-chat {
