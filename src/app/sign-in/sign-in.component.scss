@@ -1,6 +1,7 @@
 .image {
     display: flex;
     align-items: center;
+    width: 100%;
     img {
         height: 50px;
         width: 50px;
@@ -22,6 +23,10 @@
     border-radius: 30px;
     span {
         cursor: pointer;
+        float: left;
+        width: 10px;
+        color: black;
+        margin-left: 15px;
     }
 }
 
@@ -36,6 +41,12 @@ form {
 
 button {
     float: right;
+}
+
+.sign-in-main-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #test {
