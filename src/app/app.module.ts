@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ConfirnNewPasswordComponent } from './confirn-new-password/confirn-new-password.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     ProfileMenuComponent,
     LoginComponent,
     SignInComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ConfirnNewPasswordComponent
   ],
   imports: [
     AngularFireDatabaseModule,

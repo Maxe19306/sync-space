@@ -32,6 +32,8 @@ export class LoginComponent implements OnInit {
   });
   }
 
+
+  // lädt alle user runter und vergleicht die uid um den eingeloggten User herauszufinden
   determineTheCurrentUser(){
     this.firestore
     .collection('users')
