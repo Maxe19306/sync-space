@@ -25,6 +25,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ConfirnNewPasswordComponent } from './confirn-new-password/confirn-new-password.component';
+import { ProfileViewComponent } from './profile-view/profile-view.component';
+import { ChannelViewComponent } from './channel-view/channel-view.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { ConfirnNewPasswordComponent } from './confirn-new-password/confirn-new-
     LoginComponent,
     SignInComponent,
     ResetPasswordComponent,
-    ConfirnNewPasswordComponent
+    ConfirnNewPasswordComponent,
+    ProfileViewComponent,
+    ChannelViewComponent
   ],
   imports: [
     AngularFireDatabaseModule,
