@@ -1,25 +1,30 @@
 .image {
+    padding-top: 30px;
     display: flex;
-    align-items: center;
     width: 100%;
+    align-items: center;
     img {
         height: 50px;
         width: 50px;
     }
     p {
+        font-size: 20px;
+        margin-left: 10px;
+        margin-bottom: 0;
         display: inline-block;
         vertical-align: middle;
         line-height: normal;
-        margin-left: 10px;
     }
 }
 
 .sign-in-container {
     display: flex;
+    height: 600px;
     flex-direction: column;
     width: 50%;
     background-color: white;
     text-align: center;
+    justify-content: space-evenly;
     border-radius: 30px;
     span {
         cursor: pointer;
@@ -28,36 +33,42 @@
         color: black;
         margin-left: 15px;
     }
+    p {
+        font-size: 20px;
+        text-align: center;
+    }
 }
 
 h2 {
     color: #444DF2;
+    font-size: 46px;
+    font-weight: 700px;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-button {
-    float: right;
+.button {
+    width: 90%;
+    display: flex;
+    justify-content: end;
 }
 
 .sign-in-main-container {
+    padding-left: 30px;
+    padding-right: 30px;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-#test {
-    animation: rotate 2s linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+mat-form-field {
+    background-color: #ECEEFE;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
 }
