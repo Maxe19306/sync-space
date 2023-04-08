@@ -42,6 +42,6 @@ export class LoginComponent implements OnInit {
       this.CurrentUser = allUsers.find((user) => user.uid === this.userID)
       console.log(this.CurrentUser)
     })
-    this.router.navigate(["generalView"])
+    this.router.navigate(["generalView"]);
   }
 }

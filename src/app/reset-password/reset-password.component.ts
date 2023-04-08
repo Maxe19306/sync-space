@@ -13,7 +13,9 @@ export class ResetPasswordComponent implements OnInit {
   }
 
 
-  resetPassword(){
-    
+  resetPassword(mail){
+    console.log(mail.value)
   }
+
+  
 }
