@@ -1,0 +1,29 @@
+.dialog-channel-view {
+    background-color: white;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: 1.5px solid #ADB0D9;
+    border-radius: 20px;
+}
+
+.container-title {
+    display: flex;
+    justify-content: space-between;
+    a {
+        color: #535AF1;
+        cursor: pointer;
+    }
+}
