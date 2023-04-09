@@ -65,10 +65,37 @@ form {
     flex-direction: column;
 }
 
-mat-form-field {
-    background-color: #ECEEFE;
-    border-radius: 20px;
+.input {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 80%;
+    background-color: #ECEEFE;
+    border: none;
+    width: 70%;
+    font-size: 18px;
+    height: 50px;
+    border-radius: 20px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 25px;
+    padding-left: 100px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.login {
+    background-image: url('/assets/img/password/mail.png');
+}
+
+.password {
+    background-image: url('/assets/img/password/lock.png');
+}
+
+.name {
+    background-image: url('/assets/img/password/person_filled.png');
 }

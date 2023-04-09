@@ -50,6 +50,8 @@ export class LoginComponent implements OnInit {
     this.router.navigate(["generalView"]);
   }
 
+
+  // login mit google. es wird danach ein user in firestore database noch angelegt.
   loginWithGoogle(){
     signInWithPopup(this.auth, this.provider)
     .then((result) => {
@@ -62,11 +64,12 @@ export class LoginComponent implements OnInit {
 
 
   }
-
+  // prüft ob es bereits den user mit der userid gibt. wenn nicht wird ein neuer erstellt.
   addNewUserToFirebase(name, email, userID) {
     this.checkIfUserExists(userID).subscribe(exists => {
       if (exists) {
-        console.log('User already exists');
+        this.userID = userID;
+        this.determineTheCurrentUser()
       } else {
         this.user.uid = userID;
         this.user.Name = name;
@@ -77,6 +80,7 @@ export class LoginComponent implements OnInit {
           .add(this.user.toJSON())
           .then(() => {
             console.log('User added to Firestore');
+            this.determineTheCurrentUser()
           })
           .catch(error => {
             console.error('Error adding user to Firestore', error);

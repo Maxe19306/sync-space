@@ -13,35 +13,21 @@
     <div class="login-container">
         <h2>Anmeldung</h2>
         <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-                <mat-label> Email</mat-label>
-                <input type="email" matInput placeholder="Ex. pat@example.com" #mail>
-                <mat-error>
-                    Please enter a valid email address
-                </mat-error>
-                <mat-error>
-                    Email is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
 
-            <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input type="password" matInput placeholder="password" #password>
-                <mat-error>
-                    Please enter a valid email address
-                </mat-error>
-                <mat-error>
-                    Email is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
+        <form action="">
+
+            <input class="input login" type="email" placeholder="beispielname@email.com" #mail required>
+            <input class="input password" type="password" placeholder="Passwort" #password required>
+
         </form>
         <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
         <div class="other-stroke">
             <p>oder</p>
 
         </div>
-        <button (click)="loginWithGoogle()">Anmelden mit Google</button>
+        <div class="google-button">
+            <button (click)="loginWithGoogle()"> <img src="/assets/img/password/Google.png" alt=""> Anmelden mit Google</button>
+        </div>
         <div class="button-container">
             <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
             <button class="guest-button" mat-flat-button>Gäste-Login</button>
