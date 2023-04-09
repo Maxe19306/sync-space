@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { getAuth, sendPasswordResetEmail} from "firebase/auth";
+
+
 
 @Component({
   selector: 'app-reset-password',
@@ -7,14 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  constructor() { }
+  constructor(private afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
   }
 
 
-  resetPassword(mail){
-    console.log(mail.value)
+  resetPassword(email) {
+    const actionCodeSettings = {
+      url: "http://localhost:4200/confirmNewPassword",
+    };
+    const auth = getAuth();
+    sendPasswordResetEmail(auth, email, actionCodeSettings)
+      .then(() => {
+        console.log("Password reset email sent!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
 
   

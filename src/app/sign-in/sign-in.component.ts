@@ -22,13 +22,13 @@ export class SignInComponent implements OnInit {
     createUserWithEmailAndPassword(auth,this.user.mail, password.value)
     .then((userCredential) =>
     {
-      this.addNewUserToFirebase(userCredential.user.uid, userForm)
+      this.addNewUserToFirebase(userCredential.user.uid)
     })
     password.value = '';
   }
 
 
-    addNewUserToFirebase(userID, userForm){
+    addNewUserToFirebase(userID){
       this.user.uid = userID
      
       this.firestore

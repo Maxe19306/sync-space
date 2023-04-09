@@ -37,7 +37,11 @@
             </mat-form-field>
         </form>
         <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
+        <div class="other-stroke">
+            <p>oder</p>
 
+        </div>
+        <button (click)="loginWithGoogle()">Anmelden mit Google</button>
         <div class="button-container">
             <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
             <button class="guest-button" mat-flat-button>Gäste-Login</button>
