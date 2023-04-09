@@ -38,3 +38,9 @@ body {
     -webkit-user-select: none;
     user-select: none;
 }
+
+@media (992px >= width) {
+    .hidden__mobile {
+        display: none !important;
+    }
+}

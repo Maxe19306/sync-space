@@ -1,3 +1,14 @@
+.container__profile__menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.1s ease-in;
+
+    &:hover {
+        color: #797ef3;
+    }
+}
+
 .proflie__menu__name {
     font-weight: 700;
     font-size: 32px;
@@ -9,6 +20,7 @@ img {
     height: 70px;
     margin-left: 17.5px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 span {

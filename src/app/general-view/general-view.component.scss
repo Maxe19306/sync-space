@@ -55,12 +55,7 @@
             height: 70px;
             margin-bottom: 20px;
             display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: color 0.1s ease-in;
-            &:hover {
-                color: #797ef3;
-            }
+            justify-content: end;
         }
 
         app-secondary-chat {
