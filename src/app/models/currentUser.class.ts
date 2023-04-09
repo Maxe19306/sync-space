@@ -1,5 +1,5 @@
 export class currentUser{
-    id :string;
+    id:string;
     Name :string;
     mail :string;
     uid :string;

@@ -16,7 +16,7 @@ export class ProfileViewComponent implements OnInit {
 
 
     CurrentUserID = 'M8SGwifEJntU27nZA4kR';
-    CurrentUser: currentUser[] = [];
+    CurrentUser;
 
 
   ngOnInit(): void {
@@ -24,14 +24,16 @@ export class ProfileViewComponent implements OnInit {
   }
 
   loadCurrentUser() {
+  
     this.firestore
       .collection('users')
       .doc(this.CurrentUserID)
-      .valueChanges({ idField: 'id' }) // idField hinzufügen, um TypeScript-Fehler zu vermeiden
-      .subscribe((user: currentUser) => {
-        this.CurrentUser = [user]; // als einzelnes Element in ein Array einfügen
+      .valueChanges()
+      .subscribe((user) => {
+        this.CurrentUser = user
       });
   }
+
 
 
 }
