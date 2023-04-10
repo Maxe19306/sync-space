@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { currentUser } from '../models/currentUser.class';
-
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-profile-view',
@@ -11,29 +11,34 @@ import { currentUser } from '../models/currentUser.class';
 export class ProfileViewComponent implements OnInit {
 
   constructor(
-    private firestore: AngularFirestore
+    public dialogRef: MatDialogRef<ProfileViewComponent>,
+    private firestore: AngularFirestore,
+    public dialog : MatDialog,
+    @Inject(MAT_DIALOG_DATA) public data:any
   ) { }
 
 
-    CurrentUserID = 'M8SGwifEJntU27nZA4kR';
     CurrentUser;
 
 
   ngOnInit(): void {
     this.loadCurrentUser()
+   
   }
 
   loadCurrentUser() {
   
     this.firestore
       .collection('users')
-      .doc(this.CurrentUserID)
+      .doc(this.data.userID)
       .valueChanges()
       .subscribe((user) => {
         this.CurrentUser = user
       });
   }
 
-
+  closeDialog(){
+    this.dialogRef.close(ProfileViewComponent)
+  }
 
 }

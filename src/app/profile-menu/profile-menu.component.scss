@@ -3,7 +3,6 @@
     align-items: center;
     cursor: pointer;
     transition: color 0.1s ease-in;
-
     &:hover {
         color: #797ef3;
     }
@@ -26,4 +25,9 @@ img {
 span {
     margin-left: 17.5px;
     font-weight: 700;
+}
+
+button {
+    font-size: 24px;
+    font-weight: 600;
 }

@@ -1,7 +1,7 @@
 <div *ngIf="this.CurrentUser" class="main-profil-container">
     <div class="start-profil-container">
         <p>Profil</p>
-        <span class="material-icons">
+        <span (click)="closeDialog()" class="material-icons">
             close
             </span>
     </div>

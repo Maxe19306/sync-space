@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-general-view',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneralViewComponent implements OnInit {
 
-  constructor() { }
+  myArray = JSON.parse(this.route.snapshot.queryParamMap.get('myArray'));
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+   
+    
   }
-
 }

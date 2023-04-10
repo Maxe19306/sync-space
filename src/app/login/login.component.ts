@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras  } from '@angular/router';
 import { User } from '../models/user.class';
 import { take, map } from 'rxjs/operators';
 
@@ -13,7 +13,7 @@ import { take, map } from 'rxjs/operators';
 export class LoginComponent implements OnInit {
   user: User = new User({});
   provider = new GoogleAuthProvider();
-  userID;
+  userID;  // ist die id von auth. ist nur für den login wichtig und um herauszubekommen welcher user aus firbase databank der aktive ist
   auth = getAuth();
   CurrentUser = [];
   constructor(
@@ -45,9 +45,10 @@ export class LoginComponent implements OnInit {
     .valueChanges({idField: 'customIdName'})
     .subscribe((allUsers:any) => {
       this.CurrentUser = allUsers.find((user) => user.uid === this.userID)
-      console.log(this.CurrentUser)
+      console.log(this.userID),
+      this.router.navigate(['/generalView'], { queryParams: { myArray: JSON.stringify(this.CurrentUser) }});
     })
-    this.router.navigate(["generalView"]);
+    
   }
 
 
@@ -71,23 +72,24 @@ export class LoginComponent implements OnInit {
         this.userID = userID;
         this.determineTheCurrentUser()
       } else {
-        this.user.uid = userID;
-        this.user.Name = name;
-        this.user.mail = email;
-  
-        this.firestore
-          .collection('users')
-          .add(this.user.toJSON())
-          .then(() => {
-            console.log('User added to Firestore');
-            this.determineTheCurrentUser()
-          })
-          .catch(error => {
-            console.error('Error adding user to Firestore', error);
-          });
+       this.addNewUser(userID, name, email)
       }
     });
   }
+
+  // fügt einen neuen user zu firbase hinzu
+  addNewUser(userID, name, email){
+    this.user.uid = userID;
+    this.user.Name = name;
+    this.user.mail = email;
+    this.firestore
+      .collection('users')
+      .add(this.user.toJSON())
+      .then(() => {
+        console.log('User added to Firestore');
+        this.determineTheCurrentUser()
+      })
+    }
 
 checkIfUserExists(uid) {
   return this.firestore.collection('users', ref => ref.where('uid', '==', uid))
@@ -97,4 +99,6 @@ checkIfUserExists(uid) {
       map(users => users.length > 0)
     );
 }
+
+
 }

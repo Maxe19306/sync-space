@@ -1,7 +1,13 @@
-<div class="container__profile__menu">
-    <span class="proflie__menu__name noSelect hidden__mobile">Frederik Beck</span>
+<div mat-button [matMenuTriggerFor]="menu" #menuTrigger class="container__profile__menu">
+    <span class="proflie__menu__name noSelect hidden__mobile">{{this.userinfo.Name}}</span>
     <img class="noSelect" src="../../assets/img/users/frederick-beck.webp">
     <span class="material-symbols-rounded noSelect hidden__mobile">
         expand_more
     </span>
 </div>
+
+
+<mat-menu class="test" #menu="matMenu">
+    <button mat-menu-item (click)="openDialogProfil(this.userinfo.customIdName)">Profil</button>
+    <button [routerLink]="''" mat-menu-item>Log out</button>
+</mat-menu>

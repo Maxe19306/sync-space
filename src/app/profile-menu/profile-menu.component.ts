@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import {MatMenuTrigger} from '@angular/material/menu';
+import { ProfileViewComponent } from '../profile-view/profile-view.component';
+
+
 
 @Component({
   selector: 'app-profile-menu',
@@ -7,10 +12,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileMenuComponent implements OnInit {
 
-  
-  constructor() { }
+  @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
+  @Input() userinfo:any;
+
+  constructor(
+    public Dialog: MatDialog,
+    ) { }
+
+  currentUserID;
 
   ngOnInit(): void {
+    
   }
 
+
+  openDialogProfil(userID){
+      this.Dialog.open(ProfileViewComponent, {
+        data: {userID}
+      })
+  }
 }
