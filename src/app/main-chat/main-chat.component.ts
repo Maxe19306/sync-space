@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ChannelViewComponent } from '../channel-view/channel-view.component';
 
 @Component({
   selector: 'app-main-chat',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainChatComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public Dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
   }
 
+
+  openDialogChannelView(){
+    this.Dialog.open(ChannelViewComponent)
+}
 }
