@@ -5,7 +5,9 @@
     .menu__sidebar__left__header {
         display: flex;
         align-items: center;
-        
 
+        div {
+            margin-bottom: 5px;
+        }
     }
 }
