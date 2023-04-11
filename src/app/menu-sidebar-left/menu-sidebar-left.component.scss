@@ -14,7 +14,7 @@
 
     .menu__sidebar__left__body {
         padding-top: 10px;
-        
+
         .menu__sidebar__left__body__channels__header {
             display: flex;
             justify-content: space-between;
@@ -31,6 +31,28 @@
                 img {
                     width: 121px;
                     height: 27px;
+                }
+            }
+        }
+
+        .add-icon {
+            font-size: 30px;
+        }
+
+        .menu__sidebar__left__body__channels__body {
+            margin-top: 15px;
+            padding-left: 34px;
+
+            .menu__sidebar__left__body__channels__body__row {
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                margin-bottom: 10px;
+
+                .channels__icons {
+                    font-size: 24px;
+                    font-weight: 900;
+                    margin-right: 10px;
                 }
             }
         }
