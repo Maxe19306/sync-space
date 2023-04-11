@@ -27,8 +27,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { ConfirnNewPasswordComponent } from './confirn-new-password/confirn-new-password.component';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { ChannelViewComponent } from './channel-view/channel-view.component';
-import {MatDialogModule} from '@angular/material/dialog'
+import { MatDialogModule } from '@angular/material/dialog'
 import { MatMenuModule } from '@angular/material/menu';
+
 @NgModule({
   declarations: [
     AppComponent,

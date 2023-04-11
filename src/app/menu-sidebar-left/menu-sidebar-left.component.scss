@@ -1,4 +1,14 @@
 .menu__sidebar__left__container {
     display: flex;
     flex-direction: column;
+
+    .menu__sidebar__left__header {
+        display: flex;
+        align-items: center;
+        
+        span {
+            font-size: 20.5px;
+            margin-bottom: 5px;
+        }
+    }
 }
