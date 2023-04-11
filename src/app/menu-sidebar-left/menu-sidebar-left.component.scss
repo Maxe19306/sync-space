@@ -15,14 +15,18 @@
     .menu__sidebar__left__body {
         padding-top: 10px;
         
-        .menu__sidebar__left__body__channels {
+        .menu__sidebar__left__body__channels__header {
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            .menu__sidebar__left__body__channels__left {
+            .menu__sidebar__left__body__channels__header__left {
                 display: flex;
                 align-items: center;
+
+                span {
+                    margin-right: 10px;
+                }
 
                 img {
                     width: 121px;
