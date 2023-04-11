@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router, NavigationExtras  } from '@angular/router';
 import { User } from '../models/user.class';
 import { take, map } from 'rxjs/operators';
+import { currentUser } from '../models/currentUser.class';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,10 @@ import { take, map } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
   user: User = new User({});
+  currentUser: currentUser = new currentUser;
   provider = new GoogleAuthProvider();
   userID;  // ist die id von auth. ist nur für den login wichtig und um herauszubekommen welcher user aus firbase databank der aktive ist
   auth = getAuth();
-  CurrentUser = [];
   constructor(
     private firestore: AngularFirestore,
     public router: Router,
@@ -42,11 +43,11 @@ export class LoginComponent implements OnInit {
   determineTheCurrentUser(){
     this.firestore
     .collection('users')
-    .valueChanges({idField: 'customIdName'})
+    .valueChanges({idField: 'id'})
     .subscribe((allUsers:any) => {
-      this.CurrentUser = allUsers.find((user) => user.uid === this.userID)
-      console.log(this.userID),
-      this.router.navigate(['/generalView'], { queryParams: { myArray: JSON.stringify(this.CurrentUser) }});
+      this.currentUser = allUsers.find((user) => user.uid === this.userID)
+      console.log(this.currentUser.Name),
+      this.router.navigate(['/generalView'], { queryParams: { userID: this.currentUser.id }});
     })
     
   }

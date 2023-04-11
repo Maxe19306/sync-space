@@ -8,12 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GeneralViewComponent implements OnInit {
 
-  myArray = JSON.parse(this.route.snapshot.queryParamMap.get('myArray'));
-
+  userID = this.route.snapshot.queryParamMap.get('userID');
   constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
-   
-    
+  ngOnInit(): void { 
+      
   }
-}
+   }
+    
+  
+

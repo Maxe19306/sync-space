@@ -26,15 +26,15 @@ export class ProfileViewComponent implements OnInit {
    
   }
 
-  loadCurrentUser() {
-  
-    this.firestore
-      .collection('users')
-      .doc(this.data.userID)
-      .valueChanges()
-      .subscribe((user) => {
-        this.CurrentUser = user
-      });
+ loadCurrentUser() {
+  console.log(this.data)
+  this.firestore
+  .collection('users')
+  .doc(this.data.userID)
+  .valueChanges()
+  .subscribe((user) => {
+    this.CurrentUser = user
+  });
   }
 
   closeDialog(){

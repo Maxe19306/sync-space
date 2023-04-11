@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {MatMenuTrigger} from '@angular/material/menu';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 
@@ -14,15 +15,22 @@ export class ProfileMenuComponent implements OnInit {
 
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
   @Input() userinfo:any;
-
+  CurrentUser;
   constructor(
     public Dialog: MatDialog,
+    private firestore: AngularFirestore
     ) { }
 
-  currentUserID;
 
   ngOnInit(): void {
-    
+      this.firestore
+      .collection('users')
+      .doc(this.userinfo)
+      .valueChanges()
+      .subscribe((user) => {
+        this.CurrentUser = user
+        console.log(this.CurrentUser)
+      });
   }
 
 
