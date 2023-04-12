@@ -82,7 +82,7 @@ body {
 }
 
 .hover-area:hover .single-icon {
-    color: $text-color-hover-light-mode;
+    color: $text-color-highlight-light-mode;
     transition: all 100ms ease-in;
 }
 
@@ -92,7 +92,7 @@ body {
     cursor: pointer;
 
     &:hover {
-        color: $text-color-hover-light-mode;
+        color: $text-color-highlight-light-mode;
         transition: color 100ms ease-in;
     }
 }

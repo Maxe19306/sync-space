@@ -1,3 +1,5 @@
+@import "../../styles/settings/_variables.scss";
+
 .menu__sidebar__left__container {
     display: flex;
     flex-direction: column;
@@ -52,23 +54,27 @@
 
     .menu__sidebar__left__body__channels__body {
         margin-top: 15px;
-        padding-left: 34px;
+        padding-left: 14px;
 
         .menu__sidebar__left__body__channels__body__row {
             display: flex;
             align-items: center;
             font-size: 18px;
             margin-bottom: 10px;
+            padding: 4px 20px;
+            border-radius: 20px;
 
             .channels__icons {
                 font-size: 24px;
                 font-weight: 900;
                 margin-right: 10px;
             }
+        }
 
-            .channels__channelname {
-                font-weight: 500;
-            }
+        .active__channel {
+            background-color: $background-color-light-mode;
+            color: $text-color-highlight-light-mode;
+            font-weight: 700;
         }
     }
 }
