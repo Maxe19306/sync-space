@@ -29,6 +29,7 @@ import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { ChannelViewComponent } from './channel-view/channel-view.component';
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatMenuModule } from '@angular/material/menu';
+import { CreateChannelComponent } from './create-channel/create-channel.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MatMenuModule } from '@angular/material/menu';
     ResetPasswordComponent,
     ConfirnNewPasswordComponent,
     ProfileViewComponent,
-    ChannelViewComponent
+    ChannelViewComponent,
+    CreateChannelComponent
   ],
   imports: [
     MatMenuModule,

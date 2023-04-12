@@ -9,7 +9,7 @@
     </div>
 
     <div class="menu__sidebar__left__body">
-        
+
         <div class="menu__sidebar__left__body__channels">
 
             <div class="menu__sidebar__left__body__channels__header">
@@ -17,8 +17,8 @@
                     <span class="material-symbols-rounded single-icon">arrow_drop_down</span>
                     <img src="assets/img/menuSidebarLeft/title.webp">
                 </div>
-                
-                <div class="hover-area noSelect">
+
+                <div class="hover-area noSelect" (click)="openCreateNewChannelDialog()">
                     <div class="transform-circle"></div>
                     <span class="material-symbols-rounded single-icon add-icon">add</span>
                 </div>
@@ -30,7 +30,7 @@
                     <span class="material-symbols-rounded channels__icons">tag</span>
                     <span>Entwicklerteam</span>
                 </div>
-                <div class="menu__sidebar__left__body__channels__body__row">
+                <div class="menu__sidebar__left__body__channels__body__row" (click)="openCreateNewChannelDialog()">
                     <span class="material-symbols-rounded channels__icons">add_circle</span>
                     <span>Channel hinzufügen</span>
                 </div>
