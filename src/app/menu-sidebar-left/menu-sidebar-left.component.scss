@@ -56,6 +56,19 @@
         margin-top: 15px;
         padding-left: 14px;
 
+        .highlight__text__on__hover {
+            cursor: pointer;
+        
+            &:hover {
+                background-color: $background-color-light-mode;
+                transition: color 100ms ease-in;
+
+                .channels__icons {
+                    color: $text-color-highlight-light-mode;
+                }
+            }
+        }
+
         .menu__sidebar__left__body__channels__body__row {
             display: flex;
             align-items: center;
