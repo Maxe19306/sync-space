@@ -86,7 +86,18 @@ body {
     transition: all 100ms ease-in;
 }
 
-@media (992px >= width) {
+/* class for all texts that should highlight on hover */
+
+.highlight__text__on__hover {
+    cursor: pointer;
+
+    &:hover {
+        color: $text-color-hover-light-mode;
+        transition: color 100ms ease-in;
+    }
+}
+
+@media (992px >=width) {
     .hidden__mobile {
         display: none !important;
     }

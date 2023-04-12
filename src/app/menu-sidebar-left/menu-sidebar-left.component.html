@@ -13,9 +13,9 @@
         <div class="menu__sidebar__left__body__channels">
 
             <div class="menu__sidebar__left__body__channels__header">
-                <div class="menu__sidebar__left__body__channels__header__left">
+                <div class="menu__sidebar__left__body__channels__header__left highlight__text__on__hover noSelect">
                     <span class="material-symbols-rounded single-icon">arrow_drop_down</span>
-                    <img src="assets/img/menuSidebarLeft/title.webp">
+                    <span class="material-symbols-rounded channels__icon">workspaces</span><span id="channels__headline">Channels</span>
                 </div>
 
                 <div class="hover-area noSelect" (click)="openCreateNewChannelDialog()">
@@ -26,13 +26,13 @@
 
             <div class="menu__sidebar__left__body__channels__body">
 
-                <div class="menu__sidebar__left__body__channels__body__row">
+                <div class="menu__sidebar__left__body__channels__body__row highlight__text__on__hover noSelect">
                     <span class="material-symbols-rounded channels__icons">tag</span>
-                    <span>Entwicklerteam</span>
+                    <span class="channels__channelname">Entwicklerteam</span>
                 </div>
-                <div class="menu__sidebar__left__body__channels__body__row" (click)="openCreateNewChannelDialog()">
-                    <span class="material-symbols-rounded channels__icons">add_circle</span>
-                    <span>Channel hinzufügen</span>
+                <div class="menu__sidebar__left__body__channels__body__row highlight__text__on__hover noSelect" (click)="openCreateNewChannelDialog()">
+                    <span class="material-symbols-rounded channels__icons">add</span>
+                    <span class="channels__channelname">Channel hinzufügen</span>
                 </div>
             </div>
 
