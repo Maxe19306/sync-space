@@ -56,9 +56,11 @@
         margin-top: 15px;
         padding-left: 14px;
 
-        .highlight__text__on__hover {
+        * {
             cursor: pointer;
-        
+        }
+
+        .highlight__bg__on__hover {
             &:hover {
                 background-color: $background-color-light-mode;
                 transition: color 100ms ease-in;
@@ -66,6 +68,13 @@
                 .channels__icons {
                     color: $text-color-highlight-light-mode;
                 }
+            }
+        }
+
+        .highlight__text__on__hover {
+            &:hover {
+                color: $text-color-highlight-light-mode;
+                transition: color 100ms ease-in;
             }
         }
 
