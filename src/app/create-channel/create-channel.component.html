@@ -1,18 +1,23 @@
-<div>
-    <h2>Channel erstellen</h2>
-    <span class="material-icons">
+<div class="container-create-channel">
+    <div class="title-create-channel">
+        <h2>Channel erstellen</h2>
+        <span (click)="closeDialog()" class="material-icons">
         close
         </span>
+    </div>
+
+
+
+    <p class="description-create-channel">Channels dienen deinen Team zur Kommunikation. Am besten sollten sie themenbezogen sein #marketing zum Beispiel.</p>
+
+    <p class="name-channel">Channel-Name</p>
+
+    <input class="background" type="text">
+
+    <p class="name-channel">Beschreibung <span class="optional">(optional)</span></p>
+
+    <input type="text">
+    <div class="button">
+        <button mat-flat-button color="primary">Channel erstellen</button>
+    </div>
 </div>
-
-
-
-<p>Channels dienen deinen Team zur Kommunikation. Am besten sollten sie themenbezogen sein #marketing zum Beispiel.</p>
-
-<p>Channel-Name</p>
-
-<input type="text">
-
-<p>Beschreibung (optional)</p>
-
-<input type="text">
