@@ -32,6 +32,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { CreateChannelComponent } from './create-channel/create-channel.component';
 import { AddMemberAfterAddChannelComponent } from './add-member-after-add-channel/add-member-after-add-channel.component';
 import { ChannelsMenuComponent } from './channels-menu/channels-menu.component';
+import { DmMenuComponent } from './dm-menu/dm-menu.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ChannelsMenuComponent } from './channels-menu/channels-menu.component';
     ChannelViewComponent,
     CreateChannelComponent,
     AddMemberAfterAddChannelComponent,
-    ChannelsMenuComponent
+    ChannelsMenuComponent,
+    DmMenuComponent
   ],
   imports: [
     MatMenuModule,
