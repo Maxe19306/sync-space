@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateChannelComponent } from '../create-channel/create-channel.component';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-menu-sidebar-left',
@@ -9,15 +7,11 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class MenuSidebarLeftComponent implements OnInit {
 
-  constructor(
-    public Dialog: MatDialog
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  openCreateNewChannelDialog(){
-    this.Dialog.open(CreateChannelComponent)
-  }
+  
 
 }
