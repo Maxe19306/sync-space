@@ -14,7 +14,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class ProfileMenuComponent implements OnInit {
 
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
-  @Input() userinfo:any;
+  @Input() userID:any;
   CurrentUser;
   constructor(
     public Dialog: MatDialog,
@@ -25,7 +25,7 @@ export class ProfileMenuComponent implements OnInit {
   ngOnInit(): void {
       this.firestore
       .collection('users')
-      .doc(this.userinfo)
+      .doc(this.userID)
       .valueChanges()
       .subscribe((user) => {
         this.CurrentUser = user
