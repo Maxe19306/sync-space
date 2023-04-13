@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AddMemberAfterAddChannelComponent } from '../add-member-after-add-channel/add-member-after-add-channel.component';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 })
 export class CreateChannelComponent implements OnInit {
 
-  constructor(
+  constructor(public Dialog: MatDialog,
     public dialogRef: MatDialogRef<CreateChannelComponent>,
   ) { }
 
@@ -19,5 +20,12 @@ export class CreateChannelComponent implements OnInit {
   closeDialog(){
     this.dialogRef.close(CreateChannelComponent)
   }
+
+
+  createChannel(){
+    this.Dialog.open(AddMemberAfterAddChannelComponent)
+
+    this.dialogRef.close(CreateChannelComponent)
+}
 
 }

@@ -30,6 +30,7 @@ import { ChannelViewComponent } from './channel-view/channel-view.component';
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatMenuModule } from '@angular/material/menu';
 import { CreateChannelComponent } from './create-channel/create-channel.component';
+import { AddMemberAfterAddChannelComponent } from './add-member-after-add-channel/add-member-after-add-channel.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CreateChannelComponent } from './create-channel/create-channel.componen
     ConfirnNewPasswordComponent,
     ProfileViewComponent,
     ChannelViewComponent,
-    CreateChannelComponent
+    CreateChannelComponent,
+    AddMemberAfterAddChannelComponent
   ],
   imports: [
     MatMenuModule,
