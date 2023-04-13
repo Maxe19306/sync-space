@@ -1,21 +1,21 @@
 @import "../../styles/settings/_variables.scss";
 
-.menu__sidebar__left__body__channels__header {
+.menu__sidebar__left__body__dm__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .menu__sidebar__left__body__channels__header__left {
+    .menu__sidebar__left__body__dm__header__left {
         display: flex;
         align-items: center;
         padding: 8px 0;
         cursor: pointer;
 
-        .channels__icon {
+        .dm__icon {
             font-weight: 900;
         }
 
-        #channels__headline {
+        #dm__headline {
             font-weight: 700;
             font-size: 20px;
         }
@@ -37,7 +37,7 @@
     margin-right: 5px !important;
 }
 
-.menu__sidebar__left__body__channels__body {
+.menu__sidebar__left__body__dm__body {
     margin-top: 15px;
     padding-left: 14px;
 
@@ -50,13 +50,13 @@
             background-color: $background-color-light-mode;
             transition: color 100ms ease-in;
 
-            .channels__icons {
+            .dm__icons {
                 color: $text-color-highlight-light-mode;
             }
         }
     }
 
-    .menu__sidebar__left__body__channels__body__row {
+    .menu__sidebar__left__body__dm__body__row {
         display: flex;
         align-items: center;
         width: fit-content;
@@ -72,7 +72,7 @@
         }
     }
 
-    .active__channel {
+    .active__dm {
         background-color: $background-color-light-mode;
         color: $text-color-highlight-light-mode;
         font-weight: 700;
