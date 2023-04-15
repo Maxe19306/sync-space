@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Channel } from '../models/channel.class';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-member-after-add-channel',
@@ -9,15 +9,29 @@ import { Channel } from '../models/channel.class';
 })
 export class AddMemberAfterAddChannelComponent implements OnInit {
 
-
-  Channel: Channel = new Channel({});
-  @Inject(MAT_DIALOG_DATA) public data:any
-  constructor() { }
-    certainPeople = false;
+  
+  constructor(public dialogRef: MatDialogRef<AddMemberAfterAddChannelComponent>,
+  @Inject(MAT_DIALOG_DATA) public data:any,
+  private firestore: AngularFirestore) { }
+ 
+  certainPeople = false;
+    allUsers;
 
   ngOnInit() {
+   this.firestore
+   .collection('users')
+   .valueChanges({idField: 'customIdName'})
+   .subscribe((user:any) => {
+    this.allUsers = user
+   })
+  }
 
+  closeDialog(){
+    this.dialogRef.close(AddMemberAfterAddChannelComponent)
   }
 
 
+  test(){
+    console.log(this.allUsers)
+  }
 }

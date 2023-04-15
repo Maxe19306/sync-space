@@ -18,6 +18,6 @@
 
     <input type="text" [(ngModel)]="Channel.description" name="description">
     <div class="button">
-        <button mat-flat-button color="primary" (click)="createChannel()">Channel erstellen</button>
+        <button mat-flat-button color="primary" (click)="createChannel(this.Channel)">Channel erstellen</button>
     </div>
 </div>
