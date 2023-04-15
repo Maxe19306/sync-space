@@ -12,11 +12,11 @@
 
     <p class="name-channel">Channel-Name</p>
 
-    <input class="background" type="text">
+    <input class="background" type="text" [(ngModel)]="Channel.Name" name="Name">
 
     <p class="name-channel">Beschreibung <span class="optional">(optional)</span></p>
 
-    <input type="text">
+    <input type="text" [(ngModel)]="Channel.description" name="description">
     <div class="button">
         <button mat-flat-button color="primary" (click)="createChannel()">Channel erstellen</button>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddMemberAfterAddChannelComponent } from '../add-member-after-add-channel/add-member-after-add-channel.component';
-
+import { Channel } from '../models/channel.class';
 
 @Component({
   selector: 'app-create-channel',
@@ -9,6 +9,8 @@ import { AddMemberAfterAddChannelComponent } from '../add-member-after-add-chann
   styleUrls: ['./create-channel.component.scss']
 })
 export class CreateChannelComponent implements OnInit {
+
+  Channel: Channel = new Channel({});
 
   constructor(public Dialog: MatDialog,
     public dialogRef: MatDialogRef<CreateChannelComponent>,
@@ -23,9 +25,12 @@ export class CreateChannelComponent implements OnInit {
 
 
   createChannel(){
-    this.Dialog.open(AddMemberAfterAddChannelComponent)
-
-    this.dialogRef.close(CreateChannelComponent)
+   
+    console.log(this.Channel)
+    this.Dialog.open(AddMemberAfterAddChannelComponent, {
+      data: this.Channel
+    })
+   this.dialogRef.close(CreateChannelComponent)
 }
 
 }
