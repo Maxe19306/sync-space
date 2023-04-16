@@ -51,6 +51,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
       .collection('channels')
       .add(this.data.toJSON())
     )
+    this.closeDialog()
  }
 
  hallo(){

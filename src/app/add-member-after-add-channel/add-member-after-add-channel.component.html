@@ -18,9 +18,18 @@
 
         <input *ngIf="certainPeople" type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
     </div>
+
     <div *ngIf="this.filteredUsers">
+        <p>gefilterte user</p>
         <div *ngFor="let user of filteredUsers">
             <p (click)="hallo2(user)">{{user.Name}}</p>
+        </div>
+    </div>
+
+    <div *ngIf="this.data.members.length > 0">
+        <p>ausgwählte user</p>
+        <div *ngFor="let members of this.data.members">
+            <p>{{members.Name}}</p>
         </div>
     </div>
 
