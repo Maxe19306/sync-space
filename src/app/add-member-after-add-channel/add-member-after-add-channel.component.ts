@@ -8,18 +8,20 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-member-after-add-channel.component.scss']
 })
 export class AddMemberAfterAddChannelComponent implements OnInit {
+
   
+  
+  constructor(public dialogRef: MatDialogRef<AddMemberAfterAddChannelComponent>,
+  @Inject(MAT_DIALOG_DATA) public data:any,
+  private firestore: AngularFirestore,) { }
+  inputParticipants: string;
+  filteredUsers: any [];
+  certainPeople = false;
+  allUsers;
   checked = false;
   indeterminate = false;
   labelPosition: 'before' | 'after' = 'after';
   disabled = false;
-  
-  constructor(public dialogRef: MatDialogRef<AddMemberAfterAddChannelComponent>,
-  @Inject(MAT_DIALOG_DATA) public data:any,
-  private firestore: AngularFirestore) { }
- 
-  certainPeople = false;
-    allUsers;
 
   ngOnInit() {
    this.firestore
@@ -43,6 +45,33 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
       .collection('channels')
       .add(this.data.toJSON())
     }
+
+    else(
+      this.firestore
+      .collection('channels')
+      .add(this.data.toJSON())
+    )
  }
-    
+
+ hallo(){
+  this.certainPeople = false;
+ }
+ hallo1(){
+this.certainPeople = true;
+ }
+
+ filterUser() {
+  this.filteredUsers = this.allUsers.filter(user => 
+        user.Name
+       .toLowerCase()
+       .includes(this.inputParticipants.toLowerCase())
+);
 }
+
+hallo2(user){
+  console.log(user)
+    this.data.members.push(user)
+    console.log('channel', this.data.members)
+}
+    
+} 

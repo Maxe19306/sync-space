@@ -1,15 +1,29 @@
-<div>
+<div class="container-add-Member">
     <div>
         <p>Leute hinzufügen</p>
         <span (click)="closeDialog()" class="material-icons">close</span>
     </div>
     <div>
-        <mat-radio-group [(ngModel)]="labelPosition">
-            <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
-            <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
-        </mat-radio-group>
-        <input *ngIf="this.certainPeople" type="text">
+
+        <div class="custom-radio">
+            <input type="radio" id="radioOption1" name="radioGroup" (click)="hallo()">
+            <label for="radioOption1">alle Leute</label>
+        </div>
+
+        <div class="custom-radio">
+            <input type="radio" id="radioOption2" name="radioGroup" (click)="hallo1()">
+            <label for="radioOption2">ausgwählte Leute</label>
+        </div>
+
+
+        <input *ngIf="certainPeople" type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
     </div>
+    <div *ngIf="this.filteredUsers">
+        <div *ngFor="let user of filteredUsers">
+            <p (click)="hallo2(user)">{{user.Name}}</p>
+        </div>
+    </div>
+
     <div class="button">
         <button (click)="test()" mat-flat-button color="primary">Erstellen</button>
     </div>
