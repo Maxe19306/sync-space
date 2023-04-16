@@ -4,8 +4,10 @@
         <span (click)="closeDialog()" class="material-icons">close</span>
     </div>
     <div>
-        <p>Alle Mitglieder</p>
-        <p>Bestimmte Leute</p>
+        <mat-radio-group [(ngModel)]="labelPosition">
+            <mat-radio-button class="example-margin" value="after">After</mat-radio-button>
+            <mat-radio-button class="example-margin" value="before">Before</mat-radio-button>
+        </mat-radio-group>
         <input *ngIf="this.certainPeople" type="text">
     </div>
     <div class="button">

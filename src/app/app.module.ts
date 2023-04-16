@@ -33,6 +33,8 @@ import { CreateChannelComponent } from './create-channel/create-channel.componen
 import { AddMemberAfterAddChannelComponent } from './add-member-after-add-channel/add-member-after-add-channel.component';
 import { ChannelsMenuComponent } from './channels-menu/channels-menu.component';
 import { DmMenuComponent } from './dm-menu/dm-menu.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { DmMenuComponent } from './dm-menu/dm-menu.component';
     DmMenuComponent
   ],
   imports: [
+    MatRadioModule,
+    MatCheckboxModule,
     MatMenuModule,
     MatDialogModule,
     AngularFireDatabaseModule,

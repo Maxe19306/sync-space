@@ -8,7 +8,11 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./add-member-after-add-channel.component.scss']
 })
 export class AddMemberAfterAddChannelComponent implements OnInit {
-
+  
+  checked = false;
+  indeterminate = false;
+  labelPosition: 'before' | 'after' = 'after';
+  disabled = false;
   
   constructor(public dialogRef: MatDialogRef<AddMemberAfterAddChannelComponent>,
   @Inject(MAT_DIALOG_DATA) public data:any,
@@ -32,6 +36,13 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
 
   test(){
-    console.log(this.allUsers)
-  }
+      if(!this.certainPeople){
+      this.data.members = this.allUsers;
+      console.log(this.data)
+      this.firestore
+      .collection('channels')
+      .add(this.data.toJSON())
+    }
+ }
+    
 }
