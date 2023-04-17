@@ -2,27 +2,41 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ChannelViewComponent } from '../channel-view/channel-view.component';
 import { DataService } from '../data.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-main-chat',
   templateUrl: './main-chat.component.html',
   styleUrls: ['./main-chat.component.scss'],
-  providers: [DataService],
 })
 export class MainChatComponent implements OnInit {
-
+  CurrentChannel;
   constructor(
-    private dataService : DataService,
+    public dataService : DataService,
     public Dialog: MatDialog,
+    private firestore: AngularFirestore
   ) { }
 
   ngOnInit(): void {
-      console.log(this.dataService.id)
+    this.firestore
+    .collection('channels')
+    .doc(this.dataService.id)
+    .valueChanges()
+    .subscribe((channel) => {
+      this.CurrentChannel = channel
+      console.log(this.CurrentChannel)
+    });
   }
 
+openDialogChannelView(ChannelId){
+  console.log(ChannelId)
+  this.Dialog.open(ChannelViewComponent, {
+    data: {ChannelId}
+  })
+  
+}
 
-  openDialogChannelView(){
-    this.Dialog.open(ChannelViewComponent)
-    console.log(this.dataService.id)
+test(){
+  console.log(this.dataService.id)
 }
 }

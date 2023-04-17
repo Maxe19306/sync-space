@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-channel-view',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./channel-view.component.scss']
 })
 export class ChannelViewComponent implements OnInit {
+  
 
-  constructor() { }
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,
+  private firestore: AngularFirestore) { }
+  CurrentChannel;
+
 
   ngOnInit(): void {
+    this.firestore
+    .collection('channels')
+    .doc(this.data.ChannelId)
+    .valueChanges()
+    .subscribe((channel) => {
+      this.CurrentChannel = channel
+      console.log(this.CurrentChannel)
+    });
   }
 
 }

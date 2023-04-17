@@ -9,9 +9,9 @@ import { DataService } from '../data.service';
   selector: 'app-channels-menu',
   templateUrl: './channels-menu.component.html',
   styleUrls: ['./channels-menu.component.scss'],
-  providers: [DataService],
 })
 export class ChannelsMenuComponent implements OnInit {
+  viewChannels = true;
   allChannels = []
   constructor(
     private dataService : DataService,
@@ -29,6 +29,14 @@ export class ChannelsMenuComponent implements OnInit {
       console.log(this.allChannels)
     })
     
+  }
+
+  viewNoChannels(){
+    this.viewChannels = false;
+  }
+
+  viewAllChannels(){
+    this.viewChannels = true;
   }
 
   openCreateNewChannelDialog(){
