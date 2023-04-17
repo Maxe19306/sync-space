@@ -1,6 +1,6 @@
-<div class="dialog-channel-view">
+<div *ngIf="this.CurrentChannel" class="dialog-channel-view">
     <h2>
-        # Channelname
+        # {{this.CurrentChannel.Name}}
     </h2>
 
     <div class="container">
@@ -8,7 +8,7 @@
             <p>Channel-Name</p>
             <a>Bearbeiten</a>
         </div>
-        <p># Der echte ChannelName</p>
+        <p># {{this.CurrentChannel.Name}}</p>
     </div>
 
     <div class="container">
@@ -17,7 +17,7 @@
                 <p>Beschreibung</p>
                 <a> Bearbeiten</a>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique odit sed exercitationem laboriosam quam, quae architecto repudiandae adipisci sit mollitia natus illo eaque quasi, aliquid modi. Magni necessitatibus libero dolores.</p>
+            <p>{{this.CurrentChannel.description}}</p>
         </div>
         <div>
             <p>Erstellt von</p>

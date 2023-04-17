@@ -2,7 +2,10 @@
 
     <div class="menu__sidebar__left__body__channels__header">
         <div class="menu__sidebar__left__body__channels__header__left highlight__text__on__hover noSelect">
-            <span class="material-symbols-rounded single-icon">arrow_drop_down</span>
+            <span *ngIf="viewChannels" (click)="viewNoChannels()" class="material-symbols-rounded single-icon">arrow_drop_down</span>
+            <span *ngIf="!viewChannels" (click)="viewAllChannels()" class="material-icons">arrow_right</span>
+
+
             <span class="material-symbols-rounded channels__icon">workspaces</span><span id="channelsHeadline">Channels</span>
         </div>
 
@@ -12,7 +15,7 @@
         </div>
     </div>
 
-    <div class="menu__sidebar__left__body__channels__body">
+    <div class="menu__sidebar__left__body__channels__body" *ngIf="viewChannels">
 
         <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect" *ngFor="let channel of this.allChannels">
 

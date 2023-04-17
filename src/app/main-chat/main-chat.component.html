@@ -1,8 +1,8 @@
-<div class="main__chat__container">
-
+<div *ngIf="this.CurrentChannel" class="main__chat__container">
+    <button (click)="test()">tests</button>
     <div class="main__chat__header">
-        <div (click)="openDialogChannelView()" class="main__chat__header__left">
-            # Entwicklerteam
+        <div (click)="openDialogChannelView(dataService.id)" class="main__chat__header__left">
+            # {{this.CurrentChannel.Name}}
         </div>
         <div class="main__chat__header__right">
 
