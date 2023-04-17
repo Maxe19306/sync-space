@@ -14,21 +14,11 @@
 
     <div class="menu__sidebar__left__body__channels__body">
 
-        <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect active__channel">
+        <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect" *ngFor="let channel of this.allChannels">
+
             <span class="material-symbols-rounded channels__icons">tag</span>
-            <span class="channels__channelname">Entwicklerteam</span>
-        </div>
-        <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect">
-            <span class="material-symbols-rounded channels__icons">tag</span>
-            <span class="channels__channelname">Firebase</span>
-        </div>
-        <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect">
-            <span class="material-symbols-rounded channels__icons">tag</span>
-            <span class="channels__channelname">Angular</span>
-        </div>
-        <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect">
-            <span class="material-symbols-rounded channels__icons">tag</span>
-            <span class="channels__channelname">TypeScript</span>
+            <span (click)="test(channel.channelIdName)" class="channels__channelname">{{channel.Name}}</span>
+
         </div>
         <div class="menu__sidebar__left__body__channels__body__row highlight__text__on__hover noSelect add__channel" (click)="openCreateNewChannelDialog()">
             <span class="material-symbols-rounded channels__icons">add</span>
