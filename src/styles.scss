@@ -16,6 +16,28 @@
         'opsz' 48
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #C2CAF6 rgba($color: #000000, $alpha: 0);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: rgba($color: #000000, $alpha: 0)
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #C2CAF6;
+    border-radius: 10px;
+    border: 0px none #ffffff;
+  }
+
 body {
     margin: 0;
 }
