@@ -1,3 +1,5 @@
+@import "../../styles/settings/_variables.scss";
+
 .main__chat__header {
     display: flex;
     justify-content: space-between;
@@ -8,6 +10,15 @@
         align-items: center;
         font-size: 24px;
         font-weight: 700;
+        padding: 6px 10px;
+        border-radius: 100px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $background-color-light-mode;
+            color: $text-color-highlight-light-mode;
+            transition: all 200ms ease-in;
+        }
 
         span {
             font-weight: 700;
