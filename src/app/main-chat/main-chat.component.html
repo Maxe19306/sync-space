@@ -2,7 +2,7 @@
     <button (click)="test()">tests</button>
     <div class="main__chat__header">
         <div (click)="openDialogChannelView(dataService.id)" class="main__chat__header__left">
-            # {{this.CurrentChannel.Name}}
+            <span>#</span><span>{{this.CurrentChannel.Name}}</span>
             <span class="material-symbols-rounded noSelect hidden__mobile">
                 expand_more
             </span>
