@@ -31,6 +31,9 @@
         align-items: center;
         
         .header__users__img {
+            display: flex;
+            align-items: center;
+
             img {
                 width: 36px;
                 border-radius: 50%;
@@ -45,13 +48,20 @@
             margin-left: 10px;
         }
 
-        .numberCircle {
+        .symbol__circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 50%;
             width: 40px;
             height: 40px;
             background: $background-color-light-mode;
-            text-align: center;
             cursor: pointer;
+            margin-left: 20px;
+
+            span {
+                font-weight: 600;
+            }
         }
     }
 }
