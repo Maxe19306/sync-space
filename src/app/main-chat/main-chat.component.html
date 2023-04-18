@@ -3,9 +3,18 @@
     <div class="main__chat__header">
         <div (click)="openDialogChannelView(dataService.id)" class="main__chat__header__left">
             # {{this.CurrentChannel.Name}}
+            <span class="material-symbols-rounded noSelect hidden__mobile">
+                expand_more
+            </span>
         </div>
         <div class="main__chat__header__right">
-
+            <div class="header__users__img">
+                <img src="assets/img/users/elias-neumann.webp" alt="">
+                <img src="assets/img/users/elise-roth.webp" alt="">
+                <img src="assets/img/users/frederick-beck.webp" alt="">
+            </div>
+            <span class="users__count">3</span>
+            <span class="material-symbols-rounded">person_add</span>
         </div>
     </div>
 
@@ -13,6 +22,16 @@
 
     <div class="main__chat__body">
         <div class="main__chat__body__message">
+            <hr>
+            <div class="date">
+                Dienstag, 14 Januar
+            </div>
+            <div class="message__body">
+                <img src="assets/img/users/elias-neumann.webp" alt="" class="user_img">
+                <div class="user_text">
+
+                </div>
+            </div>
 
         </div>
         <div class="main__chat__body__message">

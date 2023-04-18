@@ -1,5 +1,29 @@
 .main__chat__header {
-    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 45px;
+
+    .main__chat__header__left {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: 700;
+
+        span {
+            font-weight: 700;
+            margin-left: 14px;
+        }
+    }
+
+    .main__chat__header__right {
+        display: flex;
+        .header__users__img {
+            img {
+                width: 40px;
+                border-radius: 50%;
+            }
+        }
+    }
 }
 
 .chat__seperator {
