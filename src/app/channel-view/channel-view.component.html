@@ -6,22 +6,33 @@
     <div class="container">
         <div class="container-title">
             <p>Channel-Name</p>
-            <a>Bearbeiten</a>
+            <a (click)="editChannelName()">Bearbeiten</a>
         </div>
         <p># {{this.CurrentChannel.Name}}</p>
+        <div *ngIf="editName">
+            <input [(ngModel)]="this.CurrentChannel.Name" type="text" value="{{this.CurrentChannel.Name}}">
+            <button (click)="editChannelNameInFirebase()" mat-flat-button color="primary">Name ändern</button>
+        </div>
     </div>
 
     <div class="container">
         <div>
             <div class="container-title">
                 <p>Beschreibung</p>
-                <a> Bearbeiten</a>
+                <a (click)="editDescriptionName()"> Bearbeiten</a>
+
             </div>
             <p>{{this.CurrentChannel.description}}</p>
+
+            <div *ngIf="editDescription">
+                <input [(ngModel)]="this.CurrentChannel.description" type="text" value="{{this.CurrentChannel.description}}">
+                <button (click)="editDescriptionInFirebase()" mat-flat-button color="primary">Name ändern</button>
+            </div>
+
         </div>
         <div>
             <p>Erstellt von</p>
-            <p>Noah Braun</p>
+            <p>{{this.CurrentChannel.founder.Name}}</p>
         </div>
     </div>
 

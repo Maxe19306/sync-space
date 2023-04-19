@@ -14,7 +14,8 @@ export class ChannelViewComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
   private firestore: AngularFirestore) { }
   CurrentChannel;
-
+  editName = false;
+  editDescription = false;
 
   ngOnInit(): void {
     this.firestore
@@ -25,6 +26,35 @@ export class ChannelViewComponent implements OnInit {
       this.CurrentChannel = channel
       console.log(this.CurrentChannel)
     });
+  }
+
+  editDescriptionName(){
+    this.editDescription = true;
+  }
+
+  editDescriptionInFirebase(){
+    this.firestore
+    .collection('channels')
+    .doc(this.data.ChannelId)
+    .update({
+      description: this.CurrentChannel.description
+    })
+    this.editDescription = false;
+}
+
+
+  editChannelName(){
+    this.editName = true;
+  }
+
+  editChannelNameInFirebase(){
+      this.firestore
+      .collection('channels')
+      .doc(this.data.ChannelId)
+      .update({
+        Name: this.CurrentChannel.Name
+      })
+      this.editName = false;
   }
 
 }
