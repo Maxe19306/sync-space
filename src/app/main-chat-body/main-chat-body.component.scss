@@ -6,16 +6,17 @@
     .main__chat__body__message {
 
         .separator {
+            padding: 10px 0;
 
             hr {
                 border: 0;
                 border-top: 1px solid $main-chat-separator-light-mode;
-                margin-bottom: -10px;
             }
     
             .date {
                 display: flex;
                 justify-content: center;
+                margin-top: -23px;
     
                 span {
                     background-color: $background-color-boxes-light-mode;
