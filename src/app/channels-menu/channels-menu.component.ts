@@ -44,8 +44,8 @@ export class ChannelsMenuComponent implements OnInit {
   }
 
   test(channelID){
-    this.dataService.id = channelID
-    console.log(this.dataService.id)
+    this.dataService.id = channelID;
+    console.log(this.dataService.id);
   }
 
 }

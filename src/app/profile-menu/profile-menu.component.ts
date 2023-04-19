@@ -26,7 +26,7 @@ export class ProfileMenuComponent implements OnInit {
       this.firestore
       .collection('users')
       .doc(this.userID)
-      .valueChanges()
+      .valueChanges({idField: 'id'})
       .subscribe((user) => {
         this.CurrentUser = user
         console.log(this.CurrentUser)

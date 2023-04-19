@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     .valueChanges({idField: 'id'})
     .subscribe((allUsers:any) => {
       this.currentUser = allUsers.find((user) => user.uid === this.userID)
-      console.log(this.currentUser.Name),
+     
       this.router.navigate(['/generalView'], { queryParams: { userID: this.currentUser.id }});
     })
     

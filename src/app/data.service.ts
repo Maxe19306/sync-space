@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  id: string = 'xFuOtcoM2nZqdd49HDTB';
+  id: string;
 }

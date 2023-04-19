@@ -11,11 +11,14 @@ import { Channel } from '../models/channel.class';
 })
 export class CreateChannelComponent implements OnInit {
   Channel: Channel = new Channel({});
-  constructor(public Dialog: MatDialog,
+  constructor(
+
+    public Dialog: MatDialog,
     public dialogRef: MatDialogRef<CreateChannelComponent>,
   ) { }
 
   ngOnInit(): void {
+   
   }
 
   closeDialog(){
