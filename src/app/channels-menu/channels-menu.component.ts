@@ -13,6 +13,7 @@ import { DataService } from '../data.service';
 export class ChannelsMenuComponent implements OnInit {
   viewChannels = true;
   allChannels = []
+  currentUser
   constructor(
     private dataService : DataService,
     public firestore: AngularFirestore,
@@ -20,6 +21,10 @@ export class ChannelsMenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadAllChannel()
+  }
+
+  loadAllChannel(){
     this.firestore
     .collection('channels')
     .valueChanges({idField: 'channelIdName'})
@@ -28,8 +33,9 @@ export class ChannelsMenuComponent implements OnInit {
       this.allChannels = channels;
       console.log(this.allChannels)
     })
-    
   }
+
+  
 
   viewNoChannels(){
     this.viewChannels = false;
@@ -44,8 +50,14 @@ export class ChannelsMenuComponent implements OnInit {
   }
 
   test(channelID){
-    this.dataService.id = channelID;
-    console.log(this.dataService.id);
+    
+    this.firestore
+    .collection('users')
+    .doc(this.dataService.id)
+    .update({
+      lastChannel: channelID
+    })
+
   }
 
 }

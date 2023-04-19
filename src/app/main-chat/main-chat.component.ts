@@ -11,6 +11,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class MainChatComponent implements OnInit {
   CurrentChannel;
+  currentUser
   constructor(
     public dataService : DataService,
     public Dialog: MatDialog,
@@ -18,14 +19,7 @@ export class MainChatComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.firestore
-    .collection('channels')
-    .doc(this.dataService.id)
-    .valueChanges()
-    .subscribe((channel) => {
-      this.CurrentChannel = channel
-      console.log(this.CurrentChannel)
-    });
+   this.loadCurrentUser()
   }
 
 openDialogChannelView(ChannelId){
@@ -34,6 +28,29 @@ openDialogChannelView(ChannelId){
     data: {ChannelId}
   })
   
+}
+
+loadCurrentUser(){
+  this.firestore
+   .collection('users')
+   .doc(this.dataService.id)
+   .valueChanges({idField: 'id'})
+   .subscribe((user) =>{
+    this.currentUser = user;
+    console.log(this.currentUser)
+    this.loadLastChannel()
+   })
+}
+
+loadLastChannel(){
+  this.firestore
+  .collection('channels')
+  .doc(this.currentUser.lastChannel)
+  .valueChanges({idField: 'id'})
+  .subscribe((channel)=> {
+    this.CurrentChannel = channel
+    console.log(this.CurrentChannel)
+  })
 }
 
 test(){

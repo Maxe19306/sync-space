@@ -8,7 +8,7 @@ export class User {
         this.Name = obj ? obj.firstName : '';
         this.mail = obj ? obj.mail : '';
         this.uid = obj ? obj.uid : '';
-        this.lastChannel = obj ? obj.lastChannel : '';
+        this.lastChannel = obj ? obj.lastChannel : 'PzdLMrdllSDRB9JYARxv';
     }
 
     public toJSON() {
@@ -16,7 +16,7 @@ export class User {
             Name: this.Name,
             mail: this.mail,
             uid: this.uid,
-            lastChannel: this.lastChannel,
+            lastChannel: 'PzdLMrdllSDRB9JYARxv',
         }
     }
 

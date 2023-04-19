@@ -30,7 +30,6 @@ export class SignInComponent implements OnInit {
 
     addNewUserToFirebase(userID){
       this.user.uid = userID
-      this.user.lastChannel = 'xFuOtcoM2nZqdd49HDTB'
       this.firestore
       .collection('users')
       .add(this.user.toJSON())
