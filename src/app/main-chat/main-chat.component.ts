@@ -23,7 +23,6 @@ export class MainChatComponent implements OnInit {
   }
 
 openDialogChannelView(ChannelId){
-  console.log(ChannelId)
   this.Dialog.open(ChannelViewComponent, {
     data: {ChannelId}
   })
@@ -37,7 +36,6 @@ loadCurrentUser(){
    .valueChanges({idField: 'id'})
    .subscribe((user) =>{
     this.currentUser = user;
-    console.log(this.currentUser)
     this.loadLastChannel()
    })
 }
@@ -49,11 +47,7 @@ loadLastChannel(){
   .valueChanges({idField: 'id'})
   .subscribe((channel)=> {
     this.CurrentChannel = channel
-    console.log(this.CurrentChannel)
   })
 }
 
-test(){
-  console.log(this.dataService.id)
-}
 }

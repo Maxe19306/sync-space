@@ -46,7 +46,6 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     .valueChanges({idField: 'id'})
     .subscribe((user) => {
       this.CurrentUser = user
-      console.log(this.CurrentUser)
     });
   }
 
@@ -62,29 +61,28 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
 
 
-  test(){
-
+    createChannel(){
     this.data.founder = this.CurrentUser
       if(!this.certainPeople){
       this.data.members = this.allUsers;
-      console.log(this.data)
-      this.firestore
-      .collection('channels')
-      .add(this.data.toJSON())
+      this.addChannelToFirebase()
     }
-
     else(
-      this.firestore
-      .collection('channels')
-      .add(this.data.toJSON())
+     this.addChannelToFirebase()
     )
     this.closeDialog()
  }
 
- hallo(){
+ addChannelToFirebase(){
+  this.firestore
+      .collection('channels')
+      .add(this.data.toJSON())
+ }
+
+ ChannelWithCertainPeople(){
   this.certainPeople = false;
  }
- hallo1(){
+ ChannelWithoutCertainPeople(){
 this.certainPeople = true;
  }
 
@@ -96,10 +94,8 @@ this.certainPeople = true;
 );
 }
 
-hallo2(user){
-  console.log(user)
+PushUserToMember(user){
     this.data.members.push(user)
-    console.log('channel', this.data.members)
 }
     
 } 

@@ -24,7 +24,6 @@ export class ChannelViewComponent implements OnInit {
     .valueChanges()
     .subscribe((channel) => {
       this.CurrentChannel = channel
-      console.log(this.CurrentChannel)
     });
   }
 

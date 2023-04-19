@@ -6,12 +6,12 @@
     <div>
 
         <div class="custom-radio">
-            <input type="radio" id="radioOption1" name="radioGroup" (click)="hallo()">
+            <input type="radio" id="radioOption1" name="radioGroup" (click)="ChannelWithCertainPeople()">
             <label for="radioOption1">alle Leute</label>
         </div>
 
         <div class="custom-radio">
-            <input type="radio" id="radioOption2" name="radioGroup" (click)="hallo1()">
+            <input type="radio" id="radioOption2" name="radioGroup" (click)="ChannelWithoutCertainPeople()">
             <label for="radioOption2">ausgwählte Leute</label>
         </div>
 
@@ -22,7 +22,7 @@
     <div *ngIf="this.filteredUsers">
         <p>gefilterte user</p>
         <div *ngFor="let user of filteredUsers">
-            <p (click)="hallo2(user)">{{user.Name}}</p>
+            <p (click)="PushUserToMember(user)">{{user.Name}}</p>
         </div>
     </div>
 
@@ -34,6 +34,6 @@
     </div>
 
     <div class="button">
-        <button (click)="test()" mat-flat-button color="primary">Erstellen</button>
+        <button (click)="createChannel()" mat-flat-button color="primary">Erstellen</button>
     </div>
 </div>
