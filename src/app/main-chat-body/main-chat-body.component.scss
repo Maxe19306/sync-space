@@ -4,7 +4,6 @@
     padding: 35px;
 
     .main__chat__body__message {
-
         .separator {
             padding: 10px 0;
 
@@ -31,6 +30,8 @@
 
         .message__body {
             display: flex;
+            padding-top: 20px;
+            padding-bottom: 25px;
 
             img {
                 width: 70px;
@@ -45,17 +46,51 @@
                 .user__text__header {
                     display: flex;
                     align-items: center;
+                    margin-bottom: 12px;
 
                     .user__name {
                         font-weight: 700;
                         font-size: 18px;
-                        margin-right: 20px;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $text-color-highlight-light-mode;
+                        }
                     }
 
                     .message__timestamp {
                         color: $main-chat-light-grey-light-mode;
                         font-weight: 400;
                         font-size: 14px;
+                        margin: 0 20px;
+                    }
+                }
+
+                .user__text__body {
+                    padding: 15px;
+                    background-color: $background-color-light-mode;
+                    border-radius: 0px 30px 30px 30px;
+                    margin-bottom: 12px;
+
+                    span {
+                        font-size: 18px;
+                    }
+                }
+
+                .user__text__footer {
+                    .answers {
+                        color: $text-color-highlight-light-mode;
+                        font-size: 18px;
+                        cursor: pointer;
+
+                        &:hover {
+                            font-weight: 900;
+                        }
+                    }
+
+                    .last__answer {
+                        font-size: 14px;
+                        margin-left: 20px;
                     }
                 }
             }
