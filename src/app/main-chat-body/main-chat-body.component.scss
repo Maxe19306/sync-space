@@ -100,21 +100,21 @@
                     }
                 }
             }
+        }
 
-            .action__messages {
-                width: fit-content;
-                height: fit-content;
-                padding: 3px 20px;
-                border: 1px solid $main-chat-borders-light-mode;
-                border-radius: 25px 25px 0px 25px;
-                background-color: $background-color-boxes-light-mode;
-                display: flex;
-                
-                img {
-                    width: 40px;
-                    height: 40px;
-                    cursor: pointer;
-                }
+        .action__messages {
+            width: fit-content;
+            height: fit-content;
+            padding: 3px 20px;
+            border: 1px solid $main-chat-borders-light-mode;
+            border-radius: 25px 25px 0px 25px;
+            background-color: $background-color-boxes-light-mode;
+            display: flex;
+            
+            img {
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
             }
         }
     }
