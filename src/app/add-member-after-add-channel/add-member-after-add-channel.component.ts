@@ -27,7 +27,6 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
   allUsers;
   checked = false;
   indeterminate = false;
-  labelPosition: 'before' | 'after' = 'after';
   disabled = false;
 
   ngOnInit() {

@@ -6,7 +6,7 @@ export class Channel {
 
     constructor(obj: any){
         this.Name = obj ? obj.Name : '';
-        this.description = obj ? obj.description : '';
+        this.description = obj?.description ?? '';
         this.members = obj && obj.members ? obj.members : [];
         this.founder = obj ? obj.founder : [];
     }
