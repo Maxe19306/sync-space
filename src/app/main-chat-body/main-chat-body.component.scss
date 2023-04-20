@@ -36,17 +36,20 @@
 
             &:hover {
                 background-color: $background-color-light-mode;
+
+                .user__text__body {
+                    background-color: $background-color-boxes-light-mode !important;
+                }
             }
 
             img {
                 width: 70px;
                 height: 70px;
                 border-radius: 50%;
-                margin: 0 10px;
             }
 
             .user__text {
-                margin: 0 20px;
+                margin: 0 30px;
 
                 .user__text__header {
                     display: flex;
@@ -97,13 +100,6 @@
                     }
                 }
             }
-        }
-
-
-
-
-        .content__right {
-            flex-direction: row-reverse;
         }
     }
 }
