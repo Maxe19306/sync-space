@@ -1,6 +1,7 @@
 @import "../../styles/settings/_variables.scss";
 
 .main__chat__body {
+    position: relative;
     padding: 35px;
 
     .main__chat__body__message {
@@ -49,6 +50,7 @@
             }
 
             .user__text {
+                width: 80%;
                 margin: 0 30px;
 
                 .user__text__header {
@@ -103,6 +105,9 @@
         }
 
         .action__messages {
+            position: absolute;
+            top: 65px;
+            right: 45px;
             width: fit-content;
             height: fit-content;
             padding: 3px 20px;
