@@ -34,6 +34,6 @@
     </div>
 
     <div class="button">
-        <button (click)="createChannel()" mat-flat-button color="primary">Erstellen</button>
+        <button [disabled]="!ButtonActiv" (click)="createChannel()" mat-flat-button color="primary">Erstellen</button>
     </div>
 </div>

@@ -20,6 +20,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
   CurrentUser
 
+  ButtonActiv = false;
 
   inputParticipants: string;
   filteredUsers: any [];
@@ -79,9 +80,11 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
  }
 
  ChannelWithCertainPeople(){
+  this.ButtonActiv = true;
   this.certainPeople = false;
  }
  ChannelWithoutCertainPeople(){
+  this.ButtonActiv = true;
 this.certainPeople = true;
  }
 
