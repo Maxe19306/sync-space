@@ -45,7 +45,7 @@
                 border: 1px solid $main-chat-borders-light-mode;
                 border-radius: 25px 25px 0px 25px;
                 background-color: $background-color-boxes-light-mode;
-                display: flex;
+                display: none;
                 cursor: auto;
 
                 * {
@@ -64,6 +64,10 @@
 
                 .user__text__body {
                     background-color: $background-color-boxes-light-mode;
+                }
+
+                .action__messages {
+                    display: flex;
                 }
             }
 
