@@ -30,7 +30,7 @@
         </div>
         <div class="button-container">
             <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
-            <button class="guest-button" mat-flat-button>Gäste-Login</button>
+            <button (click)="login('gast@gast.de', 'Gast123!')" class="guest-button" mat-flat-button>Gäste-Login</button>
         </div>
     </div>
 </div>
