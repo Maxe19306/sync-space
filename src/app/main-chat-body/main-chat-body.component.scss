@@ -82,7 +82,7 @@
             }
 
             .user__text {
-                width: 80%;
+                width: 75%;
                 margin: 0 30px;
 
                 .user__text__header {
@@ -142,9 +142,14 @@
     .content__left {
 
         .message__body {
+            flex-direction: row-reverse;
 
             .action__messages {
                 left: 55px;
+            }
+
+            .user__text__header {
+                flex-direction: row-reverse;
             }
 
             .user__text__body {
