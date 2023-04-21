@@ -62,10 +62,11 @@
             }
 
             &:hover {
+                transition: all ease-in 100ms;
                 background-color: $background-color-light-mode;
 
                 .user__text__body {
-                    background-color: $background-color-boxes-light-mode;
+                    background-color: $background-color-boxes-light-mode !important;
                 }
 
                 .action__messages {
