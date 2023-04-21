@@ -11,12 +11,12 @@
                 border: 0;
                 border-top: 1px solid $main-chat-borders-light-mode;
             }
-    
+
             .date {
                 display: flex;
                 justify-content: center;
                 margin-top: -23px;
-    
+
                 span {
                     background-color: $background-color-boxes-light-mode;
                     border: 1px solid $main-chat-borders-light-mode;
@@ -53,7 +53,7 @@
                 * {
                     cursor: pointer;
                 }
-                
+
                 img {
                     width: 40px;
                     height: 40px;
@@ -148,15 +148,19 @@
                 left: 55px;
             }
 
-            .user__text__header {
-                flex-direction: row-reverse;
-            }
+            .user__text {
 
-            .user__text__body {
-                background-color: $main-chat-dark-blue-background-light-mode !important;
+                .user__text__header {
+                    flex-direction: row-reverse;
+                }
 
-                span {
-                    color: $background-color-boxes-light-mode;
+                .user__text__body {
+                    background-color: $main-chat-dark-blue-background-light-mode;
+                    border-radius: 30px 0px 30px 30px;
+
+                    span {
+                        color: $background-color-boxes-light-mode;
+                    }
                 }
             }
 
@@ -172,6 +176,7 @@
                     background-color: $main-chat-dark-blue-background-light-mode !important;
                 }
             }
+
         }
     }
 }
