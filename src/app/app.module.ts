@@ -37,6 +37,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MainChatBodyComponent } from './main-chat-body/main-chat-body.component';
 import { MainChatFooterComponent } from './main-chat-footer/main-chat-footer.component';
+import { MembersViewComponent } from './members-view/members-view.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { MainChatFooterComponent } from './main-chat-footer/main-chat-footer.com
     ChannelsMenuComponent,
     DmMenuComponent,
     MainChatBodyComponent,
-    MainChatFooterComponent
+    MainChatFooterComponent,
+    MembersViewComponent
   ],
   imports: [
     MatRadioModule,

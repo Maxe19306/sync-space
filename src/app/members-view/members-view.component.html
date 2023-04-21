@@ -1,0 +1,5 @@
+<h2>Mitglieder</h2>
+
+<div *ngIf="this.data">
+    <p *ngFor="let user of this.data.members" (click)="openDialogProfil(user.customIdName)"> {{user.Name}}</p>
+</div>
