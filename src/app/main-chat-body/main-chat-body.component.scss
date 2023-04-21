@@ -1,7 +1,6 @@
 @import "../../styles/settings/_variables.scss";
 
 .main__chat__body {
-    position: relative;
     padding: 35px;
 
     .main__chat__body__message {
@@ -30,16 +29,41 @@
         }
 
         .message__body {
+            position: relative;
             display: flex;
             margin: 5px -35px 10px -35px;
             padding: 20px 35px;
             cursor: pointer;
 
+            .action__messages {
+                position: absolute;
+                top: -15px;
+                right: 45px;
+                width: fit-content;
+                height: fit-content;
+                padding: 3px 20px;
+                border: 1px solid $main-chat-borders-light-mode;
+                border-radius: 25px 25px 0px 25px;
+                background-color: $background-color-boxes-light-mode;
+                display: flex;
+                cursor: auto;
+
+                * {
+                    cursor: pointer;
+                }
+                
+                img {
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                }
+            }
+
             &:hover {
                 background-color: $background-color-light-mode;
 
                 .user__text__body {
-                    background-color: $background-color-boxes-light-mode !important;
+                    background-color: $background-color-boxes-light-mode;
                 }
             }
 
@@ -101,25 +125,6 @@
                         margin-left: 20px;
                     }
                 }
-            }
-        }
-
-        .action__messages {
-            position: absolute;
-            top: 65px;
-            right: 45px;
-            width: fit-content;
-            height: fit-content;
-            padding: 3px 20px;
-            border: 1px solid $main-chat-borders-light-mode;
-            border-radius: 25px 25px 0px 25px;
-            background-color: $background-color-boxes-light-mode;
-            display: flex;
-            
-            img {
-                width: 40px;
-                height: 40px;
-                cursor: pointer;
             }
         }
     }
