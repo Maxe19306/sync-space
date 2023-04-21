@@ -136,4 +136,37 @@
             }
         }
     }
+
+
+
+    .content__left {
+
+        .message__body {
+
+            .action__messages {
+                left: 55px;
+            }
+
+            .user__text__body {
+                background-color: $main-chat-dark-blue-background-light-mode !important;
+
+                span {
+                    color: $background-color-boxes-light-mode;
+                }
+            }
+
+            &:hover {
+                background-color: $background-color-light-mode;
+
+                .action__messages {
+                    visibility: visible;
+                    transform: translateX(-10px);
+                }
+
+                .user__text__body {
+                    background-color: $main-chat-dark-blue-background-light-mode !important;
+                }
+            }
+        }
+    }
 }
