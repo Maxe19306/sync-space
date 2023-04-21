@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ChannelViewComponent } from '../channel-view/channel-view.component';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MembersViewComponent } from '../members-view/members-view.component';
 
 @Component({
   selector: 'app-main-chat',
@@ -49,5 +50,13 @@ loadLastChannel(){
     this.CurrentChannel = channel
   })
 }
+
+openDialogMembersView(members){
+  this.Dialog.open(MembersViewComponent,
+    {
+      data: {members}
+    })
+}
+
 
 }
