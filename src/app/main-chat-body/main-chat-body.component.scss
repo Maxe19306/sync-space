@@ -119,6 +119,8 @@
                 }
 
                 .user__text__footer {
+                    display: flex;
+
                     .answers {
                         color: $text-color-highlight-light-mode;
                         font-size: 18px;
@@ -174,6 +176,10 @@
 
                 .user__text__body {
                     background-color: $main-chat-dark-blue-background-light-mode !important;
+                }
+
+                .user__text__footer {
+                    justify-content: end;
                 }
             }
 
