@@ -167,6 +167,32 @@
 
                 .user__text__footer {
                     justify-content: end;
+
+                    .user__text__footer__emoji {
+                        background-color: $background-color-boxes-light-mode;
+                        border: 1px solid $main-chat-borders-light-mode;
+                        border-radius: 20px;
+                        display: flex;
+                        align-items: center;
+                        padding: 5px 10px;
+                        margin-right: 12px;
+                        transition: border 100ms ease-in;
+
+                        img {
+                            border-radius: 0;
+                            width: 24px;
+                            height: 24px;
+                            margin-right: 10px
+                        }
+
+                        span {
+                            font-size: 16px;
+                        }
+
+                        &:hover {
+                            border: 1px solid $text-color-highlight-light-mode;
+                        }
+                    }
                 }
             }
 
