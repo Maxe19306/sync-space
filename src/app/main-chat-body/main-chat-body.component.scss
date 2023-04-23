@@ -2,6 +2,8 @@
 
 .main__chat__body {
     padding: 35px;
+    overflow: auto;
+    height: 400px; /* temporary fix */
 
     .main__chat__body__message {
         .separator {
