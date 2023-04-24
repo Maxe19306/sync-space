@@ -1,9 +1,5 @@
 @import "../../styles/settings/_variables.scss";
 
-.main__chat__body {
-    padding: 35px;
-    overflow: auto;
-    height: 300px; /* temporary fix */
 
     .main__chat__body__message {
         .separator {
@@ -229,4 +225,3 @@
 
         }
     }
-}
