@@ -13,6 +13,7 @@
         border: 1px solid $main-chat-borders-light-mode;
         font-family: inherit;
         font-size: 18px;
+        transition: border 100ms ease-in;
 
         &:hover {
             border: 1px solid $text-color-highlight-light-mode !important;
