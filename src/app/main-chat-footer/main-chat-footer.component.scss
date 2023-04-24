@@ -6,10 +6,13 @@
 
     textarea {
         resize: none;
-        width: 100%;
+        padding: 20px;
+        width: calc(100% - 40px);
         height: 145px;
         border-radius: 20px;
         border: 1px solid $main-chat-borders-light-mode;
+        font-family: inherit;
+        font-size: 18px;
 
         &:hover {
             border: 1px solid $text-color-highlight-light-mode;
@@ -23,8 +26,9 @@
 
     .btn__area {
         position: absolute;
-        width: calc(100% - 75px);
-        bottom: 0;
+        bottom: 60px;
+        width: calc(100% - 105px);
+        padding-left: 15px;
         display: flex;
         justify-content: space-between;
 
@@ -34,6 +38,15 @@
 
         .btn__area__left {
             display: flex;
+
+            .plus {
+                border-right: 2px solid $main-chat-borders-light-mode;
+                padding-right: 10px;
+            }
+
+            .reaction__icons {
+                margin-left: 10px;
+            }
         }
     }
 }
