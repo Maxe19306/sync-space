@@ -2,6 +2,7 @@
 
 .main__chat__footer {
     position: relative;
+    padding: 40px 40px 40px 35px;
 
     textarea {
         resize: none;
@@ -22,7 +23,7 @@
 
     .btn__area {
         position: absolute;
-        width: 100%;
+        width: calc(100% - 75px);
         bottom: 0;
         display: flex;
         justify-content: space-between;
