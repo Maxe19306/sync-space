@@ -1,6 +1,6 @@
 <div class="main__chat__footer">
 
-    <textarea></textarea>
+    <textarea [(ngModel)]="this.message.text"></textarea>
 
     <div class="btn__area">
 
@@ -24,7 +24,7 @@
 
         <div class="hover-area noSelect">
             <div class="transform-circle"></div>
-            <span class="material-symbols-rounded single-icon">send</span>
+            <span class="material-symbols-rounded single-icon" (click)="test()">send</span>
         </div>
 
 
