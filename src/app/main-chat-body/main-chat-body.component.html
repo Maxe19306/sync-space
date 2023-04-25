@@ -1,5 +1,5 @@
 <!-- <div class="main__chat__body noSelect"> -->
-<div class="main__chat__body__message noSelect">
+<div class="main__chat__body__message noSelect" *ngFor="let message of currentChannelMessage" [class.content__left]="message.creator.id === this.dataService.id">
 
     <div class="separator">
         <hr>
@@ -9,7 +9,7 @@
     </div>
 
 
-    <div class="message__body" *ngFor="let message of currentChannelMessage">
+    <div class="message__body">
 
         <div class="action__messages">
             <div class="hover-area noSelect">
@@ -33,7 +33,7 @@
         <img src="assets/img/users/elias-neumann.webp" alt="" class="user_img">
         <div class="user__text">
             <div class="user__text__header">
-                <span class="user__name">{{message.creator.Name}}</span>
+                <span (click)="openDialogProfil(this.message.creator.id)" class="user__name">{{message.creator.Name}}</span>
                 <span class="message__timestamp"></span>
             </div>
             <div class="user__text__body">
@@ -48,7 +48,6 @@
     </div>
 
 </div>
-
 
 <div class="main__chat__body__message content__left">
 

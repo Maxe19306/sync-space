@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ProfileViewComponent } from '../profile-view/profile-view.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-main-chat-body',
@@ -11,6 +13,7 @@ export class MainChatBodyComponent implements OnInit {
   currentUser;
   currentChannelMessage
   constructor(
+     public Dialog: MatDialog,
     public dataService : DataService,
     private firestore: AngularFirestore) { }
 
@@ -49,4 +52,10 @@ export class MainChatBodyComponent implements OnInit {
       return Number(a.timestampe) - Number(b.timestampe);
     });
   }
+
+  openDialogProfil(userID){
+    this.Dialog.open(ProfileViewComponent, {
+      data: {userID}
+    })
+}
 }
