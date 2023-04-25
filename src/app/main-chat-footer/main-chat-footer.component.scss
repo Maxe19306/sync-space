@@ -67,14 +67,13 @@
 
 form {
     border: 1px solid black;
-    transition: border 100ms ease-in;
     border-radius: 20px;
     margin: 40px 40px 40px 35px;
+    transition: border 100ms ease-in;
 
     textarea {
         resize: none;
         padding: 20px;
-        width: calc(100% - 40px);
         height: 39px;
         border: none;
         outline: 0;
