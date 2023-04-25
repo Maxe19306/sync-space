@@ -42,14 +42,13 @@ export class MainChatBodyComponent implements OnInit {
      .subscribe((channel) =>{
       this.currentChannelMessage = channel;
       this.sortsMessages()
-      console.log(this.currentChannelMessage)
 
      })
   }
 
   sortsMessages() {
     this.currentChannelMessage.sort((a, b) => {
-      return Number(a.timestampe) - Number(b.timestampe);
+      return Number(a.timestamp) - Number(b.timestamp);
     });
   }
 
@@ -58,4 +57,6 @@ export class MainChatBodyComponent implements OnInit {
       data: {userID}
     })
 }
+
+
 }
