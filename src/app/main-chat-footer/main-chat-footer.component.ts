@@ -41,6 +41,10 @@ export class MainChatFooterComponent implements OnInit {
       })
   }
 
+  focusTextarea() {
+    document.getElementById("chatTextarea").focus();
+  }
+
   chatFormBorderColorInput(chatForm, chatTextarea) {
     chatTextarea.addEventListener("input", (event) => {
       const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
