@@ -75,6 +75,7 @@ form {
         resize: none;
         padding: 20px;
         height: 39px;
+        width: calc(100% - 40px);
         border: none;
         outline: 0;
         font-family: inherit;
@@ -82,11 +83,32 @@ form {
         border-radius: 20px;
     }
 
-    .btnarea {
-        border: 1px solid black;
-        height: 60px;
-        border: none;
-        outline: 0;
+    .btn__area {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px 10px 15px;
+
+        span {
+            font-size: 20px;
+        }
+
+        .btn__area__left {
+            display: flex;
+
+            .plus {
+                border-right: 2px solid $main-chat-borders-light-mode;
+                padding-right: 10px;
+            }
+
+            .reaction__icons {
+                margin-left: 10px;
+            }
+        }
+
+        .send__img {
+            width: 30px;
+            margin-left: 7px;
+        }
     }
 }
 
