@@ -14,8 +14,11 @@ export class MainChatFooterComponent implements OnInit {
     private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
+    const chatForm = document.getElementById("chatForm");
+    const chatTextarea = document.getElementById("chatTextarea");
+    
     this.loadCurrentUser()
-    this.styleChatForm();
+    this.chatFormBorderColorInput(chatForm, chatTextarea);
   }
 
   test() {
@@ -38,10 +41,7 @@ export class MainChatFooterComponent implements OnInit {
       })
   }
 
-  styleChatForm() {
-    const chatForm = document.getElementById("chatForm");
-    const chatTextarea = document.getElementById("chatTextarea");
-
+  chatFormBorderColorInput(chatForm, chatTextarea) {
     chatTextarea.addEventListener("input", (event) => {
       const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
       if (chatTextarea.value.length > 0) chatForm.classList.add("form__active");
