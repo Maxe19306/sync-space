@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
 
+
     .main__chat__header {
         display: flex;
         justify-content: space-between;
@@ -88,7 +89,7 @@
 app-main-chat-body {
     padding: 35px;
     overflow: auto;
-    height: 300px;
+    height: 100%;
 }
 
 app-main-chat-footer {
