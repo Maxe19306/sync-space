@@ -29,16 +29,16 @@ export class MainChatBodyComponent implements OnInit {
      .valueChanges({idField: 'id'})
      .subscribe((user) =>{
       this.currentUser = user;
-      this.loadChannel()
+      this.loadMessageFromChannel()
      })
   }
 
-  loadChannel(){
+  loadMessageFromChannel(){
     this.firestore
      .collection('channels')
      .doc(this.currentUser.lastChannel)
      .collection('messages')
-     .valueChanges({idField: 'id'})
+     .valueChanges({idField: 'messageID'})
      .subscribe((channel) =>{
       this.currentChannelMessage = channel;
       this.sortsMessages()
@@ -58,5 +58,19 @@ export class MainChatBodyComponent implements OnInit {
     })
 }
 
+formatDate(timestamp) {
+  const date = new Date(timestamp);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const year = date.getFullYear().toString();
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+  return `${day}.${month}.${year} ${hours}:${minutes}`;
+}
+
+
+test(id){
+console.log(id)
+}
 
 }

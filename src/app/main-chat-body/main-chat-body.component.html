@@ -34,13 +34,13 @@
         <div class="user__text">
             <div class="user__text__header">
                 <span (click)="openDialogProfil(this.message.creator.id)" class="user__name">{{message.creator.Name}}</span>
-                <span class="message__timestamp"></span>
+                <span class="message__timestamp">{{ formatDate(message.timestamp) }}</span>
             </div>
             <div class="user__text__body">
                 <span>{{message.text}}</span>
             </div>
             <div class="user__text__footer">
-                <span class="answers">2 Antworten</span>
+                <span (click)="test(message.messageID)" class="answers">2 Antworten</span>
                 <span class="last__answer">Letzte Antwort 14:56</span>
             </div>
         </div>
