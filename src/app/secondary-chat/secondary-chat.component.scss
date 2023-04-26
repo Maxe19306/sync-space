@@ -1,17 +1,17 @@
 @import "../../styles/settings/_variables.scss";
 
-.main__chat__container {
+.secondary__chat__container {
     display: flex;
     flex-direction: column;
     height: 80vh;
 
 
-    .main__chat__header {
+    .secondary__chat__header {
         display: flex;
         justify-content: space-between;
         padding: 28px 45px;
 
-        .main__chat__header__left {
+        .secondary__chat__header__left {
             display: flex;
             align-items: center;
             font-size: 24px;
@@ -32,7 +32,7 @@
             }
         }
 
-        .main__chat__header__right {
+        .secondary__chat__header__right {
             display: flex;
             align-items: center;
 
