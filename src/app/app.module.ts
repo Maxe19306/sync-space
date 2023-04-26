@@ -38,6 +38,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MainChatBodyComponent } from './main-chat-body/main-chat-body.component';
 import { MainChatFooterComponent } from './main-chat-footer/main-chat-footer.component';
 import { MembersViewComponent } from './members-view/members-view.component';
+import { SecondaryChatBodyComponent } from './secondary-chat-body/secondary-chat-body.component';
+import { SecondaryChatFooterComponent } from './secondary-chat-footer/secondary-chat-footer.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { MembersViewComponent } from './members-view/members-view.component';
     DmMenuComponent,
     MainChatBodyComponent,
     MainChatFooterComponent,
-    MembersViewComponent
+    MembersViewComponent,
+    SecondaryChatBodyComponent,
+    SecondaryChatFooterComponent
   ],
   imports: [
     MatRadioModule,

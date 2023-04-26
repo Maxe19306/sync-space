@@ -1,1 +1,28 @@
-<p>secondary-chat works!</p>
+<div class="main__chat__container">
+
+    <div class="main__chat__header">
+        <div class="main__chat__header__left">
+            <span class="material-symbols-rounded">tag</span><span></span>
+            <span class="material-symbols-rounded noSelect hidden__mobile">
+                expand_more
+            </span>
+        </div>
+        <div class="main__chat__header__right">
+            <div class="header__users__img">
+                <img src="assets/img/users/elias-neumann.webp" alt="">
+                <img src="assets/img/users/elise-roth.webp" alt="">
+                <img src="assets/img/users/frederick-beck.webp" alt="">
+            </div>
+            <span class="users__count"></span>
+            <div class="symbol__circle">
+                <span class="material-symbols-rounded">person_add</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat__seperator"></div>
+
+    <app-secondary-chat-body></app-secondary-chat-body>
+
+    <app-secondary-chat-footer></app-secondary-chat-footer>
+</div>
