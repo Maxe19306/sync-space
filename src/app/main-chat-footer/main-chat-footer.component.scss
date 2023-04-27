@@ -110,6 +110,10 @@ form {
             margin-left: 7px;
         }
     }
+
+    &:hover {
+        border: 1px solid $text-color-highlight-light-mode !important;
+    }
 }
 
 .form__active {
