@@ -43,6 +43,7 @@ Date = '';
      .valueChanges({idField: 'messageID'})
      .subscribe((channel) =>{
       this.currentChannelMessage = channel;
+      console.log(this.currentChannelMessage)
       this.sortsMessages()
 
      })

@@ -1,9 +1,9 @@
 <div class="main__chat__body__message noSelect" *ngFor="let message of currentChannelMessage" [class.content__left]="message.creator.id === this.dataService.id">
 
-    <div class="separator">
+    <div *ngIf="lastDateDisplayed(message.timestamp)" class="separator">
         <hr>
         <div class="date">
-            <span>{{ lastDateDisplayed(message.timestamp) }}</span>
+            <span>{{this.Date}}</span>
         </div>
 
     </div>
