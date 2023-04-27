@@ -1,5 +1,5 @@
 <form class="search__form">
-    <input type="search" placeholder="SyncSpace durchsuchen" id="searchInput">
+    <input [(ngModel)]="inputParticipants" type="search" placeholder="SyncSpace durchsuchen" id="searchInput" (ngModelChange)="this.Search()" name="inputParticipants">
     <span class="material-symbols-rounded" id="searchIcon">
         search
     </span>

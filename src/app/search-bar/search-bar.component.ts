@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-search-bar',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
-
-  constructor() { }
+  allUsers;
+  allChannels;
+  filteredUsers;
+  filteredChannels;
+  inputParticipants
+  constructor(
+    private firestore: AngularFirestore,
+  ) { }
 
   ngOnInit(): void {
+    this.loadAllUsers()
+    this.loadAllChannels()
     const searchInput = document.getElementById("searchInput");
     const searchIcon = document.getElementById("searchIcon");
 
@@ -18,6 +27,43 @@ export class SearchBarComponent implements OnInit {
       if (searchInput.value.length > 0) searchIcon.style.display = 'none';
       else searchIcon.style.display = 'inline-block';
     });
+
+   
   }
 
+  loadAllChannels(){
+    this.firestore
+    .collection('channels')
+    .valueChanges({idField: 'customIdName'})
+    .subscribe((channels:any) => {
+     this.allChannels = channels
+     console.log(this.allChannels)
+ })
+  }
+
+  loadAllUsers(){
+    this.firestore
+    .collection('users')
+    .valueChanges({idField: 'customIdName'})
+    .subscribe((user:any) => {
+     this.allUsers = user
+ })
+  }
+
+
+  Search() {
+    this.filteredUsers = this.allUsers.filter(user => 
+          user.Name
+         .toLowerCase()
+         .includes(this.inputParticipants.toLowerCase())
+  );
+  console.log(this.filteredUsers)
+
+  this.filteredChannels = this.allChannels.filter(user => 
+    user.Name
+   .toLowerCase()
+   .includes(this.inputParticipants.toLowerCase())
+);
+console.log(this.filteredChannels)
+  }
 }
