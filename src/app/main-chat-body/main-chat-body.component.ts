@@ -10,6 +10,8 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./main-chat-body.component.scss']
 })
 export class MainChatBodyComponent implements OnInit {
+ 
+Date = '';
   currentUser;
   currentChannelMessage
   constructor(
@@ -73,4 +75,20 @@ test(id){
 console.log(id)
 }
 
+lastDateDisplayed(timestamp){
+// Date-Objekt aus dem Timestamp erstellen
+const date = new Date(timestamp);
+// Datum im Format "TT.MM.JJJJ" speichern
+const dateString = date.toLocaleDateString('de-DE');
+// Wenn das Datum mit dem zuletzt angezeigten Datum übereinstimmt, den Timestamp nicht anzeigen
+if (dateString === this.Date) {
+  return ''
+} else {
+  // Andernfalls das Datum im Timestamp anzeigen und die Variable aktualisieren
+  this.Date = dateString;
+  return dateString;
+}
+  
+}
+  
 }
