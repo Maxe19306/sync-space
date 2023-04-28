@@ -23,14 +23,18 @@ export class ProfileMenuComponent implements OnInit {
 
 
   ngOnInit(): void {
-      this.firestore
-      .collection('users')
-      .doc(this.userID)
-      .valueChanges({idField: 'id'})
-      .subscribe((user) => {
-        this.CurrentUser = user
-        console.log(this.CurrentUser)
-      });
+     this.loadCurrentUser()
+  }
+
+  loadCurrentUser(){
+    this.firestore
+    .collection('users')
+    .doc(this.userID)
+    .valueChanges({idField: 'id'})
+    .subscribe((user) => {
+      this.CurrentUser = user
+      console.log(this.CurrentUser)
+    });
   }
 
 

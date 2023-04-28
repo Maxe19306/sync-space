@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-channel-view',
@@ -11,13 +12,21 @@ export class ChannelViewComponent implements OnInit {
   
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,
+  constructor(
+    public dataService : DataService,
+    @Inject(MAT_DIALOG_DATA) public data:any,
   private firestore: AngularFirestore) { }
+  CurrentUser
   CurrentChannel;
   editName = false;
   editDescription = false;
 
   ngOnInit(): void {
+    this.loadChannel()
+    this.loadCurrentUser()
+  }
+
+  loadChannel(){
     this.firestore
     .collection('channels')
     .doc(this.data.ChannelId)
@@ -55,5 +64,28 @@ export class ChannelViewComponent implements OnInit {
       })
       this.editName = false;
   }
+
+  leaveChannel(){
+   
+   
+   var currentUserIndex = this.CurrentChannel.members.findIndex(member => {
+    return member.customIdName === this.CurrentUser.id;
+  });
+
+  console.log(currentUserIndex);
+
+  }
+
+  loadCurrentUser(){
+    this.firestore
+    .collection('users')
+    .doc(this.dataService.id)
+    .valueChanges({idField: 'id'})
+    .subscribe((user) => {
+      this.CurrentUser = user
+      console.log(this.CurrentUser)
+    });
+  }
+
 
 }
