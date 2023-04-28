@@ -3,7 +3,11 @@
 .secondary__chat__container {
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    background-color: $background-color-boxes-light-mode;
+    border-radius: 30px;
+    overflow: auto;
+    width: 485px;
+    height: calc(100vh - 140px); // QnD fix
 
 
     .secondary__chat__header {
@@ -88,6 +92,8 @@
 
 app-secondary-chat-body {
     padding: 35px;
+    flex: 2;
+    overflow: auto;
 }
 
 app-secondary-chat-footer {
