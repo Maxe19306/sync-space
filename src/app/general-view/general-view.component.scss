@@ -2,6 +2,7 @@
 
 .general__view__container {
     // height: calc(100vh - 50px);
+    height: 100%;
     display: flex;
     justify-content: space-between;
     background-color: $background-color-light-mode;
@@ -11,7 +12,7 @@
         display: flex;
         flex-direction: column;
         margin-right: 20px;
-        overflow: auto;
+        // overflow: auto;
 
         app-home-workspaces {
             height: 70px;
@@ -19,7 +20,7 @@
         }
 
         app-menu-sidebar-left {
-            // flex: 2;
+            flex: 2;
             background-color: $background-color-boxes-light-mode;
             padding: 30px;
             border-radius: 30px;
