@@ -4,7 +4,6 @@
     display: flex;
     align-items: center;
     color: #686868;
-    
     input {
         width: 100%;
         font-size: 24px;
@@ -12,4 +11,9 @@
         outline: 0;
         border: 0;
     }
+}
+
+.searchResults {
+    position: relative;
+    background-color: #ADB0D9;
 }

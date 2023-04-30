@@ -3,4 +3,14 @@
     <span class="material-symbols-rounded" id="searchIcon">
         search
     </span>
+
+
 </form>
+
+<div class="searchResults">
+    <p *ngFor="let channel of this.filteredChannels" (click)="test(channel.customIdName)">
+        {{channel.Name}} {{channel.customIdName}}</p>
+
+    <p *ngFor="let user of this.filteredUsers" (click)="this.openDialogProfil(user.customIdName)">
+        {{user.Name}}</p>
+</div>

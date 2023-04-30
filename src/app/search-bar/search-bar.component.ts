@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfileViewComponent } from '../profile-view/profile-view.component';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-search-bar',
@@ -13,7 +16,9 @@ export class SearchBarComponent implements OnInit {
   filteredChannels;
   inputParticipants
   constructor(
+    public dataService: DataService,
     private firestore: AngularFirestore,
+    public Dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -52,18 +57,41 @@ export class SearchBarComponent implements OnInit {
 
 
   Search() {
+    if (this.inputParticipants === '') {
+      this.filteredUsers = [];
+      this.filteredChannels = [];
+      return;
+    }
+  
     this.filteredUsers = this.allUsers.filter(user => 
-          user.Name
-         .toLowerCase()
-         .includes(this.inputParticipants.toLowerCase())
-  );
-  console.log(this.filteredUsers)
-
-  this.filteredChannels = this.allChannels.filter(user => 
-    user.Name
-   .toLowerCase()
-   .includes(this.inputParticipants.toLowerCase())
-);
-console.log(this.filteredChannels)
+      user.Name
+        .toLowerCase()
+        .includes(this.inputParticipants.toLowerCase())
+    );
+    console.log(this.filteredUsers)
+  
+    this.filteredChannels = this.allChannels.filter(channel => 
+      channel.Name
+        .toLowerCase()
+        .includes(this.inputParticipants.toLowerCase())
+    );
+    console.log(this.filteredChannels)
   }
+
+  openDialogProfil(userID){
+    this.Dialog.open(ProfileViewComponent, {
+      data: {userID}
+    })
+}
+
+test(channelID){
+    
+  this.firestore
+  .collection('users')
+  .doc(this.dataService.id)
+  .update({
+    lastChannel: channelID
+  })
+
+}
 }
