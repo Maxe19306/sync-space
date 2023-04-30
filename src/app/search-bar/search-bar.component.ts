@@ -12,8 +12,8 @@ import { DataService } from '../data.service';
 export class SearchBarComponent implements OnInit {
   allUsers;
   allChannels;
-  filteredUsers;
-  filteredChannels;
+  filteredUsers = [];
+  filteredChannels =[];
   inputParticipants
   constructor(
     public dataService: DataService,
@@ -82,6 +82,8 @@ export class SearchBarComponent implements OnInit {
     this.Dialog.open(ProfileViewComponent, {
       data: {userID}
     })
+    this.filteredUsers = [];
+    this.filteredChannels = [];
 }
 
 test(channelID){
@@ -92,6 +94,7 @@ test(channelID){
   .update({
     lastChannel: channelID
   })
-
+  this.filteredUsers = [];
+  this.filteredChannels = [];
 }
 }
