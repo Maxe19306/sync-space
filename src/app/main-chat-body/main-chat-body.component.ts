@@ -73,8 +73,14 @@ formatDate(timestamp) {
 
 
 test(Messageid, Channelid){
-this.dataService.channelID = Channelid;
-this.dataService.threadID = Messageid;
+  this.firestore
+  .collection('users')
+  .doc(this.dataService.id)
+  .update({
+    openThread : true,
+    ChannelFromThread: Channelid,
+    ThreadID : Messageid,
+  })
 }
 
 lastDateDisplayed(timestamp){
@@ -87,10 +93,10 @@ if (dateString === this.Date) {
   return ''
 } else {
   // Andernfalls das Datum im Timestamp anzeigen und die Variable aktualisieren
-  this.Date = dateString;
-  return dateString;
+  const newDate = dateString;
+  this.Date = newDate;
+  return newDate;
 }
-  
 }
   
 }

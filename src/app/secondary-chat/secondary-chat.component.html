@@ -1,12 +1,12 @@
-<div class="secondary__chat__container">
+<div *ngIf="this.currentThread" class="secondary__chat__container">
 
     <div class="secondary__chat__header">
         <div class="secondary__chat__header__left">
             <span>Thread</span>
-            <span class="material-symbols-rounded subtitle">tag</span><span class="subtitle">Entwicklerteam</span>
+            <span class="material-symbols-rounded subtitle">tag</span><span class="subtitle">{{this.ChannelFromThread.Name}}</span>
         </div>
         <div class="secondary__chat__header__right">
-            <span class="material-symbols-rounded">close</span>
+            <span (click)="closeThread()" class="material-symbols-rounded">close</span>
         </div>
     </div>
 
