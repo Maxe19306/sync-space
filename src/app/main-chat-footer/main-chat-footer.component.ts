@@ -16,7 +16,18 @@ export class MainChatFooterComponent implements OnInit {
   ngOnInit(): void {
     const chatForm = document.getElementById("chatForm");
     const chatTextarea = document.getElementById("chatTextarea");
-    
+    const tx = document.getElementsByTagName("textarea");
+
+    for (let i = 0; i < tx.length; i++) {
+      tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
+      tx[i].addEventListener("input", OnInput, false);
+    }
+
+    function OnInput() {
+      this.style.height = 0;
+      this.style.height = (this.scrollHeight) + "px";
+    }
+
     this.loadCurrentUser()
     this.chatFormBorderColorInput(chatForm, chatTextarea);
   }
