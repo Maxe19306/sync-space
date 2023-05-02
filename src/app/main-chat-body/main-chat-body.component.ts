@@ -72,8 +72,9 @@ formatDate(timestamp) {
 }
 
 
-test(id){
-console.log(id)
+test(Messageid, Channelid){
+this.dataService.channelID = Channelid;
+this.dataService.threadID = Messageid;
 }
 
 lastDateDisplayed(timestamp){

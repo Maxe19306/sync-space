@@ -39,7 +39,7 @@
                 <span>{{message.text}}</span>
             </div>
             <div class="user__text__footer">
-                <span (click)="test(message.messageID)" class="answers">2 Antworten</span>
+                <span (click)="test(message.messageID, this.currentUser.lastChannel)" class="answers">2 Antworten</span>
                 <span class="last__answer">Letzte Antwort 14:56</span>
             </div>
         </div>
