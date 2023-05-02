@@ -18,6 +18,8 @@ export class MainChatFooterComponent implements OnInit {
     const chatTextarea = document.getElementById("chatTextarea");
     const tx = document.getElementsByTagName("textarea");
 
+    this.textAreaEnter(chatTextarea);
+
     for (let i = 0; i < tx.length; i++) {
       tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
       tx[i].addEventListener("input", OnInput, false);
@@ -62,6 +64,23 @@ export class MainChatFooterComponent implements OnInit {
       if (chatTextarea.value.length > 0) chatForm.classList.add("form__active");
       else chatForm.classList.remove("form__active");
     });
+  }
+
+  textAreaEnter(chatTextarea) {
+    chatTextarea.addEventListener('keydown', function (e) {
+      // Get the code of pressed key
+      const keyCode = e.which || e.keyCode;
+  
+      // 13 represents the Enter key
+      if (keyCode === 13 && !e.shiftKey) {
+          // Don't generate a new line
+          e.preventDefault();
+  
+          // Do something else such as send the message to back-end
+          // ...
+          this.test();
+      }
+  });
   }
 
 }
