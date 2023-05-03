@@ -68,22 +68,20 @@ export class MainChatFooterComponent implements OnInit {
 
   textAreaEnter(chatTextarea) {
     const self = this;
-    
-    chatTextarea.addEventListener('keydown', function (e) {
-      // Get the code of pressed key
-      const keyCode = e.which || e.keyCode;
-  
-      // 13 represents the Enter key
-      if (keyCode === 13 && !e.shiftKey) {
-          // Don't generate a new line
-          e.preventDefault();
-  
-          // Do something else such as send the message to back-end
-          // ...
 
-          self.sendMessage();
-      }
-  });
+    chatTextarea.addEventListener('keydown', function (e) {
+        const keyCode = e.which || e.keyCode;
+
+        if (keyCode === 13 && !e.shiftKey) {
+          e.preventDefault();
+
+          if (chatTextarea.value.length != 0) {
+            self.sendMessage();
+            chatTextarea.value = '';
+          }
+          
+        }
+    });
   }
 
 }
