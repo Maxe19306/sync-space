@@ -41,8 +41,20 @@ form {
         }
 
         .send__img {
-            width: 30px;
-            margin-left: 7px;
+            img {
+                width: 30px;
+                margin-left: 7px;
+                transition: filter 200ms ease-in;
+            }
+        }
+
+        .send__img__disabled {
+            cursor: auto;
+            pointer-events: none !important;
+
+            img {
+                filter: grayscale(1);
+            }
         }
     }
 
