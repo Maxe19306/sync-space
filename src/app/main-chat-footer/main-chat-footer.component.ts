@@ -34,7 +34,7 @@ export class MainChatFooterComponent implements OnInit {
     this.chatFormBorderColorInput(chatForm, chatTextarea);
   }
 
-  test() {
+  sendMessage() {
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
     this.firestore
@@ -67,6 +67,8 @@ export class MainChatFooterComponent implements OnInit {
   }
 
   textAreaEnter(chatTextarea) {
+    const self = this;
+    
     chatTextarea.addEventListener('keydown', function (e) {
       // Get the code of pressed key
       const keyCode = e.which || e.keyCode;
@@ -78,7 +80,8 @@ export class MainChatFooterComponent implements OnInit {
   
           // Do something else such as send the message to back-end
           // ...
-          this.test();
+
+          self.sendMessage();
       }
   });
   }
