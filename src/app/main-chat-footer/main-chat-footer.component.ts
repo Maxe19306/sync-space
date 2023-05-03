@@ -70,18 +70,29 @@ export class MainChatFooterComponent implements OnInit {
     const self = this;
 
     chatTextarea.addEventListener('keydown', function (e) {
-        const keyCode = e.which || e.keyCode;
+      self.changeSendButtonStyle(chatTextarea);
+      const keyCode = e.which || e.keyCode;
 
-        if (keyCode === 13 && !e.shiftKey) {
-          e.preventDefault();
+      if (keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
 
-          if (chatTextarea.value.length != 0) {
-            self.sendMessage();
-            chatTextarea.value = '';
-          }
-          
+        if (chatTextarea.value.length != 0) {
+          self.sendMessage();
+          chatTextarea.value = '';
         }
+
+      }
     });
+  }
+
+  changeSendButtonStyle(chatTextarea) { //additional keyUP eventlistener
+    const sendButton = document.getElementsByTagName("sendImgBtn")[0] as HTMLDivElement;
+    if (chatTextarea.value.length > 0) {
+      sendButton.classList.remove("send__img__disabled");
+    }
+    if (chatTextarea.value.length = 0) {
+      sendButton.classList.add("send__img__disabled");
+    }
   }
 
 }
