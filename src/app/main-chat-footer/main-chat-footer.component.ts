@@ -19,6 +19,7 @@ export class MainChatFooterComponent implements OnInit {
     const tx = document.getElementsByTagName("textarea");
 
     this.textAreaEnter(chatTextarea);
+    this.changeSendButtonStyle();
 
     for (let i = 0; i < tx.length; i++) {
       tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
@@ -68,31 +69,29 @@ export class MainChatFooterComponent implements OnInit {
 
   textAreaEnter(chatTextarea) {
     const self = this;
-
     chatTextarea.addEventListener('keydown', function (e) {
-      self.changeSendButtonStyle(chatTextarea);
       const keyCode = e.which || e.keyCode;
-
       if (keyCode === 13 && !e.shiftKey) {
         e.preventDefault();
-
         if (chatTextarea.value.length != 0) {
           self.sendMessage();
           chatTextarea.value = '';
         }
-
       }
     });
   }
 
-  changeSendButtonStyle(chatTextarea) { //additional keyUP eventlistener
-    const sendButton = document.getElementsByTagName("sendImgBtn")[0] as HTMLDivElement;
-    if (chatTextarea.value.length > 0) {
+  changeSendButtonStyle() {
+    const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
+    const sendButton = document.getElementById("sendImgBtn");
+    
+    chatTextarea.addEventListener('keydown', function (e) {
       sendButton.classList.remove("send__img__disabled");
-    }
-    if (chatTextarea.value.length = 0) {
-      sendButton.classList.add("send__img__disabled");
-    }
+      const keyCode = e.which || e.keyCode;
+      if (keyCode === 8 && !e.shiftKey && chatTextarea.value.length == 0) {
+        sendButton.classList.add("send__img__disabled");
+      }
+    });
   }
 
 }
