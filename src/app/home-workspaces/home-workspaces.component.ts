@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-home-workspaces',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeWorkspacesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sharedService: SharedService) { }
+
+  click() {
+    this.sharedService.triggerAction();
+  }
 
   ngOnInit(): void {
   }
