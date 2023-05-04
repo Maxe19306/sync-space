@@ -19,7 +19,7 @@ export class GeneralViewComponent implements OnInit {
     private sharedService: SharedService) {
 
     this.sharedService.hideMenuSidebarLeft$.subscribe(() => {
-      this.toggleFadeOutClass();
+      this.toggleSlideOutClass();
     });
 
   }
@@ -39,8 +39,8 @@ export class GeneralViewComponent implements OnInit {
       })
   }
 
-  toggleFadeOutClass() {
-    document.getElementById("menuSidebarLeft").classList.toggle("fade__bar");
+  toggleSlideOutClass() {
+    document.getElementById("menuSidebarLeft").classList.toggle("slide__out__left");
   }
 }
 
