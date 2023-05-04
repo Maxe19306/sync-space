@@ -18,9 +18,9 @@ export class GeneralViewComponent implements OnInit {
     private firestore: AngularFirestore,
     private sharedService: SharedService) {
 
-      this.sharedService.triggerAction$.subscribe(() => {
-        this.performAction();
-      });
+    this.sharedService.hideMenuSidebarLeft$.subscribe(() => {
+      this.toggleFadeOutClass();
+    });
 
   }
 
@@ -39,9 +39,9 @@ export class GeneralViewComponent implements OnInit {
       })
   }
 
-  performAction() {
-  document.getElementById("menuSidebarLeft").classList.toggle("fade__bar");
-}
+  toggleFadeOutClass() {
+    document.getElementById("menuSidebarLeft").classList.toggle("fade__bar");
+  }
 }
 
 

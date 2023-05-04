@@ -5,12 +5,12 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  private triggerActionSource = new Subject<void>();
-  triggerAction$ = this.triggerActionSource.asObservable();
+  private hideMenuSidebarLeftSource = new Subject<void>();
+  hideMenuSidebarLeft$ = this.hideMenuSidebarLeftSource.asObservable();
 
   constructor() { }
 
-  triggerAction() {
-    this.triggerActionSource.next();
+  hideMenuSidebarLeft() {
+    this.hideMenuSidebarLeftSource.next();
   }
 }

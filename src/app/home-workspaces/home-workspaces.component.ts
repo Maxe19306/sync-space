@@ -10,8 +10,8 @@ export class HomeWorkspacesComponent implements OnInit {
 
   constructor(private sharedService: SharedService) { }
 
-  click() {
-    this.sharedService.triggerAction();
+  hideMenuSidebarLeft() {
+    this.sharedService.hideMenuSidebarLeft();
   }
 
   ngOnInit(): void {

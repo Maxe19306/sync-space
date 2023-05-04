@@ -1,18 +1,15 @@
 @import "../../styles/settings/_variables.scss";
 
 .general__view__container {
-    // height: calc(100vh - 50px);
     height: 100%;
     display: flex;
     justify-content: space-between;
     background-color: $background-color-light-mode;
 
     nav {
-        // height: 100%;
         display: flex;
         flex-direction: column;
         margin-right: 20px;
-        // overflow: auto;
 
         app-home-workspaces {
             height: 70px;
@@ -33,7 +30,6 @@
     }
 
     main {
-        // height: 100%;
         flex: 2;
         display: flex;
         flex-direction: column;
@@ -51,7 +47,6 @@
     }
 
     aside {
-        // height: 100%;
         display: flex;
         flex-direction: column;
 
