@@ -1,6 +1,6 @@
 <form action="" id="chatForm">
 
-    <textarea id="chatTextarea" name="message"></textarea>
+    <textarea [(ngModel)]="this.message.text" id="chatTextarea" name="message" placeholder="Nachricht an #Threadname" rows="1"></textarea>
 
     <div class="btn__area">
         <div class="btn__area__left">
@@ -23,7 +23,7 @@
 
         <div class="hover-area noSelect">
             <div class="transform-circle"></div>
-            <img src="assets/img/mainChat/send.webp" alt="" class="send__img single-icon">
+            <img src="assets/img/mainChat/send.webp" alt="" class="send__img single-icon" (click)="sendMessage()">
         </div>
     </div>
 </form>

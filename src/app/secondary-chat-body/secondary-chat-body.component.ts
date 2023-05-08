@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { DataService } from '../data.service';
 import { MatDialog } from '@angular/material/dialog';
+import { ProfileViewComponent } from '../profile-view/profile-view.component';
 
 @Component({
   selector: 'app-secondary-chat-body',
@@ -9,8 +10,10 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./secondary-chat-body.component.scss']
 })
 export class SecondaryChatBodyComponent implements OnInit {
-  currentUser
-  currentChannelMessage
+  Date;
+  currentUser;
+  currentChannelMessage;
+  currentThreadAnswer;
   constructor(
     public Dialog: MatDialog,
     public dataService : DataService,
@@ -42,14 +45,28 @@ export class SecondaryChatBodyComponent implements OnInit {
      .valueChanges({idField: 'messageID'})
      .subscribe((channel) =>{
       this.currentChannelMessage = channel;
-      console.log('hallo', this.currentChannelMessage)
-      
+      this.loadThreadAnswer()
 
      })
   }
 
+  loadThreadAnswer(){
+    this.firestore
+     .collection('channels')
+     .doc(this.currentUser.ChannelFromThread)
+     .collection('messages')
+     .doc(this.currentUser.ThreadID)
+     .collection('threadAnswer')
+     .valueChanges({idField: 'messageID'})
+     .subscribe((channel) =>{
+      this.currentThreadAnswer = channel;
+      console.log('hallo', this.currentThreadAnswer)
+      this.sortsMessages()
+     })
+  }
+
   sortsMessages() {
-    this.currentChannelMessage.sort((a, b) => {
+    this.currentThreadAnswer.sort((a, b) => {
       return Number(a.timestamp) - Number(b.timestamp);
     });
   }
@@ -62,5 +79,26 @@ export class SecondaryChatBodyComponent implements OnInit {
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');
     return `${day}.${month}.${year} ${hours}:${minutes}`;
+  }
+
+  openDialogProfil(userID){
+    this.Dialog.open(ProfileViewComponent, {
+      data: {userID}
+    })
+}
+lastDateDisplayed(timestamp){
+  // Date-Objekt aus dem Timestamp erstellen
+  const date = new Date(timestamp);
+  // Datum im Format "TT.MM.JJJJ" speichern
+  const dateString = date.toLocaleDateString('de-DE');
+  // Wenn das Datum mit dem zuletzt angezeigten Datum übereinstimmt, den Timestamp nicht anzeigen
+  if (dateString === this.Date) {
+    return ''
+  } else {
+    // Andernfalls das Datum im Timestamp anzeigen und die Variable aktualisieren
+    const newDate = dateString;
+    this.Date = newDate;
+    return newDate;
+  }
   }
 }

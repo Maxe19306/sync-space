@@ -1,4 +1,4 @@
-<div *ngIf="this.currentChannelMessage" class="secondary__chat__body__message noSelect">
+<div *ngIf="currentThreadAnswer" class="secondary__chat__body__message noSelect">
 
     <div class="message__body">
 
@@ -13,10 +13,10 @@
         <div class="user__text">
             <div class="user__text__header">
                 <span class="user__name">{{this.currentChannelMessage.creator.Name}}</span>
-                <span class="message__timestamp">{{ formatDate(this.currentChannelMessage.timestamp) }}</span>
+                <span class="message__timestamp">{{ formatDate(currentChannelMessage.timestamp) }}</span>
             </div>
             <div class="user__text__body">
-                <span>{{this.currentChannelMessage.text}}</span>
+                <span>{{currentChannelMessage.text}}</span>
             </div>
 
 
@@ -32,12 +32,12 @@
         <hr>
         <div class="answer__counter__container">
             <div class="answer__counter">
-                <span>2</span><span>Antworten</span>
+                <span>{{this.currentThreadAnswer && this.currentThreadAnswer.length}}</span><span>Antworten</span>
             </div>
         </div>
     </div>
 
-    <div class="message__body">
+    <div *ngFor="let message of currentThreadAnswer" [class.content__left]="message.creator.id === this.dataService.id" class="message__body">
 
         <div class="action__messages">
             <div class="hover-area noSelect">
@@ -49,17 +49,11 @@
         <img src="assets/img/users/elias-neumann.webp" alt="" class="user_img">
         <div class="user__text">
             <div class="user__text__header">
-                <span class="user__name">Noah Braun</span>
-                <span class="message__timestamp">14:25 Uhr</span>
+                <span class="user__name">{{message.creator.Name}}</span>
+                <span class="message__timestamp">{{ formatDate(message.timestamp) }}</span>
             </div>
             <div class="user__text__body">
-                <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-                    amet.</span>
+                <span>{{message.text}}</span>
             </div>
             <div class="user__text__footer">
                 <div class="user__text__footer__emoji">
