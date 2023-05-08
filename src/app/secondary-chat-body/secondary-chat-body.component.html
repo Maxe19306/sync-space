@@ -1,4 +1,4 @@
-<div class="secondary__chat__body__message noSelect">
+<div *ngIf="this.currentChannelMessage" class="secondary__chat__body__message noSelect">
 
     <div class="message__body">
 
@@ -12,11 +12,11 @@
         <img src="assets/img/users/elias-neumann.webp" alt="" class="user_img">
         <div class="user__text">
             <div class="user__text__header">
-                <span class="user__name">Username</span>
-                <span class="message__timestamp">14:25</span>
+                <span class="user__name">{{this.currentChannelMessage.creator.Name}}</span>
+                <span class="message__timestamp">{{ formatDate(this.currentChannelMessage.timestamp) }}</span>
             </div>
             <div class="user__text__body">
-                <span>lorem ipsum</span>
+                <span>{{this.currentChannelMessage.text}}</span>
             </div>
 
 

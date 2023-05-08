@@ -72,7 +72,7 @@ formatDate(timestamp) {
 }
 
 
-test(Messageid, Channelid){
+openThread(Messageid, Channelid){
   this.firestore
   .collection('users')
   .doc(this.dataService.id)
