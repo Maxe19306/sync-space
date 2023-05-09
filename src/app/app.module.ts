@@ -40,6 +40,9 @@ import { MainChatFooterComponent } from './main-chat-footer/main-chat-footer.com
 import { MembersViewComponent } from './members-view/members-view.component';
 import { SecondaryChatBodyComponent } from './secondary-chat-body/secondary-chat-body.component';
 import { SecondaryChatFooterComponent } from './secondary-chat-footer/secondary-chat-footer.component';
+import { MainDirectMessageComponent } from './main-direct-message/main-direct-message.component';
+import { MainDirectMessageBodyComponent } from './main-direct-message-body/main-direct-message-body.component';
+import { MainDirectMessageFooterComponent } from './main-direct-message-footer/main-direct-message-footer.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,10 @@ import { SecondaryChatFooterComponent } from './secondary-chat-footer/secondary-
     MainChatFooterComponent,
     MembersViewComponent,
     SecondaryChatBodyComponent,
-    SecondaryChatFooterComponent
+    SecondaryChatFooterComponent,
+    MainDirectMessageComponent,
+    MainDirectMessageBodyComponent,
+    MainDirectMessageFooterComponent
   ],
   imports: [
     MatRadioModule,
