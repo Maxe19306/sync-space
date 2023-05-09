@@ -52,6 +52,19 @@
     margin-top: 15px;
     padding-left: 14px;
 
+    animation: growDown 100ms ease-in forwards;
+    transform-origin: top center;
+
+    @keyframes growDown {
+        0% {
+            transform: scaleY(0)
+        }
+
+        100% {
+            transform: scaleY(1)
+        }
+    }
+
     * {
         cursor: pointer;
     }
