@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { currentUser } from '../models/currentUser.class';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-profile-view',
@@ -14,6 +15,7 @@ export class ProfileViewComponent implements OnInit {
     public dialogRef: MatDialogRef<ProfileViewComponent>,
     private firestore: AngularFirestore,
     public dialog : MatDialog,
+    public dataService: DataService,
     @Inject(MAT_DIALOG_DATA) public data:any
   ) { }
 
@@ -39,6 +41,10 @@ export class ProfileViewComponent implements OnInit {
 
   closeDialog(){
     this.dialogRef.close(ProfileViewComponent)
+  }
+
+  createDM(){
+      console.log(this.data.userID, this.dataService.id)
   }
 
 }
