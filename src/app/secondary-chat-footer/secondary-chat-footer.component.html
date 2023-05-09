@@ -1,8 +1,8 @@
-<form action="" id="chatForm">
+<form action="" id="chatFormSecondary">
 
-    <textarea [(ngModel)]="this.message.text" id="chatTextarea" name="message" placeholder="Nachricht an #Threadname" rows="1"></textarea>
+    <textarea [(ngModel)]="this.message.text" id="chatTextareaSecondary" name="message" placeholder="Nachricht an #Threadname" rows="1"></textarea>
 
-    <div class="btn__area">
+    <div class="btn__area" (click)="focusTextareaSecondary()">
         <div class="btn__area__left">
             <div class="plus">
                 <div class="hover-area noSelect">
@@ -21,9 +21,9 @@
         </div>
 
 
-        <div class="hover-area noSelect">
+        <div class="hover-area noSelect send__img send__img__disabled" id="sendImgBtnSecondary">
             <div class="transform-circle"></div>
-            <img src="assets/img/mainChat/send.webp" alt="" class="send__img single-icon" (click)="sendMessage()">
+            <img src="assets/img/mainChat/send.webp" alt="" class="single-icon" (click)="sendMessageSecondary()">
         </div>
     </div>
 </form>

@@ -8,18 +8,19 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   templateUrl: './secondary-chat-footer.component.html',
   styleUrls: ['./secondary-chat-footer.component.scss']
 })
-export class SecondaryChatFooterComponent implements OnInit {currentUser
+export class SecondaryChatFooterComponent implements OnInit {
+    currentUser
   message: Message = new Message({})
   constructor(public dataService: DataService,
     private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    const chatForm = document.getElementById("chatForm");
-    const chatTextarea = document.getElementById("chatTextarea");
+    const chatFormSecondary = document.getElementById("chatFormSecondary");
+    const chatTextareaSecondary = document.getElementById("chatTextareaSecondary");
     const tx = document.getElementsByTagName("textarea");
 
-    this.textAreaEnter(chatTextarea);
-    this.changeSendButtonStyle();
+    this.textAreaEnter(chatTextareaSecondary);
+    this.changeSendButtonStyleSecondary();
 
     for (let i = 0; i < tx.length; i++) {
       tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
@@ -32,20 +33,20 @@ export class SecondaryChatFooterComponent implements OnInit {currentUser
     }
 
     this.loadCurrentUser()
-    this.chatFormBorderColorInput(chatForm, chatTextarea);
+    this.chatFormSecondaryBorderColorInput(chatFormSecondary, chatTextareaSecondary);
   }
 
-  sendMessage() {
+  sendMessageSecondary() {
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
-      this.firestore
+    this.firestore
       .collection('channels')
       .doc(this.currentUser.ChannelFromThread)
       .collection('messages')
       .doc(this.currentUser.ThreadID)
       .collection('threadAnswer')
-     .add(this.message.toJSON()) 
-     this.message.text = '';
+      .add(this.message.toJSON())
+    this.message.text = '';
   }
 
   loadCurrentUser() {
@@ -58,40 +59,40 @@ export class SecondaryChatFooterComponent implements OnInit {currentUser
       })
   }
 
-  focusTextarea() {
-    document.getElementById("chatTextarea").focus();
+  focusTextareaSecondary() {
+    document.getElementById("chatTextareaSecondary").focus();
   }
 
-  chatFormBorderColorInput(chatForm, chatTextarea) {
-    chatTextarea.addEventListener("input", (event) => {
-      const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
-      if (chatTextarea.value.length > 0) chatForm.classList.add("form__active");
-      else chatForm.classList.remove("form__active");
+  chatFormSecondaryBorderColorInput(chatFormSecondary, chatTextareaSecondary) {
+    chatTextareaSecondary.addEventListener("input", (event) => {
+      const chatTextareaSecondary = <HTMLInputElement>document.getElementById("chatTextareaSecondary");
+      if (chatTextareaSecondary.value.length > 0) chatFormSecondary.classList.add("form__active");
+      else chatFormSecondary.classList.remove("form__active");
     });
   }
 
-  textAreaEnter(chatTextarea) {
+  textAreaEnter(chatTextareaSecondary) {
     const self = this;
-    chatTextarea.addEventListener('keydown', function (e) {
+    chatTextareaSecondary.addEventListener('keydown', function (e) {
       const keyCode = e.which || e.keyCode;
       if (keyCode === 13 && !e.shiftKey) {
         e.preventDefault();
-        if (chatTextarea.value.length != 0) {
-          self.sendMessage();
-          chatTextarea.value = '';
+        if (chatTextareaSecondary.value.length != 0) {
+          self.sendMessageSecondary();
+          chatTextareaSecondary.value = '';
         }
       }
     });
   }
 
-  changeSendButtonStyle() {
-    const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
-    const sendButton = document.getElementById("sendImgBtn");
-    
-    chatTextarea.addEventListener('keydown', function (e) {
+  changeSendButtonStyleSecondary() {
+    const chatTextareaSecondary = <HTMLInputElement>document.getElementById("chatTextareaSecondary");
+    const sendButton = document.getElementById("sendImgBtnSecondary");
+
+    chatTextareaSecondary.addEventListener('keydown', function (e) {
       sendButton.classList.remove("send__img__disabled");
       const keyCode = e.which || e.keyCode;
-      if (keyCode === 8 && !e.shiftKey && chatTextarea.value.length == 0) {
+      if (keyCode === 8 && !e.shiftKey && chatTextareaSecondary.value.length == 0) {
         sendButton.classList.add("send__img__disabled");
       }
     });
