@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-dm-menu',
@@ -7,16 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DmMenuComponent implements OnInit {
   viewChannels = false;
-  constructor() { }
+  allDmsFromUser;
+  constructor(
+    public dataService: DataService,
+    private firestore: AngularFirestore
+  ) { }
 
   ngOnInit(): void {
+    this.loadCurrentUser()
+  }
+
+  loadCurrentUser(){
+    this.firestore
+    .collection('users')
+    .doc(this.dataService.id)
+    .collection('dmsFromUser')
+    .valueChanges({idField: 'id'})
+    .subscribe((dm)=> {
+      this.allDmsFromUser = dm,
+      console.log(this.allDmsFromUser)
+    }
+    )
   }
 
   viewNoChannels(){
     this.viewChannels = false;
   }
 
-  viewAllChannels(){
+  viewAllDMS(){
     if(!this.viewChannels){
       this.viewChannels = true;
     }
