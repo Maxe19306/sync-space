@@ -55,7 +55,28 @@ export class ProfileViewComponent implements OnInit {
   }
 
   createDM(){
+    this.DM.members = [this.CurrentUser, this.UserDetail]
+     this.firestore
+     .collection('dms')
+     .add(this.DM.toJSON())
+     .then((docRef)=>
+      this.updateUsers(this.DM.members, docRef.id))
+     }
+    
+     updateUsers(members: any[], docID: string){
+      const uniqueMembers = new Set(members.map(member => member.id));
+      uniqueMembers.forEach((element: string) => { // Element-Typ auf "string" festlegen
+        this.firestore
+          .collection('users')
+          .doc(element)
+          .collection('dmsFromUser')
+          .add({
+            DMID: docID
+          })
+      });
+    }
+    
+    
+}
 
-     console.log(this.CurrentUser, this.UserDetail)
-
-} }
+     
