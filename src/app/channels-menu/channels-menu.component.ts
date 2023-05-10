@@ -60,4 +60,14 @@ export class ChannelsMenuComponent implements OnInit {
 
   }
 
+  changeChannelView(){
+    if(this.viewChannels) {
+      this.viewNoChannels()
+      console.log(this.viewChannels)
+    }
+    else(
+     this.viewAllChannels()
+    )
+  }
+
 }
