@@ -1,4 +1,4 @@
-export class Channel {
+export class DirectMessage {
     members : string[];
 
     constructor(obj: any){

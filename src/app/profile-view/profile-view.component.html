@@ -1,4 +1,4 @@
-<div *ngIf="this.CurrentUser" class="main-profil-container">
+<div *ngIf="this.UserDetail" class="main-profil-container">
     <div class="start-profil-container">
         <p>Profil</p>
         <span (click)="closeDialog()" class="material-icons">
@@ -14,7 +14,7 @@
     <div class="second-profil-container">
 
         <div class="name">
-            <h2>{{this.CurrentUser.Name}}</h2>
+            <h2>{{this.UserDetail.Name}}</h2>
             <a>Bearbeiten</a>
         </div>
         <p class="status">Aktiv</p>
@@ -24,7 +24,7 @@
     <div class="contact">
         <p> <span class="material-icons"> email  </span> E-Mail-Adresse </p>
 
-        <a>{{this.CurrentUser.mail}}</a>
+        <a>{{this.UserDetail.mail}}</a>
     </div>
 
     <button mat-flat-button color="primary" (click)="createDM()">Nachricht</button>
