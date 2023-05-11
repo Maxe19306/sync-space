@@ -1,5 +1,12 @@
 @import "../../styles/settings/_variables.scss";
 
+.highlight__text__on__hover {
+    &:hover {
+        color: $text-color-highlight-light-mode;
+        transition: color 100ms ease-in;
+    }
+}
+
 .menu__sidebar__left__body__dm__header {
     display: flex;
     justify-content: space-between;
