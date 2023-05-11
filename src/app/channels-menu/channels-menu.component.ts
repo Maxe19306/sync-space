@@ -15,7 +15,7 @@ export class ChannelsMenuComponent implements OnInit {
   allChannels = []
   currentUser
   constructor(
-    private dataService : DataService,
+    private dataService: DataService,
     public firestore: AngularFirestore,
     public Dialog: MatDialog
   ) { }
@@ -24,50 +24,57 @@ export class ChannelsMenuComponent implements OnInit {
     this.loadAllChannel()
   }
 
-  loadAllChannel(){
+  loadAllChannel() {
     this.firestore
-    .collection('channels')
-    .valueChanges({idField: 'channelIdName'})
-    .subscribe((channels) =>
-    {
-      this.allChannels = channels;
-      console.log(this.allChannels)
-    })
+      .collection('channels')
+      .valueChanges({ idField: 'channelIdName' })
+      .subscribe((channels) => {
+        this.allChannels = channels;
+        console.log(this.allChannels)
+      })
   }
 
-  
 
-  viewNoChannels(){
+
+  viewNoChannels() {
     this.viewChannels = false;
   }
 
-  viewAllChannels(){
+  viewAllChannels() {
     this.viewChannels = true;
   }
 
-  openCreateNewChannelDialog(){
+  openCreateNewChannelDialog() {
     this.Dialog.open(CreateChannelComponent)
   }
 
-  test(channelID){
-    
+  test(channelID) {
+
     this.firestore
-    .collection('users')
-    .doc(this.dataService.id)
-    .update({
-      lastChannel: channelID
-    })
+      .collection('users')
+      .doc(this.dataService.id)
+      .update({
+        lastChannel: channelID
+      })
 
   }
 
-  changeChannelView(){
-    if(this.viewChannels) {
-      this.viewNoChannels()
-      console.log(this.viewChannels)
+  changeChannelView() {
+    if (this.viewChannels) {
+      this.slideUpClass();
+      setTimeout(() => {
+        this.viewNoChannels();
+      }, 100);
     }
-    else(
-     this.viewAllChannels()
-    )
+    else {
+      this.viewAllChannels();
+    }
+  }
+
+  slideUpClass() {
+    const channelsBody = document.getElementById("channelsBody") as HTMLDivElement;
+    channelsBody.classList.remove("drop__drown__animation");
+    channelsBody.classList.add("slide__up__animation");
   }
 
 }
