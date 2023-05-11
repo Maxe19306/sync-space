@@ -41,14 +41,14 @@ export class DmMenuComponent implements OnInit {
       this.viewChannels = true;
     }
     else {
-      this.slideUpClass();
+      this.dmSlideUpClass();
       setTimeout(() => {
         this.viewChannels = false;
       }, 100);
     }
   }
 
-  slideUpClass() {
+  dmSlideUpClass() {
     const dmChannelsBody = document.getElementById("dmChannelsBody") as HTMLDivElement;
     dmChannelsBody.classList.remove("drop__drown__animation");
     dmChannelsBody.classList.add("slide__up__animation");

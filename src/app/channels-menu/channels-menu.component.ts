@@ -61,7 +61,7 @@ export class ChannelsMenuComponent implements OnInit {
 
   changeChannelView() {
     if (this.viewChannels) {
-      this.slideUpClass();
+      this.dmSlideUpClass();
       setTimeout(() => {
         this.viewNoChannels();
       }, 100);
@@ -71,7 +71,7 @@ export class ChannelsMenuComponent implements OnInit {
     }
   }
 
-  slideUpClass() {
+  dmSlideUpClass() {
     const channelsBody = document.getElementById("channelsBody") as HTMLDivElement;
     channelsBody.classList.remove("drop__drown__animation");
     channelsBody.classList.add("slide__up__animation");
