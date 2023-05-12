@@ -26,13 +26,6 @@ export class SecondaryChatFooterComponent implements OnInit {
     this.chatTextareaSecondary = <HTMLTextAreaElement>document.getElementById("chatTextareaSecondary");
     this.sendBtnSecondary = <HTMLDivElement>document.getElementById("sendBtnSecondary");
 
-    // const chatFormSecondary = document.getElementById("chatFormSecondary");
-    // const chatTextareaSecondary = document.getElementById("chatTextareaSecondary");
-    // const tx = document.getElementsByTagName("textarea");
-
-    // this.textAreaEnter(chatTextareaSecondary);
-    // this.changeSendButtonStyleSecondary();
-
     // for (let i = 0; i < tx.length; i++) {
     //   tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
     //   tx[i].addEventListener("input", OnInput, false);
@@ -44,34 +37,45 @@ export class SecondaryChatFooterComponent implements OnInit {
     // }
 
     this.loadCurrentUser();
-    this.chatFormSecondaryBorderColorInput();
     this.textareaInputSecondary();
+    this.textareaEnterSecondary();
   }
 
   textareaInputSecondary() {
     const self = this;
-    this.chatTextareaSecondary.addEventListener('keydown', function (e) {
-
+    this.chatTextareaSecondary.addEventListener('input', function (e) {
       self.checkIfTextareaSecondaryHasValue();
+    });
+  }
 
+  textareaEnterSecondary() {
+    const self = this;
+    this.chatTextareaSecondary.addEventListener('keydown', function (e) {
       const keyCode = e.which || e.keyCode;
       if (keyCode === 13 && !e.shiftKey) {
         e.preventDefault();
-        if (self.chatTextareaSecondaryHasValue()) {
+        const value = self.chatTextareaSecondary.value.trim();
+        if (value !== '') {
           self.sendMessageSecondary();
-          // chatTextareaSecondary.value = '';
         }
       }
     });
   }
 
   checkIfTextareaSecondaryHasValue() {
-    if (this.chatTextareaSecondaryHasValue()) this.sendBtnSecondary.classList.remove("send__img__disabled");
-    else this.sendBtnSecondary.classList.add("send__img__disabled");
+    if (this.chatTextareaSecondaryHasValue()) {
+      this.sendBtnSecondary.classList.remove("send__img__disabled");
+      this.chatFormSecondary.classList.add("form__active");
+    }
+    else {
+      this.sendBtnSecondary.classList.add("send__img__disabled");
+      this.chatFormSecondary.classList.remove("form__active");
+    }
   }
 
   chatTextareaSecondaryHasValue() {
-    return this.chatTextareaSecondary.value.length > 0;
+    console.log(this.chatTextareaSecondary.value.length);
+    return this.chatTextareaSecondary.value.length != 0;
   }
 
   sendMessageSecondary() {
@@ -85,8 +89,7 @@ export class SecondaryChatFooterComponent implements OnInit {
       .doc(this.currentUser.ThreadID)
       .collection('threadAnswer')
       .add(this.message.toJSON());
-
-    // this.message.text = '';
+    this.resetFormSecondary();
   }
 
   loadCurrentUser() {
@@ -103,38 +106,11 @@ export class SecondaryChatFooterComponent implements OnInit {
     this.chatTextareaSecondary.focus();
   }
 
-  chatFormSecondaryBorderColorInput() {
-    this.chatTextareaSecondary.addEventListener("input", (event) => {
-      if (this.chatTextareaSecondary.value.length > 0) this.chatFormSecondary.classList.add("form__active");
-      else this.chatFormSecondary.classList.remove("form__active");
-    });
+  resetFormSecondary() {
+    this.chatTextareaSecondary.value = '';
+    this.chatTextareaSecondary.length = 0;
+    this.sendBtnSecondary.classList.add("send__img__disabled");
+    this.chatFormSecondary.classList.remove("form__active");
   }
-
-  // textAreaEnter(chatTextareaSecondary) {
-  //   const self = this;
-  //   chatTextareaSecondary.addEventListener('keydown', function (e) {
-  //     const keyCode = e.which || e.keyCode;
-  //     if (keyCode === 13 && !e.shiftKey) {
-  //       e.preventDefault();
-  //       if (chatTextareaSecondary.value.length != 0) {
-  //         self.sendMessageSecondary();
-  //         chatTextareaSecondary.value = '';
-  //       }
-  //     }
-  //   });
-  // }
-
-  // changeSendButtonStyleSecondary() {
-  //   const chatTextareaSecondary = <HTMLInputElement>document.getElementById("chatTextareaSecondary");
-  //   const sendButton = document.getElementById("sendBtnSecondary");
-
-  //   chatTextareaSecondary.addEventListener('keydown', function (e) {
-  //     sendButton.classList.remove("send__img__disabled");
-  //     const keyCode = e.which || e.keyCode;
-  //     if (keyCode === 8 && !e.shiftKey && chatTextareaSecondary.value.length == 0) {
-  //       sendButton.classList.add("send__img__disabled");
-  //     }
-  //   });
-  // }
 
 }
