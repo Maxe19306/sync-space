@@ -42,7 +42,13 @@ export class MainChatFooterComponent implements OnInit {
       .collection('channels')
       .doc(this.currentUser.lastChannel)
       .collection('messages')
-      .add(this.message.toJSON())
+      .add(this.message.toJSON());
+
+      const sendButton = document.getElementById("sendImgBtn");
+      sendButton.classList.add("send__img__disabled");
+
+      const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
+      chatTextarea.value = '';
   }
 
   loadCurrentUser() {
