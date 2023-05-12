@@ -88,7 +88,7 @@ export class MainChatFooterComponent implements OnInit {
     chatTextarea.addEventListener('keydown', function (e) {
       sendButton.classList.remove("send__img__disabled");
       const keyCode = e.which || e.keyCode;
-      if (keyCode === 8 && !e.shiftKey && chatTextarea.value.length == 0) {
+      if (keyCode === 8 && !e.shiftKey && chatTextarea.value.length == 0 || keyCode === 13) {
         sendButton.classList.add("send__img__disabled");
       }
     });
