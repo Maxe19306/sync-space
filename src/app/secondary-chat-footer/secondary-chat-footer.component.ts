@@ -75,12 +75,10 @@ export class SecondaryChatFooterComponent implements OnInit {
   }
 
   chatTextareaSecondaryHasValue() {
-    console.log(this.chatTextareaSecondary.value.length);
     return this.chatTextareaSecondary.value.length != 0;
   }
 
   sendMessageSecondary() {
-    console.log("sent");
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
     this.firestore

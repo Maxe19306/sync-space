@@ -10,20 +10,23 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 
 export class MainChatFooterComponent implements OnInit {
+
   currentUser
   message: Message = new Message({})
+
+  chatForm;
+  chatTextarea;
+  sendBtn;
+
   constructor(public dataService: DataService,
     private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    const chatForm = document.getElementById("chatForm");
-    const chatTextarea = document.getElementById("chatTextarea");
-    const tx = document.getElementsByTagName("textarea");
+    this.chatForm = <HTMLFormElement>document.getElementById("chatForm");
+    this.chatTextarea = <HTMLTextAreaElement>document.getElementById("chatTextarea");
+    this.sendBtn = <HTMLDivElement>document.getElementById("sendBtn");
 
-    this.textAreaEnter(chatTextarea);
-    this.changeSendButtonStyle();
-
-    // for (let i = 0; i < tx.length; i++) {
+        // for (let i = 0; i < tx.length; i++) {
     //   tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
     //   tx[i].addEventListener("input", OnInput, false);
     // }
@@ -33,8 +36,45 @@ export class MainChatFooterComponent implements OnInit {
     //   this.style.height = (this.scrollHeight) + "px";
     // }
 
-    this.loadCurrentUser()
-    this.chatFormBorderColorInput(chatForm, chatTextarea);
+    this.loadCurrentUser();
+    this.textareaInput();
+    this.textareaEnter();
+  }
+
+  textareaInput() {
+    const self = this;
+    this.chatTextarea.addEventListener('input', function (e) {
+      self.checkIfTextareaHasValue();
+    });
+  }
+
+  textareaEnter() {
+    const self = this;
+    this.chatTextarea.addEventListener('keydown', function (e) {
+      const keyCode = e.which || e.keyCode;
+      if (keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
+        const value = self.chatTextarea.value.trim();
+        if (value !== '') {
+          self.sendMessage();
+        }
+      }
+    });
+  }
+
+  checkIfTextareaHasValue() {
+    if (this.chatTextareaHasValue()) {
+      this.sendBtn.classList.remove("send__img__disabled");
+      this.chatForm.classList.add("form__active");
+    }
+    else {
+      this.sendBtn.classList.add("send__img__disabled");
+      this.chatForm.classList.remove("form__active");
+    }
+  }
+
+  chatTextareaHasValue() {
+    return this.chatTextarea.value.length != 0;
   }
 
   sendMessage() {
@@ -45,12 +85,7 @@ export class MainChatFooterComponent implements OnInit {
       .doc(this.currentUser.lastChannel)
       .collection('messages')
       .add(this.message.toJSON());
-
-      const sendButton = document.getElementById("sendImgBtn");
-      sendButton.classList.add("send__img__disabled");
-
-      const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
-      chatTextarea.value = '';
+    this.resetForm();
   }
 
   loadCurrentUser() {
@@ -64,42 +99,14 @@ export class MainChatFooterComponent implements OnInit {
   }
 
   focusTextarea() {
-    document.getElementById("chatTextarea").focus();
+    this.chatTextarea.focus();
   }
 
-  chatFormBorderColorInput(chatForm, chatTextarea) {
-    chatTextarea.addEventListener("input", (event) => {
-      const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
-      if (chatTextarea.value.length > 0) chatForm.classList.add("form__active");
-      else chatForm.classList.remove("form__active");
-    });
-  }
-
-  textAreaEnter(chatTextarea) {
-    const self = this;
-    chatTextarea.addEventListener('keydown', function (e) {
-      const keyCode = e.which || e.keyCode;
-      if (keyCode === 13 && !e.shiftKey) {
-        e.preventDefault();
-        if (chatTextarea.value.length != 0) {
-          self.sendMessage();
-          chatTextarea.value = '';
-        }
-      }
-    });
-  }
-
-  changeSendButtonStyle() {
-    const chatTextarea = <HTMLInputElement>document.getElementById("chatTextarea");
-    const sendButton = document.getElementById("sendImgBtn");
-    
-    chatTextarea.addEventListener('keydown', function (e) {
-      sendButton.classList.remove("send__img__disabled");
-      const keyCode = e.which || e.keyCode;
-      if (keyCode === 8 && !e.shiftKey && chatTextarea.value.length == 0 || keyCode === 13) {
-        sendButton.classList.add("send__img__disabled");
-      }
-    });
+  resetForm() {
+    this.chatTextarea.value = '';
+    this.chatTextarea.length = 0;
+    this.sendBtn.classList.add("send__img__disabled");
+    this.chatForm.classList.remove("form__active");
   }
 
 }
