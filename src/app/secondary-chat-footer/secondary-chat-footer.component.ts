@@ -8,6 +8,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   templateUrl: './secondary-chat-footer.component.html',
   styleUrls: ['./secondary-chat-footer.component.scss']
 })
+
 export class SecondaryChatFooterComponent implements OnInit {
 
   currentUser

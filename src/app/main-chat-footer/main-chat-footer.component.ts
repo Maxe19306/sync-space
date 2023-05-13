@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Message } from '../models/message.class';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 @Component({
   selector: 'app-main-chat-footer',
   templateUrl: './main-chat-footer.component.html',
   styleUrls: ['./main-chat-footer.component.scss']
 })
+
 export class MainChatFooterComponent implements OnInit {
   currentUser
   message: Message = new Message({})
