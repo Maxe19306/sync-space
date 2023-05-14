@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewChecked, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ChannelViewComponent } from '../channel-view/channel-view.component';
 import { DataService } from '../data.service';
@@ -11,7 +11,9 @@ import { MembersViewComponent } from '../members-view/members-view.component';
   styleUrls: ['./main-chat.component.scss'],
 })
 
-export class MainChatComponent implements OnInit {
+export class MainChatComponent implements OnInit, AfterViewChecked {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+
   CurrentChannel;
   currentUser
   constructor(
@@ -22,14 +24,24 @@ export class MainChatComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCurrentUser()
-    this.scrollDownAfterPageLoad();
+    // this.scrollDownAfterPageLoad();
+    this.scrollToBottom();
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
   }
 
   openDialogChannelView(ChannelId) {
     this.Dialog.open(ChannelViewComponent, {
       data: { ChannelId }
     })
+  }
 
+  scrollToBottom(): void {
+    try {
+      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+    } catch (err) { }
   }
 
   loadCurrentUser() {
@@ -60,10 +72,10 @@ export class MainChatComponent implements OnInit {
       })
   }
 
-  scrollDownAfterPageLoad() {
-    document.addEventListener('DOMContentLoaded', function () {
-      let mainChatBody = document.getElementById("mainChatBody");
-      mainChatBody.scrollTop = mainChatBody.scrollHeight;
-    }, false);
-  }
+  // scrollDownAfterPageLoad() {
+  //   document.addEventListener('DOMContentLoaded', function () {
+  //     let mainChatBody = document.getElementById("mainChatBody");
+  //     mainChatBody.scrollTop = mainChatBody.scrollHeight;
+  //   }, false);
+  // }
 }
