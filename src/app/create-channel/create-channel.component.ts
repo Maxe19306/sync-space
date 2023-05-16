@@ -27,7 +27,7 @@ export class CreateChannelComponent implements OnInit {
 
 
   createChannel(channel){
-    console.log(channel)
+
     this.Dialog.open(AddMemberAfterAddChannelComponent, {
       data: channel
     })

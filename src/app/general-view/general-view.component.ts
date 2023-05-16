@@ -35,7 +35,7 @@ export class GeneralViewComponent implements OnInit {
       .valueChanges({ idField: 'customerID' })
       .subscribe((user) => {
         this.currentUser = user;
-        console.log(this.currentUser)
+
       })
   }
 

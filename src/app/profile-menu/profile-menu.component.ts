@@ -33,7 +33,7 @@ export class ProfileMenuComponent implements OnInit {
     .valueChanges({idField: 'id'})
     .subscribe((user) => {
       this.CurrentUser = user
-      console.log(this.CurrentUser)
+
     });
   }
 

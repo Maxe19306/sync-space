@@ -26,8 +26,7 @@ export class DmMenuComponent implements OnInit {
     .collection('dmsFromUser')
     .valueChanges({idField: 'id'})
     .subscribe((dm)=> {
-      this.allDmsFromUser = dm,
-      console.log(this.allDmsFromUser)
+      this.allDmsFromUser = dm
     }
     )
   }

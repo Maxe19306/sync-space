@@ -72,7 +72,7 @@ export class ChannelViewComponent implements OnInit {
     return member.customIdName === this.CurrentUser.id;
   });
 
-  console.log(currentUserIndex);
+
 
   }
 
@@ -83,7 +83,7 @@ export class ChannelViewComponent implements OnInit {
     .valueChanges({idField: 'id'})
     .subscribe((user) => {
       this.CurrentUser = user
-      console.log(this.CurrentUser)
+
     });
   }
 

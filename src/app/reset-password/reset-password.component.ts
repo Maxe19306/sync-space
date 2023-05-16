@@ -24,7 +24,7 @@ export class ResetPasswordComponent implements OnInit {
     const auth = getAuth();
     sendPasswordResetEmail(auth, email, actionCodeSettings)
       .then(() => {
-        console.log("Password reset email sent!");
+
       })
       .catch((error) => {
         console.error(error);

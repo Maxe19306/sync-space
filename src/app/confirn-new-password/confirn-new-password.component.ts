@@ -24,7 +24,7 @@ export class ConfirnNewPasswordComponent implements OnInit {
   code = this.route.snapshot.queryParams['oobCode'];
 
   test(newPassword){
-    console.log(this.code, newPassword)
+
     
       
   }

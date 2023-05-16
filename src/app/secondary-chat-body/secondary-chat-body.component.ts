@@ -60,7 +60,7 @@ export class SecondaryChatBodyComponent implements OnInit {
      .valueChanges({idField: 'messageID'})
      .subscribe((channel) =>{
       this.currentThreadAnswer = channel;
-      console.log('hallo', this.currentThreadAnswer)
+
       this.sortsMessages()
      })
   }

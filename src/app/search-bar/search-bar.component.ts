@@ -42,7 +42,7 @@ export class SearchBarComponent implements OnInit {
     .valueChanges({idField: 'customIdName'})
     .subscribe((channels:any) => {
      this.allChannels = channels
-     console.log(this.allChannels)
+
  })
   }
 
@@ -68,14 +68,14 @@ export class SearchBarComponent implements OnInit {
         .toLowerCase()
         .includes(this.inputParticipants.toLowerCase())
     );
-    console.log(this.filteredUsers)
+
   
     this.filteredChannels = this.allChannels.filter(channel => 
       channel.Name
         .toLowerCase()
         .includes(this.inputParticipants.toLowerCase())
     );
-    console.log(this.filteredChannels)
+
   }
 
   openDialogProfil(userID){

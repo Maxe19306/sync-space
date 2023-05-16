@@ -30,7 +30,7 @@ export class ChannelsMenuComponent implements OnInit {
       .valueChanges({ idField: 'channelIdName' })
       .subscribe((channels) => {
         this.allChannels = channels;
-        console.log(this.allChannels)
+
       })
   }
 

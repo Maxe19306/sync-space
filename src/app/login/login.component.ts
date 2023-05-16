@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   this.determineTheCurrentUser()
   })
   .catch((error) => {
-   console.log(error)
+
   });
   }
 
@@ -57,11 +57,11 @@ export class LoginComponent implements OnInit {
   loginWithGoogle(){
     signInWithPopup(this.auth, this.provider)
     .then((result) => {
-      console.log('login', result.user) // Login erfolgreich
+
       this.addNewUserToFirebase(result.user.displayName, result.user.email, result.user.uid)
     })
     .catch((error) => {
-      console.log('fehler', error) // Fehler beim Login
+
     });
 
 
@@ -87,7 +87,7 @@ export class LoginComponent implements OnInit {
       .collection('users')
       .add(this.user.toJSON())
       .then(() => {
-        console.log('User added to Firestore');
+
         this.determineTheCurrentUser()
       })
     }

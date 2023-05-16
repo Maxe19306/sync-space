@@ -27,7 +27,7 @@ export class SecondaryChatComponent implements OnInit {
     .valueChanges({idField: 'customId'})
     .subscribe((user ) =>{
       this.currentUser = user
-      console.log(this.currentUser)
+
       this.loadChannelFromThread()
       this.loadThread()
     })
