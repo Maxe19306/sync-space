@@ -10,20 +10,25 @@ import { timestamp } from 'rxjs';
   templateUrl: './main-chat-body.component.html',
   styleUrls: ['./main-chat-body.component.scss']
 })
+
 export class MainChatBodyComponent implements OnInit {
+
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
+
   Date = '';
   currentUser;
-  currentChannelMessage
+  currentChannelMessage;
+
   constructor(
     public Dialog: MatDialog,
     public dataService: DataService,
-    private firestore: AngularFirestore) { }
+    private firestore: AngularFirestore
+    ) { }
 
   ngOnInit(): void {
     this.loadCurrentUser()
   }
-  
+
 
   ngAfterViewInit() {
     this.messageElements.changes.subscribe(() => {
@@ -36,7 +41,7 @@ export class MainChatBodyComponent implements OnInit {
       this.messageElements.last.nativeElement.scrollIntoView({
         behavior: 'instant',
       });
-    } catch (err) {};
+    } catch (err) { };
   }
 
   loadCurrentUser() {
@@ -115,13 +120,12 @@ export class MainChatBodyComponent implements OnInit {
   }
 
 
-  updateLastDate(){
-    if(this.currentChannelMessage && this.currentChannelMessage.length > 0)
-    {
-      const lastMessage = this.currentChannelMessage[this.currentChannelMessage.length -1]
+  updateLastDate() {
+    if (this.currentChannelMessage && this.currentChannelMessage.length > 0) {
+      const lastMessage = this.currentChannelMessage[this.currentChannelMessage.length - 1]
       const date = new Date(lastMessage.timestamp)
       const dateString = date.toLocaleDateString('de-DE')
-      this.Date = dateString    
+      this.Date = dateString
     }
   }
 

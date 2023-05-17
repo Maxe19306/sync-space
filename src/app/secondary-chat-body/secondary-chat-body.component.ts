@@ -1,22 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { DataService } from '../data.service';
-import { MatDialog } from '@angular/material/dialog';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
+import { MatDialog } from '@angular/material/dialog';
+import { timestamp } from 'rxjs';
 
 @Component({
   selector: 'app-secondary-chat-body',
   templateUrl: './secondary-chat-body.component.html',
   styleUrls: ['./secondary-chat-body.component.scss']
 })
+
 export class SecondaryChatBodyComponent implements OnInit {
-  Date;
+  
+  @ViewChildren('secondaryMessageElements') secondaryMessageElements: QueryList<ElementRef>;
+
+  Date = '';
   currentUser;
   currentChannelMessage;
   currentThreadAnswer;
+
   constructor(
     public Dialog: MatDialog,
-    public dataService : DataService,
+    public dataService: DataService,
     private firestore: AngularFirestore
   ) { }
 
@@ -24,45 +30,58 @@ export class SecondaryChatBodyComponent implements OnInit {
     this.loadCurrentUser()
   }
 
-
-  loadCurrentUser(){
-    this.firestore
-     .collection('users')
-     .doc(this.dataService.id)
-     .valueChanges({idField: 'id'})
-     .subscribe((user) =>{
-      this.currentUser = user;
-      this.loadMessageFromChannel()
-     })
+  ngAfterViewInit() {
+    this.secondaryMessageElements.changes.subscribe(() => {
+      this.secondaryScrollMessageListToBottom();
+    });
   }
 
-  loadMessageFromChannel(){
-    this.firestore
-     .collection('channels')
-     .doc(this.currentUser.ChannelFromThread)
-     .collection('messages')
-     .doc(this.currentUser.ThreadID)
-     .valueChanges({idField: 'messageID'})
-     .subscribe((channel) =>{
-      this.currentChannelMessage = channel;
-      this.loadThreadAnswer()
-
-     })
+  secondaryScrollMessageListToBottom(): void {
+    try {
+      this.secondaryMessageElements.last.nativeElement.scrollIntoView({
+        behavior: 'instant',
+      });
+    } catch (err) { };
   }
 
-  loadThreadAnswer(){
+  loadCurrentUser() {
     this.firestore
-     .collection('channels')
-     .doc(this.currentUser.ChannelFromThread)
-     .collection('messages')
-     .doc(this.currentUser.ThreadID)
-     .collection('threadAnswer')
-     .valueChanges({idField: 'messageID'})
-     .subscribe((channel) =>{
-      this.currentThreadAnswer = channel;
+      .collection('users')
+      .doc(this.dataService.id)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.currentUser = user;
+        this.loadMessageFromChannel()
+      })
+  }
 
-      this.sortsMessages()
-     })
+  loadMessageFromChannel() {
+    this.firestore
+      .collection('channels')
+      .doc(this.currentUser.ChannelFromThread)
+      .collection('messages')
+      .doc(this.currentUser.ThreadID)
+      .valueChanges({ idField: 'messageID' })
+      .subscribe((channel) => {
+        this.currentChannelMessage = channel;
+        this.loadThreadAnswer()
+
+      })
+  }
+
+  loadThreadAnswer() {
+    this.firestore
+      .collection('channels')
+      .doc(this.currentUser.ChannelFromThread)
+      .collection('messages')
+      .doc(this.currentUser.ThreadID)
+      .collection('threadAnswer')
+      .valueChanges({ idField: 'messageID' })
+      .subscribe((channel) => {
+        this.currentThreadAnswer = channel;
+
+        this.sortsMessages()
+      })
   }
 
   sortsMessages() {
@@ -81,24 +100,24 @@ export class SecondaryChatBodyComponent implements OnInit {
     return `${day}.${month}.${year} ${hours}:${minutes}`;
   }
 
-  openDialogProfil(userID){
+  openDialogProfil(userID) {
     this.Dialog.open(ProfileViewComponent, {
-      data: {userID}
+      data: { userID }
     })
-}
-lastDateDisplayed(timestamp){
-  // Date-Objekt aus dem Timestamp erstellen
-  const date = new Date(timestamp);
-  // Datum im Format "TT.MM.JJJJ" speichern
-  const dateString = date.toLocaleDateString('de-DE');
-  // Wenn das Datum mit dem zuletzt angezeigten Datum übereinstimmt, den Timestamp nicht anzeigen
-  if (dateString === this.Date) {
-    return ''
-  } else {
-    // Andernfalls das Datum im Timestamp anzeigen und die Variable aktualisieren
-    const newDate = dateString;
-    this.Date = newDate;
-    return newDate;
   }
+  lastDateDisplayed(timestamp) {
+    // Date-Objekt aus dem Timestamp erstellen
+    const date = new Date(timestamp);
+    // Datum im Format "TT.MM.JJJJ" speichern
+    const dateString = date.toLocaleDateString('de-DE');
+    // Wenn das Datum mit dem zuletzt angezeigten Datum übereinstimmt, den Timestamp nicht anzeigen
+    if (dateString === this.Date) {
+      return ''
+    } else {
+      // Andernfalls das Datum im Timestamp anzeigen und die Variable aktualisieren
+      const newDate = dateString;
+      this.Date = newDate;
+      return newDate;
+    }
   }
 }
