@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
+import { timestamp } from 'rxjs';
 
 @Component({
   selector: 'app-main-chat-body',
@@ -22,6 +23,7 @@ export class MainChatBodyComponent implements OnInit {
   ngOnInit(): void {
     this.loadCurrentUser()
   }
+  
 
   ngAfterViewInit() {
     this.messageElements.changes.subscribe(() => {
@@ -32,7 +34,7 @@ export class MainChatBodyComponent implements OnInit {
   scrollMessageListToBottom(): void {
     try {
       this.messageElements.last.nativeElement.scrollIntoView({
-        behavior: 'auto',
+        behavior: 'instant',
       });
     } catch (err) {};
   }
@@ -56,8 +58,8 @@ export class MainChatBodyComponent implements OnInit {
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
         this.currentChannelMessage = channel;
-
         this.sortsMessages()
+        this.updateLastDate()
 
       })
   }
@@ -109,6 +111,17 @@ export class MainChatBodyComponent implements OnInit {
       const newDate = dateString;
       this.Date = newDate;
       return newDate;
+    }
+  }
+
+
+  updateLastDate(){
+    if(this.currentChannelMessage && this.currentChannelMessage.length > 0)
+    {
+      const lastMessage = this.currentChannelMessage[this.currentChannelMessage.length -1]
+      const date = new Date(lastMessage.timestamp)
+      const dateString = date.toLocaleDateString('de-DE')
+      this.Date = dateString    
     }
   }
 
