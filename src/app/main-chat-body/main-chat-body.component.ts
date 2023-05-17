@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./main-chat-body.component.scss']
 })
 export class MainChatBodyComponent implements OnInit {
-
+  @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
   Date = '';
   currentUser;
   currentChannelMessage
@@ -23,6 +23,19 @@ export class MainChatBodyComponent implements OnInit {
     this.loadCurrentUser()
   }
 
+  ngAfterViewInit() {
+    this.messageElements.changes.subscribe(() => {
+      this.scrollMessageListToBottom();
+    });
+  }
+
+  scrollMessageListToBottom(): void {
+    try {
+      this.messageElements.last.nativeElement.scrollIntoView({
+        behavior: 'auto',
+      });
+    } catch (err) {};
+  }
 
   loadCurrentUser() {
     this.firestore
