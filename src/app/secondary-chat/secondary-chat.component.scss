@@ -29,6 +29,10 @@
                 margin-right: 14px;
             }
 
+            .channel__title {
+                line-height: $chat-title-line-height;
+            }
+
             .subtitle {
                 font-weight: 400;
                 font-size: 14px;

@@ -32,6 +32,10 @@
                 font-weight: 700;
                 margin-right: 14px;
             }
+
+            .channel__title {
+                line-height: $chat-title-line-height;
+            }
         }
 
         .main__chat__header__right {
