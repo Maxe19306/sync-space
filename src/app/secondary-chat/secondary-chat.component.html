@@ -3,7 +3,10 @@
     <div class="secondary__chat__header">
         <div class="secondary__chat__header__left">
             <span class="channel__title">Thread</span>
-            <span class="material-symbols-rounded subtitle">tag</span><span class="subtitle">{{this.ChannelFromThread.Name}}</span>
+            <div class="subtitle">
+                <span class="material-symbols-rounded">tag</span>
+                <span class="subtitle__name">{{this.ChannelFromThread.Name}}</span>
+            </div>
         </div>
         <div class="secondary__chat__header__right">
             <div class="hover-area noSelect" (click)="closeThread()">

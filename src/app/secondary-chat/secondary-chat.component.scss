@@ -33,9 +33,22 @@
             }
 
             .subtitle {
-                font-weight: 400;
-                font-size: 14px;
-                color: $main-chat-dark-blue-background-light-mode;
+                display: flex;
+                align-items: center;
+                margin-left: $chat-header-gap;
+
+                span {
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: $main-chat-dark-blue-background-light-mode;
+                }
+
+                .subtitle__name {
+                    width: 229px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
             }
         }
 

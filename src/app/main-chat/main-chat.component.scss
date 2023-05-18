@@ -35,6 +35,7 @@
 
             .channel__title {
                 line-height: $chat-title-line-height;
+                margin-left: $chat-header-gap;
             }
         }
 
