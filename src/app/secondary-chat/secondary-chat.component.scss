@@ -40,49 +40,8 @@
         }
 
         .secondary__chat__header__right {
-            display: flex;
-            align-items: center;
-
-            .header__users__img {
-                display: flex;
-                align-items: center;
-
-                img {
-                    width: 36px;
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    margin-left: -12.5px;
-                }
-            }
-
-            .users__count {
-                font-weight: 600;
-                font-size: 20px;
-                margin-left: 10px;
-            }
-
-            .symbol__circle {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                background: $background-color-light-mode;
-                cursor: pointer;
-                margin-left: 20px;
-
-                span {
-                    font-weight: 600;
-                    transition: all 200ms ease-in-out;
-                }
-
-                &:hover {
-                    span {
-                        color: $text-color-highlight-light-mode;
-                        transform: scale(1.4);
-                    }
-                }
+            .close__icon {
+                font-size: 24px;
             }
         }
     }

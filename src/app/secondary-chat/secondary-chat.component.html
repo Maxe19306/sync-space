@@ -6,7 +6,10 @@
             <span class="material-symbols-rounded subtitle">tag</span><span class="subtitle">{{this.ChannelFromThread.Name}}</span>
         </div>
         <div class="secondary__chat__header__right">
-            <span (click)="closeThread()" class="material-symbols-rounded">close</span>
+            <div class="hover-area noSelect" (click)="closeThread()">
+                <div class="transform-circle"></div>
+                <span class="material-symbols-rounded single-icon close__icon">close</span>
+            </div>
         </div>
     </div>
 
