@@ -13,7 +13,7 @@ import { timestamp } from 'rxjs';
 
 export class SecondaryChatBodyComponent implements OnInit {
   
-  @ViewChildren('secondaryMessageElements') secondaryMessageElements: QueryList<ElementRef>;
+  @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
 
   Date = '';
   currentUser;
@@ -31,18 +31,22 @@ export class SecondaryChatBodyComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.secondaryMessageElements.changes.subscribe(() => {
-      this.secondaryScrollMessageListToBottom();
-    });
+    this.messageElements.changes.subscribe(() => {
+    ;
+    this.scrollMessageListToBottom() });
   }
 
-  secondaryScrollMessageListToBottom(): void {
-    try {
-      this.secondaryMessageElements.last.nativeElement.scrollIntoView({
-        behavior: 'instant',
-      });
-    } catch (err) { };
-  }
+  scrollMessageListToBottom(): void {
+    console.log('hallo')
+    setTimeout(() => {
+      try {
+        this.messageElements.last.nativeElement.scrollIntoView({
+          behavior: 'instant',
+        });
+      } catch (err) { };
+    }
+    )}
+   
 
   loadCurrentUser() {
     this.firestore
@@ -79,8 +83,8 @@ export class SecondaryChatBodyComponent implements OnInit {
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
         this.currentThreadAnswer = channel;
-
-        this.sortsMessages()
+        this.sortsMessages();
+        this.scrollMessageListToBottom();
       })
   }
 
@@ -120,4 +124,6 @@ export class SecondaryChatBodyComponent implements OnInit {
       return newDate;
     }
   }
+
+
 }
