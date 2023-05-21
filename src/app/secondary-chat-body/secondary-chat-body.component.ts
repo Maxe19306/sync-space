@@ -37,7 +37,6 @@ export class SecondaryChatBodyComponent implements OnInit {
   }
 
   scrollMessageListToBottom(): void {
-    console.log('hallo')
     setTimeout(() => {
       try {
         this.messageElements.last.nativeElement.scrollIntoView({
