@@ -8,24 +8,21 @@
         </div>
     </div>
 
-    <div  id="dmChannelsBody" *ngIf="viewChannels" class="menu__sidebar__left__body__dm__body drop__drown__animation">
+    <div id="dmChannelsBody" *ngIf="viewChannels" class="menu__sidebar__left__body__dm__body drop__drown__animation">
 
         <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect active__dm">
             <img src="assets/img/users/elias-neumann.webp" alt="" srcset="">
             <span>Yang Mei (Du)</span>
         </div>
-        <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
-            <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
-            <span>Zhang Wei</span>
+        <div *ngFor="let dmName of allDmsFromUser" class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
+            <div *ngFor="let member of dmName.members">
+                <div *ngIf="member.id !== this.dataService.id" (click)="openChat(dmName.DmId)">
+                    <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
+                    <span>{{member.Name}}</span>
+                </div>
+            </div>
         </div>
-        <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
-            <img src="assets/img/users/frederick-beck.webp" alt="" srcset="">
-            <span>Chen Jing</span>
-        </div>
-        <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
-            <img src="assets/img/users/noah-braun.webp" alt="" srcset="">
-            <span>Li Ming</span>
-        </div>
+
     </div>
 
 </div>

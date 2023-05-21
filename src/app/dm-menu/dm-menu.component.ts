@@ -9,7 +9,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class DmMenuComponent implements OnInit {
   viewChannels = false;
-  allDmsFromUser;
+  allDmsIDFromUser;
+  allDmsFromUser = [];
   constructor(
     public dataService: DataService,
     private firestore: AngularFirestore
@@ -26,7 +27,8 @@ export class DmMenuComponent implements OnInit {
     .collection('dmsFromUser')
     .valueChanges({idField: 'id'})
     .subscribe((dm)=> {
-      this.allDmsFromUser = dm
+      this.allDmsIDFromUser = dm
+      this.loadAllChats()
     }
     )
   }
@@ -51,6 +53,27 @@ export class DmMenuComponent implements OnInit {
     const dmChannelsBody = document.getElementById("dmChannelsBody") as HTMLDivElement;
     dmChannelsBody.classList.remove("drop__drown__animation");
     dmChannelsBody.classList.add("slide__up__animation");
+  }
+
+  loadAllChats() {
+    this.allDmsIDFromUser.forEach(dm => {
+      this.firestore
+        .collection('dms')
+        .doc(dm.DMID)
+        .valueChanges({idField: 'DmId'})
+        .subscribe(dmData => {
+          // Überprüfen, ob der Chat bereits in allDmsFromUser existiert
+          const existingDm = this.allDmsFromUser.find(d => d.DmId === dmData.DmId);
+          if (!existingDm) {
+            this.allDmsFromUser.push(dmData);
+          }
+          console.log(this.allDmsFromUser);
+        });
+    });
+  }
+
+  openChat(id){
+console.log(id)
   }
 
 }
