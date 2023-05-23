@@ -1,17 +1,18 @@
-<div class="main__chat__container">
+<div class="main__chat__container" *ngIf="lastDM">
 
     <div class="main__chat__header">
         <div class="main__chat__header__left">
-            <span class="material-symbols-rounded">tag</span><span></span>
 
-        </div>
-        <div class="main__chat__header__right">
-            <div class="header__users__img">
-                <img src="assets/img/users/elias-neumann.webp" alt="">
+            <div *ngFor="let member of lastDM.members">
+                <div *ngIf="member.id !== this.dataService.id">
+                    <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
+                    <span>{{member.Name}}</span>
+
+                </div>
             </div>
-            <span class="users__count"></span>
-
         </div>
+
+
     </div>
 
     <div class="chat__seperator"></div>
