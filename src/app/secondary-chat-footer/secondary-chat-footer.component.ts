@@ -27,16 +27,6 @@ export class SecondaryChatFooterComponent implements OnInit {
     this.chatTextareaSecondary = <HTMLTextAreaElement>document.getElementById("chatTextareaSecondary");
     this.sendBtnSecondary = <HTMLDivElement>document.getElementById("sendBtnSecondary");
 
-    // for (let i = 0; i < tx.length; i++) {
-    //   tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
-    //   tx[i].addEventListener("input", OnInput, false);
-    // }
-
-    // function OnInput() {
-    //   this.style.height = 0;
-    //   this.style.height = (this.scrollHeight) + "px";
-    // }
-
     this.loadCurrentUser();
     this.textareaInputSecondary();
     this.textareaEnterSecondary();
