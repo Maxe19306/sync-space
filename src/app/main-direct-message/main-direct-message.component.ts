@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-main-direct-message',
@@ -6,10 +9,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-direct-message.component.scss']
 })
 export class MainDirectMessageComponent implements OnInit {
-
-  constructor() { }
+  currentUser;
+  lastDM
+  constructor(
+     public dataService: DataService,
+    public Dialog: MatDialog,
+    private firestore: AngularFirestore) {
+   
+   }
 
   ngOnInit(): void {
+    this.loadCurrentUser();
   }
 
-}
+
+  loadCurrentUser() {
+    this.firestore
+      .collection('users')
+      .doc(this.dataService.id)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.currentUser = user;
+        console.log(this.currentUser)
+        this.loadLastDm()
+      })
+  }
+
+  
+  loadLastDm(){
+          this.firestore
+        .collection('dms')
+        .doc(this.currentUser.currentDM)
+        .valueChanges({ idField: 'id' })
+        .subscribe((dm) => {
+          this.lastDM = dm
+          console.log(this.lastDM)
+        })
+    }
+  }
+
+

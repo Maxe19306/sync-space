@@ -67,7 +67,6 @@ export class DmMenuComponent implements OnInit {
           if (!existingDm) {
             this.allDmsFromUser.push(dmData);
           }
-          console.log(this.allDmsFromUser);
         });
     });
   }
