@@ -66,7 +66,7 @@ export class ProfileViewComponent implements OnInit {
           // Ein Chat mit diesen Mitgliedern existiert bereits
           querySnapshot.forEach((doc) => {
             const chatId = doc.id;
-          
+            console.log('Ein Chat mit diesen Mitgliedern existiert bereits. Chat-ID:', chatId);
             // Hier kannst du die Chat-ID verwenden oder entsprechende Aktionen durchführen
           });
         } else {
@@ -76,16 +76,16 @@ export class ProfileViewComponent implements OnInit {
             .add(this.DM.toJSON())
             .then((docRef) => {
               const chatId = docRef.id;
-           
+              console.log('Neuer Chat erstellt. Chat-ID:', chatId);
               this.updateUsers(this.DM.members, chatId);
             })
             .catch((error) => {
-              
+              console.error('Fehler beim Erstellen des DM:', error);
             });
         }
       })
       .catch((error) => {
-      
+        console.error('Fehler beim Abfragen des Chats:', error);
       });
   }
   
