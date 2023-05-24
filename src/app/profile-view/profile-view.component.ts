@@ -54,16 +54,36 @@ export class ProfileViewComponent implements OnInit {
     this.dialogRef.close(ProfileViewComponent)
   }
 
-  createDM(){
-    this.DM.members = [this.CurrentUser, this.UserDetail]
-     this.firestore
-     .collection('dms')
-     .add(this.DM.toJSON())
-     .then((docRef)=>
-      this.updateUsers(this.DM.members, docRef.id))
-     }
+  createDM() {
+    const members = [this.CurrentUser, this.UserDetail];
     
-     updateUsers(members: any[], docID: string){
+    // Überprüfen, ob ein Chat mit den Mitgliedern bereits existiert
+    this.firestore.collection('dms')
+      .ref.where('members', '==', members)
+      .get()
+      .then((querySnapshot) => {
+        if (!querySnapshot.empty) {
+          console.log('Ein Chat mit diesen Mitgliedern existiert bereits.');
+          // Hier kannst du entsprechende Aktionen durchführen
+        } else {
+          // Ein Chat mit den Mitgliedern existiert nicht, erstelle einen neuen DM
+          this.DM.members = members;
+          this.firestore.collection('dms')
+            .add(this.DM.toJSON())
+            .then((docRef) => this.updateUsers(this.DM.members, docRef.id))
+            .catch((error) => {
+              console.error('Fehler beim Erstellen des DM:', error);
+            });
+        }
+      })
+      .catch((error) => {
+        console.error('Fehler beim Abfragen des Chats:', error);
+      });
+  }
+  
+
+
+  updateUsers(members: any[], docID: string){
       const uniqueMembers = new Set(members.map(member => member.id));
       uniqueMembers.forEach((element: string) => { // Element-Typ auf "string" festlegen
         this.firestore
@@ -75,8 +95,7 @@ export class ProfileViewComponent implements OnInit {
           })
       });
     }
-    
-    
+
 }
 
      
