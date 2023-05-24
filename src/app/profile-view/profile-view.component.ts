@@ -63,21 +63,29 @@ export class ProfileViewComponent implements OnInit {
       .get()
       .then((querySnapshot) => {
         if (!querySnapshot.empty) {
-          console.log('Ein Chat mit diesen Mitgliedern existiert bereits.');
-          // Hier kannst du entsprechende Aktionen durchführen
+          // Ein Chat mit diesen Mitgliedern existiert bereits
+          querySnapshot.forEach((doc) => {
+            const chatId = doc.id;
+          
+            // Hier kannst du die Chat-ID verwenden oder entsprechende Aktionen durchführen
+          });
         } else {
           // Ein Chat mit den Mitgliedern existiert nicht, erstelle einen neuen DM
           this.DM.members = members;
           this.firestore.collection('dms')
             .add(this.DM.toJSON())
-            .then((docRef) => this.updateUsers(this.DM.members, docRef.id))
+            .then((docRef) => {
+              const chatId = docRef.id;
+           
+              this.updateUsers(this.DM.members, chatId);
+            })
             .catch((error) => {
-              console.error('Fehler beim Erstellen des DM:', error);
+              
             });
         }
       })
       .catch((error) => {
-        console.error('Fehler beim Abfragen des Chats:', error);
+      
       });
   }
   
