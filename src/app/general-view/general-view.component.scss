@@ -29,6 +29,7 @@
 
     main {
         display: flex;
+        overflow-y: hidden;
 
         app-menu-sidebar-left {
             margin-right: $general__margin;
