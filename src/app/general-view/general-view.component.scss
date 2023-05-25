@@ -19,6 +19,11 @@
 
         app-search-bar {
             flex: 1;
+            height: 70px;
+            background-color: $background-color-boxes-light-mode;
+            border-radius: 42px;
+            padding-left: 45px;
+            padding-right: 45px;
         }
 
         app-profile-menu {
@@ -29,15 +34,13 @@
 
     main {
         display: flex;
-        overflow-y: hidden;
-
+        
         app-menu-sidebar-left {
             margin-right: $general__margin;
             width: 306px;
             background-color: $background-color-boxes-light-mode;
             padding: 30px;
             border-radius: 30px;
-            overflow-y: auto;
         }
 
         app-main-chat {
