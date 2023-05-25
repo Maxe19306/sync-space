@@ -1,12 +1,35 @@
 <div *ngIf="this.currentUser" class="general__view__container container">
-    <nav>
+
+    <header>
+        <app-home-workspaces></app-home-workspaces>
+        <app-search-bar></app-search-bar>
+        <app-profile-menu [userID]="this.dataService.id"></app-profile-menu>
+    </header>
+
+    <main>
+        <app-menu-sidebar-left id="menuSidebarLeft"></app-menu-sidebar-left>
+        <app-main-chat></app-main-chat>
+        <!-- <app-main-direct-message></app-main-direct-message> -->
+        <app-secondary-chat *ngIf="this.currentUser.openThread"></app-secondary-chat>
+    </main>
+
+
+
+
+
+
+
+
+
+    <!-- <nav>
         <app-home-workspaces></app-home-workspaces>
         <app-menu-sidebar-left id="menuSidebarLeft"></app-menu-sidebar-left>
     </nav>
 
     <main>
         <app-search-bar></app-search-bar>
-        <!-- <app-main-direct-message></app-main-direct-message> -->
+        
+        <app-main-direct-message></app-main-direct-message>
         
             <app-main-chat></app-main-chat>
     </main>
@@ -14,5 +37,5 @@
     <aside>
         <app-profile-menu [userID]="this.dataService.id"></app-profile-menu>
         <app-secondary-chat *ngIf="this.currentUser.openThread"></app-secondary-chat>
-    </aside>
+    </aside> -->
 </div>

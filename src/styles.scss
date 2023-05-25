@@ -17,45 +17,40 @@
 }
 
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
+/* Firefox */
+* {
     scrollbar-width: auto;
     scrollbar-color: #C2CAF6 rgba($color: #000000, $alpha: 0);
-  }
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
     width: 10px;
-  }
+}
 
-  *::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: rgba($color: #000000, $alpha: 0);
     margin-top: 25px;
     margin-bottom: 25px;
-  }
+}
 
-  *::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background-color: #C2CAF6;
     border-radius: 10px;
     border: 0px none #ffffff;
-  }
-
-body {
-    margin: 0;
 }
 
-html,
 body {
     // height: 100%;
-    height: calc(100vh - 50px);
-    margin: 0;
+    height: calc(100vh - 2 * $general__margin);
+    margin: $general__margin;
     font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
     background-color: #ECEEFE;
 }
 
-.container {
-    padding: 25px;
-}
+// .container {
+//     padding: 25px;
+// }
 
 .noSelect {
     -webkit-tap-highlight-color: transparent;
