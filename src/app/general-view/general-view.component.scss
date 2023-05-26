@@ -46,6 +46,10 @@
             overflow-y: auto;
         }
 
+        .slide__out__left {
+            display: none;
+        }
+
         app-main-chat {
             flex: 1;
         }
@@ -55,10 +59,6 @@
             margin-left: $general__margin;
         }
     }
-}
-
-.slide__out__left {
-    display: none;
 }
 
 /*
