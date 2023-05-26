@@ -1,21 +1,15 @@
 @import "../../styles/settings/_variables.scss";
 
-.menu__sidebar__left__container {
+.menu__sidebar__left__header {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
 
-    .menu__sidebar__left__header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 25px;
-
-        div {
-            margin-bottom: 5px;
-        }
+    div {
+        margin-bottom: 5px;
     }
+}
 
-    .menu__sidebar__left__body {
-        padding-top: 10px;
-    }
-
+.menu__sidebar__left__body {
+    padding-top: 10px;
 }
