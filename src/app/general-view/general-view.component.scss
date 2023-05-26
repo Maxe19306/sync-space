@@ -34,6 +34,7 @@
 
     main {
         display: flex;
+        overflow-y: auto;
 
         app-menu-sidebar-left {
             margin-right: $general__margin;
@@ -43,6 +44,7 @@
             border-radius: 30px;
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
         }
 
         app-main-chat {
