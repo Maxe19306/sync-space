@@ -1,28 +1,23 @@
-<div class="menu__sidebar__left__body__dm">
-
-    <div class="menu__sidebar__left__body__dm__header">
-        <div class="menu__sidebar__left__body__dm__header__left highlight__text__on__hover noSelect" (click)="viewAllDMS()">
-            <span *ngIf="viewChannels" class="material-symbols-rounded single-icon">arrow_drop_down</span>
-            <span *ngIf="!viewChannels" class="material-symbols-rounded single-icon">arrow_right</span>
-            <span class="material-symbols-rounded dm__icon">workspaces</span><span id="dmHeadline">Direktnachrichten</span>
-        </div>
+<div class="menu__sidebar__left__body__dm__header">
+    <div class="menu__sidebar__left__body__dm__header__left highlight__text__on__hover noSelect" (click)="viewAllDMS()">
+        <span *ngIf="viewChannels" class="material-symbols-rounded single-icon">arrow_drop_down</span>
+        <span *ngIf="!viewChannels" class="material-symbols-rounded single-icon">arrow_right</span>
+        <span class="material-symbols-rounded dm__icon">workspaces</span><span id="dmHeadline">Direktnachrichten</span>
     </div>
+</div>
 
-    <div id="dmChannelsBody" *ngIf="viewChannels" class="menu__sidebar__left__body__dm__body drop__drown__animation">
-
-        <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect active__dm">
-            <img src="assets/img/users/elias-neumann.webp" alt="" srcset="">
-            <span>Yang Mei (Du)</span>
-        </div>
-        <div *ngFor="let dmName of allDmsFromUser" class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
-            <div *ngFor="let member of dmName.members">
-                <div *ngIf="member.id !== this.dataService.id" (click)="openChat(dmName.DmId)">
-                    <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
-                    <span>{{member.Name}}</span>
-                </div>
+<div id="dmChannelsBody" *ngIf="viewChannels" class="menu__sidebar__left__body__dm__body drop__drown__animation">
+    <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect active__dm">
+        <img src="assets/img/users/elias-neumann.webp" alt="" srcset="">
+        <span>Yang Mei (Du)</span>
+    </div>
+    <div *ngFor="let dmName of allDmsFromUser"
+        class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
+        <div *ngFor="let member of dmName.members">
+            <div *ngIf="member.id !== this.dataService.id" (click)="openChat(dmName.DmId)">
+                <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
+                <span>{{member.Name}}</span>
             </div>
         </div>
-
     </div>
-
 </div>
