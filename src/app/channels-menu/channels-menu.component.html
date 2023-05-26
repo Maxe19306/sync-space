@@ -1,32 +1,32 @@
-<div class="menu__sidebar__left__body__channels">
+<div class="menu__sidebar__left__body__channels__header">
+    <div class="menu__sidebar__left__body__channels__header__left highlight__text__on__hover noSelect"
+        (click)="changeChannelView()">
+        <span *ngIf="viewChannels" class="material-symbols-rounded single-icon">arrow_drop_down</span>
+        <span *ngIf="!viewChannels" class="material-symbols-rounded single-icon">arrow_right</span>
 
-    <div class="menu__sidebar__left__body__channels__header">
-        <div class="menu__sidebar__left__body__channels__header__left highlight__text__on__hover noSelect" (click)="changeChannelView()">
-            <span *ngIf="viewChannels" class="material-symbols-rounded single-icon">arrow_drop_down</span>
-            <span *ngIf="!viewChannels" class="material-symbols-rounded single-icon">arrow_right</span>
 
-
-            <span class="material-symbols-rounded channels__icon">workspaces</span><span id="channelsHeadline">Channels</span>
-        </div>
-
-        <div class="hover-area noSelect" (click)="openCreateNewChannelDialog()">
-            <div class="transform-circle"></div>
-            <span class="material-symbols-rounded single-icon add-icon">add</span>
-        </div>
+        <span class="material-symbols-rounded channels__icon">workspaces</span><span
+            id="channelsHeadline">Channels</span>
     </div>
 
-    <div id="channelsBody" class="menu__sidebar__left__body__channels__body drop__drown__animation" *ngIf="viewChannels">
-
-        <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect" *ngFor="let channel of this.allChannels">
-
-            <span class="material-symbols-rounded channels__icons">tag</span>
-            <span (click)="test(channel.channelIdName)" class="channels__channelname">{{channel.Name}}</span>
-
-        </div>
-        <div class="menu__sidebar__left__body__channels__body__row highlight__text__on__hover noSelect add__channel" (click)="openCreateNewChannelDialog()">
-            <span class="material-symbols-rounded channels__icons">add</span>
-            <span class="channels__channelname">Channel hinzufügen</span>
-        </div>
+    <div class="hover-area noSelect" (click)="openCreateNewChannelDialog()">
+        <div class="transform-circle"></div>
+        <span class="material-symbols-rounded single-icon add-icon">add</span>
     </div>
+</div>
 
+<div id="channelsBody" class="menu__sidebar__left__body__channels__body drop__drown__animation" *ngIf="viewChannels">
+
+    <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect"
+        *ngFor="let channel of this.allChannels">
+
+        <span class="material-symbols-rounded channels__icons">tag</span>
+        <span (click)="test(channel.channelIdName)" class="channels__channelname">{{channel.Name}}</span>
+
+    </div>
+    <div class="menu__sidebar__left__body__channels__body__row highlight__text__on__hover noSelect add__channel"
+        (click)="openCreateNewChannelDialog()">
+        <span class="material-symbols-rounded channels__icons">add</span>
+        <span class="channels__channelname">Channel hinzufügen</span>
+    </div>
 </div>
