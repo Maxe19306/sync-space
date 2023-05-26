@@ -40,6 +40,10 @@
     border: 0px none #ffffff;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     // height: 100%;
     height: calc(100vh - 2 * $general__margin);
