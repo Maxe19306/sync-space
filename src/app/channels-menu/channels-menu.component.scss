@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 15px;
 
     .menu__sidebar__left__body__channels__header__left {
         display: flex;
@@ -45,7 +46,7 @@
 }
 
 .menu__sidebar__left__body__channels__body {
-    margin-top: 15px;
+    // margin-top: 15px;
     padding-left: 14px;
 
     * {
