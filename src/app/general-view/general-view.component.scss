@@ -1,5 +1,4 @@
 @import "../../styles/settings/_variables.scss";
-
 .general__view__container {
     width: 100%;
     height: 100%;
@@ -7,16 +6,13 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: $background-color-light-mode;
-
     header {
         display: flex;
         margin-bottom: $general__margin;
-
         app-home-workspaces {
             padding: 0 38.5px;
             margin-right: $general__margin;
         }
-
         app-search-bar {
             flex: 1;
             height: 70px;
@@ -25,16 +21,13 @@
             padding-left: 45px;
             padding-right: 45px;
         }
-
         app-profile-menu {
             width: 485px;
             margin-left: $general__margin;
         }
     }
-
     main {
         display: flex;
-
         app-menu-sidebar-left {
             margin-right: $general__margin;
             width: 306px;
@@ -45,21 +38,22 @@
             flex-direction: column;
             overflow-y: auto;
         }
-
         .slide__out__left {
             display: none;
         }
-
         app-main-chat {
             flex: 1;
         }
-
+        app-main-direct-message {
+            flex: 1;
+        }
         app-secondary-chat {
             width: 485px;
             margin-left: $general__margin;
         }
     }
 }
+
 
 /*
 
