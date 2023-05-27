@@ -54,7 +54,8 @@ export class ChannelsMenuComponent implements OnInit {
       .collection('users')
       .doc(this.dataService.id)
       .update({
-        lastChannel: channelID
+        lastChannel: channelID,
+        viewChat : false
       })
 
   }

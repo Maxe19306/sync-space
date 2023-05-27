@@ -46,7 +46,7 @@ export class MainDirectMessageFooterComponent implements OnInit {
         e.preventDefault();
         const value = self.chatTextareaSecondary.value.trim();
         if (value !== '') {
-          self.sendMessageSecondary();
+          self.sendDM();
         }
       }
     });
@@ -67,15 +67,13 @@ export class MainDirectMessageFooterComponent implements OnInit {
     return this.chatTextareaSecondary.value.length != 0;
   }
 
-  sendMessageSecondary() {
+  sendDM() {
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
     this.firestore
-      .collection('channels')
-      .doc(this.currentUser.ChannelFromThread)
+      .collection('dms')
+      .doc(this.currentUser.currentDM)
       .collection('messages')
-      .doc(this.currentUser.ThreadID)
-      .collection('threadAnswer')
       .add(this.message.toJSON());
     this.resetFormSecondary();
   }
