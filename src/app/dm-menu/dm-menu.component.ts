@@ -72,7 +72,13 @@ export class DmMenuComponent implements OnInit {
   }
 
   openChat(id){
-console.log(id)
+    this.firestore
+      .collection('users')
+      .doc(this.dataService.id)
+      .update({
+        viewChat: true,
+        currentDM: id
+      })
   }
 
 }
