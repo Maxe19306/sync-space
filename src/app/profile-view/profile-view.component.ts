@@ -55,7 +55,18 @@ export class ProfileViewComponent implements OnInit {
   }
 
   createDM() {
-    const members = [this.CurrentUser, this.UserDetail];
+    const currentUser = {
+      name: this.CurrentUser.Name,
+      id: this.CurrentUser.id
+    };
+  
+    const userDetail = {
+      name: this.UserDetail.Name,
+      id: this.UserDetail.id
+    };
+  
+    const members = [currentUser, userDetail];
+  
     
     // Überprüfen, ob ein Chat mit den Mitgliedern bereits existiert
     this.firestore.collection('dms')

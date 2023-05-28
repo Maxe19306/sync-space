@@ -1,5 +1,5 @@
 export class DirectMessage {
-    members : string[];
+    members: { name: string, id: string }[];
 
     constructor(obj: any){
         this.members = obj && obj.members ? obj.members : [];
