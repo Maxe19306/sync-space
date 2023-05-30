@@ -1,10 +1,10 @@
 <div (click)="toggleMenuSidebarLeft()">
-    <div #logoContainer (mouseover)="highlightDefaultLogo()" (mouseout)="unHighlightDefaultLogo()">
+    <div (mouseover)="highlightDefaultLogo()" (mouseout)="unHighlightDefaultLogo()" #logoContainer>
         <img src="assets/img/logos/logo-default.webp" #logoDefault>
         <img style="display: none;" src="assets/img/logos/logo-hover.webp" #logoHover>
     </div>
-    <div>
-        <img style="display: none;" src="assets/img/logos/logo-default.webp">
-        <img style="display: none;" src="assets/img/logos/logo-default.webp">
+    <div style="display: none;" (mouseover)="highlightClosedLogo()" (mouseout)="unHighlightClosedLogo()" #logoClosedContainer>
+        <img style="display: none;" src="assets/img/logos/logo-closed.webp" #logoClosedDefault>
+        <img style="display: none;" src="assets/img/logos/logo-closed-hover.webp" #logoClosedHover>
     </div>
 </div>
