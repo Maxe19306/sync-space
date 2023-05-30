@@ -1,6 +1,10 @@
-<div (click)="toggleMenuSidebarLeft()" #logoContainer>
-    <img src="assets/img/logos/logo-default.webp">
-    <img style="display: none;" src="assets/img/logos/logo-default.webp">
-    <img style="display: none;" src="assets/img/logos/logo-default.webp">
-    <img style="display: none;" src="assets/img/logos/logo-default.webp">
+<div (click)="toggleMenuSidebarLeft()">
+    <div #logoContainer (mouseover)="highlightLogo()" (mouseout)="unHighlightLogo()">
+        <img src="assets/img/logos/logo-default.webp" #logoDefault>
+        <img style="display: none;" src="assets/img/logos/logo-hover.webp" #logoHover>
+    </div>
+    <div>
+        <img style="display: none;" src="assets/img/logos/logo-default.webp">
+        <img style="display: none;" src="assets/img/logos/logo-default.webp">
+    </div>
 </div>

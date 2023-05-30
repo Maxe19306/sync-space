@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -7,6 +7,9 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./home-workspaces.component.scss']
 })
 export class HomeWorkspacesComponent implements OnInit {
+  @ViewChild('logoContainer') logoContainer: ElementRef;
+  @ViewChild('logoDefault') logoDefault: ElementRef;
+  @ViewChild('logoHover') logoHover: ElementRef;
 
   constructor(private sharedService: SharedService) { }
 
@@ -16,7 +19,16 @@ export class HomeWorkspacesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    const test = document.getElementById("test");
+    console.log("logoDefault", this.logoDefault);
   }
 
+  highlightLogo() {
+    this.logoDefault.nativeElement.style.display = "none"
+    this.logoHover.nativeElement.style.display = "block";
+  }
+
+  unHighlightLogo() {
+    this.logoHover.nativeElement.style.display = "none"
+    this.logoDefault.nativeElement.style.display = "block";
+  }
 }

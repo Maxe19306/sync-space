@@ -1,3 +1,7 @@
 img {
     display: block;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
