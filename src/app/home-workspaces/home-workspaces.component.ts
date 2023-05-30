@@ -22,12 +22,12 @@ export class HomeWorkspacesComponent implements OnInit {
     console.log("logoDefault", this.logoDefault);
   }
 
-  highlightLogo() {
+  highlightDefaultLogo() {
     this.logoDefault.nativeElement.style.display = "none"
     this.logoHover.nativeElement.style.display = "block";
   }
 
-  unHighlightLogo() {
+  unHighlightDefaultLogo() {
     this.logoHover.nativeElement.style.display = "none"
     this.logoDefault.nativeElement.style.display = "block";
   }
