@@ -10,11 +10,13 @@ export class HomeWorkspacesComponent implements OnInit {
 
   constructor(private sharedService: SharedService) { }
 
-  hideMenuSidebarLeft() {
-    this.sharedService.hideMenuSidebarLeft();
+  toggleMenuSidebarLeft() {
+    this.sharedService.toggleMenuSidebarLeft();
   }
 
   ngOnInit(): void {
+
+    const test = document.getElementById("test");
   }
 
 }

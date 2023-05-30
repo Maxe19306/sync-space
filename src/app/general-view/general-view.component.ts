@@ -18,7 +18,7 @@ export class GeneralViewComponent implements OnInit {
     private firestore: AngularFirestore,
     private sharedService: SharedService) {
 
-    this.sharedService.hideMenuSidebarLeft$.subscribe(() => {
+    this.sharedService.toggleMenuSidebarLeft$.subscribe(() => {
       this.toggleSlideOutClass();
     });
 

@@ -5,12 +5,12 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  private hideMenuSidebarLeftSource = new Subject<void>();
-  hideMenuSidebarLeft$ = this.hideMenuSidebarLeftSource.asObservable();
+  private toggleMenuSidebarLeftSource = new Subject<void>();
+  toggleMenuSidebarLeft$ = this.toggleMenuSidebarLeftSource.asObservable();
 
   constructor() { }
 
-  hideMenuSidebarLeft() {
-    this.hideMenuSidebarLeftSource.next();
+  toggleMenuSidebarLeft() {
+    this.toggleMenuSidebarLeftSource.next();
   }
 }
