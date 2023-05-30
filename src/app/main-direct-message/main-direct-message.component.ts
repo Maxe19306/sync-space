@@ -30,7 +30,6 @@ export class MainDirectMessageComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.currentUser = user;
-        console.log(this.currentUser)
         this.loadLastDm()
       })
   }
@@ -43,7 +42,6 @@ export class MainDirectMessageComponent implements OnInit {
         .valueChanges({ idField: 'id' })
         .subscribe((dm) => {
           this.lastDM = dm
-          console.log(this.lastDM)
         })
     }
   }

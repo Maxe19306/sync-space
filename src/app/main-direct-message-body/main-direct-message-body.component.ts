@@ -54,7 +54,6 @@ export class MainDirectMessageBodyComponent implements OnInit {
   }
 
   loadMessageFromChannel() {
-    console.log(this.currentUser)
     this.firestore
       .collection('dms')
       .doc(this.currentUser.currentDM)
@@ -64,6 +63,7 @@ export class MainDirectMessageBodyComponent implements OnInit {
         this.currentChannelMessage = channel;
         this.sortsMessages()
         this.updateLastDate()
+    
       })
   }
 

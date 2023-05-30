@@ -7,16 +7,15 @@
 </div>
 
 <div id="dmChannelsBody" *ngIf="viewChannels" class="menu__sidebar__left__body__dm__body drop__drown__animation">
-    <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect active__dm">
+    <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect active__dm" (click)="openChat(this.personalDm.DmId)">
         <img src="assets/img/users/elias-neumann.webp" alt="" srcset="">
-        <span>Yang Mei (Du)</span>
+        <span>{{this.currentUser.Name}} (Du)</span>
     </div>
-    <div *ngFor="let dmName of allDmsFromUser"
-        class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
+    <div *ngFor="let dmName of allDmsFromUser" class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
         <div *ngFor="let member of dmName.members">
             <div *ngIf="member.id !== this.dataService.id" (click)="openChat(dmName.DmId)">
                 <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
-                <span>{{member.Name}}</span>
+                <span>{{member.name}}</span>
             </div>
         </div>
     </div>

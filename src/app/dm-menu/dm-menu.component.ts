@@ -9,18 +9,31 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class DmMenuComponent implements OnInit {
   viewChannels = false;
+  personalDm
   allDmsIDFromUser;
   allDmsFromUser = [];
+  currentUser
   constructor(
     public dataService: DataService,
     private firestore: AngularFirestore
   ) { }
 
   ngOnInit(): void {
+    this.loadAllDms()
     this.loadCurrentUser()
   }
 
   loadCurrentUser(){
+    this.firestore
+    .collection('users')
+    .doc(this.dataService.id)
+    .valueChanges({idField: 'id'})
+    .subscribe((user) => {
+      this.currentUser = user;
+    })
+  }
+
+    loadAllDms(){
     this.firestore
     .collection('users')
     .doc(this.dataService.id)
@@ -31,6 +44,20 @@ export class DmMenuComponent implements OnInit {
       this.loadAllChats()
     }
     )
+  }
+
+  determinePersonalChat(){
+  this.allDmsFromUser.forEach(element => {
+    const member1 = element.members[0]
+    const member2 = element.members[1]
+
+    if(member1.id === member2.id){
+      this.personalDm = element
+      console.log(this.personalDm)
+    }
+
+
+  });
   }
 
   viewNoChannels(){
@@ -66,9 +93,11 @@ export class DmMenuComponent implements OnInit {
           const existingDm = this.allDmsFromUser.find(d => d.DmId === dmData.DmId);
           if (!existingDm) {
             this.allDmsFromUser.push(dmData);
+            this.determinePersonalChat()
           }
         });
     });
+    
   }
 
   openChat(id){
