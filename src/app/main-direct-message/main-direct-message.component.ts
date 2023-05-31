@@ -10,7 +10,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class MainDirectMessageComponent implements OnInit {
   currentUser;
-  lastDM
+  lastDM;
+  speaker;
   constructor(
      public dataService: DataService,
     public Dialog: MatDialog,
@@ -42,8 +43,24 @@ export class MainDirectMessageComponent implements OnInit {
         .valueChanges({ idField: 'id' })
         .subscribe((dm) => {
           this.lastDM = dm
+          this.IdentifySpeaker()
         })
     }
-  }
+
+    IdentifySpeaker(){
+     const member1 = this.lastDM.members[0]
+     const member2 = this.lastDM.members[1]
+
+     if(member1.id === member2.id){
+      this.speaker = member1.name;
+     }
+     else if( member2.id === this.dataService.id){
+      this.speaker = member1.name
+     }
+     else(
+      this.speaker = member2.name
+     )
+    }
+ }
 
 
