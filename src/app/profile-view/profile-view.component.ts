@@ -78,7 +78,8 @@ export class ProfileViewComponent implements OnInit {
           querySnapshot.forEach((doc) => {
             const chatId = doc.id;
             console.log('Ein Chat mit diesen Mitgliedern existiert bereits. Chat-ID:', chatId);
-            // Hier kannst du die Chat-ID verwenden oder entsprechende Aktionen durchführen
+            this.openChat(chatId)      
+            this.closeDialog()       // Hier kannst du die Chat-ID verwenden oder entsprechende Aktionen durchführen
           });
         } else {
           // Ein Chat mit den Mitgliedern existiert nicht, erstelle einen neuen DM
@@ -89,16 +90,12 @@ export class ProfileViewComponent implements OnInit {
               const chatId = docRef.id;
               console.log('Neuer Chat erstellt. Chat-ID:', chatId);
               this.updateUsers(this.DM.members, chatId);
-            })
-            .catch((error) => {
-              console.error('Fehler beim Erstellen des DM:', error);
-            });
+              this.openChat(chatId)      
+            this.closeDialog()    
+            }) 
         }
       })
-      .catch((error) => {
-        console.error('Fehler beim Abfragen des Chats:', error);
-      });
-  }
+        }
   
 
 
@@ -113,6 +110,16 @@ export class ProfileViewComponent implements OnInit {
             DMID: docID
           })
       });
+    }
+
+    openChat(id){
+      this.firestore
+        .collection('users')
+        .doc(this.dataService.id)
+        .update({
+          viewChat: true,
+          currentDM: id
+        })
     }
 
 }
