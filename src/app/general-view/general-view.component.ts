@@ -51,10 +51,9 @@ export class GeneralViewComponent implements OnInit {
     // document.getElementById("menuSidebarLeft").style.visibility = "hidden";
     this.menuSidebarLeft = document.getElementById("menuSidebarLeft");
 
-    console.log("this.menuSidebarLeft", this.menuSidebarLeft);
 
     this.menuSidebarLeft.style.visibility = "hidden";
-    this.menuSidebarLeft.classList.toggle("sidebar__left__reduce__width2");
+    this.menuSidebarLeft.classList.toggle("sidebar__left__reduce__width");
 
   }
 }
