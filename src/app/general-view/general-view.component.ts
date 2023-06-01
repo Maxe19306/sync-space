@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -10,6 +10,10 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./general-view.component.scss']
 })
 export class GeneralViewComponent implements OnInit {
+  @ViewChild('sidebarLeftPlaceholder') sidebarLeftPlaceholder: ElementRef;
+
+  menuSidebarLeft
+
   thread = false;
   currentUser
   constructor(
@@ -40,7 +44,18 @@ export class GeneralViewComponent implements OnInit {
   }
 
   toggleSlideOutClass() {
-    document.getElementById("menuSidebarLeft").classList.toggle("slide__out__left");
+    
+    // this.sidebarLeftPlaceholder.nativeElement.style.display = "flex";
+    
+    // this.sidebarLeftPlaceholder.nativeElement.classList.toggle("sidebar__left__reduce__width");
+    // document.getElementById("menuSidebarLeft").style.visibility = "hidden";
+    this.menuSidebarLeft = document.getElementById("menuSidebarLeft");
+
+    console.log("this.menuSidebarLeft", this.menuSidebarLeft);
+
+    this.menuSidebarLeft.style.visibility = "hidden";
+    this.menuSidebarLeft.classList.toggle("sidebar__left__reduce__width2");
+
   }
 }
 

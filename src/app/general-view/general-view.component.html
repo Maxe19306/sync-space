@@ -8,34 +8,9 @@
 
     <main>
         <app-menu-sidebar-left id="menuSidebarLeft"></app-menu-sidebar-left>
+        <div style="display:none" class="sidebar__left__placeholder" #sidebarLeftPlaceholder></div>        
         <app-main-chat *ngIf="!this.currentUser.viewChat"></app-main-chat>
         <app-main-direct-message *ngIf="this.currentUser.viewChat"></app-main-direct-message>
         <app-secondary-chat *ngIf="this.currentUser.openThread"></app-secondary-chat>
     </main>
-
-
-
-
-
-
-
-
-
-    <!-- <nav>
-        <app-home-workspaces></app-home-workspaces>
-        <app-menu-sidebar-left id="menuSidebarLeft"></app-menu-sidebar-left>
-    </nav>
-
-    <main>
-        <app-search-bar></app-search-bar>
-        
-        <app-main-direct-message></app-main-direct-message>
-        
-            <app-main-chat></app-main-chat>
-    </main>
-
-    <aside>
-        <app-profile-menu [userID]="this.dataService.id"></app-profile-menu>
-        <app-secondary-chat *ngIf="this.currentUser.openThread"></app-secondary-chat>
-    </aside> -->
 </div>
