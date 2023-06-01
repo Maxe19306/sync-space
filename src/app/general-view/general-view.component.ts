@@ -44,19 +44,14 @@ export class GeneralViewComponent implements OnInit {
   }
 
   toggleSlideOutClass() {
-    
-    // this.sidebarLeftPlaceholder.nativeElement.style.display = "flex";
-    
-    // this.sidebarLeftPlaceholder.nativeElement.classList.toggle("sidebar__left__reduce__width");
-    // document.getElementById("menuSidebarLeft").style.visibility = "hidden";
     this.menuSidebarLeft = document.getElementById("menuSidebarLeft");
-
-
-    this.menuSidebarLeft.style.visibility = "hidden";
+    if (this.menuSidebarLeft.classList.contains("sidebar__left__reduce__width")) {
+      setTimeout(() => {
+        this.menuSidebarLeft.style.visibility = "visible";
+      }, 100);
+    } else {
+      this.menuSidebarLeft.style.visibility = "hidden";
+    }
     this.menuSidebarLeft.classList.toggle("sidebar__left__reduce__width");
-
   }
 }
-
-
-

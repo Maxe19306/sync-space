@@ -37,7 +37,9 @@
             display: flex;
             flex-direction: column;
             overflow-y: auto;
-            transition: all 300ms ease-in-out;
+            transition: padding 100ms ease-in-out;
+            transition: margin-right 100ms ease-in-out;
+            transition: width 100ms ease-in-out;
         }
 
         .sidebar__left__reduce__width {
