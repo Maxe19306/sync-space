@@ -26,6 +26,10 @@ export class GeneralViewComponent implements OnInit {
       this.toggleSlideSidebarLeft();
     });
 
+    this.sharedService.slideSecondaryChat$.subscribe(() => {
+      this.slideSecondaryChat();
+    });
+
   }
 
   ngOnInit(): void {
@@ -55,13 +59,11 @@ export class GeneralViewComponent implements OnInit {
     this.menuSidebarLeft.classList.toggle("sidebar__left__reduce__width");
   }
 
-  toggleSlideSecondaryChat() {
+  slideSecondaryChat() {
     this.secondaryChat = document.getElementById("secondaryChat");
-    console.log("secondaryChat", this.secondaryChat);
 
     this.secondaryChat.style.visibility = "hidden";
     this.secondaryChat.style.width = 0 + "px";
     this.secondaryChat.style.padding = 0 + "px";
-    // this.secondaryChat.classList.add("secondary__chat__reduce__width");
   }
 }

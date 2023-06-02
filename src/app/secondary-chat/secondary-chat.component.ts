@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-secondary-chat',
@@ -12,7 +13,8 @@ export class SecondaryChatComponent implements OnInit {
   currentThread
   ChannelFromThread
   constructor(public dataService: DataService,
-    private firestore: AngularFirestore) { }
+    private firestore: AngularFirestore,
+    private sharedService: SharedService) { }
 
   ngOnInit(): void {
         this.loadCurrentUser()
@@ -55,6 +57,7 @@ export class SecondaryChatComponent implements OnInit {
 
 
   closeThread(){
+    this.sharedService.slideSecondaryChat();
     this.firestore
     .collection('users')
     .doc(this.dataService.id)

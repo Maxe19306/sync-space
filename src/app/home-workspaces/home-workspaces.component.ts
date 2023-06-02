@@ -24,7 +24,6 @@ export class HomeWorkspacesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log("logoDefault", this.logoDefault);
   }
 
   highlightDefaultLogo() {
