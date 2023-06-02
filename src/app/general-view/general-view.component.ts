@@ -60,6 +60,8 @@ export class GeneralViewComponent implements OnInit {
     console.log("secondaryChat", this.secondaryChat);
 
     this.secondaryChat.style.visibility = "hidden";
-    this.secondaryChat.classList.add("secondary__chat__reduce__width");
+    this.secondaryChat.style.width = 0 + "px";
+    this.secondaryChat.style.padding = 0 + "px";
+    // this.secondaryChat.classList.add("secondary__chat__reduce__width");
   }
 }
