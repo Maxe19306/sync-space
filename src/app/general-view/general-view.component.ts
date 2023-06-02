@@ -10,9 +10,9 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./general-view.component.scss']
 })
 export class GeneralViewComponent implements OnInit {
-  @ViewChild('sidebarLeftPlaceholder') sidebarLeftPlaceholder: ElementRef;
 
-  menuSidebarLeft
+  menuSidebarLeft;
+  secondaryChat;
 
   thread = false;
   currentUser
@@ -23,7 +23,7 @@ export class GeneralViewComponent implements OnInit {
     private sharedService: SharedService) {
 
     this.sharedService.toggleMenuSidebarLeft$.subscribe(() => {
-      this.toggleSlideOutClass();
+      this.toggleSlideSidebarLeft();
     });
 
   }
@@ -43,7 +43,7 @@ export class GeneralViewComponent implements OnInit {
       })
   }
 
-  toggleSlideOutClass() {
+  toggleSlideSidebarLeft() {
     this.menuSidebarLeft = document.getElementById("menuSidebarLeft");
     if (this.menuSidebarLeft.classList.contains("sidebar__left__reduce__width")) {
       setTimeout(() => {
@@ -53,5 +53,13 @@ export class GeneralViewComponent implements OnInit {
       this.menuSidebarLeft.style.visibility = "hidden";
     }
     this.menuSidebarLeft.classList.toggle("sidebar__left__reduce__width");
+  }
+
+  toggleSlideSecondaryChat() {
+    this.secondaryChat = document.getElementById("secondaryChat");
+    console.log("secondaryChat", this.secondaryChat);
+
+    this.secondaryChat.style.visibility = "hidden";
+    this.secondaryChat.classList.add("secondary__chat__reduce__width");
   }
 }
