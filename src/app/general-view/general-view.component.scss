@@ -38,12 +38,13 @@
         app-menu-sidebar-left {
             margin-right: $general__margin;
             width: 306px;
+            height: calc(100vh - 25px - 70px - 25px - 25px - 25px - 30px);
             background-color: $background-color-boxes-light-mode;
             padding: 30px;
             border-radius: 30px;
             display: flex;
             flex-direction: column;
-            overflow-y: auto;
+            overflow-y: hidden;
             transition: padding 100ms ease-in-out;
             transition: margin-right 100ms ease-in-out;
             transition: width 100ms ease-in-out;

@@ -10,6 +10,10 @@
     }
 }
 
-app-channels-menu {
-    margin-bottom: 25px;
+.sidebar__body {
+    overflow-y: auto;
+    
+    app-channels-menu {
+        margin-bottom: 25px;
+    }
 }
