@@ -17,52 +17,52 @@ export class SecondaryChatComponent implements OnInit {
     private sharedService: SharedService) { }
 
   ngOnInit(): void {
-        this.loadCurrentUser()
+    this.loadCurrentUser()
 
-        
+
   }
 
-  loadCurrentUser(){
+  loadCurrentUser() {
     this.firestore
-    .collection('users')
-    .doc(this.dataService.id)
-    .valueChanges({idField: 'customId'})
-    .subscribe((user ) =>{
-      this.currentUser = user
+      .collection('users')
+      .doc(this.dataService.id)
+      .valueChanges({ idField: 'customId' })
+      .subscribe((user) => {
+        this.currentUser = user
 
-      this.loadChannelFromThread()
-      this.loadThread()
-    })
+        this.loadChannelFromThread()
+        this.loadThread()
+      })
   }
 
-  loadChannelFromThread(){
+  loadChannelFromThread() {
     this.firestore
-    .collection('channels')
-    .doc(this.currentUser.ChannelFromThread)
-    .valueChanges({idField: 'ChannelID'})
-    .subscribe((channel) =>
-    {this.ChannelFromThread = channel})
+      .collection('channels')
+      .doc(this.currentUser.ChannelFromThread)
+      .valueChanges({ idField: 'ChannelID' })
+      .subscribe((channel) => { this.ChannelFromThread = channel })
   }
 
-  loadThread(){
+  loadThread() {
     this.firestore
-    .collection('channels')
-    .doc(this.currentUser.ChannelFromThread)
-    .collection('messages')
-    .doc(this.currentUser.ThreadID)
-    .valueChanges({idField: 'ThreadID'})
-    .subscribe((thread) =>
-    {this.currentThread = thread})
+      .collection('channels')
+      .doc(this.currentUser.ChannelFromThread)
+      .collection('messages')
+      .doc(this.currentUser.ThreadID)
+      .valueChanges({ idField: 'ThreadID' })
+      .subscribe((thread) => { this.currentThread = thread })
   }
 
 
-  closeThread(){
+  closeThread() {
     this.sharedService.slideSecondaryChat();
-    this.firestore
-    .collection('users')
-    .doc(this.dataService.id)
-    .update({
-      openThread: false,
-    })
+    setTimeout(() => {
+      this.firestore
+        .collection('users')
+        .doc(this.dataService.id)
+        .update({
+          openThread: false,
+        })
+    }, 100);
   }
 }
