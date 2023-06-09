@@ -3,6 +3,8 @@ import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { getStorage, ref,  } from "firebase/storage";
+
 
 @Component({
   selector: 'app-main-direct-message-body',
@@ -12,7 +14,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class MainDirectMessageBodyComponent implements OnInit {
 
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
-
+  storage = getStorage();
+  pathReference = ref(this.storage, 'images/stars.jpg')
   Date = '';
   currentUser;
   currentChannelMessage;

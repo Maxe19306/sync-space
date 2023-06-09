@@ -15,6 +15,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SecondaryChatComponent } from './secondary-chat/secondary-chat.component';
 import { HomeWorkspacesComponent } from './home-workspaces/home-workspaces.component';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
@@ -78,6 +79,7 @@ import { MainDirectMessageFooterComponent } from './main-direct-message-footer/m
     MatCheckboxModule,
     MatMenuModule,
     MatDialogModule,
+    AngularFireStorageModule,
     AngularFireDatabaseModule,
     FormsModule,
     MatButtonModule,
@@ -90,9 +92,10 @@ import { MainDirectMessageFooterComponent } from './main-direct-message-footer/m
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }
