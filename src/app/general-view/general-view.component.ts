@@ -59,11 +59,18 @@ export class GeneralViewComponent implements OnInit {
     this.menuSidebarLeft.classList.toggle("sidebar__left__reduce__width");
   }
 
+  openSecondaryChat() {
+    this.secondaryChat = document.getElementById("secondaryChat");
+    this.secondaryChat.style.visibility = "visible";
+    this.secondaryChat.style.width = 485 + "px";
+    this.secondaryChat.style.marginLeft = 25 + "px";
+  }
+
   slideSecondaryChat() {
     this.secondaryChat = document.getElementById("secondaryChat");
-
     this.secondaryChat.style.visibility = "hidden";
     this.secondaryChat.style.width = 0 + "px";
     this.secondaryChat.style.padding = 0 + "px";
+    this.secondaryChat.style.marginLeft = 0 + "px";
   }
 }
