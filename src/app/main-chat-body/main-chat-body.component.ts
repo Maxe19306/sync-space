@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { timestamp } from 'rxjs';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-main-chat-body',
@@ -12,6 +13,8 @@ import { timestamp } from 'rxjs';
 })
 
 export class MainChatBodyComponent implements OnInit {
+
+  openSecondaryChat;
 
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
 
@@ -22,8 +25,9 @@ export class MainChatBodyComponent implements OnInit {
   constructor(
     public Dialog: MatDialog,
     public dataService: DataService,
-    private firestore: AngularFirestore
-    ) { }
+    private firestore: AngularFirestore,
+    private sharedService: SharedService
+    ) {  }
 
   ngOnInit(): void {
     this.loadCurrentUser()
@@ -92,8 +96,8 @@ export class MainChatBodyComponent implements OnInit {
   }
 
 
-  openThread(Messageid, Channelid) {
-    this.firestore
+  async openThread(Messageid, Channelid) {
+    await this.firestore
       .collection('users')
       .doc(this.dataService.id)
       .update({
@@ -101,6 +105,7 @@ export class MainChatBodyComponent implements OnInit {
         ChannelFromThread: Channelid,
         ThreadID: Messageid,
       })
+    await this.sharedService.openSecondaryChat();
   }
 
   lastDateDisplayed(timestamp) {

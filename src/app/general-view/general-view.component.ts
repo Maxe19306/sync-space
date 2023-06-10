@@ -26,6 +26,10 @@ export class GeneralViewComponent implements OnInit {
       this.toggleSlideSidebarLeft();
     });
 
+    this.sharedService.openSecondaryChat$.subscribe(() => {
+      this.openSecondaryChat();
+    });
+
     this.sharedService.slideSecondaryChat$.subscribe(() => {
       this.slideSecondaryChat();
     });
