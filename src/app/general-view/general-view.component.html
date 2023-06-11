@@ -10,6 +10,6 @@
         <app-menu-sidebar-left id="menuSidebarLeft"></app-menu-sidebar-left>
         <app-main-chat *ngIf="!this.currentUser.viewChat"></app-main-chat>
         <app-main-direct-message *ngIf="this.currentUser.viewChat"></app-main-direct-message>
-        <app-secondary-chat style="visibility: hidden;" id="secondaryChat" *ngIf="this.currentUser.openThread"></app-secondary-chat>
+        <app-secondary-chat style="display:none;visibility:hidden;" id="secondaryChat" *ngIf="this.currentUser.openThread"></app-secondary-chat>
     </main>
 </div>
