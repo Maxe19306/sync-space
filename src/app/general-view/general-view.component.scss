@@ -27,6 +27,8 @@
         }
 
         app-profile-menu {
+            display: flex;
+            justify-content: end;
             width: 485px;
             margin-left: $general__margin;
         }
