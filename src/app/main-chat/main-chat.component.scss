@@ -5,7 +5,7 @@
     flex-direction: column;
     background-color: $background-color-boxes-light-mode;
     border-radius: 30px;
-    overflow: auto;
+    // overflow: auto;
     height: calc(100vh - 140px); // QnD fix
 
     .main__chat__header {
@@ -22,6 +22,7 @@
             border-radius: 100px;
             margin-right: 22.5px;
             cursor: pointer;
+            min-width: 0px;
 
             &:hover {
                 background-color: $background-color-light-mode;
@@ -29,13 +30,17 @@
                 transition: all 200ms ease-in;
             }
 
-            span {
+            div {
                 font-weight: 700;
             }
 
             .channel__title {
                 line-height: $chat-title-line-height;
                 margin-left: $chat-header-gap;
+                min-width: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
 
