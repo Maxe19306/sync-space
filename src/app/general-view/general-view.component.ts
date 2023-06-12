@@ -67,8 +67,10 @@ export class GeneralViewComponent implements OnInit {
     this.secondaryChat = document.getElementById("secondaryChat");
     this.secondaryChat.style.display = "block";
     this.secondaryChat.style.visibility = "visible";
-    this.secondaryChat.style.width = 485 + "px";
-    this.secondaryChat.style.marginLeft = 25 + "px";
+    setTimeout(() => {
+      this.secondaryChat.style.width = 485 + "px";
+      this.secondaryChat.style.marginLeft = 25 + "px";
+    }, 1);
   }
 
   slideSecondaryChat() {
