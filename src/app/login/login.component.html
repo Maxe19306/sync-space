@@ -1,37 +1,38 @@
 <div class="login-main-container">
-    <div class="login-menü">
-        <div class="left-login-menü">
-            <img src="favicon.ico" alt="">
-            <p> SyncSpace </p>
-        </div>
-        <div class="right-login-menü">
+    <div class="login-menu">
+        <img src="assets/img/logos/logo-default-no-arrow.webp" alt="">
+        <div class="right-login-menu">
             <p>Neu bei SyncSpace?</p>
             <a [routerLink]="'signin'">Konto erstellen</a>
         </div>
     </div>
+
+
+    <div class="login-main">
+        <div class="login-container">
+            <h2>Anmeldung</h2>
+            <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
     
-
-    <div class="login-container">
-        <h2>Anmeldung</h2>
-        <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
-
-        <form action="">
-
-            <input class="input login" type="email" placeholder="beispielname@email.com" #mail required>
-            <input class="input password" type="password" placeholder="Passwort" #password required>
-
-        </form>
-        <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
-        <div class="other-stroke">
-            <p>oder</p>
-
-        </div>
-        <div class="google-button">
-            <button (click)="loginWithGoogle()"> <img src="/assets/img/password/Google.png" alt=""> Anmelden mit Google</button>
-        </div>
-        <div class="button-container">
-            <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
-            <button (click)="login('gast@gast.de', 'Gast123!')" class="guest-button" mat-flat-button>Gäste-Login</button>
+            <form action="">
+    
+                <input class="input login" type="email" placeholder="beispielname@email.com" #mail required>
+                <input class="input password" type="password" placeholder="Passwort" #password required>
+    
+            </form>
+            <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
+            <div class="other-stroke">
+                <p>oder</p>
+    
+            </div>
+            <div class="google-button">
+                <button (click)="loginWithGoogle()"> <img src="/assets/img/password/Google.png" alt=""> Anmelden mit
+                    Google</button>
+            </div>
+            <div class="button-container">
+                <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
+                <button (click)="login('gast@gast.de', 'Gast123!')" class="guest-button"
+                    mat-flat-button>Gäste-Login</button>
+            </div>
         </div>
     </div>
 </div>

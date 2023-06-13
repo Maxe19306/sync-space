@@ -1,4 +1,99 @@
 .login-main-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .login-menu {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 38.5px;
+
+        img {
+            width: 289px;
+            height: 70px;
+        }
+
+        .right-login-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            p {
+                font-size: 20px;
+                // text-align: center;
+            }
+
+            a {
+                color: #797EF3;
+                cursor: pointer;
+                font-size: 18px;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .login-main {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 25px;
+
+        .login-container {
+            top: 0;
+            right: 0;
+            left: 0;
+            // transform: translate(-50%, -50%);
+            width: 521px;
+            height: 661px;
+            background-color: white;
+            padding: 43px;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h2 {
+                color: #444DF2;
+                font-size: 46px;
+                font-weight: 700px;
+                font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
+            }
+
+            p {
+                font-size: 20px;
+                text-align: center;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                // width: 100%;
+                // align-items: center;
+
+                .input {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    background-color: #ECEEFE;
+                    border: none;
+                    font-size: 18px;
+                    height: 50px;
+                    border-radius: 20px;
+                    background-size: 15px;
+                    background-repeat: no-repeat;
+                    background-position: left;
+                    background-position-x: 25px;
+                }
+            }
+        }
+    }
+}
+
+
+
+/*
+.login-main-container {
     padding-left: 30px;
     padding-right: 30px;
     height: 100vh;
@@ -148,3 +243,5 @@ form {
 .password {
     background-image: url('/assets/img/password/lock.png');
 }
+
+*/
