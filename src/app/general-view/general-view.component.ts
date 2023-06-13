@@ -66,11 +66,13 @@ export class GeneralViewComponent implements OnInit {
   async openSecondaryChat() {
     this.secondaryChat = document.getElementById("secondaryChat");
     this.secondaryChat.style.display = "block";
-    this.secondaryChat.style.visibility = "visible";
     setTimeout(() => {
       this.secondaryChat.style.width = 485 + "px";
       this.secondaryChat.style.marginLeft = 25 + "px";
     }, 1);
+    setTimeout(() => {
+      this.secondaryChat.style.visibility = "visible";
+    }, 99);
   }
 
   slideSecondaryChat() {
