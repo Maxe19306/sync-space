@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Message } from '../models/message.class';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-main-direct-message-footer',
@@ -18,7 +19,8 @@ export class MainDirectMessageFooterComponent implements OnInit {
   sendBtnSecondary;
 
   constructor(public dataService: DataService,
-    private firestore: AngularFirestore) { }
+    private firestore: AngularFirestore,
+    private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
 
@@ -99,4 +101,28 @@ export class MainDirectMessageFooterComponent implements OnInit {
     this.chatFormSecondary.classList.remove("form__active");
   }
 
+  uploadImage(event: any) {
+    const file = event.target.files[0];
+    const filePath =  file.name;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    // Verarbeite den Upload-Task hier...
+    task.snapshotChanges().subscribe(() => {
+      fileRef.getDownloadURL().subscribe(downloadURL => {
+        // Hier ist die herunterladbare URL des hochgeladenen Bildes
+        console.log('Download-URL:', downloadURL);
+
+        // Füge das Bild dem <div class="plus">-Element hinzu
+        const imageUploadContainer = document.getElementById('imageUploadContainer');
+        if (imageUploadContainer) {
+          const imageElement = document.createElement('img');
+          imageElement.src = downloadURL;
+          imageUploadContainer.appendChild(imageElement);
+        }
+      });
+    });
+  }
 }
+
+
