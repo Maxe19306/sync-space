@@ -1,15 +1,15 @@
-<div class="login-main-container">
-    <div class="login-menu">
+<div class="login__screen">
+    <header>
         <img src="assets/img/logos/logo-default-no-arrow.webp" alt="">
-        <div class="right-login-menu">
+        <div class="login__menu">
             <p>Neu bei SyncSpace?</p>
             <a [routerLink]="'signin'">Konto erstellen</a>
         </div>
-    </div>
+    </header>
 
 
-    <div class="login-main">
-        <div class="login-container">
+    <main>
+        <div class="login__container">
             <h2>Anmeldung</h2>
             <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
     
@@ -20,19 +20,19 @@
     
             </form>
             <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
-            <div class="other-stroke">
+            <div class="other__stroke">
                 <p>oder</p>
     
             </div>
-            <div class="google-button">
+            <div class="google__button">
                 <button (click)="loginWithGoogle()"> <img src="/assets/img/password/Google.png" alt=""> Anmelden mit
                     Google</button>
             </div>
-            <div class="button-container">
+            <div class="button__container">
                 <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
-                <button (click)="login('gast@gast.de', 'Gast123!')" class="guest-button"
+                <button (click)="login('gast@gast.de', 'Gast123!')" class="guest__button"
                     mat-flat-button>Gäste-Login</button>
             </div>
         </div>
-    </div>
+    </main>
 </div>
