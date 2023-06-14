@@ -12,17 +12,28 @@
         <div class="login__container">
             <h2>Anmeldung</h2>
             <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
-    
+
             <form action="">
-    
-                <input class="input login" type="email" placeholder="beispielname@email.com" #mail required>
-                <input class="input password" type="password" placeholder="Passwort" #password required>
-    
+
+                <div class="input__container">
+                    <span class="material-symbols-rounded">
+                        mail
+                    </span>
+                    <input class="login" type="email" placeholder="beispielname@email.com" #mail required>
+                </div>
+
+                <div class="input__container">
+                    <span class="material-symbols-rounded">
+                        lock
+                    </span>
+                    <input class="password" type="password" placeholder="Passwort" #password required>
+                </div>
+
             </form>
             <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
             <div class="other__stroke">
                 <p>oder</p>
-    
+
             </div>
             <div class="google__button">
                 <button (click)="loginWithGoogle()"> <img src="/assets/img/password/Google.png" alt=""> Anmelden mit
