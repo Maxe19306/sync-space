@@ -32,13 +32,11 @@
             </form>
             <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
             <div class="divider">
-                <p>oder</p>
+                <span>ODER</span>
                 <hr>
             </div>
-            <div class="google__button">
-                <button (click)="loginWithGoogle()"> <img src="/assets/img/password/Google.png" alt=""> Anmelden mit
-                    Google</button>
-            </div>
+            <button class="google__button" (click)="loginWithGoogle()"> <img src="/assets/img/password/Google.png" alt=""> Anmelden mit
+                Google</button>
             <div class="button__container">
                 <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
                 <button (click)="login('gast@gast.de', 'Gast123!')" class="guest__button"
