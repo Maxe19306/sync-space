@@ -90,10 +90,14 @@
                         border: none;
                         font-size: 18px;
                         height: 52px;
-                        border-radius: 20px;
+                        border-radius: 30px;
                         padding-left: 74px;
                         padding-right: 74px;
                         color: #686868;
+                    }
+
+                    .password {
+                        margin-top: 34px;
                     }
 
                     input:-webkit-autofill,
@@ -102,6 +106,22 @@
                     select:-webkit-autofill:focus {
                         color: #686868 !important;
                     }
+                }
+            }
+
+            a {
+                text-decoration: none;
+                margin-top: 29px;
+                font-size: 18px;
+                font-weight: 400;
+                padding: 5px 10px;
+                border-radius: 20px;
+                transition: scale 100ms ease-in;
+
+                &:hover {
+                    scale: 1.01;
+                    background-color: #ECEEFE;
+                    color: #444DF2;
                 }
             }
         }
