@@ -94,18 +94,15 @@
                         padding-left: 74px;
                         padding-right: 74px;
                         color: #686868;
-                    }
 
-                    .password {
-                        margin-top: 34px;
+                        &:-webkit-autofill {
+                            -webkit-text-fill-color: #686868 !important;
+                        }
                     }
+                }
 
-                    input:-webkit-autofill,
-                    input:-webkit-autofill:hover,
-                    input:-webkit-autofill:focus,
-                    select:-webkit-autofill:focus {
-                        color: #686868 !important;
-                    }
+                .second__input__container {
+                    margin-top: 34px;
                 }
             }
 
