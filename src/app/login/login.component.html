@@ -35,14 +35,14 @@
                 <span>ODER</span>
                 <hr>
             </div>
-            <button class="google__button" (click)="loginWithGoogle()">
+            <button class="google__btn" (click)="loginWithGoogle()">
                 <div class="google__logo"><img src="/assets/img/password/Google.png" alt=""></div>
                 <div class="google__text">Anmelden mit Google</div>
                 <div></div>
             </button>
-            <div class="button__container">
-                <button (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
-                <button (click)="login('gast@gast.de', 'Gast123!')" class="guest__button"
+            <div class="btn__container">
+                <button class="btn__login" (click)="login(mail.value ,password.value)" mat-flat-button color="primary">Anmelden</button>
+                <button class="btn__guest" (click)="login('gast@gast.de', 'Gast123!')"
                     mat-flat-button>Gäste-Login</button>
             </div>
         </div>

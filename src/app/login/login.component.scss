@@ -145,7 +145,7 @@
                 }
             }
 
-            .google__button {
+            .google__btn {
                 margin-top: 34px;
                 width: 100%;
                 background-color: #ECEEFE;
@@ -181,6 +181,14 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                }
+            }
+
+            .btn__container {
+                margin-top: 47px;
+
+                button {
+                    border-radius: 25px;
                 }
             }
         }
