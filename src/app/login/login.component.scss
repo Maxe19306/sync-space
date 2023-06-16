@@ -96,6 +96,7 @@
                         color: #686868;
 
                         &:-webkit-autofill {
+                            -webkit-box-shadow: 0 0 0 30px #ECEEFE inset !important;
                             -webkit-text-fill-color: #686868 !important;
                         }
                     }
@@ -155,6 +156,32 @@
                 padding-left: 74px;
                 padding-right: 74px;
                 color: #686868;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+
+                .google__logo {
+                    position: relative;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        position: absolute;
+                        width: 27px;
+                        height: 27px;
+                        right: 20px;
+                        margin-left: -20px;
+                    }
+                }
+
+                .google__text {
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
     }
