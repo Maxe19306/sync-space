@@ -7,7 +7,10 @@
             <div class="plus">
                 <div class="hover-area noSelect">
                     <div class="transform-circle"></div>
-                    <span class="material-symbols-rounded single-icon"> <input type="file" (change)="uploadImage($event)">  add</span>
+                    <span class="material-symbols-rounded single-icon add-icon" (click)="openImageUploader()">
+                        <input #fileInput type="file" style="display: none" (change)="uploadImage($event)">
+                        add
+                      </span>
                 </div>
             </div>
             <div class="hover-area noSelect reaction__icons">
