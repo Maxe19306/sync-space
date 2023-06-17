@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Message } from '../models/message.class';
@@ -10,7 +10,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
   styleUrls: ['./main-direct-message-footer.component.scss']
 })
 export class MainDirectMessageFooterComponent implements OnInit {
-
+  @ViewChild('fileInput') fileInput: any;
   currentUser
   message: Message = new Message({})
 
@@ -100,6 +100,11 @@ export class MainDirectMessageFooterComponent implements OnInit {
     this.sendBtnSecondary.classList.add("send__img__disabled");
     this.chatFormSecondary.classList.remove("form__active");
   }
+
+  openImageUploader() {
+    this.fileInput.nativeElement.click();
+  }
+
 
   uploadImage(event: any) {
     const file = event.target.files[0];
