@@ -34,9 +34,11 @@
             <div class="user__text__header">
                 <span (click)="openDialogProfil(this.message.creator.id)" class="user__name">{{message.creator.Name}}</span>
                 <span class="message__timestamp">{{ formatDate(message.timestamp) }}</span>
+
             </div>
             <div class="user__text__body">
                 <span>{{message.text}}</span>
+                <img [src]="imageURL">
             </div>
         </div>
 

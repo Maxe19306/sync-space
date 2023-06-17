@@ -3,7 +3,7 @@ import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { getStorage, ref,  } from "firebase/storage";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 
 @Component({
@@ -17,6 +17,7 @@ export class MainDirectMessageBodyComponent implements OnInit {
   storage = getStorage();
   pathReference = ref(this.storage, 'images/stars.jpg')
   Date = '';
+  imageURL;
   currentUser;
   currentChannelMessage;
 
@@ -28,8 +29,14 @@ export class MainDirectMessageBodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCurrentUser()
+    this.loadImage()
   }
-
+loadImage(){
+  getDownloadURL(ref(this.storage, 'check.webp'))
+  .then((url) => {
+    this.imageURL = url
+  })
+}
 
   ngAfterViewInit() {
     this.messageElements.changes.subscribe(() => {

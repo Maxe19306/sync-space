@@ -53,7 +53,6 @@ export class DmMenuComponent implements OnInit {
 
     if(member1.id === member2.id){
       this.personalDm = element
-      console.log(this.personalDm)
     }
 
 
