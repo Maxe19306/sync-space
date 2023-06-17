@@ -38,7 +38,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        padding-top: 25px;
+        align-items: center;
 
         .login__container {
             width: 521px;
@@ -54,7 +54,7 @@
             h2 {
                 color: #444DF2;
                 font-size: 46px;
-                font-weight: 700px;
+                font-weight: 700;
                 font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
             }
 
@@ -170,7 +170,6 @@
                     }
                 }
 
-
                 .google__logo {
                     position: relative;
                     height: 100%;
@@ -232,6 +231,36 @@
                     &:hover {
                         background-color: #444DF2;
                         color: white;
+                    }
+                }
+
+                .skew-shake-x {
+                    animation: skew-x-shake 1.3s infinite;
+                }
+
+                @keyframes skew-x-shake {
+                    0% {
+                        transform: skewX(-15deg);
+                    }
+
+                    5% {
+                        transform: skewX(15deg);
+                    }
+
+                    10% {
+                        transform: skewX(-15deg);
+                    }
+
+                    15% {
+                        transform: skewX(15deg);
+                    }
+
+                    20% {
+                        transform: skewX(0deg);
+                    }
+
+                    100% {
+                        transform: skewX(0deg);
                     }
                 }
             }
