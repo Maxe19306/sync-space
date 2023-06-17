@@ -38,7 +38,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        padding-top: 25px;
+        align-items: center;
 
         .login__container {
             width: 521px;
@@ -169,7 +169,6 @@
                         scale: 1.01;
                     }
                 }
-
 
                 .google__logo {
                     position: relative;
