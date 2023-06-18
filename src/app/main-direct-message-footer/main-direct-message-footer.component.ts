@@ -72,8 +72,8 @@ export class MainDirectMessageFooterComponent implements OnInit {
   sendDM() {
     if(this.isUploadEnabled){
         this.uploadImage()
-    }
-    this.message.image = this.ImageToBeUpload.target.files[0].name
+        this.message.image = this.ImageToBeUpload.target.files[0].name
+    }  
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
     this.firestore

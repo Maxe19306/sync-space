@@ -8,7 +8,7 @@ export class Message {
         this.text = obj ? obj.text : '';
         this.creator = obj && obj.creator ? obj.creator : [];
         this.timestamp = obj ? obj.founder : [];
-        this.image= obj ? obj.text : '';
+        this.image= obj ? obj.image : '';
     }
 
     public toJSON() {
