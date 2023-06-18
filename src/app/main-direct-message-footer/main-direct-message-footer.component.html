@@ -7,8 +7,8 @@
             <div class="plus">
                 <div class="hover-area noSelect">
                     <div class="transform-circle"></div>
-                    <span class="material-symbols-rounded single-icon add-icon" (click)="openImageUploader()">
-                        <input #fileInput type="file" style="display: none" (change)="uploadImage($event)">
+                    <span class="material-symbols-rounded single-icon add-icon" (click)="openImageUploader(); this.isUploadEnabled = true;">
+                        <input #fileInput type="file" style="display: none" (change)="test($event)">
                         
                         add
                       </span>

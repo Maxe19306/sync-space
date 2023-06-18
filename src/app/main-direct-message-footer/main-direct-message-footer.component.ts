@@ -13,11 +13,11 @@ export class MainDirectMessageFooterComponent implements OnInit {
   @ViewChild('fileInput') fileInput: any;
   currentUser
   message: Message = new Message({})
-
+  isUploadEnabled = false;
   chatFormSecondary;
   chatTextareaSecondary;
   sendBtnSecondary;
-
+  ImageToBeUpload;
   constructor(public dataService: DataService,
     private firestore: AngularFirestore,
     private storage: AngularFireStorage) { }
@@ -70,6 +70,10 @@ export class MainDirectMessageFooterComponent implements OnInit {
   }
 
   sendDM() {
+    if(this.isUploadEnabled){
+        this.uploadImage()
+    }
+    this.message.image = this.ImageToBeUpload.target.files[0].name
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
     this.firestore
@@ -101,13 +105,20 @@ export class MainDirectMessageFooterComponent implements OnInit {
     this.chatFormSecondary.classList.remove("form__active");
   }
 
+  test(event){
+    this.ImageToBeUpload = event;
+    console.log(this.ImageToBeUpload.target.files[0])
+ }
+
+
+  // öffnet die bilder zum hochladen
   openImageUploader() {
     this.fileInput.nativeElement.click();
   }
 
 
-  uploadImage(event: any) {
-    const file = event.target.files[0];
+  uploadImage() {
+    const file = this.ImageToBeUpload.target.files[0];
     const filePath =  file.name;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
@@ -117,15 +128,7 @@ export class MainDirectMessageFooterComponent implements OnInit {
       fileRef.getDownloadURL().subscribe(downloadURL => {
         // Hier ist die herunterladbare URL des hochgeladenen Bildes
         console.log('Download-URL:', downloadURL);
-
-        // Füge das Bild dem <div class="plus">-Element hinzu
-        const imageUploadContainer = document.getElementById('imageUploadContainer');
-        if (imageUploadContainer) {
-          const imageElement = document.createElement('img');
-          imageElement.src = downloadURL;
-          imageUploadContainer.appendChild(imageElement);
-        }
-      });
+});
     });
   }
 }
