@@ -105,10 +105,9 @@ export class MainDirectMessageFooterComponent implements OnInit {
     this.chatFormSecondary.classList.remove("form__active");
   }
 
-  test(event){
+  readyUploadImage(event){
     this.ImageToBeUpload = event;
-    console.log(this.ImageToBeUpload.target.files[0])
- }
+    }
 
 
   // öffnet die bilder zum hochladen
