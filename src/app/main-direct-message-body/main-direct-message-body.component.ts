@@ -17,7 +17,6 @@ export class MainDirectMessageBodyComponent implements OnInit {
   storage = getStorage();
   pathReference = ref(this.storage, 'images/stars.jpg')
   Date = '';
-  imageURL;
   currentUser;
   currentChannelMessage;
 
@@ -29,12 +28,16 @@ export class MainDirectMessageBodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCurrentUser()
-    this.loadImage()
+    
   }
-loadImage(){
-  getDownloadURL(ref(this.storage, 'check.webp'))
+  test(message){
+    console.log(message)
+  }
+  
+loadImage(image, message){
+  getDownloadURL(ref(this.storage, image))
   .then((url) => {
-    this.imageURL = url
+    message.imageUrl = url
   })
 }
 
@@ -73,6 +76,12 @@ loadImage(){
         this.currentChannelMessage = channel;
         this.sortsMessages()
         this.updateLastDate()
+       for (const message of this.currentChannelMessage) {
+        if (message.image) {
+          this.loadImage(message.image, message);
+        }
+        
+       }
     
       })
   }
@@ -116,7 +125,6 @@ loadImage(){
     }
     
   }
-
 
   updateLastDate() {
    
