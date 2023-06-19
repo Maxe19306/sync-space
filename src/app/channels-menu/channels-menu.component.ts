@@ -13,7 +13,7 @@ import { DataService } from '../data.service';
 export class ChannelsMenuComponent implements OnInit {
   viewChannels = true;
   allChannels = []
-  currentUser
+  CurrentUser
   constructor(
     private dataService: DataService,
     public firestore: AngularFirestore,
@@ -21,17 +21,36 @@ export class ChannelsMenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loadCurrentUser()
     this.loadAllChannel()
+  }
+
+  loadCurrentUser(){
+    this.firestore
+    .collection('users')
+    .doc(this.dataService.id)
+    .valueChanges({idField: 'id'})
+    .subscribe((user) => {
+      this.CurrentUser = user
+
+    });
   }
 
   loadAllChannel() {
     this.firestore
       .collection('channels')
       .valueChanges({ idField: 'channelIdName' })
-      .subscribe((channels) => {
-        this.allChannels = channels;
-
-      })
+      .subscribe((channels: any[]) => {
+        channels.forEach((channel) => {
+           channel.members.forEach((member) =>
+           {if(this.CurrentUser.id === member.id){
+            const channelIndex =  this.allChannels.findIndex((existingChannel) => existingChannel.channelIdName === channel.channelIdName);
+            if (channelIndex === -1) {
+            this.allChannels.push(channel)}
+           }        
+          }) 
+        })
+   })
   }
 
 
@@ -48,7 +67,7 @@ export class ChannelsMenuComponent implements OnInit {
     this.Dialog.open(CreateChannelComponent)
   }
 
-  test(channelID) {
+  openChannel(channelID) {
 
     this.firestore
       .collection('users')
