@@ -53,7 +53,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     loadAllUsers(){
       this.firestore
    .collection('users')
-   .valueChanges({idField: 'customIdName'})
+   .valueChanges({idField: 'id'})
    .subscribe((user:any) => {
     this.allUsers = user
    })

@@ -66,14 +66,14 @@ export class ChannelViewComponent implements OnInit {
   }
 
   leaveChannel(){
-   
-   
-   var currentUserIndex = this.CurrentChannel.members.findIndex(member => {
-    return member.customIdName === this.CurrentUser.id;
-  });
-
-
-
+      const currentUserIndex = this.CurrentChannel.members.findIndex(member => member.id === this.CurrentUser.id)
+      this.CurrentChannel.members.splice(currentUserIndex, 1);
+      this.firestore
+      .collection('channels')
+      .doc(this.data.ChannelId)
+      .update({
+        members: this.CurrentChannel.members
+      })
   }
 
   loadCurrentUser(){
