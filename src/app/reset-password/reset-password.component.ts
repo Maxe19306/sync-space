@@ -10,6 +10,12 @@ import { getAuth, sendPasswordResetEmail} from "firebase/auth";
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
+  validEmail: boolean = false;
+
+  validateEmail(email: string) {
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    this.validEmail = emailRegex.test(email);
+  }
 
   constructor(private afAuth: AngularFireAuth) { }
 
