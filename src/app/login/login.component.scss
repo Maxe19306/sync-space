@@ -75,12 +75,11 @@
                     display: flex;
                     align-items: center;
                     position: relative;
-                    color: #686868;
-
 
                     .material-symbols-rounded {
                         position: absolute;
                         left: 30px;
+                        color: #686868;
                     }
 
                     input {
@@ -94,6 +93,16 @@
                         padding-left: 74px;
                         padding-right: 74px;
                         color: #686868;
+
+                        &:hover {
+                            outline: 1px solid black;
+                            backface-visibility: hidden;
+                        }
+
+                        &:focus {
+                            outline: 1px solid #444DF2;
+                            backface-visibility: hidden;
+                        }
 
                         &:-webkit-autofill {
                             -webkit-box-shadow: 0 0 0 30px #ECEEFE inset !important;
