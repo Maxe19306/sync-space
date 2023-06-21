@@ -1,0 +1,10 @@
+.container-add-Member {
+  width: 500px;
+  height: 500px;
+}
+
+.button {
+  width: 90%;
+  display: flex;
+  justify-content: end;
+}/*# sourceMappingURL=add-member-after-add-channel.component.css.map */

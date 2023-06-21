@@ -1,0 +1,65 @@
+.general__view__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ECEEFE;
+}
+.general__view__container header {
+  display: flex;
+  margin-bottom: 25px;
+}
+.general__view__container header app-home-workspaces {
+  padding: 0 38.5px;
+  margin-right: 25px;
+}
+.general__view__container header app-search-bar {
+  flex: 1;
+  height: 70px;
+  background-color: #FFFFFF;
+  border-radius: 42px;
+  padding-left: 45px;
+  padding-right: 45px;
+}
+.general__view__container header app-profile-menu {
+  display: flex;
+  justify-content: end;
+  width: 485px;
+  margin-left: 25px;
+}
+.general__view__container main {
+  display: flex;
+}
+.general__view__container main app-menu-sidebar-left {
+  margin-right: 25px;
+  width: 306px;
+  height: calc(100vh - 25px - 70px - 25px - 25px - 25px - 30px);
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  transition: padding 100ms ease-in-out;
+  transition: margin-right 100ms ease-in-out;
+  transition: width 100ms ease-in-out;
+}
+.general__view__container main .sidebar__left__reduce__width {
+  padding: 0;
+  margin-right: 0;
+  width: 0;
+}
+.general__view__container main app-main-chat {
+  flex: 1;
+  min-width: 0px;
+}
+.general__view__container main app-main-direct-message {
+  flex: 1;
+}
+.general__view__container main app-secondary-chat {
+  width: 0px;
+  margin-left: 0px;
+  transition: padding 100ms ease-in-out;
+  transition: width 100ms ease-in-out;
+}/*# sourceMappingURL=general-view.component.css.map */

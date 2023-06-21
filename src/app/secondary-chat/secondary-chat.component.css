@@ -1,0 +1,60 @@
+.secondary__chat__container {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  overflow: auto;
+  width: 485px;
+  height: calc(100vh - 140px);
+}
+.secondary__chat__container .secondary__chat__header {
+  height: 40.063px;
+  display: flex;
+  justify-content: space-between;
+  padding: 28px 45px;
+}
+.secondary__chat__container .secondary__chat__header .secondary__chat__header__left {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 100px;
+}
+.secondary__chat__container .secondary__chat__header .secondary__chat__header__left span {
+  font-weight: 700;
+}
+.secondary__chat__container .secondary__chat__header .secondary__chat__header__left .channel__title {
+  line-height: 120%;
+}
+.secondary__chat__container .secondary__chat__header .secondary__chat__header__left .subtitle {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+.secondary__chat__container .secondary__chat__header .secondary__chat__header__left .subtitle span {
+  font-weight: 400;
+  font-size: 14px;
+  color: #797EF3;
+}
+.secondary__chat__container .secondary__chat__header .secondary__chat__header__left .subtitle .subtitle__name {
+  width: 229px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.secondary__chat__container .secondary__chat__header .secondary__chat__header__right .close__icon {
+  font-size: 24px;
+}
+
+.chat__seperator {
+  margin-top: -6px;
+  height: 3px;
+  box-shadow: 0px 2px 2px -0.5px rgba(0, 0, 0, 0.2);
+}
+
+app-secondary-chat-body {
+  padding: 35px 35px 0 35px;
+  flex: 2;
+  overflow: auto;
+}/*# sourceMappingURL=secondary-chat.component.css.map */

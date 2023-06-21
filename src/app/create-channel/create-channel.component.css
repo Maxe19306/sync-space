@@ -1,0 +1,66 @@
+.container-create-channel {
+  height: 450px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.title-create-channel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.title-create-channel h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+.title-create-channel span {
+  cursor: pointer;
+}
+
+.button {
+  width: 90%;
+  display: flex;
+  justify-content: end;
+}
+
+.description-create-channel {
+  font-size: 18px;
+}
+
+.name-channel {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.optional {
+  color: #686868;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ADB0D9;
+  width: 70%;
+  font-size: 18px;
+  height: 50px;
+  border-radius: 20px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-x: 25px;
+  padding-left: 50px;
+}
+input:focus {
+  border-color: blue !important;
+}
+input:hover {
+  border-color: blue;
+}
+
+.background {
+  background-image: url("/assets/img/createChannel/tag.png");
+}/*# sourceMappingURL=create-channel.component.css.map */

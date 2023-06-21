@@ -1,0 +1,15 @@
+.menu__sidebar__left__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+}
+.menu__sidebar__left__header div {
+  margin-bottom: 5px;
+}
+
+.sidebar__body {
+  overflow-y: auto;
+}
+.sidebar__body app-channels-menu {
+  margin-bottom: 25px;
+}/*# sourceMappingURL=menu-sidebar-left.component.css.map */
