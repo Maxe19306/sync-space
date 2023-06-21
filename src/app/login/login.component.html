@@ -12,16 +12,17 @@
             <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
 
             <form action="">
+                <input type="text" class="material-icons" value="email">
 
                 <div class="input__container">
-                    <span class="material-symbols-rounded noSelect">
+                    <span class="material-symbols-rounded noSelect" (click)="focusMailInput()">
                         mail
                     </span>
                     <input class="login" type="email" placeholder="beispielname@email.com" #mail required>
                 </div>
 
                 <div class="input__container second__input__container">
-                    <span class="material-symbols-rounded">
+                    <span class="material-symbols-rounded noSelect" (click)="focusPasswordInput()">
                         lock
                     </span>
                     <input class="password" type="password" placeholder="Passwort" #password required>

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup} from "firebase/auth";
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Router, NavigationExtras  } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { User } from '../models/user.class';
 import { take, map } from 'rxjs/operators';
 import { currentUser } from '../models/currentUser.class';
@@ -12,6 +12,10 @@ import { currentUser } from '../models/currentUser.class';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
+  @ViewChild('password', { static: true }) passwordInput: ElementRef<HTMLInputElement>;
+
   user: User = new User({});
   currentUser: currentUser = new currentUser;
   provider = new GoogleAuthProvider();
@@ -25,44 +29,51 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  focusMailInput() {
+    this.mailInput.nativeElement.focus();
+  }
 
-  login(email, password){
-    
+  focusPasswordInput() {
+    this.passwordInput.nativeElement.focus();
+  }
+
+  login(email, password) {
+
     signInWithEmailAndPassword(this.auth, email, password)
-  .then((userCredential) => {
-  this.userID = userCredential.user.uid;
-  this.determineTheCurrentUser()
-  })
-  .catch((error) => {
+      .then((userCredential) => {
+        this.userID = userCredential.user.uid;
+        this.determineTheCurrentUser()
+      })
+      .catch((error) => {
 
-  });
+      });
   }
 
 
   // lädt alle user runter und vergleicht die uid um den eingeloggten User herauszufinden
-  determineTheCurrentUser(){
+  determineTheCurrentUser() {
     this.firestore
-    .collection('users')
-    .valueChanges({idField: 'id'})
-    .subscribe((allUsers:any) => {
-      this.currentUser = allUsers.find((user) => user.uid === this.userID)
-     
-      this.router.navigate(['/generalView'], { queryParams: { userID: this.currentUser.id }});
-    })
-    
+      .collection('users')
+      .valueChanges({ idField: 'id' })
+      .subscribe((allUsers: any) => {
+        this.currentUser = allUsers.find((user) => user.uid === this.userID)
+
+        this.router.navigate(['/generalView'], { queryParams: { userID: this.currentUser.id } });
+      })
+
   }
 
 
   // login mit google. es wird danach ein user in firestore database noch angelegt.
-  loginWithGoogle(){
+  loginWithGoogle() {
     signInWithPopup(this.auth, this.provider)
-    .then((result) => {
+      .then((result) => {
 
-      this.addNewUserToFirebase(result.user.displayName, result.user.email, result.user.uid)
-    })
-    .catch((error) => {
+        this.addNewUserToFirebase(result.user.displayName, result.user.email, result.user.uid)
+      })
+      .catch((error) => {
 
-    });
+      });
 
 
   }
@@ -73,13 +84,13 @@ export class LoginComponent implements OnInit {
         this.userID = userID;
         this.determineTheCurrentUser()
       } else {
-       this.addNewUser(userID, name, email)
+        this.addNewUser(userID, name, email)
       }
     });
   }
 
   // fügt einen neuen user zu firbase hinzu
-  addNewUser(userID, name, email){
+  addNewUser(userID, name, email) {
     this.user.uid = userID;
     this.user.Name = name;
     this.user.mail = email;
@@ -90,16 +101,16 @@ export class LoginComponent implements OnInit {
 
         this.determineTheCurrentUser()
       })
-    }
+  }
 
-checkIfUserExists(uid) {
-  return this.firestore.collection('users', ref => ref.where('uid', '==', uid))
-    .valueChanges({idField: 'customIdName'})
-    .pipe(
-      take(1),
-      map(users => users.length > 0)
-    );
-}
+  checkIfUserExists(uid) {
+    return this.firestore.collection('users', ref => ref.where('uid', '==', uid))
+      .valueChanges({ idField: 'customIdName' })
+      .pipe(
+        take(1),
+        map(users => users.length > 0)
+      );
+  }
 
 
 
