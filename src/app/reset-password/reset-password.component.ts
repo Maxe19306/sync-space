@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth, sendPasswordResetEmail} from "firebase/auth";
 
@@ -10,6 +10,9 @@ import { getAuth, sendPasswordResetEmail} from "firebase/auth";
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
+
+  @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
+
   validEmail: boolean = false;
 
   validateEmail(email: string) {
@@ -22,6 +25,9 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  focusMailResetInput() {
+    this.mailInput.nativeElement.focus();
+  }
 
   resetPassword(email) {
     const actionCodeSettings = {

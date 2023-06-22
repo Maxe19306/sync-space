@@ -12,21 +12,21 @@
             <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
 
             <form action="">
-                <div class="input__container">
-                    <span class="material-symbols-rounded noSelect" (click)="focusMailInput()">
+                <div class="input__container" (click)="focusMailInput()">
+                    <span class="material-symbols-rounded noSelect">
                         mail
                     </span>
                     <input class="login" type="email" placeholder="beispielname@email.com" #mail required>
                 </div>
 
-                <div class="input__container second__input__container">
-                    <span class="material-symbols-rounded noSelect" (click)="focusPasswordInput()">
+                <div class="input__container second__input__container" (click)="focusPasswordInput()">
+                    <span class="material-symbols-rounded noSelect">
                         lock
                     </span>
                     <input class="password" type="password" placeholder="Passwort" #password required>
                 </div>
             </form>
-            
+
             <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
             <div class="divider">
                 <span>ODER</span>
