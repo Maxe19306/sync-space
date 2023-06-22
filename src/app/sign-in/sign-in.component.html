@@ -18,21 +18,21 @@
                     hast du dein neues Sync Space-Konto</p>
 
                 <form autocomplete="off" action="" #userForm="ngForm">
-                    <div class="input__container">
+                    <div class="input__container" (click)="focusSigninNameInput()">
                         <span class="material-symbols-rounded noSelect">
                             person
                         </span>
                         <input autocomplete="off" placeholder="Name und Nachname" [(ngModel)]="user.Name"
                             name="Name" #name required>
                     </div>
-                    <div class="input__container">
+                    <div class="input__container" (click)="focusSigninMailInput()">
                         <span class="material-symbols-rounded noSelect">
                             mail
                         </span>
                         <input autocomplete="off" placeholder="beispielname@email.com" [(ngModel)]="user.mail"
                             name="mail" #mail required>
                     </div>
-                    <div class="input__container">
+                    <div class="input__container" (click)="focusSigninPasswordInput()">
                         <span class="material-symbols-rounded noSelect">
                             lock
                         </span>

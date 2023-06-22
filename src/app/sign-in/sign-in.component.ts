@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { getAuth, createUserWithEmailAndPassword  } from "firebase/auth";
 import { User } from '../models/user.class';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -8,6 +8,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
+
+  @ViewChild('name', { static: true }) nameInput: ElementRef<HTMLInputElement>;
+  @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
+  @ViewChild('password', { static: true }) passwordInput: ElementRef<HTMLInputElement>;
+
   user: User = new User({});
   
   constructor(
@@ -15,6 +20,18 @@ export class SignInComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  focusSigninNameInput() {
+    this.nameInput.nativeElement.focus();
+  }
+
+  focusSigninMailInput() {
+    this.mailInput.nativeElement.focus();
+  }
+
+  focusSigninPasswordInput() {
+    this.passwordInput.nativeElement.focus();
   }
 
   createAccount(password, userForm){
