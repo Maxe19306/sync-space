@@ -1,4 +1,55 @@
-<div class="sign-in-main-container">
+<div class="signin__screen">
+    <header>
+        <img src="assets/img/logos/logo-default-no-arrow.webp" alt="">
+    </header>
+
+    <main>
+        <div class="signin__screen__container">
+            <div class="side__left">
+                <div [routerLink]="''" class="hover-area noSelect arrowback">
+                    <div class="transform-circle"></div>
+                    <span class="material-symbols-rounded single-icon add-icon">arrow_back</span>
+                </div>
+            </div>
+
+            <div class="container__main">
+                <h2>Konto erstellen</h2>
+                <p>Mit deinem Namen und deiner E-Mail-Adresse<br>
+                    hast du dein neues Sync Space-Konto</p>
+
+                <form autocomplete="off" action="" #userForm="ngForm">
+                    <div class="input__container">
+                        <span class="material-symbols-rounded noSelect">
+                            person
+                        </span>
+                        <input autocomplete="off" type="text" placeholder="Name und Nachname" [(ngModel)]="user.Name"
+                            name="Name" #name required>
+                    </div>
+                    <div class="input__container">
+                        <span class="material-symbols-rounded noSelect">
+                            mail
+                        </span>
+                        <input autocomplete="off" type="email" placeholder="beispielname@email.com" [(ngModel)]="user.mail"
+                            name="mail" #mail required>
+                    </div>
+                    <div class="input__container">
+                        <span class="material-symbols-rounded noSelect">
+                            lock
+                        </span>
+                        <input autocomplete="off" type="password" placeholder="Passwort" #password required>
+                    </div>
+                </form>
+                <div class="container__footer">
+                    <button class="btn__sendmail">Weiter</button>
+                </div>
+            </div>
+            <div class="side__right"></div>
+        </div>
+    </main>
+</div>
+
+
+<!-- <div class="sign-in-main-container">
     <div class="image">
         <img src="favicon.ico" alt="">
         <p>Sync Space</p>
@@ -25,4 +76,4 @@
             <button (click)="createAccount(password, userForm)" mat-flat-button color="primary">Weiter</button>
         </div>
     </div>
-</div>
+</div> -->
