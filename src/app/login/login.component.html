@@ -12,8 +12,6 @@
             <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
 
             <form action="">
-                <input type="text" class="material-icons" value="email">
-
                 <div class="input__container">
                     <span class="material-symbols-rounded noSelect" (click)="focusMailInput()">
                         mail
@@ -27,8 +25,8 @@
                     </span>
                     <input class="password" type="password" placeholder="Passwort" #password required>
                 </div>
-
             </form>
+            
             <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
             <div class="divider">
                 <span>ODER</span>
