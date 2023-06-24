@@ -57,22 +57,30 @@ export class SignInComponent implements OnInit {
   }
 
   validateName(name: string): boolean {
-    let nameParts = name.trim().split(' ');
-    console.log("nameParts", nameParts);
 
-    if (nameParts.length !== 2) {
-      console.log('Name should consist of first name and last name');
-      return false;
-    }
-
-    for (let part of nameParts) {
-      if (part.length < 2) {
+      if (name.trim().length < 2) {
         console.log('Each part of name should contain at least two characters');
         return false;
       }
-    }
+
 
     return true;
+    // let nameParts = name.trim().split(' ');
+    // console.log("nameParts", nameParts);
+
+    // if (nameParts.length !== 2) {
+    //   console.log('Name should consist of first name and last name');
+    //   return false;
+    // }
+
+    // for (let part of nameParts) {
+    //   if (part.length < 2) {
+    //     console.log('Each part of name should contain at least two characters');
+    //     return false;
+    //   }
+    // }
+
+    // return true;
   }
 
   validateMail(mail: string): boolean {
