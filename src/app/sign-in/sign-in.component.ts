@@ -58,10 +58,10 @@ export class SignInComponent implements OnInit {
 
   validateName(name: string): boolean {
 
-      if (name.trim().length < 2) {
-        console.log('The name must consist of at least two letters');
-        return false;
-      }
+    if (name.trim().length < 2) {
+      console.log('Der Name muss aus mindestens zwei Buchstaben bestehen');
+      return false;
+    }
 
 
     return true;
@@ -87,24 +87,24 @@ export class SignInComponent implements OnInit {
     let mailParts = mail.split('@');
 
     if (mailParts.length !== 2) {
-      console.log('The email address must contain an @');
+      console.log('Die E-Mail Adresse muss ein @ enthalten');
       return false;
     }
 
     if (mailParts[0].length < 2) {
-      console.log('The email address must contain at least two characters before the @');
+      console.log('Die E-Mail Adresse muss mindestens zwei Zeichen vor dem @ enthalten');
       return false;
     }
 
     let domainParts = mailParts[1].split('.');
 
     if (domainParts.length < 2) {
-      console.log('Form validation: The email address must contain a dot after the @');
+      console.log('Die E-Mail Adresse muss einen Punkt nach dem @ enthalten');
       return false;
     }
 
     if (domainParts[0].length < 2 || domainParts[1].length < 2) {
-      console.log('The email address must contain at least two characters after the @ AND the dot');
+      console.log('Die E-Mail Adresse muss mindestens zwei Zeichen nach dem @ UND dem Punkt enthalten');
       return false;
     }
 
@@ -113,22 +113,22 @@ export class SignInComponent implements OnInit {
 
   validatePassword(password: string): boolean {
     if (password.length < 8) {
-      console.log('The password must contain at least 8 characters');
+      console.log('Das Passwort muss mindestens 8 Zeichen enthalten');
       return false;
     }
 
     if (!/[A-Z]/.test(password)) {
-      console.log('The password must contain at least one uppercase letter');
+      console.log('Das Passwort muss mindestens einen Großbuchstaben enthalten');
       return false;
     }
 
     if (!/[a-z]/.test(password)) {
-      console.log('The password must contain at least one lowercase letter');
+      console.log('Das Passwort muss mindestens einen Kleinbuchstaben enthalten');
       return false;
     }
 
     if (!/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(password)) {
-      console.log('The password must contain at least one special character');
+      console.log('Das Passwort muss mindestens ein Sonderzeichen ( ! # $ % & ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ { | } ~ ) enthalten');
       return false;
     }
 
