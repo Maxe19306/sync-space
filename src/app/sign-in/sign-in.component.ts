@@ -59,7 +59,7 @@ export class SignInComponent implements OnInit {
   validateName(name: string): boolean {
 
       if (name.trim().length < 2) {
-        console.log('Each part of name should contain at least two characters');
+        console.log('The name must consist of at least two letters');
         return false;
       }
 
@@ -87,24 +87,24 @@ export class SignInComponent implements OnInit {
     let mailParts = mail.split('@');
 
     if (mailParts.length !== 2) {
-      console.log('Mail should contain @ character');
+      console.log('The email address must contain an @');
       return false;
     }
 
     if (mailParts[0].length < 2) {
-      console.log('Mail should contain at least two characters before @');
+      console.log('The email address must contain at least two characters before the @');
       return false;
     }
 
     let domainParts = mailParts[1].split('.');
 
     if (domainParts.length < 2) {
-      console.log('Mail should contain . after @');
+      console.log('Form validation: The email address must contain a dot after the @');
       return false;
     }
 
     if (domainParts[0].length < 2 || domainParts[1].length < 2) {
-      console.log('Mail should contain at least two characters after @ and .');
+      console.log('The email address must contain at least two characters after the @ AND the dot');
       return false;
     }
 
@@ -113,22 +113,22 @@ export class SignInComponent implements OnInit {
 
   validatePassword(password: string): boolean {
     if (password.length < 8) {
-      console.log('Password should contain at least 8 characters');
+      console.log('The password must contain at least 8 characters');
       return false;
     }
 
     if (!/[A-Z]/.test(password)) {
-      console.log('Password should contain at least one uppercase letter');
+      console.log('The password must contain at least one uppercase letter');
       return false;
     }
 
     if (!/[a-z]/.test(password)) {
-      console.log('Password should contain at least one lowercase letter');
+      console.log('The password must contain at least one lowercase letter');
       return false;
     }
 
     if (!/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/.test(password)) {
-      console.log('Password should contain at least one special character');
+      console.log('The password must contain at least one special character');
       return false;
     }
 
