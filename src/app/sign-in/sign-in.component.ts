@@ -21,6 +21,12 @@ export class SignInComponent implements OnInit {
     password: ''
   };
 
+  errorMessage = {
+    name: '',
+    mail: '',
+    password: ''
+  };
+
   @ViewChild('userForm') userForm: NgForm;
 
   user: User = new User({});
@@ -57,14 +63,16 @@ export class SignInComponent implements OnInit {
   }
 
   validateName(name: string): boolean {
+      if (name.trim().length < 2) {
+        this.errorMessage.name = 'Der Name muss aus mindestens zwei Buchstaben bestehen';
+        console.log('Der Name muss aus mindestens zwei Buchstaben bestehen');
+        return false;
+      } else {
+        this.errorMessage.name = '';
+        return true;
+      }
 
-    if (name.trim().length < 2) {
-      console.log('Der Name muss aus mindestens zwei Buchstaben bestehen');
-      return false;
-    }
-
-
-    return true;
+    // return true;
     // let nameParts = name.trim().split(' ');
     // console.log("nameParts", nameParts);
 

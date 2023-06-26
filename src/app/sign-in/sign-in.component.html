@@ -22,21 +22,23 @@
                         <span class="material-symbols-rounded noSelect">
                             person
                         </span>
-                        <input autocomplete="off" placeholder="Name und Nachname" [(ngModel)]="user.Name" [(ngModel)]="userValidate.name" name="Name"
-                            #name required>
+                        <input autocomplete="off" placeholder="Name und Nachname" [(ngModel)]="user.Name"
+                            [(ngModel)]="userValidate.name" name="Name" #name required>
+                        <div *ngIf="errorMessage.name" class="error-message">{{ errorMessage.name }}</div>
                     </div>
                     <div class="input__container" (click)="focusSigninMailInput()">
                         <span class="material-symbols-rounded noSelect">
                             mail
                         </span>
-                        <input autocomplete="off" placeholder="beispielname@email.com" [(ngModel)]="user.mail" [(ngModel)]="userValidate.mail"
-                            name="mail" #mail required>
+                        <input autocomplete="off" placeholder="beispielname@email.com" [(ngModel)]="user.mail"
+                            [(ngModel)]="userValidate.mail" name="mail" #mail required>
                     </div>
                     <div class="input__container" (click)="focusSigninPasswordInput()">
                         <span class="material-symbols-rounded noSelect">
                             lock
                         </span>
-                        <input autocomplete="off" placeholder="Passwort" [(ngModel)]="userValidate.password" name="password" #password required>
+                        <input autocomplete="off" placeholder="Passwort" [(ngModel)]="userValidate.password"
+                            name="password" #password required>
                     </div>
                 </form>
                 <div class="container__footer">
