@@ -67,7 +67,7 @@
                     width: 100%;
                     display: flex;
                     flex-direction: column;
-
+    
                     .input__container {
                         width: 100%;
                         display: flex;
@@ -75,13 +75,13 @@
                         position: relative;
                         margin-top: 28px;
                         cursor: text;
-
+    
                         .material-symbols-rounded {
                             position: absolute;
                             left: 30px;
                             color: #686868;
                         }
-
+    
                         input {
                             font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
                             width: 100%;
@@ -93,18 +93,18 @@
                             padding-left: 74px;
                             padding-right: 74px;
                             color: #686868;
-
+    
                             &:focus {
                                 outline: 1px solid #444DF2 !important;
                                 backface-visibility: hidden;
                             }
-
+    
                             &:-webkit-autofill {
                                 -webkit-box-shadow: 0 0 0 30px #ECEEFE inset !important;
                                 -webkit-text-fill-color: #686868 !important;
                             }
                         }
-
+    
                         &:hover {
                             input {
                                 outline: 1px solid black;
@@ -112,7 +112,7 @@
                             }
                         }
                     }
-
+    
                     .second__input__container {
                         margin-top: 34px;
                     }
@@ -140,11 +140,6 @@
                         color: white;
                         border: none;
                         cursor: not-allowed;
-                    }
-
-                    .btn__sendmail__valid {
-                        background-color: blue;
-                        cursor: pointer;
                     }
 
                     .blue__button {
