@@ -17,17 +17,24 @@ export class SignInComponent implements OnInit {
 
   validSigninName: boolean = false;
   validSigninEmail: boolean = false;
+  validSigninForm: boolean = false;
 
   user: User = new User({});
 
   validateSigninName(name: string) {
     const emailRegex = /^[A-Za-z0-9_]{1,16}$/;
     this.validSigninName = emailRegex.test(name);
+    this.validateSigninForm();
   }
 
   validateSigninEmail(email: string) {
     const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     this.validSigninEmail = emailRegex.test(email);
+    this.validateSigninForm();
+  }
+
+  validateSigninForm() {
+    this.validSigninForm = this.validSigninName && this.validSigninEmail;
   }
 
   constructor( public firestore: AngularFirestore ) { }
