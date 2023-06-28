@@ -29,7 +29,7 @@
                         <span class="material-symbols-rounded noSelect">
                             mail
                         </span>
-                        <input autocomplete="off" placeholder="beispielname@email.com" [(ngModel)]="user.mail"
+                        <input (input)="validateSigninEmail(mail.value)" autocomplete="off" placeholder="beispielname@email.com" [(ngModel)]="user.mail"
                             name="mail" #mail required>
                     </div>
                     <div class="input__container" (click)="focusSigninPasswordInput()">
@@ -40,7 +40,7 @@
                     </div>
                 </form>
                 <div class="container__footer">
-                    <button class="btn__sendmail">Weiter</button>
+                    <button [disabled]="!validSigninEmail" (click)="createAccount(password, userForm)" class="btn__sendmail" [ngClass]="{ 'blue__button': validSigninEmail }">Weiter</button>
                 </div>
             </div>
             <div class="side__right"></div>

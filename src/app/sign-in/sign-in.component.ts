@@ -15,7 +15,14 @@ export class SignInComponent implements OnInit {
   @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
   @ViewChild('password', { static: true }) passwordInput: ElementRef<HTMLInputElement>;
 
+  validSigninEmail: boolean = false;
+
   user: User = new User({});
+
+  validateSigninEmail(email: string) {
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    this.validSigninEmail = emailRegex.test(email);
+  }
 
   constructor( public firestore: AngularFirestore ) { }
 
