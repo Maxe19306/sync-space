@@ -17,6 +17,7 @@ export class SignInComponent implements OnInit {
 
   validSigninName: boolean = false;
   validSigninEmail: boolean = false;
+  validSigninPassword: boolean = false;
   validSigninForm: boolean = false;
 
   user: User = new User({});
@@ -33,8 +34,14 @@ export class SignInComponent implements OnInit {
     this.validateSigninForm();
   }
 
+  validateSigninPassword(password: string) {
+    const emailRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z\d@#$%^&+=!]).{8,}$/;
+    this.validSigninPassword = emailRegex.test(password);
+    this.validateSigninForm();
+  }
+
   validateSigninForm() {
-    this.validSigninForm = this.validSigninName && this.validSigninEmail;
+    this.validSigninForm = this.validSigninName && this.validSigninEmail && this.validSigninPassword;
   }
 
   constructor( public firestore: AngularFirestore ) { }

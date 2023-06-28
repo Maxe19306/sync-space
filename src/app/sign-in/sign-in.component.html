@@ -36,7 +36,7 @@
                         <span class="material-symbols-rounded noSelect">
                             lock
                         </span>
-                        <input autocomplete="off" placeholder="Passwort" #password required>
+                        <input (input)="validateSigninPassword(password.value)" name="password" autocomplete="off" placeholder="Passwort" #password required>
                     </div>
                 </form>
                 <div class="container__footer">
