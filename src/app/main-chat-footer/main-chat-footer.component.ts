@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Message } from '../models/message.class';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -13,7 +13,7 @@ export class MainChatFooterComponent implements OnInit {
 
   currentUser
   message: Message = new Message({})
-
+ @Input() channelName;
   chatForm;
   chatTextarea;
   sendBtn;

@@ -1,6 +1,6 @@
 <form action="" id="chatForm">
 
-    <textarea [(ngModel)]="this.message.text" id="chatTextarea" name="message" placeholder="Nachricht an #Threadname" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+    <textarea [(ngModel)]="this.message.text" id="chatTextarea" name="message" [placeholder]="'Nachricht an #' + channelName" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
 
     <div class="btn__area" (click)="focusTextarea()">
         <div class="btn__area__left">
