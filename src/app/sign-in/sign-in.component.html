@@ -22,8 +22,8 @@
                         <span class="material-symbols-rounded noSelect">
                             person
                         </span>
-                        <input autocomplete="off" placeholder="Name und Nachname" [(ngModel)]="user.Name"
-                            name="Name" #name required>
+                        <input (input)="validateSigninName(name.value)" autocomplete="off" placeholder="Name" [(ngModel)]="user.Name"
+                            name="name" #name required>
                     </div>
                     <div class="input__container" (click)="focusSigninMailInput()">
                         <span class="material-symbols-rounded noSelect">
@@ -40,7 +40,7 @@
                     </div>
                 </form>
                 <div class="container__footer">
-                    <button [disabled]="!validSigninEmail" (click)="createAccount(password, userForm)" class="btn__sendmail" [ngClass]="{ 'blue__button': validSigninEmail }">Weiter</button>
+                    <button [disabled]="!validSigninName" (click)="createAccount(password, userForm)" class="btn__sendmail" [ngClass]="{ 'blue__button': validSigninName }">Weiter</button>
                 </div>
             </div>
             <div class="side__right"></div>

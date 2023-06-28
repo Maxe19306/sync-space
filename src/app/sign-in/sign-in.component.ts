@@ -15,9 +15,15 @@ export class SignInComponent implements OnInit {
   @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
   @ViewChild('password', { static: true }) passwordInput: ElementRef<HTMLInputElement>;
 
+  validSigninName: boolean = false;
   validSigninEmail: boolean = false;
 
   user: User = new User({});
+
+  validateSigninName(name: string) {
+    const emailRegex = /^[A-Za-z0-9_]{1,16}$/;
+    this.validSigninName = emailRegex.test(name);
+  }
 
   validateSigninEmail(email: string) {
     const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
