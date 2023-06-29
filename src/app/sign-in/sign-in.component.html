@@ -38,6 +38,7 @@
                         </span>
                         <input (input)="validateSigninPassword(password.value)" name="password" autocomplete="off" placeholder="Passwort" #password required>
                     </div>
+                    <div class="password__details">Das Passwort muss aus mindestens 8 Zeichen, mindestens 1 Groß-<br> und Kleinbuchstaben, sowie einem Sonderzeichen bestehen.</div>
                 </form>
                 <div class="container__footer">
                     <button [disabled]="!validSigninForm" (click)="createAccount(password, userForm)" class="btn__sendmail" [ngClass]="{ 'blue__button': validSigninForm }">Weiter</button>
