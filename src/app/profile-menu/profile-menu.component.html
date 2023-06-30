@@ -10,3 +10,10 @@
     <button mat-menu-item (click)="openDialogProfil(this.CurrentUser.id)">Profil</button>
     <button [routerLink]="''" mat-menu-item>Log out</button>
 </mat-menu>
+
+<div class="overlay" #overlay (click)="hideOverlay()">
+    <div class="menu__container">
+        <div class="menu__btn" (click)="openDialogProfil(this.CurrentUser.id)">Profil</div>
+        <div class="menu__btn" [routerLink]="''">Log out</div>
+    </div>
+</div>

@@ -3,6 +3,7 @@
     align-items: center;
     cursor: pointer;
     transition: color 0.1s ease-in;
+
     &:hover {
         color: #797ef3;
     }
@@ -38,4 +39,51 @@ button {
     height: 400px !important;
     /* Beispiel für die Höhe */
     background-color: aqua !important;
+}
+
+.overlay {
+    background-color: rgba(0,0,0,.32);
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: end;
+
+    .menu__container {
+        width: calc(485px / 2);
+        height: fit-content;
+        background-color: white;
+        margin-top: 120px;
+        margin-right: 25px;
+        padding: 20px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .menu__btn {
+            width: 90%;
+            text-align: center;
+            font-family: "Nunito", "Helvetica Neue", sans-serif !important;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-radius: 30px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #eceefe;
+            }
+        }
+
+        .menu__btn:last-child {
+            margin-bottom: 0px;
+        }
+    }
 }

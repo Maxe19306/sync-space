@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {MatMenuTrigger} from '@angular/material/menu';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
@@ -13,6 +13,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class ProfileMenuComponent implements OnInit {
 
+  @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
   @Input() userID:any;
   CurrentUser;
@@ -42,5 +43,9 @@ export class ProfileMenuComponent implements OnInit {
       this.Dialog.open(ProfileViewComponent, {
         data: {userID}
       })
+  }
+
+  hideOverlay() {
+    this.overlay.nativeElement.style.display = 'none';
   }
 }
