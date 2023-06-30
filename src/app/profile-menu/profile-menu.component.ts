@@ -45,6 +45,10 @@ export class ProfileMenuComponent implements OnInit {
       })
   }
 
+  displayOverlay() {
+    this.overlay.nativeElement.style.display = 'flex';
+  }
+
   hideOverlay() {
     this.overlay.nativeElement.style.display = 'none';
   }

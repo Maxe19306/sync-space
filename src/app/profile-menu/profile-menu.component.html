@@ -1,15 +1,23 @@
-<div *ngIf="this.CurrentUser" mat-button [matMenuTriggerFor]="menu" #menuTrigger class="container__profile__menu">
+<!-- <div *ngIf="this.CurrentUser" mat-button [matMenuTriggerFor]="menu" #menuTrigger class="container__profile__menu">
+    <span class="proflie__menu__name noSelect hidden__mobile">{{this.CurrentUser.Name}}</span>
+    <img class="noSelect" src="assets/img/users/frederick-beck.webp">
+    <span class="material-symbols-rounded noSelect hidden__mobile">
+        expand_more
+    </span>
+</div> -->
+
+<!-- <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openDialogProfil(this.CurrentUser.id)">Profil</button>
+    <button [routerLink]="''" mat-menu-item>Log out</button>
+</mat-menu> -->
+
+<div *ngIf="this.CurrentUser" class="container__profile__menu" (click)="displayOverlay()">
     <span class="proflie__menu__name noSelect hidden__mobile">{{this.CurrentUser.Name}}</span>
     <img class="noSelect" src="assets/img/users/frederick-beck.webp">
     <span class="material-symbols-rounded noSelect hidden__mobile">
         expand_more
     </span>
 </div>
-
-<mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="openDialogProfil(this.CurrentUser.id)">Profil</button>
-    <button [routerLink]="''" mat-menu-item>Log out</button>
-</mat-menu>
 
 <div class="overlay" #overlay (click)="hideOverlay()">
     <div class="menu__container">
