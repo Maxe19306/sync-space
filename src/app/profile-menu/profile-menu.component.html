@@ -19,7 +19,7 @@
     </span>
 </div>
 
-<div class="overlay" #overlay (click)="hideOverlay()">
+<div style="display:none" class="overlay" #overlay (click)="hideOverlay()">
     <div class="menu__container">
         <div class="menu__btn" (click)="openDialogProfil(this.CurrentUser.id)">Profil</div>
         <div class="menu__btn" [routerLink]="''">Log out</div>

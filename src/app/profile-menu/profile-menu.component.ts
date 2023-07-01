@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, Input, ElementRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {MatMenuTrigger} from '@angular/material/menu';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -15,34 +15,34 @@ export class ProfileMenuComponent implements OnInit {
 
   @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
-  @Input() userID:any;
+  @Input() userID: any;
   CurrentUser;
   constructor(
     public Dialog: MatDialog,
     private firestore: AngularFirestore
-    ) { }
+  ) { }
 
 
   ngOnInit(): void {
-     this.loadCurrentUser()
+    this.loadCurrentUser()
   }
 
-  loadCurrentUser(){
+  loadCurrentUser() {
     this.firestore
-    .collection('users')
-    .doc(this.userID)
-    .valueChanges({idField: 'id'})
-    .subscribe((user) => {
-      this.CurrentUser = user
+      .collection('users')
+      .doc(this.userID)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.CurrentUser = user
 
-    });
+      });
   }
 
 
-  openDialogProfil(userID){
-      this.Dialog.open(ProfileViewComponent, {
-        data: {userID}
-      })
+  openDialogProfil(userID) {
+    this.Dialog.open(ProfileViewComponent, {
+      data: { userID }
+    })
   }
 
   displayOverlay() {

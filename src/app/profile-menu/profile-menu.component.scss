@@ -1,3 +1,5 @@
+@import "../../styles/settings/_variables.scss";
+
 .container__profile__menu {
     display: flex;
     align-items: center;
@@ -42,7 +44,7 @@ button {
 }
 
 .overlay {
-    background-color: rgba(0,0,0,.32);
+    background-color: rgba(0,0,0,0.075);
     z-index: 999;
     position: fixed;
     left: 0;
@@ -60,10 +62,12 @@ button {
         margin-right: 25px;
         padding: 20px;
         border-radius: 30px;
+        border-top-right-radius: 0px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
 
         .menu__btn {
             width: 90%;
@@ -76,9 +80,11 @@ button {
             padding-bottom: 15px;
             border-radius: 30px;
             cursor: pointer;
+            transition: all 100ms ease-in;
 
             &:hover {
                 background-color: #eceefe;
+                color: $text-color-highlight-light-mode;
             }
         }
 
