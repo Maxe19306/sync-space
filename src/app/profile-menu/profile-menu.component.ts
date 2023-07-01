@@ -41,11 +41,11 @@ export class ProfileMenuComponent implements OnInit {
     })
   }
 
-  displayProfileView() {
+  openProfileView() {
     this.overlay.nativeElement.style.display = 'flex';
   }
 
-  hideProfileView() {
+  closeProfileView() {
     this.overlay.nativeElement.style.display = 'none';
   }
 }
