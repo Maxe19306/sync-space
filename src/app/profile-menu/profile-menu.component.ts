@@ -21,7 +21,12 @@ export class ProfileMenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadCurrentUser()
+    this.loadCurrentUser();
+
+
+
+    
+    this.openDialogProfil("INGY9IuFXT4ggLoKy9gK");
   }
 
   loadCurrentUser() {

@@ -1,3 +1,28 @@
+<div *ngIf="this.UserDetail" class="main__profil__container">
+    <div class="start__profil__container">
+        <h2>Profil</h2>
+        <div (click)="closeDialog()" class="hover-area noSelect">
+            <div class="transform-circle"></div>
+            <span class="material-symbols-rounded single-icon">close</span>
+        </div>
+    </div>
+    <img src="/assets/img/secondaryChat/elias-neumann.webp" alt="">
+    <div class="second__profil__container">
+        <div class="name">
+            <h3>{{this.UserDetail.Name}}</h3>
+            <div>Bearbeiten</div>
+        </div>
+        <p class="status">Aktiv</p>
+    </div>
+    <div class="contact">
+        <p> <span class="material-symbols-rounded"> email </span> e-mail-Adresse </p>
+
+        <a>{{this.UserDetail.mail}}</a>
+    </div>
+    <button mat-flat-button color="primary" (click)="createDM()">Nachricht</button>
+</div>
+
+<!-- 
 <div *ngIf="this.UserDetail" class="main-profil-container">
     <div class="start-profil-container">
         <p>Profil</p>
@@ -29,4 +54,4 @@
 
     <button mat-flat-button color="primary" (click)="createDM()">Nachricht</button>
 
-</div>
+</div> -->

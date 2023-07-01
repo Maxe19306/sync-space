@@ -147,6 +147,17 @@ body {
     }
 }
 
-// input:-internal-autofill-selected, .login__screen, main, .login__container, form, .input__container{
-//     color: #686868 !important;
-// }
+#mat-dialog-0 {
+    position: absolute;
+    top: 120px;
+    right: 25px;
+    width: 510px;
+    height: fit-content;
+    border-radius: 30px;
+    border-top-right-radius: 0px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.cdk-overlay-dark-backdrop {
+    background-color: rgba(0, 0, 0, 0.075);
+}
