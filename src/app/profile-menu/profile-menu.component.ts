@@ -4,8 +4,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
-
-
 @Component({
   selector: 'app-profile-menu',
   templateUrl: './profile-menu.component.html',
@@ -22,7 +20,6 @@ export class ProfileMenuComponent implements OnInit {
     private firestore: AngularFirestore
   ) { }
 
-
   ngOnInit(): void {
     this.loadCurrentUser()
   }
@@ -38,18 +35,17 @@ export class ProfileMenuComponent implements OnInit {
       });
   }
 
-
   openDialogProfil(userID) {
     this.Dialog.open(ProfileViewComponent, {
       data: { userID }
     })
   }
 
-  displayOverlay() {
+  displayProfileView() {
     this.overlay.nativeElement.style.display = 'flex';
   }
 
-  hideOverlay() {
+  hideProfileView() {
     this.overlay.nativeElement.style.display = 'none';
   }
 }
