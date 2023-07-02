@@ -12,14 +12,17 @@
             <h3>{{this.UserDetail.Name}}</h3>
             <div>Bearbeiten</div>
         </div>
-        <p class="status">Aktiv</p>
+        <div class="status">
+            <span>&#8226;</span>Aktiv</div>
     </div>
     <div class="contact">
-        <p> <span class="material-symbols-rounded"> email </span> e-mail-Adresse </p>
-
-        <a>{{this.UserDetail.mail}}</a>
+        <span class="material-symbols-rounded">email</span>
+        <div class="mail">
+            <h3>E-Mail-Adresse</h3>
+            <span>{{this.UserDetail.mail}}</span>
+        </div>
     </div>
-    <button mat-flat-button color="primary" (click)="createDM()">Nachricht</button>
+    <!-- <button mat-flat-button color="primary" (click)="createDM()">Nachricht</button> -->
 </div>
 
 <!-- 
