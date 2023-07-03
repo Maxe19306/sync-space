@@ -23,17 +23,23 @@ export class ChannelsMenuComponent implements OnInit {
   ngOnInit(): void {
     this.loadCurrentUser()
     this.loadAllChannel()
+
+
+
+    this.Dialog.open(CreateChannelComponent, {
+      panelClass: 'new__channel__matdialog'
+    })
   }
 
-  loadCurrentUser(){
+  loadCurrentUser() {
     this.firestore
-    .collection('users')
-    .doc(this.dataService.id)
-    .valueChanges({idField: 'id'})
-    .subscribe((user) => {
-      this.CurrentUser = user
+      .collection('users')
+      .doc(this.dataService.id)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.CurrentUser = user
 
-    });
+      });
   }
 
   loadAllChannel() {
@@ -42,15 +48,16 @@ export class ChannelsMenuComponent implements OnInit {
       .valueChanges({ idField: 'channelIdName' })
       .subscribe((channels: any[]) => {
         channels.forEach((channel) => {
-           channel.members.forEach((member) =>
-           {if(this.CurrentUser.id === member.id){
-            const channelIndex =  this.allChannels.findIndex((existingChannel) => existingChannel.channelIdName === channel.channelIdName);
-            if (channelIndex === -1) {
-            this.allChannels.push(channel)}
-           }        
-          }) 
+          channel.members.forEach((member) => {
+            if (this.CurrentUser.id === member.id) {
+              const channelIndex = this.allChannels.findIndex((existingChannel) => existingChannel.channelIdName === channel.channelIdName);
+              if (channelIndex === -1) {
+                this.allChannels.push(channel)
+              }
+            }
+          })
         })
-   })
+      })
   }
 
 
@@ -64,7 +71,9 @@ export class ChannelsMenuComponent implements OnInit {
   }
 
   openCreateNewChannelDialog() {
-    this.Dialog.open(CreateChannelComponent)
+    this.Dialog.open(CreateChannelComponent, {
+      panelClass: 'new__channel__matdialog'
+    })
   }
 
   openChannel(channelID) {
@@ -74,7 +83,7 @@ export class ChannelsMenuComponent implements OnInit {
       .doc(this.dataService.id)
       .update({
         lastChannel: channelID,
-        viewChat : false
+        viewChat: false
       })
 
   }

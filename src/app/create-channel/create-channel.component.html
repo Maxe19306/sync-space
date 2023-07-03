@@ -2,13 +2,14 @@
     <div class="title-create-channel">
         <h2>Channel erstellen</h2>
         <span (click)="closeDialog()" class="material-icons">
-        close
+            close
         </span>
     </div>
 
 
 
-    <p class="description-create-channel">Channels dienen deinen Team zur Kommunikation. Am besten sollten sie themenbezogen sein #marketing zum Beispiel.</p>
+    <p class="description-create-channel">Channels dienen deinen Team zur Kommunikation. Am besten sollten sie
+        themenbezogen sein #marketing zum Beispiel.</p>
 
     <p class="name-channel">Channel-Name</p>
 
@@ -18,6 +19,7 @@
 
     <input type="text" [(ngModel)]="Channel.description" name="description">
     <div class="button">
-        <button mat-flat-button color="primary" [disabled]="!Channel.Name || Channel.Name.length === 0" (click)="createChannel(this.Channel)">Channel erstellen</button>
+        <button mat-flat-button color="primary" [disabled]="!Channel.Name || Channel.Name.length === 0"
+            (click)="createChannel(this.Channel)">Channel erstellen</button>
     </div>
 </div>
