@@ -10,21 +10,18 @@
     <div class="description__create__channel">Channels dienen deinen Team zur Kommunikation. Am besten sollten sie
         themenbezogen sein #marketing zum Beispiel.</div>
 
-    <div class="name__channel">Channel-Name</div>
-
     <form action="">
+        <div class="name__channel">Channel-Name</div>
         <div class="input__container" (click)="focusChannelNameInput()">
             <span class="material-symbols-rounded noSelect">
                 tag
             </span>
-            <input autocomplete="off" placeholder="z.B. Kooperationsprojekte" 
-                name="name" #channelName required>
+            <input autocomplete="off" placeholder="z.B. Kooperationsprojekte" type="text" [(ngModel)]="Channel.Name" name="name" #channelName required>
         </div>
+        <div class="name__channel">Beschreibung <span class="optional">(optional)</span></div>
+        <textarea  type="text" [(ngModel)]="Channel.description" name="description" rows="2"></textarea>
     </form>
 
-    <div class="name__channel">Beschreibung <span class="optional">(optional)</span></div>
-
-    <input type="text" [(ngModel)]="Channel.description" name="description">
     <div class="button">
         <button mat-flat-button color="primary" [disabled]="!Channel.Name || Channel.Name.length === 0"
             (click)="createChannel(this.Channel)">Channel erstellen</button>
