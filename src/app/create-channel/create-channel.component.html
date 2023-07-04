@@ -3,7 +3,7 @@
         <h2>Channel erstellen</h2>
         <div class="hover-area noSelect" (click)="closeDialog()">
             <div class="transform-circle"></div>
-            <span class="material-symbols-rounded">close</span>
+            <span class="material-symbols-rounded single-icon add-icon">close</span>
         </div>
     </div>
 
@@ -22,9 +22,9 @@
         <textarea  type="text" [(ngModel)]="Channel.description" name="description" rows="2"></textarea>
     </form>
 
-    <div class="button">
-        <button mat-flat-button color="primary" [disabled]="!Channel.Name || Channel.Name.length === 0"
-            (click)="createChannel(this.Channel)">Channel erstellen</button>
+    <div class="create__channel__footer">
+        <button [disabled]="!Channel.Name || Channel.Name.length === 0"
+            (click)="createChannel(this.Channel)" [ngClass]="{ 'disabled__button': !Channel.Name || Channel.Name.length === 0 }">Erstellen</button>
     </div>
 </div>
 
