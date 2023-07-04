@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AddMemberAfterAddChannelComponent } from '../add-member-after-add-channel/add-member-after-add-channel.component';
 import { Channel } from '../models/channel.class';
@@ -10,6 +10,9 @@ import { Channel } from '../models/channel.class';
   styleUrls: ['./create-channel.component.scss']
 })
 export class CreateChannelComponent implements OnInit {
+
+  @ViewChild('channelName', { static: true }) channelNameInput: ElementRef<HTMLInputElement>;
+
   Channel: Channel = new Channel({});
   constructor(
 
@@ -18,21 +21,24 @@ export class CreateChannelComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-   
+
   }
 
-  closeDialog(){
+  closeDialog() {
     this.dialogRef.close(CreateChannelComponent)
   }
 
+  focusChannelNameInput() {
+    this.channelNameInput.nativeElement.focus();
+  }
 
-  createChannel(channel){
+  createChannel(channel) {
 
     this.Dialog.open(AddMemberAfterAddChannelComponent, {
       data: channel
     })
 
     this.dialogRef.close(CreateChannelComponent)
-}
+  }
 
 }
