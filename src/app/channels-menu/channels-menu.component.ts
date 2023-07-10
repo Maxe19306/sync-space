@@ -23,12 +23,6 @@ export class ChannelsMenuComponent implements OnInit {
   ngOnInit(): void {
     this.loadCurrentUser()
     this.loadAllChannel()
-
-
-
-    this.Dialog.open(CreateChannelComponent, {
-      panelClass: 'new__channel__matdialog'
-    })
   }
 
   loadCurrentUser() {
