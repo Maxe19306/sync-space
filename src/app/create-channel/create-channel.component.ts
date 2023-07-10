@@ -22,6 +22,28 @@ export class CreateChannelComponent implements OnInit {
 
   ngOnInit(): void {
 
+
+
+
+
+
+
+
+    this.Dialog.open(AddMemberAfterAddChannelComponent, {
+      // data: channel
+      panelClass: 'new__channel__matdialog__adduser'
+    })
+
+
+
+
+
+
+
+
+
+
+
   }
 
   closeDialog() {
@@ -35,7 +57,8 @@ export class CreateChannelComponent implements OnInit {
   createChannel(channel) {
 
     this.Dialog.open(AddMemberAfterAddChannelComponent, {
-      data: channel
+      data: channel,
+      panelClass: 'new__channel__matdialog__adduser'
     })
 
     this.dialogRef.close(CreateChannelComponent)

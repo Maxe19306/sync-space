@@ -1,35 +1,38 @@
-<div class="container-add-Member">
-    <div>
-        <p>Leute hinzufügen</p>
-        <span (click)="closeDialog()" class="material-icons">close</span>
+<div class="container__create__channel">
+    <div class="title__add__people">
+        <h2>Leute hinzufügen</h2>
+        <div class="hover-area noSelect" (click)="closeDialog()">
+            <div class="transform-circle"></div>
+            <span class="material-symbols-rounded single-icon add-icon">close</span>
+        </div>
     </div>
-    <div>
+    <div class="input__section">
 
-        <div class="custom-radio">
-            <input type="radio" id="radioOption1" name="radioGroup" (click)="ChannelWithCertainPeople()">
+        <div class="custom__radio">
+            <input class="radio__btn" type="radio" id="radioOption1" name="radioGroup" (click)="ChannelWithCertainPeople()">
             <label for="radioOption1">alle Leute</label>
         </div>
 
-        <div class="custom-radio">
-            <input type="radio" id="radioOption2" name="radioGroup" (click)="ChannelWithoutCertainPeople()">
+        <div class="custom__radio">
+            <input class="radio__btn" type="radio" id="radioOption2" name="radioGroup" (click)="ChannelWithoutCertainPeople()">
             <label for="radioOption2">ausgwählte Leute</label>
         </div>
 
 
-        <input *ngIf="certainPeople" type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
+        <input class="name__search" *ngIf="certainPeople" type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
     </div>
 
     <div *ngIf="this.filteredUsers">
-        <p>gefilterte user</p>
+        <div>gefilterte user</div>
         <div *ngFor="let user of filteredUsers">
-            <p (click)="PushUserToMember(user)">{{user.Name}}</p>
+            <div (click)="PushUserToMember(user)">{{user.Name}}</div>
         </div>
     </div>
 
     <div *ngIf="this.data.members.length > 0">
-        <p>ausgwählte user</p>
+        <div>ausgwählte user</div>
         <div *ngFor="let members of this.data.members">
-            <p>{{members.Name}}</p>
+            <div>{{members.Name}}</div>
         </div>
     </div>
 

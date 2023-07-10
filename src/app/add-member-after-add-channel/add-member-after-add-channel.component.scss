@@ -1,6 +1,40 @@
-.container-add-Member {
-    width: 500px;
-    height: 500px;
+// .container__create__channel {
+//     width: 782px;
+//     height: 450px;
+// }
+
+.title__add__people {
+    display: flex;
+    justify-content: space-between;
+
+    * {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    h2 {
+        font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
+    }
+
+    .hover-area {
+        &:hover {
+            span {
+                color: #444DF2;
+            }
+        }
+    }
+}
+
+.input__section {
+    font-size: 18px;
+
+    .radio__btn {
+        margin-right: 16px;
+    }
+}
+
+.input__section * {
+    margin-bottom: 8px;
 }
 
 .button {
