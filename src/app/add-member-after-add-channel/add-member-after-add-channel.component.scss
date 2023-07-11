@@ -39,7 +39,7 @@
             width: 16px;
             height: 16px;
         }
-    
+
         .radio__text {
             position: absolute;
             top: -3px;
@@ -55,4 +55,36 @@
     width: 90%;
     display: flex;
     justify-content: end;
+}
+
+.create__channel__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        border-radius: 30px;
+        padding: 12px 25px;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 100ms ease-in;
+        background-color: #444DF2;
+        color: white;
+        border: none;
+        margin-top: 16px;
+
+        &:hover {
+            background-color: #797ef3;
+        }
+    }
+
+    .disabled__button {
+        background-color: gray;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: gray;
+        }
+    }
 }
