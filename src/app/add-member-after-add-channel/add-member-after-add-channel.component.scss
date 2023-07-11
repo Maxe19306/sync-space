@@ -48,7 +48,8 @@
 
     .name__search {
         font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
-        width: 80.5%;
+        // width: 80.5%;
+        width: calc(100% - 150px);
         border: 1px solid #ADB0D9;
         font-size: 18px !important;
         height: 52px;
