@@ -37,13 +37,13 @@
     </div>
 
     <!-- <div class="button">
-        <button [disabled]="!ButtonActiv" (click)="createChannel()" mat-flat-button color="primary">Erstellen</button>
+        <button [disabled]="!buttonActive" (click)="createChannel()" mat-flat-button color="primary">Erstellen</button>
     </div> -->
 
-    <div class="create__channel__footer">
-        <button (click)="createChannel()">Erstellen</button>
-        <!-- <button [disabled]="!ButtonActiv" [ngClass]="{ 'disabled__button': !ButtonActiv }" (click)="createChannel()" mat-flat-button color="primary">Erstellen</button> -->
-        <!-- <button [disabled]="!Channel.Name || Channel.Name.length === 0"
-            (click)="createChannel(this.Channel)" [ngClass]="{ 'disabled__button': !Channel.Name || Channel.Name.length === 0 }">Erstellen</button> -->
+    <div class="add__members__footer">
+        <button [disabled]="!buttonActive" [ngClass]="{ 'disabled__button': !buttonActive }" (click)="createChannel()">Erstellen</button>
     </div>
+    <button (click)="disableBtn()">
+        disable btn
+    </button>
 </div>

@@ -57,7 +57,7 @@
     justify-content: end;
 }
 
-.create__channel__footer {
+.add__members__footer {
     display: flex;
     justify-content: flex-end;
 
@@ -80,7 +80,7 @@
     }
 
     .disabled__button {
-        background-color: gray;
+        background-color: gray !important;
         cursor: not-allowed;
 
         &:hover {

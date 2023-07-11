@@ -10,20 +10,20 @@ import { DataService } from '../data.service';
 })
 export class AddMemberAfterAddChannelComponent implements OnInit {
 
-  
-  
+
+
   constructor(
     public dialogRef: MatDialogRef<AddMemberAfterAddChannelComponent>,
-  @Inject(MAT_DIALOG_DATA) public data:any,
-  private firestore: AngularFirestore,
-  public dataservice: DataService) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private firestore: AngularFirestore,
+    public dataservice: DataService) { }
 
   CurrentUser
 
-  ButtonActiv = false;
+  buttonActive = false;
 
   inputParticipants: string;
-  filteredUsers: any [];
+  filteredUsers: any[];
   certainPeople = false;
   allUsers;
   checked = false;
@@ -35,69 +35,75 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     this.loadCurrentUser()
   }
 
-  closeDialog(){
+  closeDialog() {
     this.dialogRef.close(AddMemberAfterAddChannelComponent)
   }
 
-  loadCurrentUser(){
+  loadCurrentUser() {
     this.firestore
-    .collection('users')
-    .doc(this.dataservice.id)
-    .valueChanges({idField: 'id'})
-    .subscribe((user) => {
-      this.CurrentUser = user
-    });
+      .collection('users')
+      .doc(this.dataservice.id)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.CurrentUser = user
+      });
   }
 
 
-    loadAllUsers(){
-      this.firestore
-   .collection('users')
-   .valueChanges({idField: 'id'})
-   .subscribe((user:any) => {
-    this.allUsers = user
-   })
-    }
+  loadAllUsers() {
+    this.firestore
+      .collection('users')
+      .valueChanges({ idField: 'id' })
+      .subscribe((user: any) => {
+        this.allUsers = user
+      })
+  }
 
 
 
-    createChannel(){
+  createChannel() {
     this.data.founder = this.CurrentUser
-      if(!this.certainPeople){
+    if (!this.certainPeople) {
       this.data.members = this.allUsers;
       this.addChannelToFirebase()
     }
-    else(
-     this.addChannelToFirebase()
+    else (
+      this.addChannelToFirebase()
     )
     this.closeDialog()
- }
+  }
 
- addChannelToFirebase(){
-  this.firestore
+  addChannelToFirebase() {
+    this.firestore
       .collection('channels')
       .add(this.data.toJSON())
- }
+  }
 
- ChannelWithCertainPeople(){
-  this.ButtonActiv = true;
-  this.certainPeople = false;
- }
- ChannelWithoutCertainPeople(){
-  this.ButtonActiv = true;
-this.certainPeople = true;
- }
+  ChannelWithCertainPeople() {
+    this.buttonActive = true;
+    this.certainPeople = false;
+  }
+  ChannelWithoutCertainPeople() {
+    this.buttonActive = true;
+    this.certainPeople = true;
+  }
 
- filterUser() {
-  this.filteredUsers = this.allUsers.filter(user => 
-        user.Name
-       .toLowerCase()
-       .includes(this.inputParticipants.toLowerCase())
-);
-}
+  filterUser() {
+    this.filteredUsers = this.allUsers.filter(user =>
+      user.Name
+        .toLowerCase()
+        .includes(this.inputParticipants.toLowerCase())
+    );
+  }
 
-PushUserToMember(user){
+  PushUserToMember(user) {
     this.data.members.push(user)
-}
-    
+  }
+
+  disableBtn() {
+    console.log("this.buttonActive", this.buttonActive);
+    this.buttonActive = false;
+    console.log("this.buttonActive", this.buttonActive);
+  }
+
 } 
