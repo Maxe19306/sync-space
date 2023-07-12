@@ -29,10 +29,10 @@ export class CreateChannelComponent implements OnInit {
 
 
 
-    this.Dialog.open(AddMemberAfterAddChannelComponent, {
-      // data: channel
-      panelClass: 'new__channel__matdialog__adduser'
-    })
+    // this.Dialog.open(AddMemberAfterAddChannelComponent, {
+    //   // data: channel
+    //   panelClass: 'new__channel__matdialog__adduser'
+    // })
 
 
 
