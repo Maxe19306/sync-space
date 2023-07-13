@@ -174,7 +174,23 @@
         }
 
         .reg__success.is__active {
-            left: calc(100% - 363px);
+            animation-name: slideIn;
+            animation-duration: 1s;
+        }
+
+        @keyframes slideIn {
+            0% {
+                left: 100%;
+                opacity: 1;
+            }
+            20% {
+                left: calc(100% - 363px);
+                opacity: 1;
+            }
+            100% {
+                left: calc(100% - 363px);
+                opacity: 0;
+            }
         }
     }
 }
