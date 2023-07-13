@@ -14,6 +14,7 @@ export class SignInComponent implements OnInit {
   @ViewChild('name', { static: true }) nameInput: ElementRef<HTMLInputElement>;
   @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
   @ViewChild('password', { static: true }) passwordInput: ElementRef<HTMLInputElement>;
+  @ViewChild('regSuccess', { static: false }) regSuccess: ElementRef;
 
   validSigninName: boolean = false;
   validSigninEmail: boolean = false;
@@ -44,7 +45,7 @@ export class SignInComponent implements OnInit {
     this.validSigninForm = this.validSigninName && this.validSigninEmail && this.validSigninPassword;
   }
 
-  constructor( public firestore: AngularFirestore ) { }
+  constructor(public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
   }
@@ -75,5 +76,9 @@ export class SignInComponent implements OnInit {
     this.firestore
       .collection('users')
       .add(this.user.toJSON())
+  }
+
+  regSuccessAnimation() {
+    this.regSuccess.nativeElement.classList.toggle('is__active');
   }
 }
