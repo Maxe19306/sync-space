@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { User } from '../models/user.class';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -45,7 +46,8 @@ export class SignInComponent implements OnInit {
     this.validSigninForm = this.validSigninName && this.validSigninEmail && this.validSigninPassword;
   }
 
-  constructor(public firestore: AngularFirestore) { }
+  constructor(public firestore: AngularFirestore,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -69,6 +71,10 @@ export class SignInComponent implements OnInit {
         this.addNewUserToFirebase(userCredential.user.uid)
       })
     password.value = '';
+    this.regSuccessAnimation();
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 1600);
   }
 
   addNewUserToFirebase(userID) {
