@@ -11,6 +11,7 @@ import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 export class ResetPasswordComponent implements OnInit {
 
   @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
+  @ViewChild('passwordSuccess', { static: false }) passwordSuccess: ElementRef;
 
   validEmail: boolean = false;
 
@@ -40,5 +41,9 @@ export class ResetPasswordComponent implements OnInit {
       .catch((error) => {
         console.error(error);
       });
+  }
+
+  passwordSuccessAnimation() {
+    this.passwordSuccess.nativeElement.classList.add('is__active');
   }
 }
