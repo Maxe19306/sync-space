@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password',
@@ -20,7 +21,8 @@ export class ResetPasswordComponent implements OnInit {
     this.validEmail = emailRegex.test(email);
   }
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -41,6 +43,11 @@ export class ResetPasswordComponent implements OnInit {
       .catch((error) => {
         console.error(error);
       });
+
+    this.passwordSuccessAnimation();
+    setTimeout(() => {
+      this.router.navigate(['/confirmNewPassword']);
+    }, 1600);
   }
 
   passwordSuccessAnimation() {
