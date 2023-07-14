@@ -25,7 +25,7 @@ export class SignInComponent implements OnInit {
   user: User = new User({});
 
   validateSigninName(name: string) {
-    const nameRegex = /^[A-Za-z0-9_]{1,16}$/;
+    const nameRegex = /^[a-zA-Z0-9_\- ]{3,32}$/;
     this.validSigninName = nameRegex.test(name);
     this.validateSigninForm();
   }
