@@ -25,8 +25,8 @@ export class SignInComponent implements OnInit {
   user: User = new User({});
 
   validateSigninName(name: string) {
-    const emailRegex = /^[A-Za-z0-9_]{1,16}$/;
-    this.validSigninName = emailRegex.test(name);
+    const nameRegex = /^[A-Za-z0-9_]{1,16}$/;
+    this.validSigninName = nameRegex.test(name);
     this.validateSigninForm();
   }
 
@@ -37,8 +37,8 @@ export class SignInComponent implements OnInit {
   }
 
   validateSigninPassword(password: string) {
-    const emailRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z\d@#$%^&+=!]).{8,}$/;
-    this.validSigninPassword = emailRegex.test(password);
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-Z\d@#$%^&+=!]).{8,}$/;
+    this.validSigninPassword = passwordRegex.test(password);
     this.validateSigninForm();
   }
 
