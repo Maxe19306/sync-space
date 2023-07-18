@@ -1,5 +1,6 @@
 <form class="search__form">
-    <input [(ngModel)]="inputParticipants" type="search" placeholder="Sync Space durchsuchen" id="searchInput" (ngModelChange)="this.Search()" name="inputParticipants">
+    <input [(ngModel)]="inputParticipants" type="search" placeholder="Sync Space durchsuchen" id="searchInput"
+        (ngModelChange)="this.Search()" name="inputParticipants">
     <span class="material-symbols-rounded" id="searchIcon">
         search
     </span>
@@ -8,9 +9,12 @@
 </form>
 
 <div *ngIf="filteredChannels.length > 0 || filteredUsers.length > 0" class="search__results">
-    <div *ngFor="let channel of this.filteredChannels" (click)="test(channel.customIdName)">
-        {{channel.Name}}</div>
-
-    <div *ngFor="let user of this.filteredUsers" (click)="this.openDialogProfil(user.customIdName)">
-        {{user.Name}}</div>
+    <div class="result__row" *ngFor="let channel of this.filteredChannels" (click)="test(channel.customIdName)">
+        <span class="material-symbols-rounded">tag</span>
+        {{channel.Name}}
+    </div>
+    <div class="result__row" *ngFor="let user of this.filteredUsers" (click)="this.openDialogProfil(user.customIdName)">
+        <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
+        {{user.Name}}
+    </div>
 </div>

@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     color: #686868;
+
     input {
         width: 100%;
         font-size: 24px;
@@ -18,4 +19,11 @@
     background-color: #ECEEFE;
     padding: 20px;
     z-index: 999;
+
+    .result__row {
+        img {
+            width: 36px;
+            border-radius: 50%;
+        }
+    }
 }
