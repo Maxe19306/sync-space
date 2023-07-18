@@ -16,14 +16,30 @@
 
 .search__results {
     position: relative;
-    background-color: #ECEEFE;
-    padding: 20px;
+    background-color: white;
     z-index: 999;
 
     .result__row {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        // padding-top: 15px;
+        // padding-bottom: 15px;
+        padding: 15px;
+        cursor: pointer;
+
+        span {
+            font-size: 24px;
+            font-weight: 900;
+        }
+
         img {
             width: 36px;
             border-radius: 50%;
+        }
+
+        &:hover {
+            background-color: #ECEEFE;
         }
     }
 }
