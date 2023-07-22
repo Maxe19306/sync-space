@@ -11,7 +11,7 @@ export class User {
         this.Name = obj ? obj.firstName : '';
         this.mail = obj ? obj.mail : '';
         this.uid = obj ? obj.uid : '';
-        this.lastChannel = obj ? obj.lastChannel : 'PzdLMrdllSDRB9JYARxv';
+        this.lastChannel = obj ? obj.lastChannel : 'NLgyU0FI3CehP4VU7sfR';
         this.ChannelFromThread = obj ? obj.ChannelFromThread : ''
         this.ThreadID = obj ? obj.ThreadID : ''
         this.openThread = false;
@@ -22,7 +22,7 @@ export class User {
             Name: this.Name,
             mail: this.mail,
             uid: this.uid,
-            lastChannel: 'PzdLMrdllSDRB9JYARxv',
+            lastChannel: 'NLgyU0FI3CehP4VU7sfR',
             ChannelFromThread: '',
             openThread: false
         }

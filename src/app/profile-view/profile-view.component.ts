@@ -65,9 +65,7 @@ export class ProfileViewComponent implements OnInit {
       id: this.UserDetail.id
     };
   
-    const members = [currentUser, userDetail];
-  
-    
+    const members = [currentUser, userDetail]; 
     // Überprüfen, ob ein Chat mit den Mitgliedern bereits existiert
     this.firestore.collection('dms')
       .ref.where('members', '==', members)
