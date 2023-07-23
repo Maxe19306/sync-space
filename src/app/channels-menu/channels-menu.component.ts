@@ -13,7 +13,7 @@ import { DataService } from '../data.service';
 export class ChannelsMenuComponent implements OnInit {
   viewChannels = true;
   allChannels = []
-  CurrentUser
+  currentUser
   constructor(
     private dataService: DataService,
     public firestore: AngularFirestore,
@@ -31,7 +31,7 @@ export class ChannelsMenuComponent implements OnInit {
       .doc(this.dataService.id)
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
-        this.CurrentUser = user
+        this.currentUser = user
 
       });
   }
@@ -43,7 +43,7 @@ export class ChannelsMenuComponent implements OnInit {
       .subscribe((channels: any[]) => {
         channels.forEach((channel) => {
           channel.members.forEach((member) => {
-            if (this.CurrentUser.id === member.id) {
+            if (this.currentUser.id === member.id) {
               const channelIndex = this.allChannels.findIndex((existingChannel) => existingChannel.channelIdName === channel.channelIdName);
               if (channelIndex === -1) {
                 this.allChannels.push(channel)
@@ -70,13 +70,13 @@ export class ChannelsMenuComponent implements OnInit {
     })
   }
 
-  openChannel(channelID) {
+  openChannel(channelId) {
 
     this.firestore
       .collection('users')
       .doc(this.dataService.id)
       .update({
-        lastChannel: channelID,
+        lastChannel: channelId,
         viewChat: false
       })
 

@@ -10,7 +10,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class DmMenuComponent implements OnInit {
   viewChannels = false;
   personalDm
-  allDmsIDFromUser;
+  allDmsIdFromUser;
   allDmsFromUser = [];
   currentUser
   constructor(
@@ -40,7 +40,7 @@ export class DmMenuComponent implements OnInit {
     .collection('dmsFromUser')
     .valueChanges({idField: 'id'})
     .subscribe((dm)=> {
-      this.allDmsIDFromUser = dm
+      this.allDmsIdFromUser = dm
       this.loadAllChats()
     }
     )
@@ -82,7 +82,7 @@ export class DmMenuComponent implements OnInit {
   }
 
   loadAllChats() {
-    this.allDmsIDFromUser.forEach(dm => {
+    this.allDmsIdFromUser.forEach(dm => {
       this.firestore
         .collection('dms')
         .doc(dm.DMID)

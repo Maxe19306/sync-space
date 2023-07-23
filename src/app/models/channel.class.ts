@@ -1,11 +1,11 @@
 export class Channel {
-    Name : string;
+    name : string;
     description: string;
     members : string[];
     founder: string[];
 
     constructor(obj: any){
-        this.Name = obj ? obj.Name : '';
+        this.name = obj ? obj.name : '';
         this.description = obj?.description ?? '';
         this.members = obj && obj.members ? obj.members : [];
         this.founder = obj ? obj.founder : [];
@@ -13,7 +13,7 @@ export class Channel {
 
     public toJSON() {
         return {
-            Name: this.Name,
+            name: this.name,
             description: this.description,
             members: this.members,
             founder: this.founder,

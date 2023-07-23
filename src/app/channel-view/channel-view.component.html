@@ -1,6 +1,6 @@
-<div *ngIf="this.CurrentChannel" class="dialog-channel-view">
+<div *ngIf="this.currentChannel" class="dialog-channel-view">
     <h2>
-        # {{this.CurrentChannel.Name}}
+        # {{this.currentChannel.Name}}
     </h2>
 
     <div class="container">
@@ -8,9 +8,9 @@
             <p>Channel-Name</p>
             <a (click)="editChannelName()">Bearbeiten</a>
         </div>
-        <p># {{this.CurrentChannel.Name}}</p>
+        <p># {{this.currentChannel.name}}</p>
         <div *ngIf="editName">
-            <input [(ngModel)]="this.CurrentChannel.Name" type="text" value="{{this.CurrentChannel.Name}}">
+            <input [(ngModel)]="this.currentChannel.name" type="text" value="{{this.currentChannel.name}}">
             <button (click)="editChannelNameInFirebase()" mat-flat-button color="primary">Name ändern</button>
         </div>
     </div>
@@ -22,17 +22,17 @@
                 <a (click)="editDescriptionName()"> Bearbeiten</a>
 
             </div>
-            <p>{{this.CurrentChannel.description}}</p>
+            <p>{{this.currentChannel.description}}</p>
 
             <div *ngIf="editDescription">
-                <input [(ngModel)]="this.CurrentChannel.description" type="text" value="{{this.CurrentChannel.description}}">
+                <input [(ngModel)]="this.currentChannel.description" type="text" value="{{this.currentChannel.description}}">
                 <button (click)="editDescriptionInFirebase()" mat-flat-button color="primary">Name ändern</button>
             </div>
 
         </div>
         <div>
             <p>Erstellt von</p>
-            <p>{{this.CurrentChannel.founder.Name}}</p>
+            <p>{{this.currentChannel.founder.Name}}</p>
         </div>
     </div>
 

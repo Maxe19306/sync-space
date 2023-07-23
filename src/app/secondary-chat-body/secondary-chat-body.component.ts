@@ -15,7 +15,7 @@ export class SecondaryChatBodyComponent implements OnInit {
   
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
 
-  Date = '';
+  date = '';
   currentUser;
   currentChannelMessage;
   currentThreadAnswer;
@@ -63,7 +63,7 @@ export class SecondaryChatBodyComponent implements OnInit {
       .collection('channels')
       .doc(this.currentUser.ChannelFromThread)
       .collection('messages')
-      .doc(this.currentUser.ThreadID)
+      .doc(this.currentUser.ThreadId)
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
         this.currentChannelMessage = channel;
@@ -77,7 +77,7 @@ export class SecondaryChatBodyComponent implements OnInit {
       .collection('channels')
       .doc(this.currentUser.ChannelFromThread)
       .collection('messages')
-      .doc(this.currentUser.ThreadID)
+      .doc(this.currentUser.ThreadId)
       .collection('threadAnswer')
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
@@ -103,9 +103,9 @@ export class SecondaryChatBodyComponent implements OnInit {
     return `${day}.${month}.${year} ${hours}:${minutes}`;
   }
 
-  openDialogProfil(userID) {
+  openDialogProfil(userId) {
     this.Dialog.open(ProfileViewComponent, {
-      data: { userID }
+      data: { userId }
     })
   }
   lastDateDisplayed(timestamp) {
@@ -114,12 +114,12 @@ export class SecondaryChatBodyComponent implements OnInit {
     // Datum im Format "TT.MM.JJJJ" speichern
     const dateString = date.toLocaleDateString('de-DE');
     // Wenn das Datum mit dem zuletzt angezeigten Datum übereinstimmt, den Timestamp nicht anzeigen
-    if (dateString === this.Date) {
+    if (dateString === this.date) {
       return ''
     } else {
       // Andernfalls das Datum im Timestamp anzeigen und die Variable aktualisieren
       const newDate = dateString;
-      this.Date = newDate;
+      this.date = newDate;
       return newDate;
     }
   }

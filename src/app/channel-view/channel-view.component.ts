@@ -16,8 +16,8 @@ export class ChannelViewComponent implements OnInit {
     public dataService : DataService,
     @Inject(MAT_DIALOG_DATA) public data:any,
   private firestore: AngularFirestore) { }
-  CurrentUser
-  CurrentChannel;
+  currentUser;
+  currentChannel;
   editName = false;
   editDescription = false;
 
@@ -32,7 +32,7 @@ export class ChannelViewComponent implements OnInit {
     .doc(this.data.ChannelId)
     .valueChanges()
     .subscribe((channel) => {
-      this.CurrentChannel = channel
+      this.currentChannel = channel
     });
   }
 
@@ -45,7 +45,7 @@ export class ChannelViewComponent implements OnInit {
     .collection('channels')
     .doc(this.data.ChannelId)
     .update({
-      description: this.CurrentChannel.description
+      description: this.currentChannel.description
     })
     this.editDescription = false;
 }
@@ -58,21 +58,21 @@ export class ChannelViewComponent implements OnInit {
   editChannelNameInFirebase(){
       this.firestore
       .collection('channels')
-      .doc(this.data.ChannelId)
+      .doc(this.data.channelId)
       .update({
-        Name: this.CurrentChannel.Name
+        Name: this.currentChannel.name
       })
       this.editName = false;
   }
 
   leaveChannel(){
-      const currentUserIndex = this.CurrentChannel.members.findIndex(member => member.id === this.CurrentUser.id)
-      this.CurrentChannel.members.splice(currentUserIndex, 1);
+      const currentUserIndex = this.currentChannel.members.findIndex(member => member.id === this.currentUser.id)
+      this.currentChannel.members.splice(currentUserIndex, 1);
       this.firestore
       .collection('channels')
       .doc(this.data.ChannelId)
       .update({
-        members: this.CurrentChannel.members
+        members: this.currentChannel.members
       })
   }
 
@@ -82,7 +82,7 @@ export class ChannelViewComponent implements OnInit {
     .doc(this.dataService.id)
     .valueChanges({idField: 'id'})
     .subscribe((user) => {
-      this.CurrentUser = user
+      this.currentUser = user
 
     });
   }

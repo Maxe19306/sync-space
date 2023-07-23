@@ -10,7 +10,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class MainDirectMessageComponent implements OnInit {
   currentUser;
-  lastDM;
+  lastDm;
   speaker;
   constructor(
      public dataService: DataService,
@@ -39,17 +39,17 @@ export class MainDirectMessageComponent implements OnInit {
   loadLastDm(){
           this.firestore
         .collection('dms')
-        .doc(this.currentUser.currentDM)
+        .doc(this.currentUser.currentDm)
         .valueChanges({ idField: 'id' })
         .subscribe((dm) => {
-          this.lastDM = dm
+          this.lastDm = dm
           this.IdentifySpeaker()
         })
     }
 
     IdentifySpeaker(){
-     const member1 = this.lastDM.members[0]
-     const member2 = this.lastDM.members[1]
+     const member1 = this.lastDm.members[0]
+     const member2 = this.lastDm.members[1]
 
      if(member1.id === member2.id){
       this.speaker = member1.name;

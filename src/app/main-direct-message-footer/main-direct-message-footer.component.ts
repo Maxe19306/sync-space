@@ -17,7 +17,7 @@ export class MainDirectMessageFooterComponent implements OnInit {
   chatFormSecondary;
   chatTextareaSecondary;
   sendBtnSecondary;
-  ImageToBeUpload;
+  imageToBeUpload;
   constructor(public dataService: DataService,
     private firestore: AngularFirestore,
     private storage: AngularFireStorage) { }
@@ -72,13 +72,13 @@ export class MainDirectMessageFooterComponent implements OnInit {
   sendDM() {
     if(this.isUploadEnabled){
         this.uploadImage()
-        this.message.image = this.ImageToBeUpload.target.files[0].name
+        this.message.image = this.imageToBeUpload.target.files[0].name
     }  
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
     this.firestore
       .collection('dms')
-      .doc(this.currentUser.currentDM)
+      .doc(this.currentUser.currentDm)
       .collection('messages')
       .add(this.message.toJSON());
     this.resetFormSecondary();
@@ -106,7 +106,7 @@ export class MainDirectMessageFooterComponent implements OnInit {
   }
 
   readyUploadImage(event){
-    this.ImageToBeUpload = event;
+    this.imageToBeUpload = event;
     }
 
 
@@ -117,7 +117,7 @@ export class MainDirectMessageFooterComponent implements OnInit {
 
 
   uploadImage() {
-    const file = this.ImageToBeUpload.target.files[0];
+    const file = this.imageToBeUpload.target.files[0];
     const filePath =  file.name;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);

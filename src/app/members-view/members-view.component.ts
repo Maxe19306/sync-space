@@ -17,10 +17,10 @@ export class MembersViewComponent implements OnInit {
   }
 
 
-  openDialogProfil(userID){
+  openDialogProfil(userId){
 
     this.Dialog.open(ProfileViewComponent, {
-      data: {userID}
+      data: {userId}
     })
 }
 

@@ -78,21 +78,21 @@ export class SearchBarComponent implements OnInit {
 
   }
 
-  openDialogProfil(userID){
+  openDialogProfil(userId){
     this.Dialog.open(ProfileViewComponent, {
-      data: {userID}
+      data: {userId}
     })
     this.filteredUsers = [];
     this.filteredChannels = [];
 }
 
-test(channelID){
+test(channelId){
     
   this.firestore
   .collection('users')
   .doc(this.dataService.id)
   .update({
-    lastChannel: channelID
+    lastChannel: channelId
   })
   this.filteredUsers = [];
   this.filteredChannels = [];

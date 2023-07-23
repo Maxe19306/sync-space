@@ -14,7 +14,7 @@ export class ProfileMenuComponent implements OnInit {
   @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
   @Input() userID: any;
-  CurrentUser;
+  currentUser;
   constructor(
     public Dialog: MatDialog,
     private firestore: AngularFirestore
@@ -30,7 +30,7 @@ export class ProfileMenuComponent implements OnInit {
       .doc(this.userID)
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
-        this.CurrentUser = user
+        this.currentUser = user
 
       });
   }

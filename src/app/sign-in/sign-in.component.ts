@@ -77,8 +77,8 @@ export class SignInComponent implements OnInit {
     }, 1600);
   }
 
-  addNewUserToFirebase(userID) {
-    this.user.uid = userID
+  addNewUserToFirebase(userId) {
+    this.user.uid = userId
     this.firestore
       .collection('users')
       .add(this.user.toJSON())

@@ -48,7 +48,7 @@ export class SecondaryChatComponent implements OnInit {
       .collection('channels')
       .doc(this.currentUser.ChannelFromThread)
       .collection('messages')
-      .doc(this.currentUser.ThreadID)
+      .doc(this.currentUser.ThreadId)
       .valueChanges({ idField: 'ThreadID' })
       .subscribe((thread) => { this.currentThread = thread })
   }

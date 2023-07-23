@@ -1,29 +1,29 @@
 export class User {
-    Name : string;
+    name : string;
     mail: string;
     uid : string;
     lastChannel: string;
-    ChannelFromThread: string;
-    ThreadID : string;
+    channelFromThread: string;
+    threadId : string;
     openThread: boolean;
 
     constructor(obj: any){
-        this.Name = obj ? obj.firstName : '';
+        this.name = obj ? obj.firstName : '';
         this.mail = obj ? obj.mail : '';
         this.uid = obj ? obj.uid : '';
-        this.lastChannel = obj ? obj.lastChannel : 'NLgyU0FI3CehP4VU7sfR';
-        this.ChannelFromThread = obj ? obj.ChannelFromThread : ''
-        this.ThreadID = obj ? obj.ThreadID : ''
+        this.lastChannel = obj ? obj.lastChannel : 'VOYDpVDTzMITDQoMXGhb';
+        this.channelFromThread = obj ? obj.channelFromThread : ''
+        this.threadId = obj ? obj.threadId : ''
         this.openThread = false;
     }
 
     public toJSON() {
         return {
-            Name: this.Name,
+            name: this.name,
             mail: this.mail,
             uid: this.uid,
-            lastChannel: 'NLgyU0FI3CehP4VU7sfR',
-            ChannelFromThread: '',
+            lastChannel: 'VOYDpVDTzMITDQoMXGhb',
+            channelFromThread: '',
             openThread: false
         }
     }

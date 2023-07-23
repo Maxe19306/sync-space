@@ -14,7 +14,7 @@ import { MembersViewComponent } from '../members-view/members-view.component';
 export class MainChatComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  CurrentChannel;
+  currentChannel;
   currentUser
   constructor(
     public dataService: DataService,
@@ -61,7 +61,7 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
       .doc(this.currentUser.lastChannel)
       .valueChanges({ idField: 'id' })
       .subscribe((channel) => {
-        this.CurrentChannel = channel
+        this.currentChannel = channel
       })
   }
 

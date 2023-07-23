@@ -1,22 +1,22 @@
-<div *ngIf="this.CurrentChannel" class="main__chat__container">
+<div *ngIf="this.currentChannel" class="main__chat__container">
 
     <div class="main__chat__header">
 
-        <div (click)="openDialogChannelView(this.CurrentChannel.id)" class="main__chat__header__left">
+        <div (click)="openDialogChannelView(this.currentChannel.id)" class="main__chat__header__left">
             <div class="material-symbols-rounded">tag</div>
-            <div class="channel__title">{{this.CurrentChannel.Name}}</div>
+            <div class="channel__title">{{this.currentChannel.name}}</div>
             <div class="material-symbols-rounded noSelect hidden__mobile">
                 expand_more
             </div>
         </div>
 
         <div class="main__chat__header__right">
-            <div (click)="openDialogMembersView(this.CurrentChannel.members)" class="header__users__img">
+            <div (click)="openDialogMembersView(this.currentChannel.members)" class="header__users__img">
                 <img src="assets/img/users/elias-neumann.webp" alt="">
                 <img src="assets/img/users/elise-roth.webp" alt="">
                 <img src="assets/img/users/frederick-beck.webp" alt="">
             </div>
-            <span class="users__count">{{this.CurrentChannel.members.length}}</span>
+          <!--  <span class="users__count">{{this.currentChannel.members.length}}</span> -->
             <div class="symbol__circle">
                 <span class="material-symbols-rounded">person_add</span>
             </div>
@@ -27,5 +27,5 @@
 
     <app-main-chat-body #scrollMe></app-main-chat-body>
 
-    <app-main-chat-footer [channelName]="this.CurrentChannel.Name"></app-main-chat-footer>
+    <app-main-chat-footer [channelName]="this.currentChannel.name"></app-main-chat-footer>
 </div>

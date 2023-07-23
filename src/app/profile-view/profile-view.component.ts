@@ -21,8 +21,8 @@ export class ProfileViewComponent implements OnInit {
   ) { }
 
 
-    UserDetail;
-    CurrentUser;
+    userDetail;
+    currentUser;
 
   ngOnInit(): void {
     this.loadUserDetail()
@@ -35,7 +35,7 @@ export class ProfileViewComponent implements OnInit {
   .doc(this.data.userID)
   .valueChanges({idField: 'id'})
   .subscribe((user) => {
-    this.UserDetail = user
+    this.userDetail = user
   });
   }
 
@@ -45,7 +45,7 @@ export class ProfileViewComponent implements OnInit {
     .doc(this.dataService.id)
     .valueChanges({idField: 'id'})
     .subscribe((user) => {
-      this.CurrentUser = user
+      this.currentUser = user
     });
     }
 
@@ -56,13 +56,13 @@ export class ProfileViewComponent implements OnInit {
 
   createDM() {
     const currentUser = {
-      name: this.CurrentUser.Name,
-      id: this.CurrentUser.id
+      name: this.currentUser.name,
+      id: this.currentUser.id
     };
   
     const userDetail = {
-      name: this.UserDetail.Name,
-      id: this.UserDetail.id
+      name: this.userDetail.name,
+      id: this.userDetail.id
     };
   
     const members = [currentUser, userDetail]; 

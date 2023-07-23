@@ -1,6 +1,6 @@
 export class currentUser{
     id:string;
-    Name :string;
+    name :string;
     mail :string;
     uid :string;
 }

@@ -18,7 +18,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     private firestore: AngularFirestore,
     public dataservice: DataService) { }
 
-  CurrentUser
+  currentUser
 
   buttonActive = false;
 
@@ -45,7 +45,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
       .doc(this.dataservice.id)
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
-        this.CurrentUser = user
+        this.currentUser = user
       });
   }
 
@@ -62,7 +62,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
 
   createChannel() {
-    this.data.founder = this.CurrentUser
+    this.data.founder = this.currentUser
     if (!this.certainPeople) {
       this.data.members = this.allUsers;
       this.addChannelToFirebase()

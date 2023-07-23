@@ -11,10 +11,10 @@
 <div *ngIf="filteredChannels.length > 0 || filteredUsers.length > 0" class="search__results">
     <div class="result__row" *ngFor="let channel of this.filteredChannels" (click)="test(channel.customIdName)">
         <span class="material-symbols-rounded">tag</span>
-        {{channel.Name}}
+        {{channel.name}}
     </div>
     <div class="result__row" *ngFor="let user of this.filteredUsers" (click)="this.openDialogProfil(user.customIdName)">
         <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
-        {{user.Name}}
+        {{user.name}}
     </div>
 </div>

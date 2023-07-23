@@ -13,7 +13,7 @@ export class CreateChannelComponent implements OnInit {
 
   @ViewChild('channelName', { static: true }) channelNameInput: ElementRef<HTMLInputElement>;
 
-  Channel: Channel = new Channel({});
+  channel: Channel = new Channel({});
   constructor(
 
     public Dialog: MatDialog,

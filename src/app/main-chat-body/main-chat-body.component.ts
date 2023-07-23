@@ -18,7 +18,7 @@ export class MainChatBodyComponent implements OnInit {
 
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
 
-  Date = '';
+  date = '';
   currentUser;
   currentChannelMessage;
 
@@ -64,7 +64,7 @@ export class MainChatBodyComponent implements OnInit {
       .collection('channels')
       .doc(this.currentUser.lastChannel)
       .collection('messages')
-      .valueChanges({ idField: 'messageID' })
+      .valueChanges({ idField: 'messageId' })
       .subscribe((channel) => {
         this.currentChannelMessage = channel;
         this.sortsMessages()
@@ -114,12 +114,12 @@ export class MainChatBodyComponent implements OnInit {
     // Datum im Format "TT.MM.JJJJ" speichern
     const dateString = date.toLocaleDateString('de-DE');
     // Wenn das Datum mit dem zuletzt angezeigten Datum übereinstimmt, den Timestamp nicht anzeigen
-    if (dateString === this.Date) {
+    if (dateString === this.date) {
       return ''
     } else {
       // Andernfalls das Datum im Timestamp anzeigen und die Variable aktualisieren
       const newDate = dateString;
-      this.Date = newDate;
+      this.date = newDate;
       return newDate;
     }
   }
@@ -130,7 +130,7 @@ export class MainChatBodyComponent implements OnInit {
       const lastMessage = this.currentChannelMessage[this.currentChannelMessage.length - 1]
       const date = new Date(lastMessage.timestamp)
       const dateString = date.toLocaleDateString('de-DE')
-      this.Date = dateString
+      this.date = dateString
     }
   }
 

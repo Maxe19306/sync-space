@@ -3,7 +3,7 @@
     <div *ngIf="lastDateDisplayed(message.timestamp)" class="separator">
         <hr>
         <div class="date">
-            <span>{{this.Date}}</span>
+            <span>{{this.date}}</span>
         </div>
 
     </div>
@@ -39,7 +39,7 @@
                 <span>{{message.text}}</span>
             </div>
             <div class="user__text__footer">
-                <span (click)="openThread(message.messageID, this.currentUser.lastChannel)" class="answers">2 Antworten</span>
+                <span (click)="openThread(message.messageId, this.currentUser.lastChannel)" class="answers">2 Antworten</span>
                 <span class="last__answer">Letzte Antwort 14:56</span>
             </div>
         </div>

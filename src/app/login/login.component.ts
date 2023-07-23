@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit {
   // fügt einen neuen user zu firbase hinzu
   addNewUser(userID, name, email) {
     this.user.uid = userID;
-    this.user.Name = name;
+    this.user.name = name;
     this.user.mail = email;
     this.firestore
       .collection('users')

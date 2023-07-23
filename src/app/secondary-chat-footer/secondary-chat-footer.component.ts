@@ -75,7 +75,7 @@ export class SecondaryChatFooterComponent implements OnInit {
       .collection('channels')
       .doc(this.currentUser.ChannelFromThread)
       .collection('messages')
-      .doc(this.currentUser.ThreadID)
+      .doc(this.currentUser.ThreadId)
       .collection('threadAnswer')
       .add(this.message.toJSON());
     this.resetFormSecondary();

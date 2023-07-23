@@ -1,4 +1,4 @@
-<div *ngIf="this.UserDetail" class="main__profil__container">
+<div *ngIf="this.userDetail" class="main__profil__container">
     <div class="start__profil__container">
         <h2>Profil</h2>
         <div (click)="closeDialog()" class="hover-area noSelect">
@@ -9,7 +9,7 @@
     <img src="/assets/img/secondaryChat/elias-neumann.webp" alt="">
     <div class="second__profil__container">
         <div class="name">
-            <h3>{{this.UserDetail.Name}}</h3>
+            <h3>{{this.userDetail.name}}</h3>
             <div>Bearbeiten</div>
         </div>
         <div class="status">
@@ -19,7 +19,7 @@
         <span class="material-symbols-rounded">email</span>
         <div class="mail">
             <h3>E-Mail-Adresse</h3>
-            <span>{{this.UserDetail.mail}}</span>
+            <span>{{this.userDetail.mail}}</span>
         </div>
     </div>
    <button mat-flat-button color="primary" (click)="createDM()">Nachricht</button>

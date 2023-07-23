@@ -11,8 +11,8 @@
     <button [routerLink]="''" mat-menu-item>Log out</button>
 </mat-menu> -->
 
-<div *ngIf="this.CurrentUser" class="container__profile__menu" (click)="openProfileView()">
-    <span class="proflie__menu__name noSelect hidden__mobile">{{this.CurrentUser.Name}}</span>
+<div *ngIf="this.currentUser" class="container__profile__menu" (click)="openProfileView()">
+    <span class="proflie__menu__name noSelect hidden__mobile">{{this.currentUser.name}}</span>
     <img class="noSelect" src="assets/img/users/frederick-beck.webp">
     <span class="material-symbols-rounded noSelect hidden__mobile">
         expand_more
@@ -21,7 +21,7 @@
 
 <div style="display:none" class="overlay" #overlay (click)="closeProfileView()">
     <div class="menu__container">
-        <div class="menu__btn" (click)="openDialogProfil(this.CurrentUser.id)">Profil</div>
+        <div class="menu__btn" (click)="openDialogProfil(this.currentUser.id)">Profil</div>
         <div class="menu__btn" [routerLink]="''">Log out</div>
     </div>
 </div>

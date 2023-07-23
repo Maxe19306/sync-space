@@ -16,15 +16,15 @@
             <span class="material-symbols-rounded noSelect">
                 tag
             </span>
-            <input autocomplete="off" placeholder="z.B. Kooperationsprojekte" type="text" [(ngModel)]="Channel.Name" name="name" #channelName required>
+            <input autocomplete="off" placeholder="z.B. Kooperationsprojekte" type="text" [(ngModel)]="channel.name" name="name" #channelName required>
         </div>
         <div class="name__channel">Beschreibung <span class="optional">(optional)</span></div>
-        <textarea  type="text" [(ngModel)]="Channel.description" name="description" rows="2"></textarea>
+        <textarea  type="text" [(ngModel)]="channel.description" name="description" rows="2"></textarea>
     </form>
 
     <div class="create__channel__footer">
-        <button [disabled]="!Channel.Name || Channel.Name.length === 0"
-            (click)="createChannel(this.Channel)" [ngClass]="{ 'disabled__button': !Channel.Name || Channel.Name.length === 0 }">Erstellen</button>
+        <button [disabled]="!channel.name || channel.name.length === 0"
+            (click)="createChannel(this.channel)" [ngClass]="{ 'disabled__button': !channel.name || channel.name.length === 0 }">Erstellen</button>
     </div>
 </div>
 

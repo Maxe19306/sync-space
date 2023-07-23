@@ -16,7 +16,7 @@ export class MainDirectMessageBodyComponent implements OnInit {
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
   storage = getStorage();
   pathReference = ref(this.storage, 'images/stars.jpg')
-  Date = '';
+  date = '';
   currentUser;
   currentChannelMessage;
 
@@ -114,12 +114,12 @@ loadImage(image, message){
     // Datum im Format "TT.MM.JJJJ" speichern
     const dateString = date.toLocaleDateString('de-DE');
     // Wenn das Datum mit dem zuletzt angezeigten Datum übereinstimmt, den Timestamp nicht anzeigen
-    if (dateString === this.Date) {
+    if (dateString === this.date) {
       return ''
     } else {
       // Andernfalls das Datum im Timestamp anzeigen und die Variable aktualisieren
       const newDate = dateString;
-      this.Date = newDate;
+      this.date = newDate;
       return newDate;
      
     }
@@ -132,7 +132,7 @@ loadImage(image, message){
       const lastMessage = this.currentChannelMessage[this.currentChannelMessage.length - 1]
       const date = new Date(lastMessage.timestamp)
       const dateString = date.toLocaleDateString('de-DE')
-      this.Date = dateString
+      this.date = dateString
     
     }
 
