@@ -39,11 +39,11 @@ export class MainDirectMessageComponent implements OnInit {
   loadLastDm(){
           this.firestore
         .collection('dms')
-        .doc(this.currentUser.currentDm)
+        .doc(this.currentUser.currentDM)
         .valueChanges({ idField: 'id' })
         .subscribe((dm) => {
           this.lastDm = dm
-          this.IdentifySpeaker()
+         this.IdentifySpeaker()
         })
     }
 
