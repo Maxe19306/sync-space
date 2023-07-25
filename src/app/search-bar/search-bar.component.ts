@@ -13,7 +13,7 @@ export class SearchBarComponent implements OnInit {
   allUsers;
   allChannels;
   filteredUsers = [];
-  filteredChannels =[];
+  filteredChannels = [];
   inputParticipants
   constructor(
     public dataService: DataService,
@@ -33,26 +33,26 @@ export class SearchBarComponent implements OnInit {
       else searchIcon.style.display = 'inline-block';
     });
 
-   
+
   }
 
-  loadAllChannels(){
+  loadAllChannels() {
     this.firestore
-    .collection('channels')
-    .valueChanges({idField: 'customIdName'})
-    .subscribe((channels:any) => {
-     this.allChannels = channels
+      .collection('channels')
+      .valueChanges({ idField: 'customIdName' })
+      .subscribe((channels: any) => {
+        this.allChannels = channels
 
- })
+      })
   }
 
-  loadAllUsers(){
+  loadAllUsers() {
     this.firestore
-    .collection('users')
-    .valueChanges({idField: 'customIdName'})
-    .subscribe((user:any) => {
-     this.allUsers = user
- })
+      .collection('users')
+      .valueChanges({ idField: 'customIdName' })
+      .subscribe((user: any) => {
+        this.allUsers = user
+      })
   }
 
 
@@ -62,15 +62,15 @@ export class SearchBarComponent implements OnInit {
       this.filteredChannels = [];
       return;
     }
-  
-    this.filteredUsers = this.allUsers.filter(user => 
+
+    this.filteredUsers = this.allUsers.filter(user =>
       user.name
         .toLowerCase()
         .includes(this.inputParticipants.toLowerCase())
     );
 
-  
-    this.filteredChannels = this.allChannels.filter(channel => 
+
+    this.filteredChannels = this.allChannels.filter(channel =>
       channel.name
         .toLowerCase()
         .includes(this.inputParticipants.toLowerCase())
@@ -78,23 +78,23 @@ export class SearchBarComponent implements OnInit {
 
   }
 
-  openDialogProfil(userId){
+  openDialogProfil(userId) {
     this.Dialog.open(ProfileViewComponent, {
-      data: {userId}
+      data: { userId }
     })
     this.filteredUsers = [];
     this.filteredChannels = [];
-}
+  }
 
-test(channelId){
-    
-  this.firestore
-  .collection('users')
-  .doc(this.dataService.id)
-  .update({
-    lastChannel: channelId
-  })
-  this.filteredUsers = [];
-  this.filteredChannels = [];
-}
+  test(channelId) {
+
+    this.firestore
+      .collection('users')
+      .doc(this.dataService.id)
+      .update({
+        lastChannel: channelId
+      })
+    this.filteredUsers = [];
+    this.filteredChannels = [];
+  }
 }
