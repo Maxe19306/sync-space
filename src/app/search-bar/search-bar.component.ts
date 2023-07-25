@@ -64,14 +64,14 @@ export class SearchBarComponent implements OnInit {
     }
   
     this.filteredUsers = this.allUsers.filter(user => 
-      user.Name
+      user.name
         .toLowerCase()
         .includes(this.inputParticipants.toLowerCase())
     );
 
   
     this.filteredChannels = this.allChannels.filter(channel => 
-      channel.Name
+      channel.name
         .toLowerCase()
         .includes(this.inputParticipants.toLowerCase())
     );
