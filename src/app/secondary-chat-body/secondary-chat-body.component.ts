@@ -59,11 +59,12 @@ export class SecondaryChatBodyComponent implements OnInit {
   }
 
   loadMessageFromChannel() {
+    
     this.firestore
       .collection('channels')
-      .doc(this.currentUser.ChannelFromThread)
+      .doc(this.currentUser.channelFromThread)
       .collection('messages')
-      .doc(this.currentUser.ThreadId)
+      .doc(this.currentUser.threadId)
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
         this.currentChannelMessage = channel;
@@ -75,9 +76,9 @@ export class SecondaryChatBodyComponent implements OnInit {
   loadThreadAnswer() {
     this.firestore
       .collection('channels')
-      .doc(this.currentUser.ChannelFromThread)
+      .doc(this.currentUser.channelFromThread)
       .collection('messages')
-      .doc(this.currentUser.ThreadId)
+      .doc(this.currentUser.threadId)
       .collection('threadAnswer')
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {

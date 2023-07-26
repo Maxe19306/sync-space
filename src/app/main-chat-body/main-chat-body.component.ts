@@ -96,14 +96,14 @@ export class MainChatBodyComponent implements OnInit {
   }
 
 
-  async openThread(Messageid, Channelid) {
+  async openThread(messageId, channelId) {
     await this.firestore
       .collection('users')
       .doc(this.dataService.id)
       .update({
         openThread: true,
-        ChannelFromThread: Channelid,
-        ThreadID: Messageid,
+        channelFromThread: channelId,
+        threadId: messageId,
       })
     await this.sharedService.openSecondaryChat();
   }
