@@ -13,12 +13,11 @@ export class MembersViewComponent implements OnInit {
   public Dialog: MatDialog,) { }
 
   ngOnInit(): void {
-
   }
 
 
   openDialogProfil(userId){
-
+    console.log(userId)
     this.Dialog.open(ProfileViewComponent, {
       data: {userId}
     })

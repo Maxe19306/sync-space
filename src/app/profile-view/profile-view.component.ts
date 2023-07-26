@@ -4,6 +4,7 @@ import { currentUser } from '../models/currentUser.class';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../data.service';
 import { DirectMessage } from '../models/dm.class';
+import { MembersViewComponent } from '../members-view/members-view.component';
 @Component({
   selector: 'app-profile-view',
   templateUrl: './profile-view.component.html',
@@ -32,7 +33,7 @@ export class ProfileViewComponent implements OnInit {
  loadUserDetail() {
   this.firestore
   .collection('users')
-  .doc(this.data.userID)
+  .doc(this.data.userId)
   .valueChanges({idField: 'id'})
   .subscribe((user) => {
     this.userDetail = user
@@ -53,6 +54,8 @@ export class ProfileViewComponent implements OnInit {
   closeDialog(){
     this.dialogRef.close(ProfileViewComponent)
   }
+  
+
 
   createDM() {
     const currentUser = {
@@ -64,8 +67,9 @@ export class ProfileViewComponent implements OnInit {
       name: this.userDetail.name,
       id: this.userDetail.id
     };
-  
+    
     const members = [currentUser, userDetail]; 
+    console.log(members, this.DM)
     // Überprüfen, ob ein Chat mit den Mitgliedern bereits existiert
     this.firestore.collection('dms')
       .ref.where('members', '==', members)
@@ -76,11 +80,13 @@ export class ProfileViewComponent implements OnInit {
           querySnapshot.forEach((doc) => {
             const chatId = doc.id;
             console.log('Ein Chat mit diesen Mitgliedern existiert bereits. Chat-ID:', chatId);
+            this.closeDialog()
             this.openChat(chatId)      
-            this.closeDialog()       // Hier kannst du die Chat-ID verwenden oder entsprechende Aktionen durchführen
+                   // Hier kannst du die Chat-ID verwenden oder entsprechende Aktionen durchführen
           });
         } else {
           // Ein Chat mit den Mitgliedern existiert nicht, erstelle einen neuen DM
+         
           this.DM.members = members;
           this.firestore.collection('dms')
             .add(this.DM.toJSON())
@@ -88,9 +94,10 @@ export class ProfileViewComponent implements OnInit {
               const chatId = docRef.id;
               console.log('Neuer Chat erstellt. Chat-ID:', chatId);
               this.updateUsers(this.DM.members, chatId);
+              this.closeDialog() 
               this.openChat(chatId)      
-            this.closeDialog()    
-            }) 
+               
+            })  
         }
       })
         }
