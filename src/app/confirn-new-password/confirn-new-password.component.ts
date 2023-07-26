@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { getAuth, confirmPasswordReset, updatePassword, verifyPasswordResetCode } from "firebase/auth";
 import { environment } from 'src/environments/environment';
@@ -13,12 +13,14 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 export class ConfirnNewPasswordComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
-
   validNewPassword0: boolean = false;
   validNewPassword1: boolean = false;
   validNewPasswords: boolean = false;
   newPasswordsIdentically: boolean = true;
+
+  @ViewChild('newPasswordSuccess', { static: false }) newPasswordSuccess: ElementRef;
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -51,7 +53,12 @@ export class ConfirnNewPasswordComponent implements OnInit {
     } else {
       // Passwörter stimmen überein, newPassword0 kann an das Backend übergeben werden
       this.newPasswordsIdentically = true;
+      this.newPasswordSuccessAnimation();
     }
+  }
+
+  newPasswordSuccessAnimation() {
+    this.newPasswordSuccess.nativeElement.classList.add('is__active');
   }
 
   // test(password1) {
