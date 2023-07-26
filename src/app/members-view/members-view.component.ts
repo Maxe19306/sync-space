@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 
 @Component({
@@ -10,6 +10,7 @@ import { ProfileViewComponent } from '../profile-view/profile-view.component';
 export class MembersViewComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
+  public dialogRef: MatDialogRef<MembersViewComponent>,
   public Dialog: MatDialog,) { }
 
   ngOnInit(): void {
@@ -21,6 +22,9 @@ export class MembersViewComponent implements OnInit {
     this.Dialog.open(ProfileViewComponent, {
       data: {userId}
     })
+    this.dialogRef.close();
 }
+
+
 
 }
