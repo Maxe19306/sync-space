@@ -18,6 +18,7 @@ export class ConfirnNewPasswordComponent implements OnInit {
   validNewPassword0: boolean = false;
   validNewPassword1: boolean = false;
   validNewPasswords: boolean = false;
+  newPasswordsIdentically: boolean = true;
 
   ngOnInit(): void {
   }
@@ -43,11 +44,13 @@ export class ConfirnNewPasswordComponent implements OnInit {
     console.log("this.validNewPasswords", this.validNewPasswords);
   }
 
-  changePassword(newPassword0, newPassword1) {
+  changeNewPassword(newPassword0, newPassword1) {
     if (newPassword0 !== newPassword1) {
-      console.log("passwords are not identically");
+      // Passwörter stimmen NICHT überein, User muss die Eingabe korrgieren
+      this.newPasswordsIdentically = false;
     } else {
-      console.log("passwords are identically");
+      // Passwörter stimmen überein, newPassword0 kann an das Backend übergeben werden
+      this.newPasswordsIdentically = true;
     }
   }
 
