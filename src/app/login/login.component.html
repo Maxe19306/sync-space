@@ -23,7 +23,7 @@
                     <span class="material-symbols-rounded noSelect">
                         lock
                     </span>
-                    <input class="password" type="password" placeholder="Passwort" #password required>
+                    <input class="password" type="password" placeholder="Passwort" #password required (keydown.enter)="login(mail.value ,password.value)">
                 </div>
             </form>
 

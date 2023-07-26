@@ -51,7 +51,7 @@ export class ConfirnNewPasswordComponent implements OnInit {
       // Passwörter stimmen NICHT überein, User muss die Eingabe korrgieren
       this.newPasswordsIdentically = false;
     } else {
-      // Passwörter stimmen überein, newPassword0 kann an das Backend übergeben werden
+      // Passwörter stimmen überein, newPassword0 kann an das Backend übergeben werden, routing zum login
       this.newPasswordsIdentically = true;
       this.newPasswordSuccessAnimation();
     }
