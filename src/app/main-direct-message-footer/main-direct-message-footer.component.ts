@@ -78,11 +78,12 @@ export class MainDirectMessageFooterComponent implements OnInit {
     this.message.timestamp = new Date().getTime();
     this.firestore
       .collection('dms')
-      .doc(this.currentUser.currentDm)
+      .doc(this.currentUser.currentDM)
       .collection('messages')
       .add(this.message.toJSON());
     this.resetFormSecondary();
   }
+  
 
   loadCurrentUser() {
     this.firestore
