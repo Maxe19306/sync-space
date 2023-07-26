@@ -43,8 +43,16 @@ export class ConfirnNewPasswordComponent implements OnInit {
     console.log("this.validNewPasswords", this.validNewPasswords);
   }
 
-  test(password1) {
-
+  changePassword(newPassword0, newPassword1) {
+    if (newPassword0 !== newPassword1) {
+      console.log("passwords are not identically");
+    } else {
+      console.log("passwords are identically");
+    }
   }
+
+  // test(password1) {
+
+  // }
 
 }
