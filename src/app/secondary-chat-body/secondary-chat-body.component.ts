@@ -106,7 +106,8 @@ export class SecondaryChatBodyComponent implements OnInit {
 
   openDialogProfil(userId) {
     this.Dialog.open(ProfileViewComponent, {
-      data: { userId }
+      data: { userId },
+      panelClass: 'profile__view__matdialog'
     })
   }
   lastDateDisplayed(timestamp) {

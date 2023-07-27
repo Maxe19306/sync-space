@@ -20,7 +20,8 @@ export class MembersViewComponent implements OnInit {
   openDialogProfil(userId){
     console.log(userId)
     this.Dialog.open(ProfileViewComponent, {
-      data: {userId}
+      data: {userId},
+      panelClass: 'profile__view__matdialog'
     })
     this.dialogRef.close();
 }

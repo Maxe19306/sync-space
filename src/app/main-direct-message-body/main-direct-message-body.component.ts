@@ -94,7 +94,8 @@ loadImage(image, message){
 
   openDialogProfil(userID) {
     this.Dialog.open(ProfileViewComponent, {
-      data: { userID }
+      data: { userID },
+      panelClass: 'profile__view__matdialog'
     })
   }
 
