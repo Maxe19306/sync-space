@@ -27,7 +27,7 @@ export class MainChatBodyComponent implements OnInit {
     public dataService: DataService,
     private firestore: AngularFirestore,
     private sharedService: SharedService
-    ) {  }
+  ) { }
 
   ngOnInit(): void {
     this.loadCurrentUser()

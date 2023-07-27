@@ -24,22 +24,22 @@ export class MainDirectMessageBodyComponent implements OnInit {
     public Dialog: MatDialog,
     public dataService: DataService,
     private firestore: AngularFirestore
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.loadCurrentUser()
-    
+
   }
-  test(message){
+  test(message) {
     console.log(message)
   }
-  
-loadImage(image, message){
-  getDownloadURL(ref(this.storage, image))
-  .then((url) => {
-    message.imageUrl = url
-  })
-}
+
+  loadImage(image, message) {
+    getDownloadURL(ref(this.storage, image))
+      .then((url) => {
+        message.imageUrl = url
+      })
+  }
 
   ngAfterViewInit() {
     this.messageElements.changes.subscribe(() => {
@@ -76,13 +76,13 @@ loadImage(image, message){
         this.currentChannelMessage = channel;
         this.sortsMessages()
         this.updateLastDate()
-       for (const message of this.currentChannelMessage) {
-        if (message.image) {
-          this.loadImage(message.image, message);
+        for (const message of this.currentChannelMessage) {
+          if (message.image) {
+            this.loadImage(message.image, message);
+          }
+
         }
-        
-       }
-    
+
       })
   }
 
@@ -122,19 +122,19 @@ loadImage(image, message){
       const newDate = dateString;
       this.date = newDate;
       return newDate;
-     
+
     }
-    
+
   }
 
   updateLastDate() {
-   
+
     if (this.currentChannelMessage && this.currentChannelMessage.length > 0) {
       const lastMessage = this.currentChannelMessage[this.currentChannelMessage.length - 1]
       const date = new Date(lastMessage.timestamp)
       const dateString = date.toLocaleDateString('de-DE')
       this.date = dateString
-    
+
     }
 
   }
