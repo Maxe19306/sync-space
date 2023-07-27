@@ -48,15 +48,28 @@
             display: flex;
             align-items: center;
 
-            .header__users__img {
+            .header__users {
                 display: flex;
                 align-items: center;
+                padding: 4px;
+                border-radius: 25px;
+                transition: all 100ms ease-in;
 
-                img {
-                    width: 36px;
-                    border-radius: 50%;
-                    border: 2px solid white;
-                    margin-left: -12.5px;
+                &:hover {
+                    background-color: $background-color-light-mode;
+                }
+
+                .header__users__img {
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+    
+                    img {
+                        width: 36px;
+                        border-radius: 50%;
+                        border: 2px solid white;
+                        margin-left: -12.5px;
+                    }
                 }
             }
 
