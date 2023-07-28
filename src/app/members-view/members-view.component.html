@@ -1,5 +1,5 @@
-<div class="title__create__channel">
-    <h2>Channel erstellen</h2>
+<div class="title">
+    <h2>Mitglieder</h2>
     <div class="hover-area noSelect" (click)="closeDialog()">
         <div class="transform-circle"></div>
         <span class="material-symbols-rounded single-icon add-icon">close</span>
@@ -7,5 +7,9 @@
 </div>
 
 <div *ngIf="this.data">
-    <p *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)"> {{user.name}}</p>
+    <!-- <p *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)"> {{user.name}}</p> -->
+    <div class="result__row" *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)">
+        <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
+        {{user.name}}
+    </div>
 </div>
