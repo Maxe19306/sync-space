@@ -16,6 +16,9 @@ export class MembersViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  closeDialog() {
+    this.dialogRef.close(MembersViewComponent);
+  }
 
   openDialogProfil(userId) {
     console.log(userId)
