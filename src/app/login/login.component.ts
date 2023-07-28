@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
   @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
   @ViewChild('password', { static: true }) passwordInput: ElementRef<HTMLInputElement>;
 
+  validMailAddress: boolean = true;
+  validMailPassword: boolean = true;
+
   user: User = new User({});
   currentUser: currentUser = new currentUser;
   provider = new GoogleAuthProvider();
@@ -45,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.determineTheCurrentUser()
       })
       .catch((error) => {
-
+        console.log("Wrong user data");
       });
   }
 

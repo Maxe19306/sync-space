@@ -18,12 +18,17 @@
                     </span>
                     <input class="login" type="email" placeholder="beispielname@email.com" #mail required>
                 </div>
-
+                <div class="invalid__login">
+                    <span *ngIf="!validMailAddress">Diese E-Mail-Adresse ist leider ungültig.</span>
+                </div>
                 <div class="input__container second__input__container" (click)="focusPasswordInput()">
                     <span class="material-symbols-rounded noSelect">
                         lock
                     </span>
                     <input class="password" type="password" placeholder="Passwort" #password required (keydown.enter)="login(mail.value ,password.value)">
+                </div>
+                <div class="invalid__login">
+                    <span *ngIf="!validMailPassword">Falsches Passwort. Bitte noch einmal versuchen.</span>
                 </div>
             </form>
 

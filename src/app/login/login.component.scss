@@ -130,14 +130,23 @@
                     }
                 }
 
-                .second__input__container {
-                    margin-top: 34px;
+                // .second__input__container {
+                //     margin-top: 34px;
+                // }
+
+                .invalid__login {
+                    height: 29px;
+                    padding-top: 5px;
+
+                    span {
+                        color: red;
+                    }
                 }
             }
 
             a {
                 text-decoration: none;
-                margin-top: 29px;
+                // margin-top: 29px;
                 font-size: 18px;
                 font-weight: 400;
                 padding: 5px 10px;
