@@ -72,6 +72,11 @@
         padding: 4px 20px;
         border-radius: 30px;
 
+        div {
+            display: flex;
+            align-items: center;
+        }
+
         img {
             width: 50px;
             border-radius: 50%;
