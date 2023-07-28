@@ -1,0 +1,12 @@
+::ng-deep .members__view__matdialog {
+    mat-dialog-container {
+        // position: absolute;
+        // top: 120px;
+        // right: 25px;
+        width: 510px;
+        height: fit-content;
+        border-radius: 30px;
+        border-top-right-radius: 0px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+    }
+}

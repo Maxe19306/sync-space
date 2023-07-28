@@ -12,49 +12,49 @@ import { MembersViewComponent } from '../members-view/members-view.component';
 })
 export class ProfileViewComponent implements OnInit {
   DM: DirectMessage = new DirectMessage({});
-  
+
   constructor(
     public dialogRef: MatDialogRef<ProfileViewComponent>,
     private firestore: AngularFirestore,
-    public dialog : MatDialog,
+    public dialog: MatDialog,
     public dataService: DataService,
-    @Inject(MAT_DIALOG_DATA) public data:any
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
 
-    userDetail;
-    currentUser;
+  userDetail;
+  currentUser;
 
   ngOnInit(): void {
     this.loadUserDetail()
     this.loadCurrentUser()
   }
 
- loadUserDetail() {
-  this.firestore
-  .collection('users')
-  .doc(this.data.userId)
-  .valueChanges({idField: 'id'})
-  .subscribe((user) => {
-    this.userDetail = user
-  });
+  loadUserDetail() {
+    this.firestore
+      .collection('users')
+      .doc(this.data.userId)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.userDetail = user
+      });
   }
 
   loadCurrentUser() {
     this.firestore
-    .collection('users')
-    .doc(this.dataService.id)
-    .valueChanges({idField: 'id'})
-    .subscribe((user) => {
-      this.currentUser = user
-    });
-    }
+      .collection('users')
+      .doc(this.dataService.id)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.currentUser = user
+      });
+  }
 
 
-  closeDialog(){
+  closeDialog() {
     this.dialogRef.close(ProfileViewComponent)
   }
-  
+
 
 
   createDM() {
@@ -62,13 +62,13 @@ export class ProfileViewComponent implements OnInit {
       name: this.currentUser.name,
       id: this.currentUser.id
     };
-  
+
     const userDetail = {
       name: this.userDetail.name,
       id: this.userDetail.id
     };
-    
-    const members = [currentUser, userDetail]; 
+
+    const members = [currentUser, userDetail];
     console.log(members, this.DM)
     // Überprüfen, ob ein Chat mit den Mitgliedern bereits existiert
     this.firestore.collection('dms')
@@ -81,12 +81,12 @@ export class ProfileViewComponent implements OnInit {
             const chatId = doc.id;
             console.log('Ein Chat mit diesen Mitgliedern existiert bereits. Chat-ID:', chatId);
             this.closeDialog()
-            this.openChat(chatId)      
-                   // Hier kannst du die Chat-ID verwenden oder entsprechende Aktionen durchführen
+            this.openChat(chatId)
+            // Hier kannst du die Chat-ID verwenden oder entsprechende Aktionen durchführen
           });
         } else {
           // Ein Chat mit den Mitgliedern existiert nicht, erstelle einen neuen DM
-         
+
           this.DM.members = members;
           this.firestore.collection('dms')
             .add(this.DM.toJSON())
@@ -94,39 +94,38 @@ export class ProfileViewComponent implements OnInit {
               const chatId = docRef.id;
               console.log('Neuer Chat erstellt. Chat-ID:', chatId);
               this.updateUsers(this.DM.members, chatId);
-              this.closeDialog() 
-              this.openChat(chatId)      
-               
-            })  
+              this.closeDialog()
+              this.openChat(chatId)
+
+            })
         }
       })
-        }
-  
+  }
 
 
-  updateUsers(members: any[], docID: string){
-      const uniqueMembers = new Set(members.map(member => member.id));
-      uniqueMembers.forEach((element: string) => { // Element-Typ auf "string" festlegen
-        this.firestore
-          .collection('users')
-          .doc(element)
-          .collection('dmsFromUser')
-          .add({
-            DMID: docID
-          })
-      });
-    }
 
-    openChat(id){
+  updateUsers(members: any[], docID: string) {
+    const uniqueMembers = new Set(members.map(member => member.id));
+    uniqueMembers.forEach((element: string) => { // Element-Typ auf "string" festlegen
       this.firestore
         .collection('users')
-        .doc(this.dataService.id)
-        .update({
-          viewChat: true,
-          currentDM: id
+        .doc(element)
+        .collection('dmsFromUser')
+        .add({
+          DMID: docID
         })
-    }
+    });
+  }
+
+  openChat(id) {
+    this.firestore
+      .collection('users')
+      .doc(this.dataService.id)
+      .update({
+        viewChat: true,
+        currentDM: id
+      })
+  }
 
 }
 
-     

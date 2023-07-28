@@ -68,7 +68,8 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
   openDialogMembersView(members) {
     this.Dialog.open(MembersViewComponent,
       {
-        data: { members }
+        data: { members },
+        panelClass: 'members__view__matdialog'
       })
   }
 
