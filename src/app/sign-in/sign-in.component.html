@@ -17,7 +17,7 @@
                 <p>Mit deinem Namen und deiner E-Mail-Adresse<br>
                     hast du dein neues Sync Space-Konto</p>
 
-                <form autocomplete="off" action="" #userForm="ngForm">
+                <form autocomplete="off" action="" #userForm="ngForm" (keydown.enter)="$event.preventDefault(); validSigninForm ? createAccount(password, userForm) : {}">
                     <div class="input__container" (click)="focusSigninNameInput()">
                         <span class="material-symbols-rounded noSelect">
                             person
