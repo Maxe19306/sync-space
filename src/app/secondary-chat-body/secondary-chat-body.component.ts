@@ -12,7 +12,7 @@ import { timestamp } from 'rxjs';
 })
 
 export class SecondaryChatBodyComponent implements OnInit {
-  
+
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
 
   date = '';
@@ -32,8 +32,9 @@ export class SecondaryChatBodyComponent implements OnInit {
 
   ngAfterViewInit() {
     this.messageElements.changes.subscribe(() => {
-    ;
-    this.scrollMessageListToBottom() });
+      ;
+      this.scrollMessageListToBottom()
+    });
   }
 
   scrollMessageListToBottom(): void {
@@ -44,8 +45,9 @@ export class SecondaryChatBodyComponent implements OnInit {
         });
       } catch (err) { };
     }
-    )}
-   
+    )
+  }
+
 
   loadCurrentUser() {
     this.firestore
@@ -59,7 +61,7 @@ export class SecondaryChatBodyComponent implements OnInit {
   }
 
   loadMessageFromChannel() {
-    
+
     this.firestore
       .collection('channels')
       .doc(this.currentUser.channelFromThread)
