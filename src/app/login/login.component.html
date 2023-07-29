@@ -16,7 +16,7 @@
                     <span class="material-symbols-rounded noSelect">
                         mail
                     </span>
-                    <input class="login" type="email" placeholder="beispielname@email.com" #mail required>
+                    <input class="login" type="email" placeholder="beispielname@email.com" #mail required (keydown.enter)="login(mail.value ,password.value)">
                 </div>
                 <div class="invalid__login">
                     <span *ngIf="!validMailAddress">Diese E-Mail-Adresse ist leider ungültig.</span>
