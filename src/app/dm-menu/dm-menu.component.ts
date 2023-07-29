@@ -23,48 +23,48 @@ export class DmMenuComponent implements OnInit {
     this.loadCurrentUser()
   }
 
-  loadCurrentUser(){
+  loadCurrentUser() {
     this.firestore
-    .collection('users')
-    .doc(this.dataService.id)
-    .valueChanges({idField: 'id'})
-    .subscribe((user) => {
-      this.currentUser = user;
-    })
+      .collection('users')
+      .doc(this.dataService.id)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.currentUser = user;
+      })
   }
 
-    loadAllDms(){
+  loadAllDms() {
     this.firestore
-    .collection('users')
-    .doc(this.dataService.id)
-    .collection('dmsFromUser')
-    .valueChanges({idField: 'id'})
-    .subscribe((dm)=> {
-      this.allDmsIdFromUser = dm
-      this.loadAllChats()
-    }
-    )
+      .collection('users')
+      .doc(this.dataService.id)
+      .collection('dmsFromUser')
+      .valueChanges({ idField: 'id' })
+      .subscribe((dm) => {
+        this.allDmsIdFromUser = dm
+        this.loadAllChats()
+      }
+      )
   }
 
-  determinePersonalChat(){
-  this.allDmsFromUser.forEach(element => {
-    const member1 = element.members[0]
-    const member2 = element.members[1]
+  determinePersonalChat() {
+    this.allDmsFromUser.forEach(element => {
+      const member1 = element.members[0]
+      const member2 = element.members[1]
 
-    if(member1.id === member2.id){
-      this.personalDm = element
-    }
+      if (member1.id === member2.id) {
+        this.personalDm = element
+      }
 
 
-  });
+    });
   }
 
-  viewNoChannels(){
+  viewNoChannels() {
     this.viewChannels = false;
   }
 
-  viewAllDMS(){
-    if(!this.viewChannels){
+  viewAllDMS() {
+    if (!this.viewChannels) {
       this.viewChannels = true;
     }
     else {
@@ -86,7 +86,7 @@ export class DmMenuComponent implements OnInit {
       this.firestore
         .collection('dms')
         .doc(dm.DMID)
-        .valueChanges({idField: 'DmId'})
+        .valueChanges({ idField: 'DmId' })
         .subscribe(dmData => {
           // Überprüfen, ob der Chat bereits in allDmsFromUser existiert
           const existingDm = this.allDmsFromUser.find(d => d.DmId === dmData.DmId);
@@ -96,10 +96,10 @@ export class DmMenuComponent implements OnInit {
           }
         });
     });
-    
+
   }
 
-  openChat(id){
+  openChat(id) {
     this.firestore
       .collection('users')
       .doc(this.dataService.id)
