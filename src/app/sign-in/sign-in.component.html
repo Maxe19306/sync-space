@@ -17,31 +17,35 @@
                 <p>Mit deinem Namen und deiner E-Mail-Adresse<br>
                     hast du dein neues Sync Space-Konto</p>
 
-                <form autocomplete="off" action="" #userForm="ngForm" (keydown.enter)="$event.preventDefault(); validSigninForm ? createAccount(password, userForm) : {}">
+                <form autocomplete="off" action="" #userForm="ngForm"
+                    (keydown.enter)="$event.preventDefault(); validSigninForm ? createAccount(password, userForm) : {}">
                     <div class="input__container" (click)="focusSigninNameInput()">
                         <span class="material-symbols-rounded noSelect">
                             person
                         </span>
-                        <input (input)="validateSigninName(name.value)" autocomplete="off" placeholder="Name" [(ngModel)]="user.name"
-                            name="name" #name required>
+                        <input (input)="validateSigninName(name.value)" autocomplete="off" placeholder="Name"
+                            [(ngModel)]="user.name" name="name" #name required>
                     </div>
                     <div class="input__container" (click)="focusSigninMailInput()">
                         <span class="material-symbols-rounded noSelect">
                             mail
                         </span>
-                        <input (input)="validateSigninEmail(mail.value)" autocomplete="off" placeholder="beispielname@email.com" [(ngModel)]="user.mail"
-                            name="mail" #mail required>
+                        <input (input)="validateSigninEmail(mail.value)" autocomplete="off"
+                            placeholder="beispielname@email.com" [(ngModel)]="user.mail" name="mail" #mail required>
                     </div>
                     <div class="input__container" (click)="focusSigninPasswordInput()">
                         <span class="material-symbols-rounded noSelect">
                             lock
                         </span>
-                        <input (input)="validateSigninPassword(password.value)" name="password" autocomplete="off" placeholder="Passwort" #password required>
+                        <input (input)="validateSigninPassword(password.value)" name="password" autocomplete="off"
+                            placeholder="Passwort" #password required>
                     </div>
-                    <div class="password__details">Das Passwort muss aus mindestens 8 Zeichen, mindestens 1 Groß-<br> und Kleinbuchstaben, sowie einem Sonderzeichen bestehen.</div>
+                    <div class="password__details">Das Passwort muss aus mindestens 8 Zeichen, mindestens 1 Groß-<br>
+                        und Kleinbuchstaben, sowie einem Sonderzeichen bestehen.</div>
                 </form>
                 <div class="container__footer">
-                    <button [disabled]="!validSigninForm" (click)="createAccount(password, userForm)" class="btn__sendmail" [ngClass]="{ 'blue__button': validSigninForm }">Weiter</button>
+                    <button [disabled]="!validSigninForm" (click)="createAccount(password, userForm)"
+                        class="btn__sendmail" [ngClass]="{ 'blue__button': validSigninForm }">Weiter</button>
                 </div>
             </div>
             <div class="side__right"></div>

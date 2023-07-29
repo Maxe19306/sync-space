@@ -31,19 +31,16 @@ export class ConfirnNewPasswordComponent implements OnInit {
     const passwordRegex = /^(?=.*[a-zäöü])(?=.*[A-ZÄÖÜ])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-ZäöüÄÖÜ\d@#$%^&+=!]).{8,}$/;
     this.validNewPassword0 = passwordRegex.test(newPassword0);
     this.validateNewPasswords();
-    console.log("this.validNewPassword0", this.validNewPassword0);
   }
 
   validateNewPassword1(newPassword1: string) {
     const passwordRegex = /^(?=.*[a-zäöü])(?=.*[A-ZÄÖÜ])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-ZäöüÄÖÜ\d@#$%^&+=!]).{8,}$/;
     this.validNewPassword1 = passwordRegex.test(newPassword1);
     this.validateNewPasswords();
-    console.log("this.validNewPassword1", this.validNewPassword1);
   }
 
   validateNewPasswords() {
     this.validNewPasswords = this.validNewPassword0 && this.validNewPassword1;
-    console.log("this.validNewPasswords", this.validNewPasswords);
   }
 
   changeNewPassword(newPassword0, newPassword1) {
