@@ -9,6 +9,7 @@ import { Channel } from '../models/channel.class';
   templateUrl: './create-channel.component.html',
   styleUrls: ['./create-channel.component.scss']
 })
+
 export class CreateChannelComponent implements OnInit {
 
   @ViewChild('channelName', { static: true }) channelNameInput: ElementRef<HTMLInputElement>;
@@ -31,13 +32,21 @@ export class CreateChannelComponent implements OnInit {
     this.channelNameInput.nativeElement.focus();
   }
 
-  createChannel(channel) {
+  onEnterKeyPress() {
+    if (this.isButtonEnabled()) {
+      this.createChannel(this.channel);
+    }
+  }
 
+  isButtonEnabled() {
+    return !!this.channel.name && this.channel.name.length > 0;
+  }
+
+  createChannel(channel) {
     this.Dialog.open(AddMemberAfterAddChannelComponent, {
       data: channel,
       panelClass: 'new__channel__matdialog__adduser'
     })
-
     this.dialogRef.close(CreateChannelComponent)
   }
 
