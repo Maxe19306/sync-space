@@ -5,12 +5,12 @@ import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
-
 @Component({
   selector: 'app-main-direct-message-body',
   templateUrl: './main-direct-message-body.component.html',
   styleUrls: ['./main-direct-message-body.component.scss']
 })
+
 export class MainDirectMessageBodyComponent implements OnInit {
 
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
