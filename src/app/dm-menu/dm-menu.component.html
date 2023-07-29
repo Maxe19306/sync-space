@@ -15,7 +15,7 @@
 
     <div *ngFor="let dmName of allDmsFromUser" class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
         <div *ngFor="let member of dmName.members">
-            <div *ngIf="member.id !== this.dataService.id" (click)="openChat(dmName.DmId)"z>
+            <div *ngIf="member.id !== this.dataService.id" (click)="openChat(dmName.DmId)">
                 <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
                 <span>{{member.name}}</span>
             </div>
