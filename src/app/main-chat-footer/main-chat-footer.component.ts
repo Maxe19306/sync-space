@@ -13,7 +13,7 @@ export class MainChatFooterComponent implements OnInit {
 
   currentUser
   message: Message = new Message({})
- @Input() channelName;
+  @Input() channelName;
   chatForm;
   chatTextarea;
   sendBtn;

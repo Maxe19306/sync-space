@@ -1,9 +1,11 @@
 @import "../../styles/settings/_variables.scss";
+
 form {
     border: 1px solid $main-chat-borders-light-mode;
     border-radius: 20px;
     margin: 15px 40px 40px 35px;
     transition: border 100ms ease-in;
+
     textarea {
         resize: none;
         padding: 20px 20px 0 20px;
@@ -15,23 +17,29 @@ form {
         font-size: 18px;
         border-radius: 20px;
     }
+
     .btn__area {
         display: flex;
         justify-content: space-between;
         padding: 0 15px 10px 15px;
+
         span {
             font-size: 20px;
         }
+
         .btn__area__left {
             display: flex;
+
             .plus {
                 border-right: 2px solid $main-chat-borders-light-mode;
                 padding-right: 10px;
             }
+
             .reaction__icons {
                 margin-left: 10px;
             }
         }
+
         .send__img {
             img {
                 width: 30px;
@@ -39,14 +47,17 @@ form {
                 transition: filter 200ms ease-in;
             }
         }
+
         .send__img__disabled {
             cursor: auto;
             pointer-events: none !important;
+
             img {
                 filter: grayscale(1);
             }
         }
     }
+
     &:hover {
         border: 1px solid $text-color-highlight-light-mode !important;
     }

@@ -73,9 +73,9 @@ export class SecondaryChatFooterComponent implements OnInit {
     this.message.timestamp = new Date().getTime();
     this.firestore
       .collection('channels')
-      .doc(this.currentUser.ChannelFromThread)
+      .doc(this.currentUser.channelFromThread)
       .collection('messages')
-      .doc(this.currentUser.ThreadId)
+      .doc(this.currentUser.threadId)
       .collection('threadAnswer')
       .add(this.message.toJSON());
     this.resetFormSecondary();
