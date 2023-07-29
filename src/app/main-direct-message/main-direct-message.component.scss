@@ -1,4 +1,5 @@
 @import "../../styles/settings/_variables.scss";
+
 .main__chat__container {
     display: flex;
     flex-direction: column;
@@ -6,10 +7,32 @@
     border-radius: 30px;
     overflow: auto;
     height: calc(100vh - 140px); // QnD fix
+
     .main__chat__header {
         display: flex;
         justify-content: space-between;
-        padding: 28px 45px;
+        padding: 26px 45px;
+
+        div {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            padding: 4px 8px 4px 6px;
+            border-radius: 25px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $background-color-light-mode;
+            }
+
+            img {
+                width: 36px;
+                border-radius: 50%;
+                margin-right: 15px;
+            }
+        }
+
         .main__chat__header__left {
             display: flex;
             align-items: center;
@@ -18,27 +41,33 @@
             padding: 6px 10px;
             border-radius: 100px;
             cursor: pointer;
+
             &:hover {
                 background-color: $background-color-light-mode;
                 color: $text-color-highlight-light-mode;
                 transition: all 200ms ease-in;
             }
+
             span {
                 font-weight: 700;
             }
         }
+
         .main__chat__header__right {
             display: flex;
             align-items: center;
+
             .header__users__img {
                 display: flex;
                 align-items: center;
             }
+
             .users__count {
                 font-weight: 600;
                 font-size: 20px;
                 margin-left: 10px;
             }
+
             .symbol__circle {
                 display: flex;
                 justify-content: center;
@@ -49,10 +78,12 @@
                 background: $background-color-light-mode;
                 cursor: pointer;
                 margin-left: 20px;
+
                 span {
                     font-weight: 600;
                     transition: all 200ms ease-in-out;
                 }
+
                 &:hover {
                     span {
                         color: $text-color-highlight-light-mode;
@@ -76,9 +107,9 @@ app-main-direct-message-body {
     overflow: auto;
 }
 
-img {
-    width: 36px;
-    border-radius: 50%;
-    border: 2px solid white;
-    margin-left: -12.5px;
-}
+// img {
+//     width: 36px;
+//     border-radius: 50%;
+//     border: 2px solid white;
+//     margin-left: -12.5px;
+// }
