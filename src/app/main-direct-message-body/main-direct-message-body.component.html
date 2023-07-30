@@ -1,47 +1,57 @@
-<div class="main__chat__body__message noSelect" *ngFor="let message of currentChannelMessage" [class.content__left]="message.creator.id === this.dataService.id" #messageElements>
+<ng-container *ngIf="currentChannelMessage && currentChannelMessage.length; else noMessageTemplate">
+    <div class="main__chat__body__message noSelect" *ngFor="let message of currentChannelMessage"
+        [class.content__left]="message.creator.id === this.dataService.id" #messageElements>
 
-    <div *ngIf="this.lastDateDisplayed(message.timestamp)" class="separator">
-        <hr>
-        <div class="date">
-            <span>{{date}}</span>
+        <div *ngIf="this.lastDateDisplayed(message.timestamp)" class="separator">
+            <hr>
+            <div class="date">
+                <span>{{date}}</span>
+            </div>
+        </div>
+
+        <div class="message__body">
+
+            <div class="action__messages">
+                <div class="hover-area noSelect">
+                    <div class="transform-circle"></div>
+                    <img src="assets/img/mainChat/check-mark.webp" alt="" class="user_img single-icon">
+                </div>
+                <div class="hover-area noSelect">
+                    <div class="transform-circle"></div>
+                    <img src="assets/img/mainChat/hands-up.webp" alt="" class="user_img single-icon">
+                </div>
+                <div class="hover-area noSelect">
+                    <div class="transform-circle"></div>
+                    <img src="assets/img/mainChat/add-reaction.webp" alt="" class="user_img single-icon">
+                </div>
+                <div class="hover-area noSelect">
+                    <div class="transform-circle"></div>
+                    <img src="assets/img/mainChat/answer.webp" alt="" class="user_img single-icon">
+                </div>
+            </div>
+
+            <img src="assets/img/users/elias-neumann.webp" alt="" class="user_img"
+                (click)="openDialogProfil(this.message.creator.id)">
+            <div class="user__text">
+                <div class="user__text__header">
+                    <span (click)="openDialogProfil(this.message.creator.id)"
+                        class="user__name">{{message.creator.name}}</span>
+                    <span class="message__timestamp">{{ formatDate(message.timestamp) }}</span>
+
+                </div>
+                <div class="user__text__body">
+                    <span>{{message.text}}</span>
+                    <img *ngIf="message.image" [src]="message.imageUrl">
+                </div>
+            </div>
+
         </div>
 
     </div>
+</ng-container>
 
-    <div class="message__body">
-
-        <div class="action__messages">
-            <div class="hover-area noSelect">
-                <div class="transform-circle"></div>
-                <img src="assets/img/mainChat/check-mark.webp" alt="" class="user_img single-icon">
-            </div>
-            <div class="hover-area noSelect">
-                <div class="transform-circle"></div>
-                <img src="assets/img/mainChat/hands-up.webp" alt="" class="user_img single-icon">
-            </div>
-            <div class="hover-area noSelect">
-                <div class="transform-circle"></div>
-                <img src="assets/img/mainChat/add-reaction.webp" alt="" class="user_img single-icon">
-            </div>
-            <div class="hover-area noSelect">
-                <div class="transform-circle"></div>
-                <img src="assets/img/mainChat/answer.webp" alt="" class="user_img single-icon">
-            </div>
-        </div>
-
-        <img src="assets/img/users/elias-neumann.webp" alt="" class="user_img" (click)="openDialogProfil(this.message.creator.id)">
-        <div class="user__text">
-            <div class="user__text__header">
-                <span (click)="openDialogProfil(this.message.creator.id)" class="user__name">{{message.creator.name}}</span>
-                <span class="message__timestamp">{{ formatDate(message.timestamp) }}</span>
-
-            </div>
-            <div class="user__text__body">
-                <span>{{message.text}}</span>
-                <img *ngIf="message.image" [src]="message.imageUrl">
-            </div>
-        </div>
-
+<ng-template #noMessageTemplate>
+    <div class="no__messages">
+        Es gibt derzeit keine Nachrichten.
     </div>
-
-</div>
+</ng-template>
