@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SharedService {
   private toggleMenuSidebarLeftSource = new Subject<void>();
   private openSecondaryChatSource = new Subject<void>();
