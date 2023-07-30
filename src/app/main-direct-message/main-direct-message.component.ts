@@ -3,6 +3,7 @@ import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { DataService } from '../data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { SpeakerService } from '../speaker.service';
 
 @Component({
   selector: 'app-main-direct-message',
@@ -19,7 +20,8 @@ export class MainDirectMessageComponent implements OnInit {
   constructor(
     public dataService: DataService,
     public Dialog: MatDialog,
-    private firestore: AngularFirestore) {}
+    private firestore: AngularFirestore,
+    private speakerService: SpeakerService) {}
 
   ngOnInit(): void {
     this.loadCurrentUser();
@@ -67,6 +69,11 @@ export class MainDirectMessageComponent implements OnInit {
     else (
       this.speaker = member2.name
     )
+  }
+
+  changeSpeaker(newSpeaker) {
+    this.speaker = newSpeaker;
+    this.speakerService.changeSpeaker(this.speaker);
   }
 }
 

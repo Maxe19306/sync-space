@@ -1,9 +1,11 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { Subscription } from 'rxjs';
+import { SpeakerService } from '../speaker.service';
 
 @Component({
   selector: 'app-main-direct-message-body',
@@ -11,7 +13,10 @@ import { getStorage, ref, getDownloadURL } from "firebase/storage";
   styleUrls: ['./main-direct-message-body.component.scss']
 })
 
-export class MainDirectMessageBodyComponent implements OnInit {
+export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
+
+  speaker;
+  speakerSubscription: Subscription;
 
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
   storage = getStorage();
@@ -23,13 +28,22 @@ export class MainDirectMessageBodyComponent implements OnInit {
   constructor(
     public Dialog: MatDialog,
     public dataService: DataService,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private speakerService: SpeakerService
   ) { }
 
   ngOnInit(): void {
     this.loadCurrentUser()
-
+    this.speakerSubscription = this.speakerService.currentSpeaker.subscribe(speaker => {
+      this.speaker = speaker;
+    });
   }
+
+  ngOnDestroy() {
+    // prevent memory leak when component is destroyed
+    this.speakerSubscription.unsubscribe();
+  }
+  
   test(message) {
     console.log(message)
   }
