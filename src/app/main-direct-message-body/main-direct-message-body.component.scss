@@ -185,5 +185,27 @@
 .no__messages {
     height: 100%;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .header {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 100px;
+            border-radius: 50%;
+            margin-right: 17.5px;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: 700;
+        }
+    }
+
+    .conversation {
+        font-size: 18px;
+        margin-top: 16px;
+    }
 }
