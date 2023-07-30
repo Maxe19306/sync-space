@@ -82,6 +82,30 @@
             }
         }
     }
+
+    .button {
+        display: flex;
+        align-items: flex-start;
+        border-radius: 30px;
+        padding: 12px 25px;
+        font-size: 18px;
+        font-weight: 400;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 100ms ease-in;
+        background-color: #444DF2;
+        color: white;
+        border: none;
+
+        &:hover {
+            background-color: #797ef3;
+        }
+
+        span {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+    }
 }
 
 ::ng-deep .profile__view__matdialog {
