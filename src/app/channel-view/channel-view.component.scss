@@ -26,6 +26,13 @@
             font-weight: 700;
         }
     }
+
+    .channel__view__header {
+        padding: 20px;
+        margin-top: 16px;
+        border: 1px solid #ADB0D9;
+        border-radius: 20px;
+    }
 }
 
 .container {
@@ -43,6 +50,7 @@
 .container-title {
     display: flex;
     justify-content: space-between;
+
     a {
         color: #535AF1;
         cursor: pointer;
