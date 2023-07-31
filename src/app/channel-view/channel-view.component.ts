@@ -29,7 +29,7 @@ export class ChannelViewComponent implements OnInit {
   loadChannel(){
     this.firestore
     .collection('channels')
-    .doc(this.data.ChannelId)
+    .doc(this.data.channelId)
     .valueChanges()
     .subscribe((channel) => {
       this.currentChannel = channel
@@ -60,7 +60,7 @@ export class ChannelViewComponent implements OnInit {
       .collection('channels')
       .doc(this.data.channelId)
       .update({
-        Name: this.currentChannel.name
+        name: this.currentChannel.name
       })
       this.editName = false;
   }
@@ -70,7 +70,7 @@ export class ChannelViewComponent implements OnInit {
       this.currentChannel.members.splice(currentUserIndex, 1);
       this.firestore
       .collection('channels')
-      .doc(this.data.ChannelId)
+      .doc(this.data.channelId)
       .update({
         members: this.currentChannel.members
       })

@@ -32,9 +32,9 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
     this.scrollToBottom();
   }
 
-  openDialogChannelView(ChannelId) {
+  openDialogChannelView(channelId) {
     this.Dialog.open(ChannelViewComponent, {
-      data: { ChannelId }
+      data: { channelId }
     })
   }
 

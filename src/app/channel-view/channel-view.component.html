@@ -1,6 +1,6 @@
 <div *ngIf="this.currentChannel" class="dialog-channel-view">
     <h2>
-        # {{this.currentChannel.Name}}
+        # {{this.currentChannel.name}}
     </h2>
 
     <div class="container">
@@ -22,7 +22,8 @@
                 <a (click)="editDescriptionName()"> Bearbeiten</a>
 
             </div>
-            <p>{{this.currentChannel.description}}</p>
+            <p *ngIf="this.currentChannel.description">{{this.currentChannel.description}}</p>
+            <p *ngIf="!this.currentChannel.description">Aktuell gibt es keine Beschreibung des Channels. Füge gerne eine hinzu.</p>
 
             <div *ngIf="editDescription">
                 <input [(ngModel)]="this.currentChannel.description" type="text" value="{{this.currentChannel.description}}">
@@ -32,7 +33,7 @@
         </div>
         <div>
             <p>Erstellt von</p>
-            <p>{{this.currentChannel.founder.Name}}</p>
+            <p>{{this.currentChannel.founder.name}}</p>
         </div>
     </div>
 
