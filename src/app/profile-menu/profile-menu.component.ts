@@ -35,9 +35,9 @@ export class ProfileMenuComponent implements OnInit {
       });
   }
 
-  openDialogProfil(userID) {
+  openDialogProfil(userId) {
     this.Dialog.open(ProfileViewComponent, {
-      data: { userID },
+      data: { userId },
       panelClass: 'profile__view__matdialog'
     })
   }

@@ -1,4 +1,4 @@
-<div *ngIf="this.userDetail" class="main__profil__container">
+<div *ngIf="this.userDetail&&this.currentUser" class="main__profil__container">
     <div class="start__profil__container">
         <h2>Profil</h2>
         <div (click)="closeDialog()" class="hover-area noSelect">
@@ -8,7 +8,7 @@
     </div>
     <img src="/assets/img/secondaryChat/elias-neumann.webp" alt="">
     <div class="second__profil__container">
-        <div class="name">
+        <div *ngIf="this.userDetail.id === this.currentUser.id" class="name">
             <h3>{{this.userDetail.name}}</h3>
             <div>Bearbeiten</div>
         </div>
@@ -23,9 +23,13 @@
             <span>{{this.userDetail.mail}}</span>
         </div>
     </div>
-    <div mat-flat-button color="primary" (click)="createDM()" class="button">
+    <div *ngIf="this.userDetail.id !== this.currentUser.id" mat-flat-button color="primary" (click)="createDM()" class="button">
         <span class="material-symbols-rounded">mode_comment</span>
         Nachricht
+    </div>
+    <div *ngIf="this.userDetail.id === this.currentUser.id" mat-flat-button color="primary" (click)="createDM()" class="button">
+        <span class="material-symbols-rounded">mode_comment</span>
+        Notiz
     </div>
 </div>
 

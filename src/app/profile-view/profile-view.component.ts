@@ -26,8 +26,8 @@ export class ProfileViewComponent implements OnInit {
   currentUser;
 
   ngOnInit(): void {
-    this.loadUserDetail()
-    this.loadCurrentUser()
+    this.loadUserDetail();
+    this.loadCurrentUser();
   }
 
   loadUserDetail() {
@@ -36,7 +36,7 @@ export class ProfileViewComponent implements OnInit {
       .doc(this.data.userId)
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
-        this.userDetail = user
+        this.userDetail = user;
       });
   }
 
