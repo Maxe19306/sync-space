@@ -5,25 +5,25 @@
         color: black;
     }
 
-    .title__create__channel {
+    .title__channel__view {
         display: flex;
         justify-content: space-between;
 
-        * {
+        .headline {
+            display: flex;
+            align-items: center;
             font-size: 24px;
             font-weight: 700;
-        }
 
-        h2 {
-            font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
-        }
-
-        .hover-area {
-            &:hover {
-                span {
-                    color: #444DF2;
-                }
+            span {
+                margin-right: 16px;
+                font-weight: 700;
             }
+        }
+
+        .single-icon {
+            font-size: 24px;
+            font-weight: 700;
         }
     }
 }

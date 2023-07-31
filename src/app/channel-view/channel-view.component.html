@@ -1,9 +1,22 @@
 <div *ngIf="this.currentChannel" class="dialog-channel-view">
-    <div class="title__create__channel">
-        <h2># {{this.currentChannel.name}}</h2>
+
+    <div class="title__channel__view">
+        <div class="headline">
+            <span class="material-symbols-rounded">tag</span>{{this.currentChannel.name}}
+        </div>
         <div class="hover-area noSelect" (click)="closeDialog()">
             <div class="transform-circle"></div>
             <span class="material-symbols-rounded single-icon add-icon">close</span>
+        </div>
+    </div>
+
+    <div class="channel__view__header">
+        <div class="channel__header__row1">
+            <div class="channel__header__row1__left">Channel-Name</div>
+            <div class="channel__header__row1__right">Bearbeiten</div>
+        </div>
+        <div class="channel__header__row2">
+            <span>#</span><span>{{this.currentChannel.name}}</span>
         </div>
     </div>
 
