@@ -32,6 +32,41 @@
         margin-top: 16px;
         border: 1px solid #ADB0D9;
         border-radius: 20px;
+        font-size: 18px;
+
+        .channel__header__row1 {
+            display: flex;
+            justify-content: space-between;
+
+            .channel__header__row1__left {
+                font-weight: 700;
+            }
+
+            .channel__header__row1__right {
+                color: #535AF1;
+                transition: all 100ms ease-in;
+                cursor: pointer;
+
+                &:hover {
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .channel__header__row2 {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+
+            .material-symbols-rounded {
+                font-weight: 700;
+                margin-right: 12px;
+            }
+
+            span {
+                font-size: 18px;
+            }
+        }
     }
 }
 

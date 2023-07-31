@@ -13,10 +13,10 @@
     <div class="channel__view__header">
         <div class="channel__header__row1">
             <div class="channel__header__row1__left">Channel-Name</div>
-            <div class="channel__header__row1__right">Bearbeiten</div>
+            <div class="channel__header__row1__right" (click)="editChannelName()">Bearbeiten</div>
         </div>
         <div class="channel__header__row2">
-            <span>#</span><span>{{this.currentChannel.name}}</span>
+            <span class="material-symbols-rounded">tag</span><span>{{this.currentChannel.name}}</span>
         </div>
     </div>
 
