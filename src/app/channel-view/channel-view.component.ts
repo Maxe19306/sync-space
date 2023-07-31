@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,13 +9,17 @@ import { DataService } from '../data.service';
   styleUrls: ['./channel-view.component.scss']
 })
 export class ChannelViewComponent implements OnInit {
-  
+
 
 
   constructor(
-    public dataService : DataService,
-    @Inject(MAT_DIALOG_DATA) public data:any,
-  private firestore: AngularFirestore) { }
+    public dataService: DataService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private firestore: AngularFirestore,
+    public Dialog: MatDialog,
+    public dialogRef: MatDialogRef<ChannelViewComponent>
+    ) { }
+
   currentUser;
   currentChannel;
   editName = false;
@@ -26,49 +30,53 @@ export class ChannelViewComponent implements OnInit {
     this.loadCurrentUser()
   }
 
-  loadChannel(){
-    this.firestore
-    .collection('channels')
-    .doc(this.data.channelId)
-    .valueChanges()
-    .subscribe((channel) => {
-      this.currentChannel = channel
-    });
+  closeDialog() {
+    this.dialogRef.close(ChannelViewComponent)
   }
 
-  editDescriptionName(){
+  loadChannel() {
+    this.firestore
+      .collection('channels')
+      .doc(this.data.channelId)
+      .valueChanges()
+      .subscribe((channel) => {
+        this.currentChannel = channel
+      });
+  }
+
+  editDescriptionName() {
     this.editDescription = true;
   }
 
-  editDescriptionInFirebase(){
+  editDescriptionInFirebase() {
     this.firestore
-    .collection('channels')
-    .doc(this.data.ChannelId)
-    .update({
-      description: this.currentChannel.description
-    })
+      .collection('channels')
+      .doc(this.data.ChannelId)
+      .update({
+        description: this.currentChannel.description
+      })
     this.editDescription = false;
-}
+  }
 
 
-  editChannelName(){
+  editChannelName() {
     this.editName = true;
   }
 
-  editChannelNameInFirebase(){
-      this.firestore
+  editChannelNameInFirebase() {
+    this.firestore
       .collection('channels')
       .doc(this.data.channelId)
       .update({
         name: this.currentChannel.name
       })
-      this.editName = false;
+    this.editName = false;
   }
 
-  leaveChannel(){
-      const currentUserIndex = this.currentChannel.members.findIndex(member => member.id === this.currentUser.id)
-      this.currentChannel.members.splice(currentUserIndex, 1);
-      this.firestore
+  leaveChannel() {
+    const currentUserIndex = this.currentChannel.members.findIndex(member => member.id === this.currentUser.id)
+    this.currentChannel.members.splice(currentUserIndex, 1);
+    this.firestore
       .collection('channels')
       .doc(this.data.channelId)
       .update({
@@ -76,15 +84,15 @@ export class ChannelViewComponent implements OnInit {
       })
   }
 
-  loadCurrentUser(){
+  loadCurrentUser() {
     this.firestore
-    .collection('users')
-    .doc(this.dataService.id)
-    .valueChanges({idField: 'id'})
-    .subscribe((user) => {
-      this.currentUser = user
+      .collection('users')
+      .doc(this.dataService.id)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.currentUser = user
 
-    });
+      });
   }
 
 

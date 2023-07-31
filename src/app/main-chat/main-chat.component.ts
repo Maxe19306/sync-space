@@ -34,7 +34,8 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
 
   openDialogChannelView(channelId) {
     this.Dialog.open(ChannelViewComponent, {
-      data: { channelId }
+      data: { channelId },
+      panelClass: 'members__view__matdialog'
     })
   }
 

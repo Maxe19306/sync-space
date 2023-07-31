@@ -1,11 +1,31 @@
 .dialog-channel-view {
     background-color: white;
-    width: 500px;
-}
 
-h2 {
-    font-size: 24px;
-    font-weight: 700;
+    * {
+        color: black;
+    }
+
+    .title__create__channel {
+        display: flex;
+        justify-content: space-between;
+
+        * {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
+        }
+
+        .hover-area {
+            &:hover {
+                span {
+                    color: #444DF2;
+                }
+            }
+        }
+    }
 }
 
 .container {
@@ -26,5 +46,14 @@ h2 {
     a {
         color: #535AF1;
         cursor: pointer;
+    }
+}
+
+::ng-deep .members__view__matdialog {
+    mat-dialog-container {
+        width: 800px;
+        height: fit-content;
+        border-radius: 30px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
     }
 }
