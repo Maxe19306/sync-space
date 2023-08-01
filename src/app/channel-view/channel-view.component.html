@@ -16,11 +16,13 @@
             <div class="channel__header__row1__right" (click)="editChannelName()">Bearbeiten</div>
         </div>
         <div class="channel__header__row2">
-            <span class="material-symbols-rounded">tag</span><span>{{this.currentChannel.name}}</span>
+            <span class="material-symbols-rounded">tag</span>
+            <!-- <span>{{this.currentChannel.name}}</span> -->
+            <input [(ngModel)]="this.currentChannel.name" type="text" value="{{this.currentChannel.name}}" (keydown.enter)="editChannelNameInFirebase()">
         </div>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="container-title">
             <p>Channel-Name</p>
             <a (click)="editChannelName()">Bearbeiten</a>
@@ -30,7 +32,7 @@
             <input [(ngModel)]="this.currentChannel.name" type="text" value="{{this.currentChannel.name}}">
             <button (click)="editChannelNameInFirebase()" mat-flat-button color="primary">Name ändern</button>
         </div>
-    </div>
+    </div> -->
 
     <div class="container">
         <div>
