@@ -8,12 +8,17 @@
     .title__channel__view {
         display: flex;
         justify-content: space-between;
+        max-width: 100%;
 
         .headline {
             display: flex;
             align-items: center;
             font-size: 24px;
             font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 90%;
 
             span {
                 margin-right: 16px;
