@@ -41,14 +41,20 @@ export class LoginComponent implements OnInit {
   }
 
   login(email, password) {
-
+    this.validMailAddress = true;
+    this.validMailPassword = true;
     signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         this.userID = userCredential.user.uid;
         this.determineTheCurrentUser()
       })
       .catch((error) => {
-        console.log("Wrong user data");
+        console.log("Fehler beim Einloggen:", error.message);
+        if (error.code === "auth/invalid-email") {
+          this.validMailAddress = false; // Setze validMailAddress auf false bei ungültiger E-Mail
+        } else if (error.code === "auth/wrong-password") {
+          this.validMailPassword = false; // Setze validMailPassword auf false bei falschem Passwort
+        }
       });
   }
 
