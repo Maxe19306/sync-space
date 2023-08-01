@@ -147,6 +147,26 @@
         display: flex;
         justify-content: flex-end;
         margin-top: 16px;
+
+        .button {
+            display: flex;
+            align-items: flex-start;
+            border-radius: 30px;
+            margin-top: 16px;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 100ms ease-in;
+            background-color: #444DF2;
+            color: white;
+            border: none;
+    
+            &:hover {
+                background-color: #797ef3;
+            }
+        }
     }
 }
 
