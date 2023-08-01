@@ -18,7 +18,7 @@ export class ChannelViewComponent implements OnInit {
     private firestore: AngularFirestore,
     public Dialog: MatDialog,
     public dialogRef: MatDialogRef<ChannelViewComponent>
-    ) { }
+  ) { }
 
   currentUser;
   currentChannel;
@@ -57,7 +57,6 @@ export class ChannelViewComponent implements OnInit {
       })
     this.editDescription = false;
   }
-
 
   editChannelName() {
     this.editName = true;

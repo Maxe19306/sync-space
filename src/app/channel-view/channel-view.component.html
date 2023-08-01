@@ -18,7 +18,8 @@
         <div class="channel__header__row2">
             <span class="material-symbols-rounded">tag</span>
             <!-- <span>{{this.currentChannel.name}}</span> -->
-            <input [(ngModel)]="this.currentChannel.name" type="text" value="{{this.currentChannel.name}}" (keydown.enter)="editChannelNameInFirebase()">
+            <input [(ngModel)]="this.currentChannel.name" type="text" value="{{this.currentChannel.name}}"
+                (keydown.enter)="editChannelNameInFirebase()">
         </div>
     </div>
 
@@ -42,10 +43,12 @@
 
             </div>
             <p *ngIf="this.currentChannel.description">{{this.currentChannel.description}}</p>
-            <p *ngIf="!this.currentChannel.description">Aktuell gibt es keine Beschreibung des Channels. Füge gerne eine hinzu.</p>
+            <p *ngIf="!this.currentChannel.description">Aktuell gibt es keine Beschreibung des Channels. Füge gerne eine
+                hinzu.</p>
 
             <div *ngIf="editDescription">
-                <input [(ngModel)]="this.currentChannel.description" type="text" value="{{this.currentChannel.description}}">
+                <input [(ngModel)]="this.currentChannel.description" type="text"
+                    value="{{this.currentChannel.description}}">
                 <button (click)="editDescriptionInFirebase()" mat-flat-button color="primary">Name ändern</button>
             </div>
 
