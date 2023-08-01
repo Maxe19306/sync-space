@@ -90,7 +90,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
   filterUser() {
     this.filteredUsers = this.allUsers.filter(user =>
-      user.Name
+      user.name
         .toLowerCase()
         .includes(this.inputParticipants.toLowerCase())
     );
