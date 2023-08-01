@@ -18,7 +18,7 @@
         <div class="channel__header__row2">
             <span class="material-symbols-rounded">tag</span>
             <!-- <span>{{this.currentChannel.name}}</span> -->
-            <input [(ngModel)]="this.currentChannel.name" type="text" value="{{this.currentChannel.name}}"
+            <input [(ngModel)]="this.currentChannel.name" type="text" maxlength="32" value="{{this.currentChannel.name}}"
                 (keydown.enter)="editChannelNameInFirebase()" #channelNameInput>
         </div>
     </div>
