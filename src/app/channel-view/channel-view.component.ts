@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../data.service';
@@ -8,9 +8,10 @@ import { DataService } from '../data.service';
   templateUrl: './channel-view.component.html',
   styleUrls: ['./channel-view.component.scss']
 })
+
 export class ChannelViewComponent implements OnInit {
 
-
+  @ViewChild('channelNameInput') channelNameInput: ElementRef;
 
   constructor(
     public dataService: DataService,
@@ -59,7 +60,8 @@ export class ChannelViewComponent implements OnInit {
   }
 
   editChannelName() {
-    this.editName = true;
+    // this.editName = true;
+    this.channelNameInput.nativeElement.focus();
   }
 
   editChannelNameInFirebase() {
