@@ -183,14 +183,15 @@
 }
 
 .no__messages {
-    height: 100%;
+    height: calc(100% - 24px);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    margin-bottom: 16px;
 
     .header {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
 
         img {
             width: 100px;
@@ -206,6 +207,17 @@
 
     .conversation {
         font-size: 18px;
-        margin-top: 16px;
+        margin-top: 32px;
+        color: #686868;
+
+        span {
+            color: #535AF1;
+            cursor: pointer;
+            transition: all 100ms ease-in;
+
+            &:hover {
+                font-weight: 700;
+            }
+        }
     }
 }
