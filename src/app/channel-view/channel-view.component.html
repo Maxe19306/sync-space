@@ -44,9 +44,15 @@
             <input [(ngModel)]="this.currentChannel.description" type="text" value="{{this.currentChannel.description}}"
                 (keydown.enter)="editDescriptionInFirebase()" #channelDescriptionInput>
         </div>
+
+        <hr>
+
+        <div class="channel__body__row3">Erstellt von</div>
+        <div class="channel__body__row4">{{this.currentChannel.founder.name}}</div>
+
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <div>
             <div class="container-title">
                 <p>Beschreibung</p>
@@ -68,8 +74,10 @@
             <p>Erstellt von</p>
             <p>{{this.currentChannel.founder.name}}</p>
         </div>
-    </div>
+    </div> -->
 
-    <button (click)="leaveChannel()" mat-flat-button color="primary">Channel verlassen</button>
+    <div class="channel__view__footer">
+        <button (click)="leaveChannel()" mat-flat-button color="primary">Channel verlassen</button>
+    </div>
 
 </div>

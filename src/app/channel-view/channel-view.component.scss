@@ -124,6 +124,29 @@
                 font-size: 18px;
             }
         }
+
+        hr {
+            border: 1px solid #ADB0D9;
+            border-bottom: 0;
+        }
+
+        .channel__body__row3 {
+            margin-top: 16px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .channel__body__row4 {
+            margin-top: 16px;
+            font-size: 24px;
+            color: #535AF1;
+        }
+    }
+
+    .channel__view__footer {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 16px;
     }
 }
 
