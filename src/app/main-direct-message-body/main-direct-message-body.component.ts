@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DataService } from '../data.service';
@@ -15,16 +15,15 @@ import { SpeakerService } from '../speaker.service';
 
 export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
 
-  speaker;
   speakerSubscription: Subscription;
-
+  @Input() speaker: any;
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
   storage = getStorage();
   pathReference = ref(this.storage, 'images/stars.jpg')
   date = '';
   currentUser;
   currentChannelMessage;
-
+  
   constructor(
     public Dialog: MatDialog,
     public dataService: DataService,
@@ -33,10 +32,7 @@ export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.loadCurrentUser()
-    this.speakerSubscription = this.speakerService.currentSpeaker.subscribe(speaker => {
-      this.speaker = speaker;
-    });
+    this.loadCurrentUser();
   }
 
   ngOnDestroy() {

@@ -38,9 +38,10 @@ export class MainDirectMessageComponent implements OnInit {
       })
   }
 
-  openDialogProfil(userID) {
+  openDialogProfil(userId) {
+    console.log(userId)
     this.Dialog.open(ProfileViewComponent, {
-      data: { userID },
+      data: { userId },
       panelClass: 'profile__view__matdialog'
     })
   }
@@ -61,13 +62,13 @@ export class MainDirectMessageComponent implements OnInit {
     const member2 = this.lastDm.members[1]
 
     if (member1.id === member2.id) {
-      this.speaker = member1.name;
+      this.speaker = member1;
     }
     else if (member2.id === this.dataService.id) {
-      this.speaker = member1.name
+      this.speaker = member1
     }
     else (
-      this.speaker = member2.name
+      this.speaker = member2
     )
   }
 

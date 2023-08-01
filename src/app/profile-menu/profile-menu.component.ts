@@ -13,7 +13,7 @@ export class ProfileMenuComponent implements OnInit {
 
   @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
-  @Input() userID: any;
+  @Input() userId: any;
   currentUser;
   constructor(
     public Dialog: MatDialog,
@@ -27,7 +27,7 @@ export class ProfileMenuComponent implements OnInit {
   loadCurrentUser() {
     this.firestore
       .collection('users')
-      .doc(this.userID)
+      .doc(this.userId)
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.currentUser = user

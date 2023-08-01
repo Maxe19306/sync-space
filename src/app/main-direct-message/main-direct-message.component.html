@@ -3,13 +3,13 @@
     <div class="main__chat__header">
         <div (click)="openDialogProfil(this.speaker.id)">
             <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
-            <span>{{this.speaker}}</span>
+            <span>{{this.speaker.name}}</span>
         </div>
     </div>
 
     <div class="chat__seperator"></div>
 
-    <app-main-direct-message-body></app-main-direct-message-body>
+    <app-main-direct-message-body [speaker]="this.speaker"></app-main-direct-message-body>
     <app-main-direct-message-footer></app-main-direct-message-footer>
 
 </div>

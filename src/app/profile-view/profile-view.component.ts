@@ -37,6 +37,7 @@ export class ProfileViewComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.userDetail = user;
+        console.log(this.userDetail)
       });
   }
 
