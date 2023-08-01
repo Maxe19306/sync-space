@@ -35,6 +35,17 @@
         </div>
     </div> -->
 
+    <div class="channel__view__body">
+        <div class="channel__body__row1">
+            <div class="channel__body__row1__left">Beschreibung</div>
+            <div class="channel__body__row1__right" (click)="editDescriptionName()">Bearbeiten</div>
+        </div>
+        <div class="channel__body__row2">
+            <input [(ngModel)]="this.currentChannel.description" type="text" value="{{this.currentChannel.description}}"
+                (keydown.enter)="editDescriptionInFirebase()" #channelDescriptionInput>
+        </div>
+    </div>
+
     <div class="container">
         <div>
             <div class="container-title">

@@ -12,6 +12,7 @@ import { DataService } from '../data.service';
 export class ChannelViewComponent implements OnInit {
 
   @ViewChild('channelNameInput') channelNameInput: ElementRef;
+  @ViewChild('channelDescriptionInput') channelDescriptionInput: ElementRef;
 
   constructor(
     public dataService: DataService,
@@ -46,7 +47,8 @@ export class ChannelViewComponent implements OnInit {
   }
 
   editDescriptionName() {
-    this.editDescription = true;
+    // this.editDescription = true;
+    this.channelDescriptionInput.nativeElement.focus();
   }
 
   editDescriptionInFirebase() {
