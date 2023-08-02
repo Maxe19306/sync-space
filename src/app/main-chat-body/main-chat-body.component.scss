@@ -181,3 +181,23 @@
         }
     }
 }
+
+.no__messages {
+    height: calc(100% - 24px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+
+    .header {
+        display: flex;
+        align-items: flex-end;
+        font-size: 24px;
+        font-weight: 700;
+
+        span {
+            font-weight: 700;
+            margin-right: 16px;
+        }
+    }
+}
