@@ -21,7 +21,7 @@ export class MainDirectMessageComponent implements OnInit {
     public dataService: DataService,
     public Dialog: MatDialog,
     private firestore: AngularFirestore,
-    private speakerService: SpeakerService) {}
+    private speakerService: SpeakerService) { }
 
   ngOnInit(): void {
     this.loadCurrentUser();
