@@ -23,7 +23,7 @@ export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
   date = '';
   currentUser;
   currentChannelMessage;
-  
+
   constructor(
     public Dialog: MatDialog,
     public dataService: DataService,
@@ -39,7 +39,7 @@ export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
     // prevent memory leak when component is destroyed
     this.speakerSubscription.unsubscribe();
   }
-  
+
   test(message) {
     console.log(message)
   }
