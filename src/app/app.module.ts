@@ -75,6 +75,7 @@ import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
     MainDirectMessageFooterComponent
   ],
   imports: [
+    NgxEmojiPickerModule.forRoot(),
     MatRadioModule,
     MatCheckboxModule,
     MatMenuModule,
@@ -92,7 +93,7 @@ import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
-    MatInputModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
