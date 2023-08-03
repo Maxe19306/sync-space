@@ -1,17 +1,20 @@
 <form action="" id="chatFormSecondary">
 
-    <textarea [(ngModel)]="this.message.text" id="chatTextareaSecondary" name="message" placeholder="Nachricht an #Threadname" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+    <textarea [(ngModel)]="this.message.text" id="chatTextareaSecondary" name="message"
+        placeholder="Nachricht an #Threadname" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
 
     <div class="btn__area" (click)="focusTextareaSecondary()">
         <div class="btn__area__left">
             <div class="plus">
                 <div class="hover-area noSelect">
                     <div class="transform-circle"></div>
-                    <span class="material-symbols-rounded single-icon add-icon" (click)="openImageUploader(); this.isUploadEnabled = true;">
+                    <span class="material-symbols-rounded single-icon add-icon"
+                        (click)="openImageUploader(); this.isUploadEnabled = true;">
                         <input #fileInput type="file" style="display: none" (change)="readyUploadImage($event)">
-                        
+
                         add
-                      </span>
+                    </span>
                 </div>
             </div>
             <div class="hover-area noSelect reaction__icons">
