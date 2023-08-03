@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -44,6 +43,7 @@ import { SecondaryChatFooterComponent } from './secondary-chat-footer/secondary-
 import { MainDirectMessageComponent } from './main-direct-message/main-direct-message.component';
 import { MainDirectMessageBodyComponent } from './main-direct-message-body/main-direct-message-body.component';
 import { MainDirectMessageFooterComponent } from './main-direct-message-footer/main-direct-message-footer.component';
+import  {  NgxEmojiPickerModule  }  from  'ngx-emoji-picker';
 
 @NgModule({
   declarations: [
