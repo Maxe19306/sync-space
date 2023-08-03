@@ -11,6 +11,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 export class MainChatFooterComponent implements OnInit {
 
+  toggled: boolean = false;
+
   currentUser
   message: Message = new Message({})
   @Input() channelName;
@@ -99,4 +101,11 @@ export class MainChatFooterComponent implements OnInit {
     this.chatForm.classList.remove("form__active");
   }
 
+  handleSelection(event) {
+    // console.log(event.char);
+    if (!this.message.text) {
+      this.message.text = '';
+    }
+    this.message.text += event.char;
+  }
 }

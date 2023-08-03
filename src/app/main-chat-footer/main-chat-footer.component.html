@@ -12,7 +12,9 @@
                     <span class="material-symbols-rounded single-icon">add</span>
                 </div>
             </div>
-            <div class="hover-area noSelect reaction__icons">
+            <div class="hover-area noSelect reaction__icons" (click)="toggled = !toggled" [(emojiPickerIf)]="toggled"
+                [emojiPickerDirection]="'bottom' || 'top' || 'left' || 'right'"
+                (emojiPickerSelect)="handleSelection($event)">
                 <div class="transform-circle"></div>
                 <span class="material-symbols-rounded single-icon">sentiment_satisfied</span>
             </div>
