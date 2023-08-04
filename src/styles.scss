@@ -150,3 +150,13 @@ body {
 .cdk-overlay-dark-backdrop {
     background-color: rgba(0, 0, 0, 0.075);
 }
+
+emoji-search {
+    input {
+        font-family: "Nunito", "Helvetica Neue", sans-serif !important;
+    }
+}
+
+.emoji-category {
+    font-family: "Nunito", "Helvetica Neue", sans-serif !important;
+}
