@@ -9,7 +9,11 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
   templateUrl: './main-direct-message-footer.component.html',
   styleUrls: ['./main-direct-message-footer.component.scss']
 })
+
 export class MainDirectMessageFooterComponent implements OnInit {
+
+  toggled: boolean = false;
+
   @ViewChild('fileInput') fileInput: any;
   currentUser
   message: Message = new Message({})
@@ -102,8 +106,22 @@ export class MainDirectMessageFooterComponent implements OnInit {
   resetFormSecondary() {
     this.chatTextareaSecondary.value = '';
     this.chatTextareaSecondary.length = 0;
+    this.message.text = '';
     this.sendBtnSecondary.classList.add("send__img__disabled");
     this.chatFormSecondary.classList.remove("form__active");
+  }
+
+  handleSelection(event) {
+    // console.log(event.char);
+    const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
+    if (!this.message.text) {
+      this.message.text = '';
+    }
+    this.message.text += event.char;
+    emojiPicker.style.display = "none";
+    this.toggled = false;
+    this.sendBtnSecondary.classList.remove("send__img__disabled");
+    this.chatFormSecondary.classList.add("form__active");
   }
 
   readyUploadImage(event){
