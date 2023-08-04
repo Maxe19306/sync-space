@@ -110,5 +110,7 @@ export class MainChatFooterComponent implements OnInit {
     this.message.text += event.char;
     emojiPicker.style.display = "none";
     this.toggled = false;
+    this.sendBtn.classList.remove("send__img__disabled");
+    this.chatForm.classList.add("form__active");
   }
 }
