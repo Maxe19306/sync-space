@@ -12,7 +12,7 @@
                     <span class="material-symbols-rounded single-icon">add</span>
                 </div>
             </div>
-            <div class="hover-area noSelect reaction__icons" (click)="toggled = !toggled; styleEmojiPicker()" [(emojiPickerIf)]="toggled"
+            <div class="hover-area noSelect reaction__icons" (click)="toggled = true; styleEmojiPicker()" [(emojiPickerIf)]="toggled"
                 [emojiPickerDirection]="'bottom' || 'top' || 'left' || 'right'"
                 (emojiPickerSelect)="handleSelection($event)">
                 <div class="transform-circle"></div>

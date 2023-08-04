@@ -119,5 +119,6 @@ export class MainChatFooterComponent implements OnInit {
     }
     this.message.text += event.char;
     emojiPicker.style.display = "none";
+    this.toggled = false;
   }
 }
