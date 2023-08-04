@@ -11,6 +11,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 export class SecondaryChatFooterComponent implements OnInit {
 
+  toggled: boolean = false;
+
   currentUser
   message: Message = new Message({})
 
@@ -98,8 +100,21 @@ export class SecondaryChatFooterComponent implements OnInit {
   resetFormSecondary() {
     this.chatTextareaSecondary.value = '';
     this.chatTextareaSecondary.length = 0;
+    this.message.text = '';
     this.sendBtnSecondary.classList.add("send__img__disabled");
     this.chatFormSecondary.classList.remove("form__active");
   }
 
+  handleSelection(event) {
+    // console.log(event.char);
+    const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
+    if (!this.message.text) {
+      this.message.text = '';
+    }
+    this.message.text += event.char;
+    emojiPicker.style.display = "none";
+    this.toggled = false;
+    this.sendBtnSecondary.classList.remove("send__img__disabled");
+    this.chatFormSecondary.classList.add("form__active");
+  }
 }
