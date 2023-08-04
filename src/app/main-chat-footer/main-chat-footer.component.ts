@@ -97,6 +97,7 @@ export class MainChatFooterComponent implements OnInit {
   resetForm() {
     this.chatTextarea.value = '';
     this.chatTextarea.length = 0;
+    this.message.text = '';
     this.sendBtn.classList.add("send__img__disabled");
     this.chatForm.classList.remove("form__active");
   }
@@ -104,6 +105,7 @@ export class MainChatFooterComponent implements OnInit {
   handleSelection(event) {
     // console.log(event.char);
     const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
+    console.log("this.message.text", this.message.text);
     if (!this.message.text) {
       this.message.text = '';
     }
