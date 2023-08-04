@@ -101,9 +101,19 @@ export class MainChatFooterComponent implements OnInit {
     this.chatForm.classList.remove("form__active");
   }
 
+  styleEmojiPicker() {
+    const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
+    setTimeout(() => {
+      emojiPicker.style.top = "0";
+    }, 500);
+  }
+
   handleSelection(event) {
     console.log(event.char);
     const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
+    setTimeout(() => {
+      emojiPicker.style.top = "0";
+    }, 500);
     if (!this.message.text) {
       this.message.text = '';
     }
