@@ -26,7 +26,7 @@ export class ProfileViewComponent implements OnInit {
   currentUser;
 
   editMode = false;
-  @ViewChild('userNameInput') userNameInput: ElementRef;
+  @ViewChild('userNameInput', { static: false }) userNameInput: ElementRef;
 
   ngOnInit(): void {
     this.loadUserDetail();
@@ -59,6 +59,11 @@ export class ProfileViewComponent implements OnInit {
     this.dialogRef.close(ProfileViewComponent)
   }
 
+  async editUserName() {
+    this.editMode = true;
+    await new Promise(resolve => setTimeout(resolve, 0));
+    this.userNameInput.nativeElement.focus();
+  }
 
 
   createDM() {
