@@ -9,7 +9,7 @@
     <img src="/assets/img/secondaryChat/elias-neumann.webp" alt="">
     <div class="second__profil__container">
         <div class="name">
-            <h3>{{this.userDetail.name}}</h3>
+            <div class="name__display">{{this.userDetail.name}}</div>
             <input [(ngModel)]="this.userDetail.name" type="text" maxlength="32" value="{{this.userDetail.name}}"
                 #userNameInput>
             <div *ngIf="this.userDetail.id === this.currentUser.id">Bearbeiten</div>

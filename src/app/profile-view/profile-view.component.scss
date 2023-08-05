@@ -30,15 +30,19 @@
             display: flex;
             justify-content: space-between;
 
-            h3 {
+            .name__display {
                 font-family: inherit;
                 font-size: 30px;
                 font-weight: 700;
+                color: #000;
             }
 
             input {
+                font-family: "Nunito", "Helvetica Neue", sans-serif !important;
                 border: none;
                 outline: none;
+                font-size: 30px;
+                font-weight: 700;
             }
 
             div {
