@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-menu',
@@ -17,7 +18,8 @@ export class ProfileMenuComponent implements OnInit {
   currentUser;
   constructor(
     public Dialog: MatDialog,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -48,5 +50,9 @@ export class ProfileMenuComponent implements OnInit {
 
   closeProfileView() {
     this.overlay.nativeElement.style.display = 'none';
+  }
+
+  logout() {
+    this.router.navigate(['/']);
   }
 }

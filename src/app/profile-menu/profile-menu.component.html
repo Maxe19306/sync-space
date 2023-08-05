@@ -22,6 +22,6 @@
 <div style="display:none" class="overlay" #overlay (click)="closeProfileView()">
     <div class="menu__container">
         <div class="menu__btn" (click)="openDialogProfil(this.currentUser.id)">Profil</div>
-        <div class="menu__btn" [routerLink]="''">Log out</div>
+        <div class="menu__btn" (click)="logout()">Log out</div>
     </div>
 </div>
