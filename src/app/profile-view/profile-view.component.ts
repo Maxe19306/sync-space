@@ -59,12 +59,21 @@ export class ProfileViewComponent implements OnInit {
     this.dialogRef.close(ProfileViewComponent)
   }
 
-  async editUserName() {
+  async initiateEditMode() {
     this.editMode = true;
     await new Promise(resolve => setTimeout(resolve, 0));
     this.userNameInput.nativeElement.focus();
   }
 
+  overwriteUserDataBackend() {
+    this.firestore
+      .collection('users')
+      .doc(this.data.userId)
+      .update({
+        name: this.currentUser.name
+      })
+    this.editMode = false;
+  }
 
   createDM() {
     const currentUser = {
