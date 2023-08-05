@@ -45,6 +45,10 @@
                     color: #444DF2;
                 }
             }
+
+            @media (width <= 768px) {
+                display: none;
+            }
         }
     }
 
