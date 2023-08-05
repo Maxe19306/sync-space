@@ -166,11 +166,17 @@
                 }
 
                 .invalid__login {
-                    height: 29px;
-                    padding-top: 5px;
+                    height: 22px;
+                    padding-top: 0px;
 
                     span {
                         color: red;
+                    }
+
+                    @media (width <=768px) {
+                        span {
+                            font-size: 12px;
+                        }
                     }
                 }
 
@@ -192,6 +198,10 @@
                     background-color: #ECEEFE;
                     color: #444DF2;
                 }
+
+                @media (width <=768px) {
+                    padding: 0px 10px;
+                }
             }
 
             .divider {
@@ -199,7 +209,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin-top: 29px;
+                margin-top: 16px;
 
                 span {
                     z-index: 10;
