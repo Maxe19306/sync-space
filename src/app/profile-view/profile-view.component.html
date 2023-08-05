@@ -12,7 +12,7 @@
             <div *ngIf="!editMode" class="name__display">{{this.userDetail.name}}</div>
             <input *ngIf="editMode"  [(ngModel)]="this.userDetail.name" type="text" maxlength="32" value="{{this.userDetail.name}}"
                 #userNameInput (keydown.enter)="overwriteUserDataBackend()">
-            <div *ngIf="this.userDetail.id === this.currentUser.id" (click)="initiateEditMode()">Bearbeiten</div>
+            <div *ngIf="this.userDetail.id === this.currentUser.id" (click)="initiateUserEditMode()">Bearbeiten</div>
         </div>
         <div class="status">
             <span>&#8226;</span>Aktiv
@@ -22,7 +22,9 @@
         <span class="material-symbols-rounded">email</span>
         <div class="mail">
             <h3>E-Mail-Adresse</h3>
-            <span>{{this.userDetail.mail}}</span>
+            <div *ngIf="!editMode" class="mail__display">{{this.userDetail.mail}}</div>
+            <input *ngIf="editMode"  [(ngModel)]="this.userDetail.mail" type="text" maxlength="32" value="{{this.userDetail.mail}}"
+                #userMailInput (keydown.enter)="overwriteUserDataBackend()">
         </div>
     </div>
     <div *ngIf="this.userDetail.id !== this.currentUser.id" mat-flat-button color="primary" (click)="createDM()"
