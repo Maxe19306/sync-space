@@ -8,8 +8,10 @@
     </div>
     <img src="/assets/img/secondaryChat/elias-neumann.webp" alt="">
     <div class="second__profil__container">
-        <div  class="name">
+        <div class="name">
             <h3>{{this.userDetail.name}}</h3>
+            <input [(ngModel)]="this.userDetail.name" type="text" maxlength="32" value="{{this.userDetail.name}}"
+                #userNameInput>
             <div *ngIf="this.userDetail.id === this.currentUser.id">Bearbeiten</div>
         </div>
         <div class="status">
@@ -23,11 +25,13 @@
             <span>{{this.userDetail.mail}}</span>
         </div>
     </div>
-    <div *ngIf="this.userDetail.id !== this.currentUser.id" mat-flat-button color="primary" (click)="createDM()" class="button">
+    <div *ngIf="this.userDetail.id !== this.currentUser.id" mat-flat-button color="primary" (click)="createDM()"
+        class="button">
         <span class="material-symbols-rounded">mode_comment</span>
         Nachricht
     </div>
-    <div *ngIf="this.userDetail.id === this.currentUser.id" mat-flat-button color="primary" (click)="createDM()" class="button">
+    <div *ngIf="this.userDetail.id === this.currentUser.id" mat-flat-button color="primary" (click)="createDM()"
+        class="button">
         <span class="material-symbols-rounded">mode_comment</span>
         Notiz
     </div>
