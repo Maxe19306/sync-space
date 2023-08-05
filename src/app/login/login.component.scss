@@ -9,6 +9,10 @@
         justify-content: space-between;
         padding: 0px 38.5px;
 
+        @media (width <= 768px) {
+                justify-content: center;
+            }
+
         img {
             width: 289px;
             height: 70px;
