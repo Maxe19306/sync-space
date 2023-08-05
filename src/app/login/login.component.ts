@@ -11,6 +11,7 @@ import { currentUser } from '../models/currentUser.class';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
@@ -58,7 +59,6 @@ export class LoginComponent implements OnInit {
       });
   }
 
-
   // lädt alle user runter und vergleicht die uid um den eingeloggten User herauszufinden
   determineTheCurrentUser() {
     this.firestore
@@ -72,19 +72,14 @@ export class LoginComponent implements OnInit {
 
   }
 
-
   // login mit google. es wird danach ein user in firestore database noch angelegt.
   loginWithGoogle() {
     signInWithPopup(this.auth, this.provider)
       .then((result) => {
-
         this.addNewUserToFirebase(result.user.displayName, result.user.email, result.user.uid)
       })
       .catch((error) => {
-
       });
-
-
   }
   // prüft ob es bereits den user mit der userid gibt. wenn nicht wird ein neuer erstellt.
   addNewUserToFirebase(name, email, userID) {
@@ -107,7 +102,6 @@ export class LoginComponent implements OnInit {
       .collection('users')
       .add(this.user.toJSON())
       .then(() => {
-
         this.determineTheCurrentUser()
       })
   }
@@ -120,8 +114,4 @@ export class LoginComponent implements OnInit {
         map(users => users.length > 0)
       );
   }
-
-
-
-
 }
