@@ -11,6 +11,7 @@
 
         @media (width <= 768px) {
                 justify-content: center;
+                padding: 0;
             }
 
         img {
@@ -20,6 +21,7 @@
             @media (width <= 768px) {
                 width: 230px;
                 height: auto;
+                padding-bottom: 25px;
             }
         }
 
@@ -84,6 +86,10 @@
                 font-size: 40px;
                 font-weight: 700;
                 font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
+
+                @media (width <= 768px) {
+                    margin-bottom: 0;
+                }
             }
 
             p {
@@ -91,6 +97,12 @@
                 font-size: 20px;
                 text-align: center;
                 margin-top: 26px;
+
+                @media (width <= 768px) {
+                    font-size: 15px;
+                    margin-top: 16px;
+                    margin-bottom: 0px;
+                }
             }
 
             form {
@@ -150,6 +162,10 @@
                     span {
                         color: red;
                     }
+                }
+
+                @media (width <= 768px) {
+                    margin-top: 16px;
                 }
             }
 
@@ -312,6 +328,10 @@
             @media (width <= 768px) {
                 padding: 35px 20px;
             }
+        }
+
+        @media (width <= 768px) {
+            height: fit-content;
         }
     }
 
