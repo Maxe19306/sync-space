@@ -9,16 +9,16 @@
         justify-content: space-between;
         padding: 0px 38.5px;
 
-        @media (width <= 768px) {
-                justify-content: center;
-                padding: 0;
-            }
+        @media (width <=768px) {
+            justify-content: center;
+            padding: 0;
+        }
 
         img {
             width: 289px;
             height: 70px;
 
-            @media (width <= 768px) {
+            @media (width <=768px) {
                 width: 230px;
                 height: auto;
                 padding-bottom: 25px;
@@ -51,13 +51,13 @@
                 cursor: pointer;
                 transition: all 100ms ease-in;
 
-                &:hover{
+                &:hover {
                     border: 1px solid #797EF3;
                     color: #444DF2;
                 }
             }
 
-            @media (width <= 768px) {
+            @media (width <=768px) {
                 display: none;
             }
         }
@@ -87,7 +87,7 @@
                 font-weight: 700;
                 font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
 
-                @media (width <= 768px) {
+                @media (width <=768px) {
                     margin-bottom: 0;
                 }
             }
@@ -98,7 +98,7 @@
                 text-align: center;
                 margin-top: 26px;
 
-                @media (width <= 768px) {
+                @media (width <=768px) {
                     font-size: 15px;
                     margin-top: 16px;
                     margin-bottom: 0px;
@@ -122,6 +122,10 @@
                         position: absolute;
                         left: 30px;
                         color: #686868;
+
+                        @media (width <= 768px) {
+                            font-size: 18px !important;
+                        }
                     }
 
                     input {
@@ -145,6 +149,12 @@
                             -webkit-box-shadow: 0 0 0 30px #ECEEFE inset !important;
                             -webkit-text-fill-color: #686868 !important;
                         }
+
+                        @media (width <=768px) {
+                            font-size: 14px !important;
+                            padding-left: 60px;
+                            padding-right: 50px;
+                        }
                     }
 
                     &:hover {
@@ -164,7 +174,7 @@
                     }
                 }
 
-                @media (width <= 768px) {
+                @media (width <=768px) {
                     margin-top: 16px;
                 }
             }
@@ -325,12 +335,12 @@
                 }
             }
 
-            @media (width <= 768px) {
+            @media (width <=768px) {
                 padding: 35px 20px;
             }
         }
 
-        @media (width <= 768px) {
+        @media (width <=768px) {
             height: fit-content;
         }
     }
@@ -362,6 +372,7 @@
                 font-family: inherit;
             }
         }
+
         @media (width > 768px) {
             display: none;
         }
