@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { currentUser } from '../models/currentUser.class';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -24,6 +24,9 @@ export class ProfileViewComponent implements OnInit {
 
   userDetail;
   currentUser;
+
+  editMode = false;
+  @ViewChild('userNameInput') userNameInput: ElementRef;
 
   ngOnInit(): void {
     this.loadUserDetail();

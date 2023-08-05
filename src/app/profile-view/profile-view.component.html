@@ -9,10 +9,10 @@
     <img src="/assets/img/secondaryChat/elias-neumann.webp" alt="">
     <div class="second__profil__container">
         <div class="name">
-            <div class="name__display">{{this.userDetail.name}}</div>
-            <input [(ngModel)]="this.userDetail.name" type="text" maxlength="32" value="{{this.userDetail.name}}"
+            <div *ngIf="!editMode" class="name__display">{{this.userDetail.name}}</div>
+            <input *ngIf="editMode"  [(ngModel)]="this.userDetail.name" type="text" maxlength="32" value="{{this.userDetail.name}}"
                 #userNameInput>
-            <div *ngIf="this.userDetail.id === this.currentUser.id">Bearbeiten</div>
+            <div *ngIf="this.userDetail.id === this.currentUser.id" (click)="editMode = true; userNameInput.nativeElement.focus()">Bearbeiten</div>
         </div>
         <div class="status">
             <span>&#8226;</span>Aktiv
