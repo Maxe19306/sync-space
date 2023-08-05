@@ -16,6 +16,11 @@
         img {
             width: 289px;
             height: 70px;
+
+            @media (width <= 768px) {
+                width: 230px;
+                height: auto;
+            }
         }
 
         .login__menu {
@@ -308,6 +313,38 @@
                     }
                 }
             }
+        }
+    }
+
+    .hide__on__desktop {
+
+        .login__menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                font-size: 24px;
+                font-weight: 400;
+                margin-bottom: 16px;
+            }
+
+            button {
+                width: fit-content;
+                text-align: center;
+                background-color: rgba(0, 0, 0, 0);
+                color: #444DF2;
+                border: 1px solid #444DF2;
+                border-radius: 25px;
+                padding: 8px 16px;
+                font-size: 18px;
+                font-weight: 700;
+                font-family: inherit;
+            }
+        }
+        @media (width > 768px) {
+            display: none;
         }
     }
 }
