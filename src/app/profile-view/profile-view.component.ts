@@ -52,6 +52,7 @@ export class ProfileViewComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.currentUser = user
+        console.log(this.currentUser)
       });
   }
 
@@ -66,14 +67,14 @@ export class ProfileViewComponent implements OnInit {
     this.userNameInput.nativeElement.focus();
   }
 
-  overwriteUserDataBackend() {
+  overwriteUserDataBackend() {  
     this.firestore
       .collection('users')
       .doc(this.data.userId)
       .update({
-        name: this.currentUser.name,
-        mail: this.currentUser.mail
-      })
+        name: this.userDetail.name,
+        mail: this.userDetail.mail,
+      })  
     this.editMode = false;
   }
 

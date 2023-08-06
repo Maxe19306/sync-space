@@ -12,7 +12,7 @@
             <div *ngIf="!editMode" class="name__display">{{this.userDetail.name}}</div>
             <input *ngIf="editMode"  [(ngModel)]="this.userDetail.name" type="text" maxlength="32" value="{{this.userDetail.name}}"
                 #userNameInput (keydown.enter)="overwriteUserDataBackend()">
-            <div *ngIf="this.userDetail.id === this.currentUser.id" (click)="initiateUserEditMode()">Bearbeiten</div>
+            <div *ngIf="this.userDetail.id === this.dataService.id" (click)="initiateUserEditMode()">Bearbeiten</div>
         </div>
         <div class="status">
             <span>&#8226;</span>Aktiv
