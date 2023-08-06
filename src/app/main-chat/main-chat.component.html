@@ -27,7 +27,7 @@
 
     <div class="chat__seperator"></div>
 
-    <app-main-chat-body #scrollMe></app-main-chat-body>
+    <app-main-chat-body [channelName]="this.currentChannel.name" #scrollMe></app-main-chat-body>
 
     <app-main-chat-footer [channelName]="this.currentChannel.name"></app-main-chat-footer>
 </div>

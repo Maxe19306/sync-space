@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
@@ -17,7 +17,7 @@ export class MainChatBodyComponent implements OnInit {
   openSecondaryChat;
 
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
-
+  @Input() channelName;
   date = '';
   currentUser;
   currentChannelMessage;
