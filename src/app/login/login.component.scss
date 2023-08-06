@@ -292,6 +292,11 @@
                     font-family: inherit;
                     cursor: pointer;
                     transition: all 100ms ease-in;
+
+                    @media (width <= 768px) {
+                        font-size: 16px;
+                        padding: 10px 20px;
+                    }
                 }
 
                 .btn__login {
@@ -302,6 +307,10 @@
 
                     &:hover {
                         background-color: #797ef3;
+                    }
+
+                    @media (width <= 768px) {
+                        margin-right: 10px;
                     }
                 }
 
@@ -315,6 +324,10 @@
                     &:hover {
                         background-color: #444DF2;
                         color: white;
+                    }
+
+                    @media (width <= 768px) {
+                        margin-left: 10px;
                     }
                 }
 
@@ -346,6 +359,10 @@
                     100% {
                         transform: skewX(0deg);
                     }
+                }
+
+                @media (width <= 768px) {
+                    margin-top: 16px;
                 }
             }
 
