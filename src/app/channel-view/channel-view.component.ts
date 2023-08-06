@@ -25,7 +25,6 @@ export class ChannelViewComponent implements OnInit {
   currentUser;
   currentChannel;
 
-  editMode = false;
   editName = false;
   editDescription = false;
 
@@ -65,7 +64,7 @@ export class ChannelViewComponent implements OnInit {
   }
 
   editChannelName() {
-    // this.editName = true;
+    this.editName = true;
     this.channelNameInput.nativeElement.focus();
   }
 

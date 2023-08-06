@@ -20,8 +20,8 @@
             <!-- <span>{{this.currentChannel.name}}</span> -->
             <!-- <input [(ngModel)]="this.currentChannel.name" type="text" maxlength="32"
                 value="{{this.currentChannel.name}}" (keydown.enter)="editChannelNameInFirebase()" #channelNameInput> -->
-            <div *ngIf="!editMode">{{this.currentChannel.name}}</div>
-            <input *ngIf="editMode" [(ngModel)]="this.currentChannel.name" type="text" maxlength="32"
+            <div *ngIf="!editName">{{this.currentChannel.name}}</div>
+            <input *ngIf="editName" [(ngModel)]="this.currentChannel.name" type="text" maxlength="32"
                 value="{{this.currentChannel.name}}" #channelNameInput (keydown.enter)="editChannelNameInFirebase()">
         </div>
     </div>
