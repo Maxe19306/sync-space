@@ -21,10 +21,8 @@ export class ProfileViewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
-
   userDetail;
   currentUser;
-
   editMode = false;
   @ViewChild('userNameInput', { static: false }) userNameInput: ElementRef;
   @ViewChild('userMailInput', { static: false }) userMailInput: ElementRef;

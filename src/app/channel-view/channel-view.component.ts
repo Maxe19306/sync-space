@@ -24,6 +24,8 @@ export class ChannelViewComponent implements OnInit {
 
   currentUser;
   currentChannel;
+
+  editMode = false;
   editName = false;
   editDescription = false;
 
