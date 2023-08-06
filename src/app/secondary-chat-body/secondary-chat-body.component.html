@@ -39,7 +39,7 @@
 
     <div *ngFor="let message of currentThreadAnswer" [class.content__left]="message.creator.id === this.dataService.id" #messageElements class="message__body">
 
-        <div class="action__messages">
+        <div style="display:none;" class="action__messages">
             <div class="hover-area noSelect">
                 <div class="transform-circle"></div>
                 <img src="assets/img/mainChat/add-reaction.webp" alt="" class="user_img single-icon">
