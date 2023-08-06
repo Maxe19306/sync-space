@@ -275,6 +275,10 @@
                     color: #444DF2;
                     font-family: inherit;
                 }
+
+                @media (width <= 768px) {
+                    margin-top: 16px;
+                }
             }
 
             .btn__container {
