@@ -52,9 +52,11 @@ export class ChannelViewComponent implements OnInit {
   }
 
   editDescriptionInFirebase() {
+    console.log(this.currentChannel.description, this.data.channelId)
+    
     this.firestore
       .collection('channels')
-      .doc(this.data.ChannelId)
+      .doc(this.data.channelId)
       .update({
         description: this.currentChannel.description
       })
@@ -66,7 +68,7 @@ export class ChannelViewComponent implements OnInit {
     this.channelNameInput.nativeElement.focus();
   }
 
-  editChannelNameInFirebase() {
+  editChannelNameInFirebase() {    
     this.firestore
       .collection('channels')
       .doc(this.data.channelId)
