@@ -44,8 +44,11 @@
             <div class="channel__body__row1__right" (click)="editDescriptionName()">Bearbeiten</div>
         </div>
         <div class="channel__body__row2">
-            <input [(ngModel)]="this.currentChannel.description" type="text" value="{{this.currentChannel.description}}"
-                (keydown.enter)="editDescriptionInFirebase()" #channelDescriptionInput>
+            <!-- <input [(ngModel)]="this.currentChannel.description" type="text" value="{{this.currentChannel.description}}"
+                (keydown.enter)="editDescriptionInFirebase()" #channelDescriptionInput> -->
+            <div *ngIf="!editDescription">{{this.currentChannel.description}}</div>
+            <input *ngIf="editDescription" [(ngModel)]="this.currentChannel.description" type="text" maxlength="128"
+                value="{{this.currentChannel.description}}" #channelDescriptionInput (keydown.enter)="editDescriptionInFirebase()">
         </div>
 
         <hr>

@@ -120,15 +120,21 @@
             display: flex;
             align-items: center;
 
-            span {
+            div {
                 font-size: 18px;
+                margin-top: 3px;
+                margin-bottom: 3px;
+                margin-left: 2px;
             }
 
             input {
+                width: 100%;
                 font-family: "Nunito", "Helvetica Neue", sans-serif !important;
                 border: none;
                 outline: none;
                 font-size: 18px;
+                background-color: #eceefe;
+                border-radius: 3px;
             }
         }
 
