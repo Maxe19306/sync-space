@@ -40,6 +40,7 @@ export class GeneralViewComponent implements OnInit {
     this.dataService.id = this.route.snapshot.queryParamMap.get('userID')
     this.loadCurrentUser()
   }
+  
   loadCurrentUser() {
     this.firestore
       .collection('users')
@@ -47,7 +48,6 @@ export class GeneralViewComponent implements OnInit {
       .valueChanges({ idField: 'customerID' })
       .subscribe((user) => {
         this.currentUser = user;
-
       })
   }
 
