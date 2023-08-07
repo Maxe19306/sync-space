@@ -160,3 +160,9 @@ emoji-search {
 .emoji-category {
     font-family: "Nunito", "Helvetica Neue", sans-serif !important;
 }
+
+@media (width <= 922px) {
+    html {
+        overflow-y: auto;
+    }
+}
