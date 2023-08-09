@@ -152,6 +152,10 @@
                             position: absolute;
                             left: 30px;
                             color: #686868;
+
+                            @media (width <= 576px) {
+                                left: 20px;
+                            }
                         }
 
                         input {
