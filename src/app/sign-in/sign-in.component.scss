@@ -78,6 +78,27 @@
                         font-weight: 700;
                         font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
                         text-align: center;
+
+                        @media (width <= 922px) {
+                            font-size: 42px;
+                        }
+
+                        @media (width <= 768px) {
+                            font-size: 35px;
+                            margin-bottom: 0;
+                            line-height: 1.2;
+                            text-align: center;
+                            padding: 0 16px;
+                            width: 200px;
+                        }
+
+                        @media (width <= 576px) {
+                            font-size: 33px;
+                            text-align: center;
+                            padding: 0;
+                            width: fit-content;
+                            width: 200px;
+                        }
                     }
 
                     @media (width <= 768px) {
@@ -96,6 +117,10 @@
                     text-align: center;
                     margin-top: 33px;
                     margin-bottom: 0px;
+
+                    @media (width <= 768px) {
+                        margin-top: 16px;
+                    }
                 }
 
                 @media (width <= 576px) {
