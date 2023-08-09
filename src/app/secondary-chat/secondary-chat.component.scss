@@ -9,6 +9,9 @@
     width: 485px;
     height: calc(100vh - 140px); // QnD fix
 
+    @media (width <= 1600px) {
+        width: 404px;
+    }
 
     .secondary__chat__header {
         height: 40.063px;
@@ -44,7 +47,7 @@
                 }
 
                 .subtitle__name {
-                    width: 229px;
+                    width: 148px;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
