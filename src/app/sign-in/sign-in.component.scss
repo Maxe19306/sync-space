@@ -250,6 +250,7 @@
         }
 
         .reg__success {
+            display: none;
             width: 583px;
             position: absolute;
             bottom: 30px;
@@ -271,6 +272,7 @@
         }
 
         .reg__success.is__active {
+            display: flex;
             animation-name: slideIn;
             animation-duration: 1.5s;
 
@@ -314,106 +316,3 @@
         }
     }
 }
-
-
-// .image {
-//     padding-top: 30px;
-//     display: flex;
-//     width: 100%;
-//     align-items: center;
-//     img {
-//         height: 50px;
-//         width: 50px;
-//     }
-//     p {
-//         font-size: 20px;
-//         margin-left: 10px;
-//         margin-bottom: 0;
-//         display: inline-block;
-//         vertical-align: middle;
-//         line-height: normal;
-//     }
-// }
-
-// .sign-in-container {
-//     display: flex;
-//     height: 600px;
-//     flex-direction: column;
-//     width: 50%;
-//     background-color: white;
-//     text-align: center;
-//     justify-content: space-evenly;
-//     border-radius: 30px;
-//     span {
-//         cursor: pointer;
-//         float: left;
-//         width: 10px;
-//         color: black;
-//         margin-left: 15px;
-//     }
-//     p {
-//         font-size: 20px;
-//         text-align: center;
-//     }
-// }
-
-// h2 {
-//     color: #444DF2;
-//     font-size: 46px;
-//     font-weight: 700px;
-// }
-
-// form {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-// }
-
-// .button {
-//     width: 90%;
-//     display: flex;
-//     justify-content: end;
-// }
-
-// .sign-in-main-container {
-//     padding-left: 30px;
-//     padding-right: 30px;
-//     display: flex;
-//     align-items: center;
-//     flex-direction: column;
-// }
-
-// .input {
-//     margin-top: 10px;
-//     margin-bottom: 10px;
-//     background-color: #ECEEFE;
-//     border: none;
-//     width: 70%;
-//     font-size: 18px;
-//     height: 50px;
-//     border-radius: 20px;
-//     background-size: 15px;
-//     background-repeat: no-repeat;
-//     background-position: left;
-//     background-position-x: 25px;
-//     padding-left: 100px;
-// }
-
-// form {
-//     display: flex;
-//     flex-direction: column;
-//     width: 100%;
-//     align-items: center;
-// }
-
-// .login {
-//     background-image: url('/assets/img/password/mail.png');
-// }
-
-// .password {
-//     background-image: url('/assets/img/password/lock.png');
-// }
-
-// .name {
-//     background-image: url('/assets/img/password/person_filled.png');
-// }

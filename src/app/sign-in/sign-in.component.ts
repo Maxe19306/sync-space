@@ -86,5 +86,8 @@ export class SignInComponent implements OnInit {
 
   regSuccessAnimation() {
     this.regSuccess.nativeElement.classList.add('is__active');
+    setTimeout(() => {
+      this.regSuccess.nativeElement.style.display = "none";
+    }, 1450);
   }
 }
