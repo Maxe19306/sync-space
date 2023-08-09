@@ -19,11 +19,13 @@
                         <span class="material-symbols-rounded single-icon add-icon">arrow_back</span>
                     </div>
                     <h2>Konto erstellen</h2>
-                        <div class="header__left"></div>
+                    <div class="header__left"></div>
                 </div>
 
-                <p>Mit deinem Namen und deiner E-Mail-Adresse<br>
+                <p class="hide__mobile">Mit deinem Namen und deiner E-Mail-Adresse<br>
                     hast du dein neues Sync Space-Konto</p>
+
+                <p class="hide__desktop">Mit deinem Namen und deiner E-Mail-Adresse hast du dein neues Sync Space-Konto</p>
 
                 <form autocomplete="off" action="" #userForm="ngForm"
                     (keydown.enter)="$event.preventDefault(); validSigninForm ? createAccount(password, userForm) : {}">

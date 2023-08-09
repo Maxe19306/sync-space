@@ -80,7 +80,7 @@
                         text-align: center;
                     }
 
-                    @media (width <=768px) {
+                    @media (width <= 768px) {
                         display: flex;
                         justify-content: space-between;
 
@@ -96,6 +96,18 @@
                     text-align: center;
                     margin-top: 33px;
                     margin-bottom: 0px;
+                }
+
+                @media (width <= 576px) {
+                    .hide__mobile {
+                        display: none;
+                    }
+                }
+
+                @media (width > 576px) {
+                    .hide__desktop {
+                        display: none;
+                    }
                 }
 
                 form {
