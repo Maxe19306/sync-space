@@ -3,8 +3,10 @@
 .container__profile__menu {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     cursor: pointer;
     transition: color 0.1s ease-in;
+    width: 100%;
 
     &:hover {
         color: #797ef3;
@@ -15,6 +17,11 @@
     font-weight: 700;
     font-size: 32px;
     margin-left: 17.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 100%;
+    padding-top: 52px;
 }
 
 img {
@@ -44,7 +51,7 @@ button {
 }
 
 .overlay {
-    background-color: rgba(0,0,0,0.075);
+    background-color: rgba(0, 0, 0, 0.075);
     z-index: 999;
     position: fixed;
     left: 0;
