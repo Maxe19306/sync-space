@@ -262,11 +262,21 @@
             border-radius: 30px;
             border-bottom-right-radius: 0px;
             transition: left 200ms ease-in;
+
+            @media (width <= 576px) {
+                width: 278px;
+                font-size: 24px;
+                padding: 30px;
+            }
         }
 
         .reg__success.is__active {
             animation-name: slideIn;
             animation-duration: 1.5s;
+
+            @media (width <= 576px) {
+                animation-name: slideInResponsive;
+            }
         }
 
         @keyframes slideIn {
@@ -282,6 +292,23 @@
 
             100% {
                 left: calc(100% - 733px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideInResponsive {
+            0% {
+                left: 100%;
+                opacity: 1;
+            }
+
+            20% {
+                left: calc(100% - 368px);
+                opacity: 1;
+            }
+
+            100% {
+                left: calc(100% - 368px);
                 opacity: 0;
             }
         }
