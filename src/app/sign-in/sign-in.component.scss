@@ -265,8 +265,8 @@
             transition: left 200ms ease-in;
 
             @media (width <= 576px) {
-                width: 278px;
-                font-size: 24px;
+                width: 233px;
+                font-size: 20px;
                 padding: 30px;
             }
         }
@@ -305,12 +305,12 @@
             }
 
             20% {
-                left: calc(100% - 368px);
+                left: calc(100% - 323px);
                 opacity: 1;
             }
 
             100% {
-                left: calc(100% - 368px);
+                left: calc(100% - 323px);
                 opacity: 0;
             }
         }
