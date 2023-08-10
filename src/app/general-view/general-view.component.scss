@@ -58,6 +58,10 @@
             transition: padding 100ms ease-in-out;
             transition: margin-right 100ms ease-in-out;
             transition: width 100ms ease-in-out;
+
+            @media (width <= 1400px) {
+                
+            }
         }
 
         .sidebar__left__reduce__width {
