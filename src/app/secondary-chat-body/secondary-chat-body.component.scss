@@ -37,6 +37,11 @@
         padding: 20px 35px;
         cursor: pointer;
 
+        @media (width <= 1400px) {
+            margin: 5px -15px 10px -15px;
+            padding: 15px 15px;
+        }
+
         .action__messages {
             position: absolute;
             top: -15px;
@@ -86,6 +91,10 @@
         .user__text {
             width: 75%;
             margin: 0 30px;
+
+            @media (width <= 1400px) {
+                margin: 0 0 0 10px;
+            }
 
             .user__text__header {
                 display: flex;
