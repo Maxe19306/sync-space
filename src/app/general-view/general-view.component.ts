@@ -67,7 +67,12 @@ export class GeneralViewComponent implements OnInit {
     this.secondaryChat = document.getElementById("secondaryChat");
     this.secondaryChat.style.display = "block";
     setTimeout(() => {
-      this.secondaryChat.style.width = 485 + "px";
+      if (window.innerWidth > 1400) {
+        this.secondaryChat.style.width = 485 + "px";
+      }
+      if (window.innerWidth <= 1400) {
+        this.secondaryChat.style.width = 545 + "px";
+      }
       this.secondaryChat.style.marginLeft = 25 + "px";
     }, 1);
     setTimeout(() => {
