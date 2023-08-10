@@ -404,6 +404,11 @@
                 font-weight: 700;
                 font-family: inherit;
                 cursor: pointer;
+
+                &:active {
+                    background-color: #444DF2;
+                    color: white;
+                }
             }
         }
 
