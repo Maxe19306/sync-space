@@ -8,7 +8,7 @@
     overflow: auto;
     width: 485px;
     height: calc(100vh - 140px);
-    
+
     @media (width <= 1600px) {
         width: 404px;
     }
@@ -22,6 +22,10 @@
         display: flex;
         justify-content: space-between;
         padding: 28px 45px;
+
+        @media (width <= 1400px) {
+            padding: 19px 15px;
+        }
 
         .secondary__chat__header__left {
             display: flex;
@@ -61,7 +65,8 @@
                     }
 
                     @media (width <= 1400px) {
-                        width: 47px;
+                        // width: 47px;
+                        width: 107px;
                     }
                 }
             }
