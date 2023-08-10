@@ -13,8 +13,12 @@
         margin-bottom: $general__margin;
 
         app-home-workspaces {
-            padding: 0 8.5px;
+            padding: 0 38.5px;
             margin-right: $general__margin;
+
+            @media (width <= 1400px) {
+                padding: 0 8.5px;
+            }
         }
 
         app-search-bar {
