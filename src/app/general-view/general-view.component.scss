@@ -13,7 +13,7 @@
         margin-bottom: $general__margin;
 
         app-home-workspaces {
-            padding: 0 38.5px;
+            padding: 0 8.5px;
             margin-right: $general__margin;
         }
 
@@ -60,7 +60,9 @@
             transition: width 100ms ease-in-out;
 
             @media (width <= 1400px) {
-                
+                width: 276px;
+                height: calc(100vh - 25px - 70px - 25px - 25px - 25px);
+                padding: 15px;
             }
         }
 
