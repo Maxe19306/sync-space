@@ -22,6 +22,10 @@
     text-overflow: ellipsis;
     height: 100%;
     padding-top: 52px;
+
+    @media (width <= 1400px) {
+        font-size: 20px;
+    }
 }
 
 img {
