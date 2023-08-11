@@ -111,7 +111,13 @@ body {
 }
 
 
-@media (992px >=width) {
+@media (width > 1200px) {
+    .hidden__desktop {
+        display: none !important;
+    }
+}
+
+@media (width <= 1200px) {
     .hidden__mobile {
         display: none !important;
     }
