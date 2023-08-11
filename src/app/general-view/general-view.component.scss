@@ -17,6 +17,7 @@
             align-items: center;
             height: 90px;
             margin-bottom: 0px;
+            margin: 0 15px 0 2px;
         }
 
         app-home-workspaces {
@@ -25,6 +26,12 @@
 
             @media (width <= 1400px) {
                 padding: 0 8.5px;
+            }
+
+            @media (width <= 1200px) {
+                padding: 0;
+                margin: 0;
+                cursor: default;
             }
         }
 
