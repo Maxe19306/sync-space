@@ -12,6 +12,10 @@
         display: flex;
         margin-bottom: $general__margin;
 
+        @media (width <= 1200px) {
+            justify-content: space-between;
+        }
+
         app-home-workspaces {
             padding: 0 38.5px;
             margin-right: $general__margin;
