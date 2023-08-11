@@ -16,4 +16,8 @@
     app-channels-menu {
         margin-bottom: 25px;
     }
+
+    @media (width <= 1200px) {
+        margin-top: 10px;
+    }
 }
