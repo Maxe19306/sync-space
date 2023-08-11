@@ -11,6 +11,11 @@
     &:hover {
         color: #797ef3;
     }
+
+    @media (width <= 1200px) {
+        width: 100px;
+        padding: 15px 15px 15px 0;
+    }
 }
 
 .proflie__menu__name {
@@ -34,6 +39,11 @@ img {
     margin-left: 17.5px;
     border-radius: 50%;
     cursor: pointer;
+
+    @media (width <= 1200px) {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 span {
