@@ -69,6 +69,13 @@
                 padding: 15px;
             }
             
+            @media (width <= 1200px) {
+                z-index: 100;
+                position: absolute;
+                left: 0;
+                width: 1170px;
+                border-radius: 0;
+            }
         }
 
         .sidebar__left__reduce__width {
