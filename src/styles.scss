@@ -50,6 +50,10 @@ body {
     margin: $general__margin;
     font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
     background-color: #ECEEFE;
+
+    @media (width <= 1200px) {
+        margin: 0px;
+    }
 }
 
 // .container {
