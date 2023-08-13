@@ -82,7 +82,7 @@
         </div>
     </div> -->
 
-    <div class="channel__view__footer">
+    <div *ngIf="this.currentChannel.channelId !== 'CzINsCBRsHqVcJCojIDm'" class="channel__view__footer">
         <div class="button" (click)="leaveChannel()">
             Channel verlassen
         </div>
