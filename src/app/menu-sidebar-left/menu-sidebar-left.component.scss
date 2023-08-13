@@ -26,6 +26,10 @@
         position: fixed;
         left: 285px;
         bottom: 15px;
+
+        span {
+            font-size: 25.5px;
+        }
     }
 
     @media (width <= $mobile__breakpoint__general) {
