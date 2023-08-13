@@ -3,11 +3,11 @@
 form {
     border: 1px solid $main-chat-borders-light-mode;
     border-radius: 20px;
-    margin: 15px 40px 40px 35px;
+    margin: 15px 35px 35px 35px;
     transition: border 100ms ease-in;
 
     @media (width <= 1400px) {
-        margin: 15px 20px 20px 15px;
+        margin: 15px 15px 15px 15px;
     }
 
     textarea {
