@@ -96,8 +96,12 @@ export class ChannelsMenuComponent implements OnInit {
     const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
     if (mainChats.length > 0) {
       const mainChat = mainChats[0] as HTMLElement;
-      mainChat.style.zIndex = '10000';
       const sidebarLeft = sidebarLefts[0] as HTMLElement;
+      const logoMobile = document.getElementById("logoMobile");
+      const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+      logoMobile.style.display = "none";
+      channelsButtonMobile.style.display = "block";
+      mainChat.style.zIndex = '10000';
       sidebarLeft.style.zIndex = '0';
     }
   }

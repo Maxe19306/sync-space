@@ -6,6 +6,7 @@ import { SharedService } from '../shared.service';
   templateUrl: './home-workspaces.component.html',
   styleUrls: ['./home-workspaces.component.scss']
 })
+
 export class HomeWorkspacesComponent implements OnInit {
   @ViewChild('logoContainer') logoContainer: ElementRef;
   @ViewChild('logoDefault') logoDefault: ElementRef;
@@ -58,4 +59,18 @@ export class HomeWorkspacesComponent implements OnInit {
     }
   }
 
+  foreGroundLeftSidebar() {
+    const mainChats = document.getElementsByTagName("app-main-chat");
+    const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
+    if (mainChats.length > 0) {
+      const mainChat = mainChats[0] as HTMLElement;
+      const sidebarLeft = sidebarLefts[0] as HTMLElement;
+      const logoMobile = document.getElementById("logoMobile");
+      const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+      logoMobile.style.display = "block";
+      channelsButtonMobile.style.display = "none";
+      mainChat.style.zIndex = '0';
+      sidebarLeft.style.zIndex = '10000';
+    }
+  }
 }
