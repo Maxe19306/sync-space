@@ -68,7 +68,7 @@
             width: 306px;
             height: calc(100vh - 25px - 70px - 25px - 25px - 25px - 30px);
             background-color: $background-color-boxes-light-mode;
-            padding: 30px;
+            padding: 30px 0px 30px 30px;
             border-radius: 30px;
             display: flex;
             flex-direction: column;
@@ -78,9 +78,9 @@
             transition: width 100ms ease-in-out;
 
             @media (width <= 1400px) {
-                width: 276px;
+                // width: 276px;
                 height: calc(100vh - 25px - 70px - 25px - 25px - 25px);
-                padding: 15px;
+                padding: 15px 0px 15px 15px;
             }
             
             @media (width <= $mobile__breakpoint__general) {

@@ -13,6 +13,7 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
+    width: 290px;
 
     @media (width <= $mobile__breakpoint__general) {
         width: 276px;
