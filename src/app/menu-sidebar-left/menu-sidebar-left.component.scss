@@ -11,10 +11,21 @@
 }
 
 .sidebar__body {
+    // position: relative;
+    height: 100%;
+    // width: 276px;
     overflow-y: auto;
     
     app-channels-menu {
         margin-bottom: 25px;
+    }
+
+    button {
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        left: 285px;
+        bottom: 15px;
     }
 
     @media (width <= $mobile__breakpoint__general) {
