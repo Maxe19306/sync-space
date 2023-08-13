@@ -8,6 +8,10 @@ img {
 
 .logo__mobile {
     height: 60px;
-    cursor: default;
+    cursor: default !important;
     margin-left: 15px;
+}
+
+.channels__button__mobile {
+    padding: 20px 0;
 }
