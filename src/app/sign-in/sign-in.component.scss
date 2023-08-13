@@ -12,11 +12,17 @@
         img {
             width: 289px;
             height: 70px;
+
+            @media (width <= 768px) {
+                width: 230px;
+                height: auto;
+            }
         }
 
         @media (width <= 768px) {
             justify-content: center;
             padding: 0;
+            margin-top: 25px
         }
     }
 
@@ -244,8 +250,10 @@
 
             }
             
-            @media (width <= 768px) {
+            @media (width <=768px) {
                 padding: 35px 20px;
+                margin-left: 25px;
+                margin-right: 25px;
             }
         }
 
