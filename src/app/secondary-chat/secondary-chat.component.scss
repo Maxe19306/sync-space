@@ -7,14 +7,25 @@
     border-radius: 30px;
     overflow: auto;
     width: 485px;
-    height: calc(100vh - 140px); // QnD fix
+    height: calc(100vh - 140px);
 
+    @media (width <= 1600px) {
+        width: 404px;
+    }
+
+    @media (width <= 1400px) {
+        width: 303px;
+    }
 
     .secondary__chat__header {
         height: 40.063px;
         display: flex;
         justify-content: space-between;
         padding: 28px 45px;
+
+        @media (width <= 1400px) {
+            padding: 19px 15px;
+        }
 
         .secondary__chat__header__left {
             display: flex;
@@ -48,6 +59,15 @@
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
+
+                    @media (width <= 1600px) {
+                        width: 148px;
+                    }
+
+                    @media (width <= 1400px) {
+                        // width: 47px;
+                        width: 107px;
+                    }
                 }
             }
         }
@@ -70,4 +90,8 @@ app-secondary-chat-body {
     padding: 35px 35px 0 35px;
     flex: 2;
     overflow: auto;
+
+    @media (width <= 1400px) {
+        padding: 15px 15px 0 15px;
+    }
 }

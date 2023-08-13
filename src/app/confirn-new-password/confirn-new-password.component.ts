@@ -56,10 +56,8 @@ export class ConfirnNewPasswordComponent implements OnInit {
 
   newPasswordSuccessAnimation() {
     this.newPasswordSuccess.nativeElement.classList.add('is__active');
+    setTimeout(() => {
+      this.newPasswordSuccess.nativeElement.style.display = "none";
+    }, 1450);
   }
-
-  // test(password1) {
-
-  // }
-
 }

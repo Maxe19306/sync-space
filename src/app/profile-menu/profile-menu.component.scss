@@ -3,11 +3,18 @@
 .container__profile__menu {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     cursor: pointer;
     transition: color 0.1s ease-in;
+    width: 100%;
 
     &:hover {
         color: #797ef3;
+    }
+
+    @media (width <= $mobile__breakpoint__general) {
+        width: 100px;
+        padding: 15px 15px 15px 0;
     }
 }
 
@@ -15,6 +22,15 @@
     font-weight: 700;
     font-size: 32px;
     margin-left: 17.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 100%;
+    padding-top: 52px;
+
+    @media (width <= 1400px) {
+        font-size: 20px;
+    }
 }
 
 img {
@@ -23,6 +39,11 @@ img {
     margin-left: 17.5px;
     border-radius: 50%;
     cursor: pointer;
+
+    @media (width <= $mobile__breakpoint__general) {
+        width: 60px;
+        height: 60px;
+    }
 }
 
 span {
@@ -44,7 +65,7 @@ button {
 }
 
 .overlay {
-    background-color: rgba(0,0,0,0.075);
+    background-color: rgba(0, 0, 0, 0.075);
     z-index: 999;
     position: fixed;
     left: 0;

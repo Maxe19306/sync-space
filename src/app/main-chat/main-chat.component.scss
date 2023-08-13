@@ -5,13 +5,16 @@
     flex-direction: column;
     background-color: $background-color-boxes-light-mode;
     border-radius: 30px;
-    // overflow: auto;
     height: calc(100vh - 140px); // QnD fix
 
     .main__chat__header {
         display: flex;
         justify-content: space-between;
         padding: 24px 45px;
+
+        @media (width <= 1400px) {
+            padding: 15px 15px;
+        }
 
         .main__chat__header__left {
             display: flex;
@@ -120,4 +123,8 @@ app-main-chat-body {
     flex: 2;
     overflow: auto;
     height: auto;
+
+    @media (width <= 1400px) {
+        padding: 15px 15px 0 15px;
+    }
 }

@@ -50,6 +50,10 @@ body {
     margin: $general__margin;
     font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
     background-color: #ECEEFE;
+
+    @media (width <= $mobile__breakpoint__general) {
+        margin: 0px;
+    }
 }
 
 // .container {
@@ -111,7 +115,13 @@ body {
 }
 
 
-@media (992px >=width) {
+@media (width > $mobile__breakpoint__general) {
+    .hidden__desktop {
+        display: none !important;
+    }
+}
+
+@media (width <= $mobile__breakpoint__general) {
     .hidden__mobile {
         display: none !important;
     }

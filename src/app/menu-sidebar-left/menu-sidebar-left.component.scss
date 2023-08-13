@@ -16,4 +16,8 @@
     app-channels-menu {
         margin-bottom: 25px;
     }
+
+    @media (width <= $mobile__breakpoint__general) {
+        margin-top: 10px;
+    }
 }

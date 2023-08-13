@@ -52,5 +52,8 @@ export class ResetPasswordComponent implements OnInit {
 
   passwordSuccessAnimation() {
     this.passwordSuccess.nativeElement.classList.add('is__active');
+    setTimeout(() => {
+      this.passwordSuccess.nativeElement.style.display = "none";
+    }, 1450);
   }
 }

@@ -1,4 +1,4 @@
-<div (click)="toggleMenuSidebarLeft()">
+<div (click)="toggleMenuSidebarLeft()" class="hidden__mobile">
     <div (mouseover)="highlightDefaultLogo()" (mouseout)="unHighlightDefaultLogo()" #logoContainer>
         <img src="assets/img/logos/logo-default.webp" #logoDefault>
         <img style="display: none;" src="assets/img/logos/logo-hover.webp" #logoHover>
@@ -8,3 +8,5 @@
         <img style="display: none;" src="assets/img/logos/logo-closed-hover.webp" #logoClosedHover>
     </div>
 </div>
+
+<img class="hidden__desktop logo__mobile" src="assets/img/logos/logo-default-no-arrow-croped.webp" alt="">

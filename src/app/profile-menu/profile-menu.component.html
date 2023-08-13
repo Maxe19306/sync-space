@@ -1,16 +1,3 @@
-<!-- <div *ngIf="this.CurrentUser" mat-button [matMenuTriggerFor]="menu" #menuTrigger class="container__profile__menu">
-    <span class="proflie__menu__name noSelect hidden__mobile">{{this.CurrentUser.Name}}</span>
-    <img class="noSelect" src="assets/img/users/frederick-beck.webp">
-    <span class="material-symbols-rounded noSelect hidden__mobile">
-        expand_more
-    </span>
-</div> -->
-
-<!-- <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="openDialogProfil(this.CurrentUser.id)">Profil</button>
-    <button [routerLink]="''" mat-menu-item>Log out</button>
-</mat-menu> -->
-
 <div *ngIf="this.currentUser" class="container__profile__menu" (click)="openProfileView()">
     <span class="proflie__menu__name noSelect hidden__mobile">{{this.currentUser.name}}</span>
     <img class="noSelect" src="assets/img/users/frederick-beck.webp">

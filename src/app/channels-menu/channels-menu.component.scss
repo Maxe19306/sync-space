@@ -14,6 +14,10 @@
     align-items: center;
     margin-bottom: 15px;
 
+    @media (width <= $mobile__breakpoint__general) {
+        width: 276px;
+    }
+
     .menu__sidebar__left__body__channels__header__left {
         display: flex;
         align-items: center;
