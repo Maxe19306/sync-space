@@ -10,7 +10,9 @@ import { DataService } from '../data.service';
   templateUrl: './channels-menu.component.html',
   styleUrls: ['./channels-menu.component.scss'],
 })
+
 export class ChannelsMenuComponent implements OnInit {
+  mobileBreakpointGeneral: number;
   viewChannels = true;
   allChannels = []
   currentUser
@@ -21,8 +23,15 @@ export class ChannelsMenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadCurrentUser()
-    this.loadAllChannel()
+    this.getMobileBreakpointGeneral();
+    this.loadCurrentUser();
+    this.loadAllChannel();
+  }
+
+  getMobileBreakpointGeneral() {
+    const style = getComputedStyle(document.documentElement);
+    const value = style.getPropertyValue('--mobile-breakpoint-general').trim();
+    this.mobileBreakpointGeneral = parseInt(value, 10);
   }
 
   loadCurrentUser() {
@@ -71,6 +80,10 @@ export class ChannelsMenuComponent implements OnInit {
   }
 
   openChannel(channelId) {
+
+    if (window.innerWidth <= 1200) {
+      console.log("this.mobileBreakpointGeneral", this.mobileBreakpointGeneral);
+    }
 
     this.firestore
       .collection('users')
