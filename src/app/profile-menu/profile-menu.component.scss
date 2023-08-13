@@ -12,7 +12,7 @@
         color: #797ef3;
     }
 
-    @media (width <= 1200px) {
+    @media (width <= $mobile__breakpoint__general) {
         width: 100px;
         padding: 15px 15px 15px 0;
     }
@@ -40,7 +40,7 @@ img {
     border-radius: 50%;
     cursor: pointer;
 
-    @media (width <= 1200px) {
+    @media (width <= $mobile__breakpoint__general) {
         width: 60px;
         height: 60px;
     }
