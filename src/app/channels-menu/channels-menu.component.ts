@@ -3,7 +3,7 @@ import { CreateChannelComponent } from '../create-channel/create-channel.compone
 import { MatDialog } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { DataService } from '../data.service';
-
+import { doc } from 'firebase/firestore';
 
 @Component({
   selector: 'app-channels-menu',
@@ -63,8 +63,6 @@ export class ChannelsMenuComponent implements OnInit {
       })
   }
 
-
-
   viewNoChannels() {
     this.viewChannels = false;
   }
@@ -80,11 +78,6 @@ export class ChannelsMenuComponent implements OnInit {
   }
 
   openChannel(channelId) {
-
-    if (window.innerWidth <= 1200) {
-      console.log("this.mobileBreakpointGeneral", this.mobileBreakpointGeneral);
-    }
-
     this.firestore
       .collection('users')
       .doc(this.dataService.id)
@@ -93,6 +86,20 @@ export class ChannelsMenuComponent implements OnInit {
         viewChat: false
       })
 
+    if (window.innerWidth <= 1200) {
+      this.foreGroundMainChat();
+    }
+  }
+
+  foreGroundMainChat() {
+    const mainChats = document.getElementsByTagName("app-main-chat");
+    const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
+    if (mainChats.length > 0) {
+      const mainChat = mainChats[0] as HTMLElement;
+      mainChat.style.zIndex = '10000';
+      const sidebarLeft = sidebarLefts[0] as HTMLElement;
+      sidebarLeft.style.zIndex = '0';
+    }
   }
 
   changeChannelView() {
