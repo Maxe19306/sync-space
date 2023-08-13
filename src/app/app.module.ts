@@ -44,6 +44,7 @@ import { MainDirectMessageComponent } from './main-direct-message/main-direct-me
 import { MainDirectMessageBodyComponent } from './main-direct-message-body/main-direct-message-body.component';
 import { MainDirectMessageFooterComponent } from './main-direct-message-footer/main-direct-message-footer.component';
 import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
     BrowserModule,
     AppRoutingModule,
     MatInputModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
