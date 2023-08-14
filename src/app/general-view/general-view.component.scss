@@ -8,6 +8,10 @@
     justify-content: space-between;
     background-color: $background-color-light-mode;
 
+    @media (width <= $mobile__breakpoint__general) {
+        display: block;
+    }
+
     header {
         display: flex;
         margin-bottom: $general__margin;
