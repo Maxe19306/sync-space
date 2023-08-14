@@ -37,8 +37,16 @@
                 transition: all 200ms ease-in;
             }
 
+            @media (width <= $mobile__breakpoint__general) {
+                padding: 0;
+            }
+
             div {
                 font-weight: 700;
+
+                @media (width <= $mobile__breakpoint__general) {
+                    font-size: 20px;
+                }
             }
 
             .channel__title {
@@ -48,6 +56,11 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+
+                @media (width <= $mobile__breakpoint__general) {
+                    font-size: 20px;
+                    margin: 0 10px;
+                }
             }
         }
 
