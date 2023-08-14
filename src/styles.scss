@@ -45,7 +45,6 @@ html {
 }
 
 body {
-    // height: 100%;
     height: calc(100vh - 2 * $general__margin);
     margin: $general__margin;
     font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
@@ -56,10 +55,6 @@ body {
         background-color: #fff;
     }
 }
-
-// .container {
-//     padding: 25px;
-// }
 
 .noSelect {
     -webkit-tap-highlight-color: transparent;
