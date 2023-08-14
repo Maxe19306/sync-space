@@ -10,7 +10,7 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./general-view.component.scss']
 })
 export class GeneralViewComponent implements OnInit {
- 
+
   menuSidebarLeft;
   secondaryChat;
   firstChannel
@@ -40,63 +40,63 @@ export class GeneralViewComponent implements OnInit {
     this.dataService.id = this.route.snapshot.queryParamMap.get('userID')
     this.loadCurrentUser()
   }
-  
+
   loadCurrentUser() {
-   this.firestore
+    this.firestore
       .collection('users')
       .doc(this.dataService.id)
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.currentUser = user;
-        if(!this.currentUser.addFirstChannel){
-           this.loadTheFirstChannel() 
+        if (!this.currentUser.addFirstChannel) {
+          this.loadTheFirstChannel()
         }
-        
-      })  
+
+      })
   }
 
-  loadTheFirstChannel(){
-      this.firestore
+  loadTheFirstChannel() {
+    this.firestore
       .collection('channels')
       .doc('CzINsCBRsHqVcJCojIDm')
       .valueChanges({ idField: 'id' })
       .subscribe((channel) => {
         this.firstChannel = channel;
-           this.changeAddFristChannelFromTheUser()
+        this.changeAddFristChannelFromTheUser()
       })
-    } 
-    
-    changeAddFristChannelFromTheUser(){
-      this.firestore
+  }
+
+  changeAddFristChannelFromTheUser() {
+    this.firestore
       .collection('users')
       .doc(this.dataService.id)
       .update({
-        addFirstChannel:true
+        addFirstChannel: true
       })
-       this.addUserToChannel()
-     }
-    
-     addUserToChannel() {
-      const currentUserId = this.currentUser.id; 
-      const userIndex = this.firstChannel.members.findIndex(user => user.id === currentUserId);
-          if (userIndex !== -1) {
-        // Der Benutzer ist bereits im Array vorhanden
-        console.log("Der Benutzer ist bereits im Array.");
-      } else {
-        // Der Benutzer ist nicht im Array
-        this.firstChannel.members.push(this.currentUser);
-        this.firestore
+    this.addUserToChannel()
+  }
+
+  addUserToChannel() {
+    const currentUserId = this.currentUser.id;
+    const userIndex = this.firstChannel.members.findIndex(user => user.id === currentUserId);
+    if (userIndex !== -1) {
+      // Der Benutzer ist bereits im Array vorhanden
+      console.log("Der Benutzer ist bereits im Array.");
+    } else {
+      // Der Benutzer ist nicht im Array
+      this.firstChannel.members.push(this.currentUser);
+      this.firestore
         .collection('channels')
         .doc('CzINsCBRsHqVcJCojIDm')
         .update({
           members: this.firstChannel.members,
         })
-        console.log("Der Benutzer wurde erfolgreich hinzugefügt.");
-      }      
+      console.log("Der Benutzer wurde erfolgreich hinzugefügt.");
     }
-    
-    
-  
+  }
+
+
+
   toggleSlideSidebarLeft() {
     this.menuSidebarLeft = document.getElementById("menuSidebarLeft");
     if (this.menuSidebarLeft.classList.contains("sidebar__left__reduce__width")) {
