@@ -16,8 +16,13 @@
         justify-content: space-between;
         padding: 24px 45px;
 
-        @media (width <=1400px) {
+        @media (width <= 1400px) {
             padding: 15px 15px;
+        }
+
+        @media (width <= $mobile__breakpoint__general) {
+            padding: 0;
+            height: 60px;
         }
 
         .main__chat__header__left {
@@ -38,7 +43,8 @@
             }
 
             @media (width <=$mobile__breakpoint__general) {
-                padding: 0;
+                padding: 0 15px 0 15px;
+                border-radius: 0;
             }
 
             div {
