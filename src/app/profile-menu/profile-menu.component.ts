@@ -4,6 +4,8 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { BottomSheetContentComponent } from '../bottom-sheet-content/bottom-sheet-content.component';
 
 @Component({
   selector: 'app-profile-menu',
@@ -21,7 +23,8 @@ export class ProfileMenuComponent implements OnInit {
   constructor(
     public Dialog: MatDialog,
     private firestore: AngularFirestore,
-    private router: Router
+    private router: Router,
+    private bottomSheet: MatBottomSheet
   ) { }
 
   ngOnInit(): void {
@@ -54,12 +57,16 @@ export class ProfileMenuComponent implements OnInit {
   }
 
   openProfileView() {
-    // if (window.innerWidth <= this.mobileBreakpointGeneral) {
-    //   this.openProfileViewBottomSheet();
-    // } else {
-    //   this.overlay.nativeElement.style.display = 'flex';
-    // }
-    this.overlay.nativeElement.style.display = 'flex';
+    if (window.innerWidth <= this.mobileBreakpointGeneral) {
+      this.openBottomSheet();
+    } else {
+      this.overlay.nativeElement.style.display = 'flex';
+    }
+    // this.overlay.nativeElement.style.display = 'flex';
+  }
+
+  openBottomSheet(): void {
+    this.bottomSheet.open(BottomSheetContentComponent);
   }
 
   closeProfileView() {

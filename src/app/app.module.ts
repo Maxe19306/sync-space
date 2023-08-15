@@ -45,6 +45,8 @@ import { MainDirectMessageBodyComponent } from './main-direct-message-body/main-
 import { MainDirectMessageFooterComponent } from './main-direct-message-footer/main-direct-message-footer.component';
 import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
 import { MatIconModule } from '@angular/material/icon';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { BottomSheetContentComponent } from './bottom-sheet-content/bottom-sheet-content.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,8 @@ import { MatIconModule } from '@angular/material/icon';
     SecondaryChatFooterComponent,
     MainDirectMessageComponent,
     MainDirectMessageBodyComponent,
-    MainDirectMessageFooterComponent
+    MainDirectMessageFooterComponent,
+    BottomSheetContentComponent
   ],
   imports: [
     NgxEmojiPickerModule.forRoot(),
@@ -95,7 +98,8 @@ import { MatIconModule } from '@angular/material/icon';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
+    MatBottomSheetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
