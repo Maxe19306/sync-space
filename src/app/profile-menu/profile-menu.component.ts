@@ -54,6 +54,11 @@ export class ProfileMenuComponent implements OnInit {
   }
 
   openProfileView() {
+    // if (window.innerWidth <= this.mobileBreakpointGeneral) {
+    //   this.openProfileViewBottomSheet();
+    // } else {
+    //   this.overlay.nativeElement.style.display = 'flex';
+    // }
     this.overlay.nativeElement.style.display = 'flex';
   }
 
