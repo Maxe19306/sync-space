@@ -130,6 +130,7 @@
                 .answers {
                     color: $text-color-highlight-light-mode;
                     font-size: 18px;
+                    white-space: nowrap;
 
                     &:hover {
                         font-weight: 900;
