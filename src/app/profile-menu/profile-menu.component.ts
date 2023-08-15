@@ -10,8 +10,10 @@ import { Router } from '@angular/router';
   templateUrl: './profile-menu.component.html',
   styleUrls: ['./profile-menu.component.scss']
 })
+
 export class ProfileMenuComponent implements OnInit {
 
+  mobileBreakpointGeneral: number;
   @ViewChild('overlay') overlay: ElementRef;
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
   @Input() userId: any;
@@ -23,7 +25,14 @@ export class ProfileMenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getMobileBreakpointGeneral();
     this.loadCurrentUser();
+  }
+
+  getMobileBreakpointGeneral() {
+    const style = getComputedStyle(document.documentElement);
+    const value = style.getPropertyValue('--mobile-breakpoint-general').trim();
+    this.mobileBreakpointGeneral = parseInt(value, 10);
   }
 
   loadCurrentUser() {

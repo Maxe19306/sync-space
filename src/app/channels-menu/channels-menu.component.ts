@@ -86,7 +86,8 @@ export class ChannelsMenuComponent implements OnInit {
         viewChat: false
       })
 
-    if (window.innerWidth <= 1200) {
+    if (window.innerWidth <= this.mobileBreakpointGeneral) {
+      console.log("foreG");
       this.foreGroundMainChat();
     }
   }
