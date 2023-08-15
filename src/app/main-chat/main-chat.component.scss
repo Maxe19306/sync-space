@@ -43,8 +43,9 @@
             }
 
             @media (width <=$mobile__breakpoint__general) {
-                padding: 0 15px 0 15px;
+                padding: 0 7.5px 0 15px;
                 border-radius: 0;
+                margin-right: 0;
             }
 
             div {
@@ -143,7 +144,7 @@
             }
 
             .symbol__circle__mobile__container {
-                padding: 13px 15px;
+                padding: 13px 15px 13px 22.5px;
                 cursor: pointer;
 
                 .symbol__circle__mobile {
