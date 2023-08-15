@@ -22,7 +22,7 @@ export class ProfileViewComponent implements OnInit {
   ) { }
     
   selectedProfileImage;
-  profileImages =['./assets/img/users2/user-female-00.webp','./assets/img/users2/user-female-01.webp','./assets/img/users2/user-male-00.webp','./assets/img/users2/user-male-01.webp','./assets/img/users2/user-male-02.webp','./assets/img/users2/user-male-03.webp','./assets/img/users2/user-neutral.webp']
+  profileImages =['./assets/img/users2/user-female-00.webp','./assets/img/users2/user-female-01.webp','./assets/img/users2/user-male-00.webp','./assets/img/users2/user-male-01.webp','./assets/img/users2/user-male-02.webp','./assets/img/users2/user-male-03.webp','./assets/img/users2/user-neutral-bw.webp']
   userDetail;
   currentUser;
   editMode = false;

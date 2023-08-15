@@ -17,7 +17,7 @@ export class User {
         this.channelFromThread = obj ? obj.channelFromThread : '';
         this.threadId = obj ? obj.threadId : '';
         this.openThread = false;
-        this.profileImage = obj ? obj.profileImage : './assets/img/users2/user-neutral.webp';
+        this.profileImage = obj ? obj.profileImage : './assets/img/users2/user-neutral-bw.webp';
         this.addFirstChannel = false;
     }
 
@@ -28,7 +28,7 @@ export class User {
             uid: this.uid,
             lastChannel: 'CTk07uhNkmfsNkGNJgTn',
             channelFromThread: '',
-            profileImage: './assets/img/users2/user-neutral.webp',
+            profileImage: './assets/img/users2/user-neutral-bw.webp',
             addFirstChannel: false,
             openThread: false,
         }
