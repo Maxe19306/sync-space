@@ -7,7 +7,7 @@
     border-radius: 30px;
     height: calc(100vh - 140px);
 
-    @media (width <=1200px) {
+    @media (width <= 1200px) {
         height: calc(100vh - 90px);
     }
 
@@ -16,11 +16,11 @@
         justify-content: space-between;
         padding: 24px 45px;
 
-        @media (width <=1400px) {
+        @media (width <= 1400px) {
             padding: 15px 15px;
         }
 
-        @media (width <=$mobile__breakpoint__general) {
+        @media (width <= $mobile__breakpoint__general) {
             padding: 0;
             height: 60px;
         }
@@ -42,7 +42,7 @@
                 transition: all 200ms ease-in;
             }
 
-            @media (width <=$mobile__breakpoint__general) {
+            @media (width <= $mobile__breakpoint__general) {
                 padding: 0 7.5px 0 15px;
                 border-radius: 0;
                 margin-right: 0;
@@ -51,7 +51,7 @@
             div {
                 font-weight: 700;
 
-                @media (width <=$mobile__breakpoint__general) {
+                @media (width <= $mobile__breakpoint__general) {
                     font-size: 20px;
                 }
             }
@@ -64,7 +64,7 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
 
-                @media (width <=$mobile__breakpoint__general) {
+                @media (width <= $mobile__breakpoint__general) {
                     font-size: 20px;
                     margin: 0 10px;
                 }
@@ -120,7 +120,7 @@
                 cursor: pointer;
                 margin-left: 20px;
 
-                @media (width <=$mobile__breakpoint__general) {
+                @media (width <= $mobile__breakpoint__general) {
                     width: 34px;
                     height: 34px;
                     margin-left: 0;
@@ -130,7 +130,7 @@
                     font-weight: 600;
                     transition: all 200ms ease-in-out;
 
-                    @media (width <=$mobile__breakpoint__general) {
+                    @media (width <= $mobile__breakpoint__general) {
                         font-size: 18px;
                     }
                 }
@@ -187,7 +187,7 @@ app-main-chat-body {
     overflow: auto;
     height: auto;
 
-    @media (width <=1400px) {
+    @media (width <= 1400px) {
         padding: 15px 15px 0 15px;
     }
 }
