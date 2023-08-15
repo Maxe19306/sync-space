@@ -44,7 +44,6 @@ export class ChannelViewComponent implements OnInit {
       .valueChanges({idField: 'channelId'})
       .subscribe((channel) => {
         this.currentChannel = channel
-        console.log(this.currentChannel)
       });
   }
 
@@ -53,9 +52,7 @@ export class ChannelViewComponent implements OnInit {
     this.channelDescriptionInput.nativeElement.focus();
   }
 
-  editDescriptionInFirebase() {
-    console.log(this.currentChannel.description, this.data.channelId)
-    
+  editDescriptionInFirebase() {    
     this.firestore
       .collection('channels')
       .doc(this.data.channelId)

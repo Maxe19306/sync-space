@@ -39,7 +39,6 @@ export class ProfileViewComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.userDetail = user;
-        console.log(this.userDetail)
       });
   }
 
@@ -50,7 +49,6 @@ export class ProfileViewComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.currentUser = user
-        console.log(this.currentUser)
       });
   }
 
@@ -88,7 +86,6 @@ export class ProfileViewComponent implements OnInit {
     };
 
     const members = [currentUser, userDetail];
-    console.log(members, this.DM)
     // Überprüfen, ob ein Chat mit den Mitgliedern bereits existiert
     this.firestore.collection('dms')
       .ref.where('members', '==', members)
