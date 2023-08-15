@@ -99,6 +99,8 @@ export class ChannelsMenuComponent implements OnInit {
       const sidebarLeft = sidebarLefts[0] as HTMLElement;
       const logoMobile = document.getElementById("logoMobile");
       const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+      const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+      menuSidebarLeftFAB.style.display = "none";
       logoMobile.style.display = "none";
       channelsButtonMobile.style.display = "block";
       mainChat.style.zIndex = '10000';

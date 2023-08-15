@@ -67,6 +67,8 @@ export class HomeWorkspacesComponent implements OnInit {
       const sidebarLeft = sidebarLefts[0] as HTMLElement;
       const logoMobile = document.getElementById("logoMobile");
       const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+      const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+      menuSidebarLeftFAB.style.display = "inline-block";
       logoMobile.style.display = "block";
       channelsButtonMobile.style.display = "none";
       mainChat.style.zIndex = '0';
