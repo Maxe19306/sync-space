@@ -20,7 +20,9 @@ export class ProfileViewComponent implements OnInit {
     public dataService: DataService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
-
+    
+  selectedProfileImage;
+  profileImages =['./assets/img/users2/user-female-00.webp','./assets/img/users2/user-female-01.webp','./assets/img/users2/user-male-00.webp','./assets/img/users2/user-male-01.webp','./assets/img/users2/user-male-02.webp','./assets/img/users2/user-male-03.webp','./assets/img/users2/user-neutral.webp']
   userDetail;
   currentUser;
   editMode = false;
@@ -52,7 +54,11 @@ export class ProfileViewComponent implements OnInit {
       });
   }
 
-
+  updateImage(image){
+    this.selectedProfileImage = image;
+  }
+  
+  
   closeDialog() {
     this.dialogRef.close(ProfileViewComponent)
   }
@@ -63,15 +69,25 @@ export class ProfileViewComponent implements OnInit {
     this.userNameInput.nativeElement.focus();
   }
 
-  overwriteUserDataBackend() {  
+  overwriteUserDataBackend() {
+    if(this.selectedProfileImage) {
+      this.firestore
+        .collection('users')
+        .doc(this.data.userId)
+        .update({
+      name: this.userDetail.name,
+      mail: this.userDetail.mail,
+      profileImage : this.selectedProfileImage
+    }) 
+    }
     this.firestore
-      .collection('users')
-      .doc(this.data.userId)
-      .update({
-        name: this.userDetail.name,
-        mail: this.userDetail.mail,
-      })  
-    this.editMode = false;
+    .collection('users')
+    .doc(this.data.userId)
+    .update({
+      name: this.userDetail.name,
+      mail: this.userDetail.mail,
+    })  
+  this.editMode = false;
   }
 
   createDM() {
