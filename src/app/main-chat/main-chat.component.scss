@@ -142,28 +142,31 @@
                 }
             }
 
-            .symbol__circle__mobile {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 50%;
-                background: $background-color-light-mode;
-                cursor: pointer;
-                width: 34px;
-                height: 34px;
-                margin-left: 0;
+            .symbol__circle__mobile__container {
                 padding: 13px 15px;
+                cursor: pointer;
 
-                span {
-                    font-weight: 600;
-                    transition: all 200ms ease-in-out;
-                    font-size: 18px;
-                }
-
-                &:hover {
+                .symbol__circle__mobile {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    background: $background-color-light-mode;
+                    width: 34px;
+                    height: 34px;
+                    margin-left: 0;
+    
                     span {
-                        color: $text-color-highlight-light-mode;
-                        transform: scale(1.4);
+                        font-weight: 600;
+                        transition: all 200ms ease-in-out;
+                        font-size: 18px;
+                    }
+    
+                    &:hover {
+                        span {
+                            color: $text-color-highlight-light-mode;
+                            transform: scale(1.4);
+                        }
                     }
                 }
             }
