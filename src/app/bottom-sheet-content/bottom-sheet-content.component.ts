@@ -14,6 +14,7 @@ export class BottomSheetContentComponent implements OnInit {
 
   currentUser;
   @Input() userId: any;
+  isDialogOpen = false;
 
   constructor(
     private bottomSheetRef: MatBottomSheetRef<BottomSheetContentComponent>,
@@ -40,10 +41,14 @@ export class BottomSheetContentComponent implements OnInit {
   }
 
   openDialogProfil(userId) {
-    this.Dialog.open(ProfileViewComponent, {
+    this.isDialogOpen = true;
+    const dialogRef = this.Dialog.open(ProfileViewComponent, {
       data: { userId },
       panelClass: 'profile__view__matdialog'
-    })
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.isDialogOpen = false;
+    });
   }
 
   logout() {

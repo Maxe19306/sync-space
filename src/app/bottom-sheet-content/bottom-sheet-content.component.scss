@@ -23,10 +23,15 @@
         align-items: center;
         padding: 15px 30px;
         margin: 5px 0 15px 10px;
+        border-radius: 30px;
         cursor: pointer;
 
         span {
             margin-right: 10px;
         }
     }
+}
+
+.bottom__sheet__container div.active {
+    background-color: #eceefe;
 }
