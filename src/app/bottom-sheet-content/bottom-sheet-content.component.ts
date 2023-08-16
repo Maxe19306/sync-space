@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 
 @Component({
@@ -8,7 +9,8 @@ import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bott
 })
 export class BottomSheetContentComponent implements OnInit {
 
-  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetContentComponent>) { }
+  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetContentComponent>,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -17,4 +19,7 @@ export class BottomSheetContentComponent implements OnInit {
     this.bottomSheetRef.dismiss();
   }
 
+  logout() {
+    this.router.navigate(['/']);
+  }
 }
