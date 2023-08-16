@@ -40,7 +40,8 @@ export class BottomSheetContentComponent implements OnInit {
       });
   }
 
-  openDialogProfil(userId) {
+  openDialogProfil(userId, event: Event) {
+    event.stopPropagation();
     this.isDialogOpen = true;
     const dialogRef = this.Dialog.open(ProfileViewComponent, {
       data: { userId },
@@ -51,7 +52,9 @@ export class BottomSheetContentComponent implements OnInit {
     });
   }
 
-  logout() {
+  logout(event: Event) {
+    event.stopPropagation();
     this.router.navigate(['/']);
+    this.closeSheet();
   }
 }
