@@ -20,6 +20,7 @@ export class ProfileMenuComponent implements OnInit {
   @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger
   @Input() userId: any;
   currentUser;
+  
   constructor(
     public Dialog: MatDialog,
     private firestore: AngularFirestore,
