@@ -15,10 +15,11 @@ export class BottomSheetContentComponent implements OnInit {
   currentUser;
   @Input() userId: any;
 
-  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetContentComponent>,
-              private router: Router,
-              private firestore: AngularFirestore,
-              public Dialog: MatDialog) { }
+  constructor(
+    private bottomSheetRef: MatBottomSheetRef<BottomSheetContentComponent>,
+    private router: Router,
+    private firestore: AngularFirestore,
+    public Dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadCurrentUser();
@@ -35,7 +36,6 @@ export class BottomSheetContentComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.currentUser = user
-
       });
   }
 
