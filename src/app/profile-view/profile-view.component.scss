@@ -164,6 +164,8 @@
         }
 
         .mail {
+            flex: 1;
+            
             h3 {
                 font-weight: 700;
             }
@@ -179,6 +181,7 @@
             }
 
             input {
+                width: 100%;
                 font-family: "Nunito", "Helvetica Neue", sans-serif !important;
                 border: none;
                 outline: none;
