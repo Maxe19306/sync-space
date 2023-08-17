@@ -5,6 +5,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { DataService } from '../data.service';
 import { DirectMessage } from '../models/dm.class';
 import { MembersViewComponent } from '../members-view/members-view.component';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-profile-view',
@@ -20,6 +21,7 @@ export class ProfileViewComponent implements OnInit {
     private firestore: AngularFirestore,
     public dialog: MatDialog,
     public dataService: DataService,
+    public sharedService: SharedService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
@@ -60,9 +62,13 @@ export class ProfileViewComponent implements OnInit {
     this.selectedProfileImage = image;
   }
 
-
   closeDialog() {
-    this.dialogRef.close(ProfileViewComponent)
+    this.dialogRef.close(ProfileViewComponent);
+    this.closeProfileBottomSheet();
+  }
+
+  closeProfileBottomSheet() {
+    this.sharedService.closeSheet();
   }
 
   async initiateUserEditMode() {

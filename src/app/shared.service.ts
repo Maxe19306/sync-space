@@ -9,9 +9,11 @@ export class SharedService {
   private toggleMenuSidebarLeftSource = new Subject<void>();
   private openSecondaryChatSource = new Subject<void>();
   private slideSecondaryChatSource = new Subject<void>();
+  public closeSheetSubject = new Subject<void>();
   toggleMenuSidebarLeft$ = this.toggleMenuSidebarLeftSource.asObservable();
   openSecondaryChat$ = this.openSecondaryChatSource.asObservable();
   slideSecondaryChat$ = this.slideSecondaryChatSource.asObservable();
+  closeSheet$ = this.closeSheetSubject.asObservable();
 
   constructor() { }
 
@@ -25,5 +27,9 @@ export class SharedService {
 
   slideSecondaryChat() {
     this.slideSecondaryChatSource.next();
+  }
+
+  closeSheet() {
+    this.closeSheetSubject.next();
   }
 }
