@@ -21,6 +21,10 @@ form {
         font-family: inherit;
         font-size: 18px;
         border-radius: 20px;
+
+        @media (width <= 576px) {
+            font-size: 16px;
+        }
     }
 
     .btn__area {
