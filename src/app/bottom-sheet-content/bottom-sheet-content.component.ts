@@ -38,7 +38,6 @@ export class BottomSheetContentComponent implements OnInit {
   }
 
   openDialogProfil(userId, event: Event) {
-
     event.stopPropagation();
     this.isDialogOpen = true;
     const dialogRef = this.Dialog.open(ProfileViewComponent, {
