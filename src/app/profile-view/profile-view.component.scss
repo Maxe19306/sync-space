@@ -40,10 +40,14 @@
     .profileImageSelection {
         display: flex;
     
-        img {
-            height: 60px;
-            width: auto;
-            border-radius: 100%;
+        div {
+            margin: 0 8px;
+
+            img {
+                height: 60px;
+                width: auto;
+                border-radius: 100%;
+            }
         }
     }
 
@@ -62,6 +66,7 @@
                 color: #000;
                 margin-top: 11px;
                 margin-bottom: 20px;
+                cursor: default;
             }
 
             input {
