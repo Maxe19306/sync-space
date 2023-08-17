@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-bottom-sheet-content',
@@ -19,28 +20,18 @@ export class BottomSheetContentComponent implements OnInit {
   constructor(
     private bottomSheetRef: MatBottomSheetRef<BottomSheetContentComponent>,
     private router: Router,
-    private firestore: AngularFirestore,
+    public dataService: DataService,
     public Dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.loadCurrentUser();
   }
 
   closeSheet(): void {
     this.bottomSheetRef.dismiss();
   }
 
-  loadCurrentUser() {
-    this.firestore
-      .collection('users')
-      .doc(this.userId)
-      .valueChanges({ idField: 'id' })
-      .subscribe((user) => {
-        this.currentUser = user
-      });
-  }
-
   openDialogProfil(userId, event: Event) {
+    
     event.stopPropagation();
     this.isDialogOpen = true;
     const dialogRef = this.Dialog.open(ProfileViewComponent, {
