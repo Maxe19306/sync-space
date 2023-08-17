@@ -38,10 +38,14 @@
     }
 
     .profileImageSelection {
+        width: 100%;
         display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
     
         div {
-            margin: 0 8px;
+            // margin: 0 8px;
 
             img {
                 height: 60px;
