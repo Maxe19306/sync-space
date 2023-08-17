@@ -9,14 +9,14 @@
     <img src="{{this.userDetail.profileImage}}" alt="">
     <div *ngIf="editMode" class="profileImageSelection">
         <div *ngFor="let image of profileImages">
-        <img *ngIf="image !== this.userDetail.profileImage" src="{{image}}" alt="" (click)="updateImage(image)">
-         </div>
+            <img *ngIf="image !== this.userDetail.profileImage" src="{{image}}" alt="" (click)="updateImage(image)">
+        </div>
     </div>
     <div class="second__profil__container">
         <div class="name">
             <div *ngIf="!editMode" class="name__display">{{this.userDetail.name}}</div>
-            <input *ngIf="editMode"  [(ngModel)]="this.userDetail.name" type="text" maxlength="32" value="{{this.userDetail.name}}"
-                #userNameInput (keydown.enter)="overwriteUserDataBackend()">
+            <input *ngIf="editMode" [(ngModel)]="this.userDetail.name" type="text" maxlength="32"
+                value="{{this.userDetail.name}}" #userNameInput (keydown.enter)="overwriteUserDataBackend()">
             <div *ngIf="this.userDetail.id === this.dataService.id" (click)="initiateUserEditMode()">Bearbeiten</div>
         </div>
         <div class="status">
@@ -28,8 +28,8 @@
         <div class="mail">
             <h3>E-Mail-Adresse</h3>
             <div *ngIf="!editMode" class="mail__display">{{this.userDetail.mail}}</div>
-            <input *ngIf="editMode"  [(ngModel)]="this.userDetail.mail" type="text" maxlength="32" value="{{this.userDetail.mail}}"
-                #userMailInput (keydown.enter)="overwriteUserDataBackend()">
+            <input *ngIf="editMode" [(ngModel)]="this.userDetail.mail" type="text" maxlength="32"
+                value="{{this.userDetail.mail}}" #userMailInput (keydown.enter)="overwriteUserDataBackend()">
         </div>
     </div>
     <div *ngIf="this.userDetail.id !== this.currentUser.id" mat-flat-button color="primary" (click)="createDM()"
@@ -43,37 +43,3 @@
         Notiz
     </div>
 </div>
-
-<!-- 
-<div *ngIf="this.UserDetail" class="main-profil-container">
-    <div class="start-profil-container">
-        <p>Profil</p>
-        <span (click)="closeDialog()" class="material-icons">
-            close
-            </span>
-    </div>
-
-
-
-    <img src="/assets/img/secondaryChat/elias-neumann.webp" alt="">
-
-
-    <div class="second-profil-container">
-
-        <div class="name">
-            <h2>{{this.UserDetail.Name}}</h2>
-            <a>Bearbeiten</a>
-        </div>
-        <p class="status">Aktiv</p>
-
-    </div>
-
-    <div class="contact">
-        <p> <span class="material-icons"> email  </span> e-mail-Adresse </p>
-
-        <a>{{this.UserDetail.mail}}</a>
-    </div>
-
-    <button mat-flat-button color="primary" (click)="createDM()">Nachricht</button>
-
-</div> -->
