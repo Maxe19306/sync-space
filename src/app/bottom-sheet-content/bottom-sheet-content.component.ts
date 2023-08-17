@@ -12,6 +12,7 @@ import { SharedService } from '../shared.service';
   templateUrl: './bottom-sheet-content.component.html',
   styleUrls: ['./bottom-sheet-content.component.scss']
 })
+
 export class BottomSheetContentComponent implements OnInit {
 
   currentUser;
