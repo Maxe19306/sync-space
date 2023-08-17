@@ -12,10 +12,12 @@ import { doc } from 'firebase/firestore';
 })
 
 export class ChannelsMenuComponent implements OnInit {
+
   mobileBreakpointGeneral: number;
   viewChannels = true;
-  allChannels = []
-  currentUser
+  allChannels = [];
+  currentUser;
+
   constructor(
     private dataService: DataService,
     public firestore: AngularFirestore,

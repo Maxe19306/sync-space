@@ -14,6 +14,8 @@ import { SharedService } from '../shared.service';
 })
 
 export class ProfileViewComponent implements OnInit {
+
+  mobileBreakpointGeneral: number;
   DM: DirectMessage = new DirectMessage({});
 
   constructor(
@@ -36,6 +38,13 @@ export class ProfileViewComponent implements OnInit {
   ngOnInit(): void {
     this.loadUserDetail();
     this.loadCurrentUser();
+    this.getMobileBreakpointGeneral();
+  }
+
+  getMobileBreakpointGeneral() {
+    const style = getComputedStyle(document.documentElement);
+    const value = style.getPropertyValue('--mobile-breakpoint-general').trim();
+    this.mobileBreakpointGeneral = parseInt(value, 10);
   }
 
   loadUserDetail() {
@@ -64,7 +73,10 @@ export class ProfileViewComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close(ProfileViewComponent);
-    this.closeProfileBottomSheet();
+    if (window.innerWidth <= this.mobileBreakpointGeneral) {
+      this.closeProfileBottomSheet();
+      console.log("closeProfileBottomSheet");
+    }
   }
 
   closeProfileBottomSheet() {
