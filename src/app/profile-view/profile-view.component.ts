@@ -5,11 +5,13 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { DataService } from '../data.service';
 import { DirectMessage } from '../models/dm.class';
 import { MembersViewComponent } from '../members-view/members-view.component';
+
 @Component({
   selector: 'app-profile-view',
   templateUrl: './profile-view.component.html',
   styleUrls: ['./profile-view.component.scss']
 })
+
 export class ProfileViewComponent implements OnInit {
   DM: DirectMessage = new DirectMessage({});
 
@@ -20,9 +22,9 @@ export class ProfileViewComponent implements OnInit {
     public dataService: DataService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
-    
+
   selectedProfileImage;
-  profileImages =['./assets/img/users2/user-female-00.webp','./assets/img/users2/user-female-01.webp','./assets/img/users2/user-male-00.webp','./assets/img/users2/user-male-01.webp','./assets/img/users2/user-male-02.webp','./assets/img/users2/user-male-03.webp','./assets/img/users2/user-neutral-bw.webp']
+  profileImages = ['./assets/img/users2/user-female-00.webp', './assets/img/users2/user-female-01.webp', './assets/img/users2/user-male-00.webp', './assets/img/users2/user-male-01.webp', './assets/img/users2/user-male-02.webp', './assets/img/users2/user-male-03.webp', './assets/img/users2/user-neutral-bw.webp']
   userDetail;
   currentUser;
   editMode = false;
@@ -54,11 +56,11 @@ export class ProfileViewComponent implements OnInit {
       });
   }
 
-  updateImage(image){
+  updateImage(image) {
     this.selectedProfileImage = image;
   }
-  
-  
+
+
   closeDialog() {
     this.dialogRef.close(ProfileViewComponent)
   }
@@ -70,24 +72,24 @@ export class ProfileViewComponent implements OnInit {
   }
 
   overwriteUserDataBackend() {
-    if(this.selectedProfileImage) {
+    if (this.selectedProfileImage) {
       this.firestore
         .collection('users')
         .doc(this.data.userId)
         .update({
-      name: this.userDetail.name,
-      mail: this.userDetail.mail,
-      profileImage : this.selectedProfileImage
-    }) 
+          name: this.userDetail.name,
+          mail: this.userDetail.mail,
+          profileImage: this.selectedProfileImage
+        })
     }
     this.firestore
-    .collection('users')
-    .doc(this.data.userId)
-    .update({
-      name: this.userDetail.name,
-      mail: this.userDetail.mail,
-    })  
-  this.editMode = false;
+      .collection('users')
+      .doc(this.data.userId)
+      .update({
+        name: this.userDetail.name,
+        mail: this.userDetail.mail,
+      })
+    this.editMode = false;
   }
 
   createDM() {
@@ -158,6 +160,5 @@ export class ProfileViewComponent implements OnInit {
         currentDM: id
       })
   }
-
 }
 
