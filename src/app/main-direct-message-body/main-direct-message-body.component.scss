@@ -82,6 +82,10 @@
             width: 75%;
             margin: 0 30px;
 
+            @media (width <= $mobile__breakpoint__general) {
+                margin: 0 0 0 15px;
+            }
+
             .user__text__header {
                 display: flex;
                 align-items: center;
@@ -149,6 +153,11 @@
         }
 
         .user__text {
+
+            @media (width <= $mobile__breakpoint__general) {
+                margin: 0 15px 0 0;
+            }
+
             .user__text__header {
                 flex-direction: row-reverse;
             }
