@@ -6,7 +6,7 @@
             <span class="material-symbols-rounded single-icon">close</span>
         </div>
     </div>
-    <img src="{{this.userDetail.profileImage}}" alt="">
+    <img class="user__image" src="{{this.userDetail.profileImage}}" alt="">
     <div *ngIf="editMode" class="profileImageSelection">
         <div *ngFor="let image of profileImages">
             <img *ngIf="image !== this.userDetail.profileImage" src="{{image}}" alt="" (click)="updateImage(image)">
