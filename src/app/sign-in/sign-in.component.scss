@@ -13,13 +13,13 @@
             width: 289px;
             height: 70px;
 
-            @media (width <= 768px) {
+            @media (width <=768px) {
                 width: 230px;
                 height: auto;
             }
         }
 
-        @media (width <= 768px) {
+        @media (width <=768px) {
             justify-content: center;
             padding: 0;
             margin-top: 25px
@@ -55,7 +55,7 @@
                     }
                 }
 
-                @media (width <= 768px) {
+                @media (width <=768px) {
                     display: none;
                 }
             }
@@ -85,11 +85,11 @@
                         font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
                         text-align: center;
 
-                        @media (width <= 922px) {
+                        @media (width <=922px) {
                             font-size: 42px;
                         }
 
-                        @media (width <= 768px) {
+                        @media (width <=768px) {
                             font-size: 35px;
                             margin-bottom: 0;
                             line-height: 1.2;
@@ -98,7 +98,7 @@
                             width: 200px;
                         }
 
-                        @media (width <= 576px) {
+                        @media (width <=576px) {
                             font-size: 33px;
                             text-align: center;
                             padding: 0;
@@ -107,7 +107,7 @@
                         }
                     }
 
-                    @media (width <= 768px) {
+                    @media (width <=768px) {
                         display: flex;
                         justify-content: space-between;
 
@@ -124,12 +124,12 @@
                     margin-top: 33px;
                     margin-bottom: 0px;
 
-                    @media (width <= 768px) {
+                    @media (width <=768px) {
                         margin-top: 16px;
                     }
                 }
 
-                @media (width <= 576px) {
+                @media (width <=576px) {
                     .hide__mobile {
                         display: none;
                     }
@@ -159,7 +159,7 @@
                             left: 30px;
                             color: #686868;
 
-                            @media (width <= 576px) {
+                            @media (width <=576px) {
                                 left: 20px;
                             }
                         }
@@ -186,11 +186,11 @@
                                 -webkit-text-fill-color: #686868 !important;
                             }
 
-                            @media (width <= 768px) {
+                            @media (width <=768px) {
                                 padding-right: 37px;
                             }
-    
-                            @media (width <= 576px) {
+
+                            @media (width <=576px) {
                                 min-width: 183px;
                                 padding-left: 50px;
                                 padding-right: 27px;
@@ -249,7 +249,7 @@
                 }
 
             }
-            
+
             @media (width <=768px) {
                 padding: 35px 20px;
                 margin-left: 25px;
@@ -272,7 +272,7 @@
             border-bottom-right-radius: 0px;
             transition: left 200ms ease-in;
 
-            @media (width <= 576px) {
+            @media (width <=576px) {
                 width: 233px;
                 font-size: 20px;
                 padding: 30px;
@@ -284,7 +284,7 @@
             animation-name: slideIn;
             animation-duration: 1.5s;
 
-            @media (width <= 576px) {
+            @media (width <=576px) {
                 animation-name: slideInResponsive;
             }
         }
