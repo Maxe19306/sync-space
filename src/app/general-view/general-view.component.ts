@@ -3,14 +3,17 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { SharedService } from '../shared.service';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-general-view',
   templateUrl: './general-view.component.html',
   styleUrls: ['./general-view.component.scss']
 })
+
 export class GeneralViewComponent implements OnInit {
 
+  windowWidth: number;
   menuSidebarLeft;
   secondaryChat;
   firstChannel
@@ -37,8 +40,9 @@ export class GeneralViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.id = this.route.snapshot.queryParamMap.get('userID')
-    this.loadCurrentUser()
+    this.windowWidth = window.innerWidth;
+    this.dataService.id = this.route.snapshot.queryParamMap.get('userID');
+    this.loadCurrentUser();
   }
 
   loadCurrentUser() {
@@ -133,5 +137,11 @@ export class GeneralViewComponent implements OnInit {
     setTimeout(() => {
       this.secondaryChat.style.display = "none";
     }, 100);
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.windowWidth = event.target.innerWidth;
+    console.log("this.windowWidth", this.windowWidth);
   }
 }
