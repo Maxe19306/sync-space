@@ -100,7 +100,9 @@ export class ChannelsMenuComponent implements OnInit {
 
   hideMenuSidebarLeft() {
     const sidebarLeft = document.getElementsByTagName("app-menu-sidebar-left")[0] as HTMLElement;
-    sidebarLeft.style.display = 'none';
+    if (sidebarLeft) {
+      sidebarLeft.style.display = 'none';
+    }
     const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
     menuSidebarLeftFAB.style.display = "none";
   }
@@ -114,7 +116,9 @@ export class ChannelsMenuComponent implements OnInit {
 
   foregroundMainChatChangeAttributs() {
     const mainChat = document.getElementsByTagName("app-main-chat")[0] as HTMLElement;
-    mainChat.style.display = "block";
+    if (mainChat) {
+      mainChat.style.display = 'block';
+    }
   }
 
   // foreGroundMainChat() {

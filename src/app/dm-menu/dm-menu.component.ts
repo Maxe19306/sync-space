@@ -130,7 +130,9 @@ export class DmMenuComponent implements OnInit {
 
   hideMenuSidebarLeft() {
     const sidebarLeft = document.getElementsByTagName("app-menu-sidebar-left")[0] as HTMLElement;
-    sidebarLeft.style.display = 'none';
+    if (sidebarLeft) {
+      sidebarLeft.style.display = 'none';
+    }
     const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
     menuSidebarLeftFAB.style.display = "none";
   }
@@ -144,7 +146,9 @@ export class DmMenuComponent implements OnInit {
 
   foregroundMainChatChangeAttributs() {
     const mainDirectMessage = document.getElementsByTagName("app-main-direct-message")[0] as HTMLElement;
-    mainDirectMessage.style.display = "block";
+    if (mainDirectMessage) {
+      mainDirectMessage.style.display = 'block';
+    }
   }
 
   // foregroundMainDirectMessage() {
