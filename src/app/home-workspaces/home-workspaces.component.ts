@@ -59,24 +59,49 @@ export class HomeWorkspacesComponent implements OnInit {
     }
   }
 
-  foreGroundLeftSidebar() {
-    const mainChats = document.getElementsByTagName("app-main-chat");
-    const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
-    if (mainChats.length > 0) {
-      this.foreGroundLeftSidebarChangeAttributs(mainChats, sidebarLefts);
-    }
+  foregroundSidebarLeft() {
+    this.hideMainChat();
+    this.changeBtnToLogo();
+    this.foregroundSidebarLeftChangeAttributs();
   }
 
-  foreGroundLeftSidebarChangeAttributs(mainChats, sidebarLefts) {
-    const mainChat = mainChats[0] as HTMLElement;
-    const sidebarLeft = sidebarLefts[0] as HTMLElement;
-    const logoMobile = document.getElementById("logoMobile");
+  hideMainChat() {
+    const mainChat = document.getElementsByTagName("app-main-chat")[0] as HTMLElement;
+    mainChat.style.display = "none";
+  }
+
+  changeBtnToLogo() {
     const channelsButtonMobile = document.getElementById("channelsButtonMobile");
-    const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
-    mainChat.style.zIndex = '0';
-    sidebarLeft.style.zIndex = '10000';
-    logoMobile.style.display = "block";
     channelsButtonMobile.style.display = "none";
+    const logoMobile = document.getElementById("logoMobile");
+    logoMobile.style.display = "block";
+  }
+
+  foregroundSidebarLeftChangeAttributs() {
+    const sidebarLeft = document.getElementsByTagName("app-menu-sidebar-left")[0] as HTMLElement;
+    sidebarLeft.style.display = 'flex';
+    const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
     menuSidebarLeftFAB.style.display = "inline-block";
   }
+
+  // foreGroundLeftSidebar() {
+  //   const mainChats = document.getElementsByTagName("app-main-chat");
+  //   const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
+  //   if (mainChats.length > 0) {
+  //     this.foreGroundLeftSidebarChangeAttributs(mainChats, sidebarLefts);
+  //   }
+  // }
+
+  // foreGroundLeftSidebarChangeAttributs(mainChats, sidebarLefts) {
+  //   const mainChat = mainChats[0] as HTMLElement;
+  //   const sidebarLeft = sidebarLefts[0] as HTMLElement;
+  //   const logoMobile = document.getElementById("logoMobile");
+  //   const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+  //   const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+  //   mainChat.style.zIndex = '0';
+  //   sidebarLeft.style.zIndex = '10000';
+  //   logoMobile.style.display = "block";
+  //   channelsButtonMobile.style.display = "none";
+  //   menuSidebarLeftFAB.style.display = "inline-block";
+  // }
 }

@@ -94,8 +94,8 @@ export class ChannelsMenuComponent implements OnInit {
 
   foregroundMainChat() {
     this.hideMenuSidebarLeft();
-    this.changeLogo();
-    this.foreGroundMainChatChangeAttributs();
+    this.changeLogoToBtn();
+    this.foregroundMainChatChangeAttributs();
   }
 
   hideMenuSidebarLeft() {
@@ -105,14 +105,14 @@ export class ChannelsMenuComponent implements OnInit {
     menuSidebarLeftFAB.style.display = "none";
   }
 
-  changeLogo() {
+  changeLogoToBtn() {
     const logoMobile = document.getElementById("logoMobile");
     logoMobile.style.display = "none";
     const channelsButtonMobile = document.getElementById("channelsButtonMobile");
     channelsButtonMobile.style.display = "block";
   }
 
-  foreGroundMainChatChangeAttributs() {
+  foregroundMainChatChangeAttributs() {
     const mainChat = document.getElementsByTagName("app-main-chat")[0] as HTMLElement;
     mainChat.style.display = "block";
   }
