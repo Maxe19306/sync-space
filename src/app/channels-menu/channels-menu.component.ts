@@ -97,17 +97,21 @@ export class ChannelsMenuComponent implements OnInit {
     const mainChats = document.getElementsByTagName("app-main-chat");
     const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
     if (mainChats.length > 0) {
-      const mainChat = mainChats[0] as HTMLElement;
-      const sidebarLeft = sidebarLefts[0] as HTMLElement;
-      const logoMobile = document.getElementById("logoMobile");
-      const channelsButtonMobile = document.getElementById("channelsButtonMobile");
-      const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
-      mainChat.style.zIndex = '10000';
-      sidebarLeft.style.zIndex = '0';
-      logoMobile.style.display = "none";
-      channelsButtonMobile.style.display = "block";
-      menuSidebarLeftFAB.style.display = "none";
+      this.foreGroundMainChatChangeAttributs(mainChats, sidebarLefts);
     }
+  }
+
+  foreGroundMainChatChangeAttributs(mainChats, sidebarLefts) {
+    const mainChat = mainChats[0] as HTMLElement;
+    const sidebarLeft = sidebarLefts[0] as HTMLElement;
+    const logoMobile = document.getElementById("logoMobile");
+    const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+    const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+    mainChat.style.zIndex = '10000';
+    sidebarLeft.style.zIndex = '0';
+    logoMobile.style.display = "none";
+    channelsButtonMobile.style.display = "block";
+    menuSidebarLeftFAB.style.display = "none";
   }
 
   changeChannelView() {
