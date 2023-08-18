@@ -87,7 +87,6 @@ export class ChannelsMenuComponent implements OnInit {
         lastChannel: channelId,
         viewChat: false
       })
-
     if (window.innerWidth <= this.mobileBreakpointGeneral) {
       this.foreGroundMainChat();
     }

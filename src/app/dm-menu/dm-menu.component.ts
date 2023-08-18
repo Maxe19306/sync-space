@@ -7,20 +7,31 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   templateUrl: './dm-menu.component.html',
   styleUrls: ['./dm-menu.component.scss']
 })
+
 export class DmMenuComponent implements OnInit {
+
+  mobileBreakpointGeneral: number;
   viewChannels = false;
   personalDm
   allDmsIdFromUser;
   allDmsFromUser = [];
   currentUser
+
   constructor(
     public dataService: DataService,
     private firestore: AngularFirestore
   ) { }
 
   ngOnInit(): void {
+    this.getMobileBreakpointGeneral();
     this.loadAllDms()
     this.loadCurrentUser()
+  }
+
+  getMobileBreakpointGeneral() {
+    const style = getComputedStyle(document.documentElement);
+    const value = style.getPropertyValue('--mobile-breakpoint-general').trim();
+    this.mobileBreakpointGeneral = parseInt(value, 10);
   }
 
   loadCurrentUser() {
@@ -96,7 +107,6 @@ export class DmMenuComponent implements OnInit {
           }
         });
     });
-
   }
 
   openChat(id) {
@@ -107,6 +117,29 @@ export class DmMenuComponent implements OnInit {
         viewChat: true,
         currentDM: id
       })
+      if (window.innerWidth <= this.mobileBreakpointGeneral) {
+        this.foregroundMainDirectMessage();
+      }
   }
 
+  foregroundMainDirectMessage() {
+    const mainDirectMessages = document.getElementsByTagName("app-main-direct-message");
+    const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
+    if (mainDirectMessages.length > 0) {
+      this.foregroundMainDirectMessageChangeAttributs(mainDirectMessages, sidebarLefts);
+    }
+  }
+
+  foregroundMainDirectMessageChangeAttributs(mainDirectMessages, sidebarLefts) {
+    const mainDirectMessage = mainDirectMessages[0] as HTMLElement;
+    const sidebarLeft = sidebarLefts[0] as HTMLElement;
+    const logoMobile = document.getElementById("logoMobile");
+    const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+    const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+    mainDirectMessage.style.zIndex = '10000';
+    sidebarLeft.style.zIndex = '0';
+    logoMobile.style.display = "none";
+    channelsButtonMobile.style.display = "block";
+    menuSidebarLeftFAB.style.display = "none";
+  }
 }
