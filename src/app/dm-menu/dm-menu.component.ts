@@ -99,7 +99,6 @@ export class DmMenuComponent implements OnInit {
         .doc(dm.DMID)
         .valueChanges({ idField: 'DmId' })
         .subscribe(dmData => {
-          // Überprüfen, ob der Chat bereits in allDmsFromUser existiert
           const existingDm = this.allDmsFromUser.find(d => d.DmId === dmData.DmId);
           if (!existingDm) {
             this.allDmsFromUser.push(dmData);
