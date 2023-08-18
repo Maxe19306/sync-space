@@ -88,30 +88,55 @@ export class ChannelsMenuComponent implements OnInit {
         viewChat: false
       })
     if (window.innerWidth <= this.mobileBreakpointGeneral) {
-      this.foreGroundMainChat();
+      this.foregroundMainChat();
     }
   }
 
-  foreGroundMainChat() {
-    const mainChats = document.getElementsByTagName("app-main-chat");
-    const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
-    if (mainChats.length > 0) {
-      this.foreGroundMainChatChangeAttributs(mainChats, sidebarLefts);
-    }
+  foregroundMainChat() {
+    this.hideMenuSidebarLeft();
+    this.changeLogo();
+    this.foreGroundMainChatChangeAttributs();
   }
 
-  foreGroundMainChatChangeAttributs(mainChats, sidebarLefts) {
-    const mainChat = mainChats[0] as HTMLElement;
-    const sidebarLeft = sidebarLefts[0] as HTMLElement;
-    const logoMobile = document.getElementById("logoMobile");
-    const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+  hideMenuSidebarLeft() {
+    const sidebarLeft = document.getElementsByTagName("app-menu-sidebar-left")[0] as HTMLElement;
+    sidebarLeft.style.display = 'none';
     const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
-    mainChat.style.zIndex = '10000';
-    sidebarLeft.style.zIndex = '0';
-    logoMobile.style.display = "none";
-    channelsButtonMobile.style.display = "block";
     menuSidebarLeftFAB.style.display = "none";
   }
+
+  changeLogo() {
+    const logoMobile = document.getElementById("logoMobile");
+    logoMobile.style.display = "none";
+    const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+    channelsButtonMobile.style.display = "block";
+  }
+
+  foreGroundMainChatChangeAttributs() {
+    const mainChat = document.getElementsByTagName("app-main-chat")[0] as HTMLElement;
+    mainChat.style.display = "block";
+  }
+
+  // foreGroundMainChat() {
+  //   const mainChats = document.getElementsByTagName("app-main-chat");
+  //   const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
+  //   if (mainChats.length > 0) {
+  //     this.foreGroundMainChatChangeAttributs(mainChats, sidebarLefts);
+  //   }
+  // }
+
+  // foreGroundMainChatChangeAttributs(mainChats, sidebarLefts) {
+  //   const mainChat = mainChats[0] as HTMLElement;
+  //   const sidebarLeft = sidebarLefts[0] as HTMLElement;
+  //   const logoMobile = document.getElementById("logoMobile");
+  //   const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+  //   const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+  //   mainChat.style.zIndex = '10000';
+  //   sidebarLeft.style.zIndex = '0';
+  //   logoMobile.style.display = "none";
+  //   channelsButtonMobile.style.display = "block";
+  //   menuSidebarLeftFAB.style.display = "none";
+  // }
 
   changeChannelView() {
     if (this.viewChannels) {
