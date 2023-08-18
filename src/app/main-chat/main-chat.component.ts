@@ -63,8 +63,15 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
       .valueChanges({ idField: 'id' })
       .subscribe((channel) => {
         this.currentChannel = channel
+        console.log(this.currentChannel)
       })
   }
+  
+ get limitedMembers(): any[] {
+    const maxCount = 3;
+    return this.currentChannel.members.slice(0, maxCount);
+  }
+  
 
   openDialogMembersView(members) {
     this.Dialog.open(MembersViewComponent,
