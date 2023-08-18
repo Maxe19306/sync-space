@@ -61,13 +61,23 @@ export class HomeWorkspacesComponent implements OnInit {
 
   foregroundSidebarLeft() {
     this.hideMainChat();
+    this.hideMainDirectMessage();
     this.changeBtnToLogo();
     this.foregroundSidebarLeftChangeAttributs();
   }
 
   hideMainChat() {
     const mainChat = document.getElementsByTagName("app-main-chat")[0] as HTMLElement;
-    mainChat.style.display = "none";
+    if (mainChat) {
+      mainChat.style.display = "none";
+    }
+  }
+
+  hideMainDirectMessage() {
+    const mainDirectMessage = document.getElementsByTagName("app-main-direct-message")[0] as HTMLElement;
+    if (mainDirectMessage) {
+      mainDirectMessage.style.display = "none";
+    }
   }
 
   changeBtnToLogo() {
