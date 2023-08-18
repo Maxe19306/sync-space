@@ -123,23 +123,48 @@ export class DmMenuComponent implements OnInit {
   }
 
   foregroundMainDirectMessage() {
-    const mainDirectMessages = document.getElementsByTagName("app-main-direct-message");
-    const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
-    if (mainDirectMessages.length > 0) {
-      this.foregroundMainDirectMessageChangeAttributs(mainDirectMessages, sidebarLefts);
-    }
+    this.hideMenuSidebarLeft();
+    this.changeLogoToBtn();
+    this.foregroundMainChatChangeAttributs();
   }
 
-  foregroundMainDirectMessageChangeAttributs(mainDirectMessages, sidebarLefts) {
-    const mainDirectMessage = mainDirectMessages[0] as HTMLElement;
-    const sidebarLeft = sidebarLefts[0] as HTMLElement;
-    const logoMobile = document.getElementById("logoMobile");
-    const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+  hideMenuSidebarLeft() {
+    const sidebarLeft = document.getElementsByTagName("app-menu-sidebar-left")[0] as HTMLElement;
+    sidebarLeft.style.display = 'none';
     const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
-    mainDirectMessage.style.zIndex = '10000';
-    sidebarLeft.style.zIndex = '0';
-    logoMobile.style.display = "none";
-    channelsButtonMobile.style.display = "block";
     menuSidebarLeftFAB.style.display = "none";
   }
+
+  changeLogoToBtn() {
+    const logoMobile = document.getElementById("logoMobile");
+    logoMobile.style.display = "none";
+    const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+    channelsButtonMobile.style.display = "block";
+  }
+
+  foregroundMainChatChangeAttributs() {
+    const mainDirectMessage = document.getElementsByTagName("app-main-direct-message")[0] as HTMLElement;
+    mainDirectMessage.style.display = "block";
+  }
+
+  // foregroundMainDirectMessage() {
+  //   const mainDirectMessages = document.getElementsByTagName("app-main-direct-message");
+  //   const sidebarLefts = document.getElementsByTagName("app-menu-sidebar-left");
+  //   if (mainDirectMessages.length > 0) {
+  //     this.foregroundMainDirectMessageChangeAttributs(mainDirectMessages, sidebarLefts);
+  //   }
+  // }
+
+  // foregroundMainDirectMessageChangeAttributs(mainDirectMessages, sidebarLefts) {
+  //   const mainDirectMessage = mainDirectMessages[0] as HTMLElement;
+  //   const sidebarLeft = sidebarLefts[0] as HTMLElement;
+  //   const logoMobile = document.getElementById("logoMobile");
+  //   const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+  //   const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+  //   mainDirectMessage.style.zIndex = '10000';
+  //   sidebarLeft.style.zIndex = '0';
+  //   logoMobile.style.display = "none";
+  //   channelsButtonMobile.style.display = "block";
+  //   menuSidebarLeftFAB.style.display = "none";
+  // }
 }

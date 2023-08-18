@@ -7,8 +7,9 @@
     border-radius: 30px;
     height: calc(100vh - 140px);
 
-    @media (width <= 1200px) {
+    @media (width <= $mobile__breakpoint__general) {
         height: calc(100vh - 90px);
+        border-radius: 0;
     }
 
     .main__chat__header {
