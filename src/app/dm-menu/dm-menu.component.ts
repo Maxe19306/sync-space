@@ -109,6 +109,7 @@ export class DmMenuComponent implements OnInit {
   }
 
   openChat(id) {
+    this.foregroundMainDirectMessageAttributs();
     this.firestore
       .collection('users')
       .doc(this.dataService.id)
@@ -124,7 +125,7 @@ export class DmMenuComponent implements OnInit {
   foregroundMainDirectMessage() {
     this.hideMenuSidebarLeft();
     this.changeLogoToBtn();
-    this.foregroundMainChatChangeAttributs();
+    this.foregroundMainDirectMessageAttributs();
   }
 
   hideMenuSidebarLeft() {
@@ -143,7 +144,7 @@ export class DmMenuComponent implements OnInit {
     channelsButtonMobile.style.display = "block";
   }
 
-  foregroundMainChatChangeAttributs() {
+  foregroundMainDirectMessageAttributs() {
     const mainDirectMessages = document.getElementsByTagName("app-main-direct-message");
     if (mainDirectMessages.length > 0) {
       const mainDirectMessage = mainDirectMessages[0] as HTMLElement;

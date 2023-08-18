@@ -13,6 +13,7 @@ import { HostListener } from '@angular/core';
 
 export class GeneralViewComponent implements OnInit {
 
+  mobileBreakpointGeneral: number;
   windowWidth: number;
   menuSidebarLeft;
   secondaryChat;
@@ -40,9 +41,16 @@ export class GeneralViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getMobileBreakpointGeneral();
     this.windowWidth = window.innerWidth;
     this.dataService.id = this.route.snapshot.queryParamMap.get('userID');
     this.loadCurrentUser();
+  }
+
+  getMobileBreakpointGeneral() {
+    const style = getComputedStyle(document.documentElement);
+    const value = style.getPropertyValue('--mobile-breakpoint-general').trim();
+    this.mobileBreakpointGeneral = parseInt(value, 10);
   }
 
   loadCurrentUser() {
@@ -142,6 +150,47 @@ export class GeneralViewComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.windowWidth = event.target.innerWidth;
-    console.log("this.windowWidth", this.windowWidth);
+    if (this.windowWidth <= this.mobileBreakpointGeneral) {
+      this.changeBtnToLogo();
+      this.foregroundSidebarLeftChangeAttributs();
+    } else {
+      this.changeBtnToLogo();
+    }
+  }
+
+  hideMainChat() {
+    const mainChat = document.getElementsByTagName("app-main-chat")[0] as HTMLElement;
+    if (mainChat) {
+      mainChat.style.display = "none";
+    }
+  }
+
+  hideMainDirectMessage() {
+    const mainDirectMessage = document.getElementsByTagName("app-main-direct-message")[0] as HTMLElement;
+    if (mainDirectMessage) {
+      mainDirectMessage.style.display = "none";
+    }
+  }
+
+  changeBtnToLogo() {
+    const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+    channelsButtonMobile.style.display = "none";
+    const logoMobile = document.getElementById("logoMobile");
+    logoMobile.style.display = "block";
+  }
+
+  foregroundSidebarLeftChangeAttributs() {
+    const sidebarLeft = document.getElementsByTagName("app-menu-sidebar-left")[0] as HTMLElement;
+    sidebarLeft.style.display = 'flex';
+    const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+    menuSidebarLeftFAB.style.display = "inline-block";
+  }
+
+  foregroundMainChatChangeAttributs() {
+    const mainChats = document.getElementsByTagName("app-main-chat");
+    if (mainChats.length > 0) {
+      const mainChat = mainChats[0] as HTMLElement;
+      mainChat.style.display = 'block';
+    }
   }
 }
