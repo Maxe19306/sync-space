@@ -81,7 +81,6 @@ export class GeneralViewComponent implements OnInit {
     const userIndex = this.firstChannel.members.findIndex(user => user.id === currentUserId);
     if (userIndex !== -1) {
       // Der Benutzer ist bereits im Array vorhanden
-      console.log("Der Benutzer ist bereits im Array.");
     } else {
       // Der Benutzer ist nicht im Array
       this.firstChannel.members.push(this.currentUser);
@@ -91,7 +90,6 @@ export class GeneralViewComponent implements OnInit {
         .update({
           members: this.firstChannel.members,
         })
-      console.log("Der Benutzer wurde erfolgreich hinzugefügt.");
     }
   }
 

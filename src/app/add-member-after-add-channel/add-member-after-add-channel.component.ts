@@ -101,9 +101,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
   }
 
   disableBtn() {
-    console.log("this.buttonActive", this.buttonActive);
     this.buttonActive = false;
-    console.log("this.buttonActive", this.buttonActive);
   }
 
 } 

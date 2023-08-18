@@ -112,7 +112,6 @@ export class MainDirectMessageFooterComponent implements OnInit {
   }
 
   handleSelection(event) {
-    // console.log(event.char);
     const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
     if (!this.message.text) {
       this.message.text = '';
@@ -145,7 +144,6 @@ export class MainDirectMessageFooterComponent implements OnInit {
     task.snapshotChanges().subscribe(() => {
       fileRef.getDownloadURL().subscribe(downloadURL => {
         // Hier ist die herunterladbare URL des hochgeladenen Bildes
-        console.log('Download-URL:', downloadURL);
 });
     });
   }

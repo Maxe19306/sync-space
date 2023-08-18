@@ -40,10 +40,6 @@ export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
     this.speakerSubscription.unsubscribe();
   }
 
-  test(message) {
-    console.log(message)
-  }
-
   loadImage(image, message) {
     getDownloadURL(ref(this.storage, image))
       .then((url) => {

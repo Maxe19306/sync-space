@@ -39,7 +39,6 @@ export class MainDirectMessageComponent implements OnInit {
   }
 
   openDialogProfil(userId) {
-    console.log(userId)
     this.Dialog.open(ProfileViewComponent, {
       data: { userId },
       panelClass: 'profile__view__matdialog'

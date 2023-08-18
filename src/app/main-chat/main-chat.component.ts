@@ -63,7 +63,6 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
       .valueChanges({ idField: 'id' })
       .subscribe((channel) => {
         this.currentChannel = channel
-        console.log(this.currentChannel)
       })
   }
   

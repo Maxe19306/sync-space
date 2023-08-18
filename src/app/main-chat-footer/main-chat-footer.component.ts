@@ -103,7 +103,6 @@ export class MainChatFooterComponent implements OnInit {
   }
 
   handleSelection(event) {
-    // console.log(event.char);
     const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
     if (!this.message.text) {
       this.message.text = '';

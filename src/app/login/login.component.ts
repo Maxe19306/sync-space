@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
         this.determineTheCurrentUser()
       })
       .catch((error) => {
-        console.log("Fehler beim Einloggen:", error.message);
         if (error.code === "auth/invalid-email") {
           this.validMailAddress = false; // Setze validMailAddress auf false bei ungültiger E-Mail
         } else if (error.code === "auth/wrong-password") {
