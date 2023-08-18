@@ -145,8 +145,9 @@ export class DmMenuComponent implements OnInit {
   }
 
   foregroundMainChatChangeAttributs() {
-    const mainDirectMessage = document.getElementsByTagName("app-main-direct-message")[0] as HTMLElement;
-    if (mainDirectMessage) {
+    const mainDirectMessages = document.getElementsByTagName("app-main-direct-message");
+    if (mainDirectMessages.length > 0) {
+      const mainDirectMessage = mainDirectMessages[0] as HTMLElement;
       mainDirectMessage.style.display = 'block';
     }
   }
