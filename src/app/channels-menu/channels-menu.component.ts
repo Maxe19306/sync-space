@@ -102,11 +102,11 @@ export class ChannelsMenuComponent implements OnInit {
       const logoMobile = document.getElementById("logoMobile");
       const channelsButtonMobile = document.getElementById("channelsButtonMobile");
       const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
-      menuSidebarLeftFAB.style.display = "none";
-      logoMobile.style.display = "none";
-      channelsButtonMobile.style.display = "block";
       mainChat.style.zIndex = '10000';
       sidebarLeft.style.zIndex = '0';
+      logoMobile.style.display = "none";
+      channelsButtonMobile.style.display = "block";
+      menuSidebarLeftFAB.style.display = "none";
     }
   }
 
