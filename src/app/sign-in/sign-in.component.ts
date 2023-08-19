@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
   }
 
   validateSigninPassword(password: string) {
-    const passwordRegex = /^(?=.*[a-zäöü])(?=.*[A-ZÄÖÜ])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-ZäöüÄÖÜ\d@#$%^&+=!]).{8,}$/;
+    const passwordRegex = /^(?=.*[a-zäöü])(?=.*[A-ZÄÖÜ])(?=.*[@#$%^&+=!])(?=.*[a-zA-ZäöüÄÖÜ@#$%^&+=!]).{8,}$/;
     this.validSigninPassword = passwordRegex.test(password);
     this.validateSigninForm();
   }
