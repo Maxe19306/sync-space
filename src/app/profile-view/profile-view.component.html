@@ -17,7 +17,7 @@
             <div *ngIf="!editMode" class="name__display">{{this.userDetail.name}}</div>
             <input *ngIf="editMode" [(ngModel)]="this.userDetail.name" type="text" maxlength="32"
                 value="{{this.userDetail.name}}" #userNameInput (keydown.enter)="overwriteUserDataBackend()">
-            <div *ngIf="this.userDetail.id === this.dataService.id" (click)="initiateUserEditMode()">Bearbeiten</div>
+            <div *ngIf="this.userDetail.id === this.dataService.id &&!editMode" (click)="initiateUserEditMode()">Bearbeiten</div>
         </div>
         <div class="status">
             <span>&#8226;</span>Aktiv
@@ -37,9 +37,15 @@
         <span class="material-symbols-rounded">mode_comment</span>
         Nachricht
     </div>
-    <div *ngIf="this.userDetail.id === this.currentUser.id" mat-flat-button color="primary" (click)="createDM()"
+    <div *ngIf="this.userDetail.id === this.currentUser.id &&!editMode" mat-flat-button color="primary" (click)="createDM()"
         class="button">
         <span class="material-symbols-rounded">mode_comment</span>
         Notiz
+    </div>
+    
+    <div *ngIf="this.userDetail.id === this.currentUser.id &&editMode" mat-flat-button color="primary" (click)="overwriteUserDataBackend()"
+        class="button">
+        <span class="material-symbols-rounded">mode_comment</span>
+        Bestätigen
     </div>
 </div>
