@@ -62,6 +62,7 @@ export class HomeWorkspacesComponent implements OnInit {
   foregroundSidebarLeft() {
     this.hideMainChat();
     this.hideMainDirectMessage();
+    this.hideSecondaryChat();
     this.changeBtnToLogo();
     this.foregroundSidebarLeftChangeAttributs();
   }
@@ -77,6 +78,13 @@ export class HomeWorkspacesComponent implements OnInit {
     const mainDirectMessage = document.getElementsByTagName("app-main-direct-message")[0] as HTMLElement;
     if (mainDirectMessage) {
       mainDirectMessage.style.display = "none";
+    }
+  }
+
+  hideSecondaryChat() {
+    const secondaryChat = document.getElementsByTagName("app-secondary-chat")[0] as HTMLElement;
+    if (secondaryChat) {
+      secondaryChat.style.display = 'none';
     }
   }
 
