@@ -14,8 +14,8 @@ import { SharedService } from '../shared.service';
 
 export class MainChatBodyComponent implements OnInit {
 
+  mobileBreakpointGeneral: number;
   openSecondaryChat;
-
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
   @Input() channelName;
   date = '';
@@ -30,9 +30,15 @@ export class MainChatBodyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getMobileBreakpointGeneral();
     this.loadCurrentUser()
   }
 
+  getMobileBreakpointGeneral() {
+    const style = getComputedStyle(document.documentElement);
+    const value = style.getPropertyValue('--mobile-breakpoint-general').trim();
+    this.mobileBreakpointGeneral = parseInt(value, 10);
+  }
 
   ngAfterViewInit() {
     this.messageElements.changes.subscribe(() => {
@@ -107,6 +113,46 @@ export class MainChatBodyComponent implements OnInit {
         threadId: messageId,
       })
     await this.sharedService.openSecondaryChat();
+    if (window.innerWidth <= this.mobileBreakpointGeneral) {
+      this.foregroundSecondaryChat();
+    }
+  }
+
+  foregroundSecondaryChat() {
+    this.hideMenuSidebarLeft();
+    this.hideMainChat();
+    this.changeLogoToBtn();
+    this.foregroundSecondaryChatChangeAttributs();
+  }
+
+  hideMenuSidebarLeft() {
+    const sidebarLeft = document.getElementsByTagName("app-menu-sidebar-left")[0] as HTMLElement;
+    if (sidebarLeft) {
+      sidebarLeft.style.display = 'none';
+    }
+    const menuSidebarLeftFAB = document.getElementById("menuSidebarLeftFAB");
+    menuSidebarLeftFAB.style.display = "none";
+  }
+
+  hideMainChat() {
+    const mainChat = document.getElementsByTagName("app-main-chat")[0] as HTMLElement;
+    if (mainChat) {
+      mainChat.style.display = "none";
+    }
+  }
+
+  changeLogoToBtn() {
+    const logoMobile = document.getElementById("logoMobile");
+    logoMobile.style.display = "none";
+    const channelsButtonMobile = document.getElementById("channelsButtonMobile");
+    channelsButtonMobile.style.display = "block";
+  }
+
+  foregroundSecondaryChatChangeAttributs() {
+    const secondaryChat = document.getElementsByTagName("app-secondary-chat")[0] as HTMLElement;
+    if (secondaryChat) {
+      secondaryChat.style.display = 'block';
+    }
   }
 
   lastDateDisplayed(timestamp) {
