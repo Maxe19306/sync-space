@@ -339,35 +339,35 @@
                     }
                 }
 
-                .skew-shake-x {
-                    animation: skew-x-shake 1.3s infinite;
-                }
+                // .skew-shake-x {
+                //     animation: skew-x-shake 1.3s infinite;
+                // }
 
-                @keyframes skew-x-shake {
-                    0% {
-                        transform: skewX(-15deg);
-                    }
+                // @keyframes skew-x-shake {
+                //     0% {
+                //         transform: skewX(-15deg);
+                //     }
 
-                    5% {
-                        transform: skewX(15deg);
-                    }
+                //     5% {
+                //         transform: skewX(15deg);
+                //     }
 
-                    10% {
-                        transform: skewX(-15deg);
-                    }
+                //     10% {
+                //         transform: skewX(-15deg);
+                //     }
 
-                    15% {
-                        transform: skewX(15deg);
-                    }
+                //     15% {
+                //         transform: skewX(15deg);
+                //     }
 
-                    20% {
-                        transform: skewX(0deg);
-                    }
+                //     20% {
+                //         transform: skewX(0deg);
+                //     }
 
-                    100% {
-                        transform: skewX(0deg);
-                    }
-                }
+                //     100% {
+                //         transform: skewX(0deg);
+                //     }
+                // }
 
                 @media (width <= 768px) {
                     margin-top: 16px;
