@@ -28,13 +28,13 @@ export class ConfirnNewPasswordComponent implements OnInit {
   code = this.route.snapshot.queryParams['oobCode'];
 
   validateNewPassword0(newPassword0: string) {
-    const passwordRegex = /^(?=.*[a-zäöü])(?=.*[A-ZÄÖÜ])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-ZäöüÄÖÜ\d@#$%^&+=!]).{8,}$/;
+    const passwordRegex = /^(?=.*[a-zäöü])(?=.*[A-ZÄÖÜ])(?=.*[@#$%^&+=!])(?=.*[a-zA-ZäöüÄÖÜ@#$%^&+=!]).{8,}$/;
     this.validNewPassword0 = passwordRegex.test(newPassword0);
     this.validateNewPasswords();
   }
 
   validateNewPassword1(newPassword1: string) {
-    const passwordRegex = /^(?=.*[a-zäöü])(?=.*[A-ZÄÖÜ])(?=.*\d)(?=.*[@#$%^&+=!])(?=.*[a-zA-ZäöüÄÖÜ\d@#$%^&+=!]).{8,}$/;
+    const passwordRegex = /^(?=.*[a-zäöü])(?=.*[A-ZÄÖÜ])(?=.*[@#$%^&+=!])(?=.*[a-zA-ZäöüÄÖÜ@#$%^&+=!]).{8,}$/;
     this.validNewPassword1 = passwordRegex.test(newPassword1);
     this.validateNewPasswords();
   }
