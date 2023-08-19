@@ -8,16 +8,15 @@ import { SharedService } from '../shared.service';
 })
 
 export class HomeWorkspacesComponent implements OnInit {
+
   @ViewChild('logoContainer') logoContainer: ElementRef;
   @ViewChild('logoDefault') logoDefault: ElementRef;
   @ViewChild('logoHover') logoHover: ElementRef;
-
   @ViewChild('logoClosedContainer') logoClosedContainer: ElementRef;
   @ViewChild('logoClosedDefault') logoClosedDefault: ElementRef;
   @ViewChild('logoClosedHover') logoClosedHover: ElementRef;
 
   constructor(private sharedService: SharedService) { }
-
   toggleMenuSidebarLeft() {
     this.toggleLogoDefaultClosed();
     this.sharedService.toggleMenuSidebarLeft();
