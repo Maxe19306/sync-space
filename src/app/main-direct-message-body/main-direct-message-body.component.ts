@@ -37,7 +37,9 @@ export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     // prevent memory leak when component is destroyed
-    this.speakerSubscription.unsubscribe();
+    if (this.speakerSubscription) {
+      this.speakerSubscription.unsubscribe();
+    }
   }
 
   loadImage(image, message) {
