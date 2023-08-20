@@ -92,8 +92,8 @@
             width: 75%;
             margin: 0 30px;
 
-            @media (width <= $mobile__breakpoint__general) {
-                margin: 0 0 0 15px;
+            @media (width <=$mobile__breakpoint__general) {
+                margin: 0 15px 0 0;
             }
 
             .user__text__header {
@@ -160,6 +160,10 @@
 
                 span {
                     color: $background-color-boxes-light-mode;
+
+                    @media (width <=576px) {
+                        font-size: 16px;
+                    }
                 }
             }
 
