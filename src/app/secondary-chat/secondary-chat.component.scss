@@ -94,8 +94,14 @@
         }
 
         .secondary__chat__header__right {
+
             .close__icon {
                 font-size: 24px;
+            }
+
+            @media (width <=$mobile__breakpoint__general) {
+                display: flex;
+                align-items: center;
             }
         }
     }

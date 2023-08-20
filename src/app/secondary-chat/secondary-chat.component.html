@@ -8,7 +8,7 @@
                 <span class="subtitle__name">{{this.ChannelFromThread.name}}</span>
             </div>
         </div>
-        <div class="secondary__chat__header__right">
+        <div class="secondary__chat__header__right" (click)="closeThread()">
             <div class="hover-area noSelect" (click)="closeThread()">
                 <div class="transform-circle"></div>
                 <span class="material-symbols-rounded single-icon close__icon">close</span>
