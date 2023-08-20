@@ -151,7 +151,10 @@ export class MainChatBodyComponent implements OnInit {
   foregroundSecondaryChatChangeAttributs() {
     const secondaryChat = document.getElementsByTagName("app-secondary-chat")[0] as HTMLElement;
     if (secondaryChat) {
-      secondaryChat.style.display = 'block';
+      secondaryChat.style.display = "block";
+      secondaryChat.style.width= "100%";
+      secondaryChat.style.marginLeft = 0 + "px";
+      secondaryChat.style.backgroundColor = "white";
     }
   }
 

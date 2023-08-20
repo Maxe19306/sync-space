@@ -130,6 +130,9 @@ export class GeneralViewComponent implements OnInit {
         this.secondaryChat.style.width = 545 + "px";
       }
       this.secondaryChat.style.marginLeft = 25 + "px";
+      if (window.innerWidth <= this.mobileBreakpointGeneral) {
+        this.secondaryChat.style.marginLeft = 0 + "px";
+      }
     }, 1);
     setTimeout(() => {
       this.secondaryChat.style.visibility = "visible";
