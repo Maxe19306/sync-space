@@ -23,7 +23,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
   buttonActive = false;
 
   inputParticipants: string;
-  filteredUsers: any[];
+  filteredUsers: any[] = [];
   certainPeople = false;
   allUsers;
   checked = false;
@@ -62,16 +62,18 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
 
   createChannel() {
+    console.log(this.allUsers, this.data)
+    /*
     this.data.founder = this.currentUser
     if (!this.certainPeople) {
       this.data.members = this.allUsers;
       this.addChannelToFirebase()
-    }
+    } // alle user wurde ausgewählz
     else (
       this.addChannelToFirebase()
     )
-    this.closeDialog()
-  }
+    this.closeDialog()*/
+  } 
 
   addChannelToFirebase() {
     this.firestore
@@ -79,25 +81,47 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
       .add(this.data.toJSON())
   }
 
-  ChannelWithCertainPeople() {
+  channelWithCertainPeople() {
     this.buttonActive = true;
     this.certainPeople = false;
   }
-  ChannelWithoutCertainPeople() {
+  
+  channelWithoutCertainPeople() {
     this.buttonActive = true;
     this.certainPeople = true;
   }
 
   filterUser() {
-    this.filteredUsers = this.allUsers.filter(user =>
-      user.name
-        .toLowerCase()
-        .includes(this.inputParticipants.toLowerCase())
-    );
+    
+    if (this.inputParticipants.length > 0) {
+      this.filteredUsers = this.allUsers.filter(user =>
+        user.name.toLowerCase().includes(this.inputParticipants.toLowerCase()),
+        console.log(this.filteredUsers.length)
+      );
+    } else {
+      this.filteredUsers = [];
+    }
+  }
+  
+  deleteMember(user){
+    this.allUsers.push(user)
+    const userIndex = this.data.members.indexOf(user)
+    
+    if(userIndex !== -1){
+      this.data.members.splice(userIndex,1)
+    }
+    this.filterUser()
   }
 
-  PushUserToMember(user) {
-    this.data.members.push(user)
+  pushUserToMember(user) {
+    this.data.members.push(user);
+    
+    const userIndex1 = this.allUsers.indexOf(user)
+    const userIndex2 = this.filteredUsers.indexOf(user)
+    
+    if(userIndex1 && userIndex2 !== -1)
+    this.allUsers.splice(userIndex1,1)
+    this.filteredUsers.splice(userIndex2,1)
   }
 
   disableBtn() {

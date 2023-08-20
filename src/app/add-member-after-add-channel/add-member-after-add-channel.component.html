@@ -8,25 +8,25 @@
     </div>
     <div class="input__section">
         <div class="custom__radio">
-            <input class="radio__btn" type="radio" id="radioOption1" name="radioGroup" (click)="ChannelWithCertainPeople()">
+            <input class="radio__btn" type="radio" id="radioOption1" name="radioGroup" (click)="channelWithCertainPeople()">
             <label class="radio__text" for="radioOption1">alle Leute</label>
         </div>
         <div class="custom__radio">
-            <input class="radio__btn" type="radio" id="radioOption2" name="radioGroup" (click)="ChannelWithoutCertainPeople()">
+            <input class="radio__btn" type="radio" id="radioOption2" name="radioGroup" (click)="channelWithoutCertainPeople()">
             <label class="radio__text" for="radioOption2">ausgewählte Leute</label>
         </div>
         <input class="name__search" *ngIf="certainPeople" type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
     </div>
-    <div *ngIf="this.filteredUsers">
+    <div *ngIf="this.filteredUsers.length >0">
         <div>gefilterte user</div>
         <div *ngFor="let user of filteredUsers">
-            <div (click)="PushUserToMember(user)">{{user.name}}</div>
+            <div (click)="pushUserToMember(user)">{{user.name}}</div>
         </div>
     </div>
     <div *ngIf="this.data.members.length > 0">
-        <div>ausgwählte user</div>
+        <div>ausgewählte user</div>
         <div *ngFor="let members of this.data.members">
-            <div>{{members.name}}</div>
+            <div (click)="deleteMember(members)">{{members.name}}</div>
         </div>
     </div>
     <!-- <div class="button">
