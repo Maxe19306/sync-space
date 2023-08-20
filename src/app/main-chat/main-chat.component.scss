@@ -146,7 +146,6 @@
 
             .symbol__circle__mobile__container {
                 padding: 13px 15px 13px 22.5px;
-                cursor: pointer;
 
                 .symbol__circle__mobile {
                     display: flex;
@@ -157,6 +156,7 @@
                     width: 34px;
                     height: 34px;
                     margin-left: 0;
+                    cursor: pointer;
 
                     span {
                         font-weight: 600;
