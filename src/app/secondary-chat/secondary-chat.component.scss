@@ -20,6 +20,7 @@
     @media (width <=$mobile__breakpoint__general) {
         height: calc(100vh - 90px);
         border-radius: 0;
+        width: 100%;
     }
 
     .secondary__chat__header {
