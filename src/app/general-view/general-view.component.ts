@@ -156,6 +156,7 @@ export class GeneralViewComponent implements OnInit {
     if (this.windowWidth <= this.mobileBreakpointGeneral) {
       this.changeBtnToLogo();
       this.foregroundSidebarLeftChangeAttributs();
+      this.hideSecondaryChat();
     } else {
       this.changeBtnToLogo();
     }
@@ -165,6 +166,16 @@ export class GeneralViewComponent implements OnInit {
     const mainChat = document.getElementsByTagName("app-main-chat")[0] as HTMLElement;
     if (mainChat) {
       mainChat.style.display = "none";
+    }
+  }
+
+  hideSecondaryChat() {
+    const secondaryChat = document.getElementsByTagName("app-secondary-chat")[0] as HTMLElement;
+    if (secondaryChat) {
+      secondaryChat.style.display = "none";
+      secondaryChat.style.width= "auto";
+      secondaryChat.style.marginLeft = 25 + "px";
+      secondaryChat.style.backgroundColor = "white";
     }
   }
 

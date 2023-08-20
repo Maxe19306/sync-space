@@ -83,7 +83,10 @@ export class HomeWorkspacesComponent implements OnInit {
   hideSecondaryChat() {
     const secondaryChat = document.getElementsByTagName("app-secondary-chat")[0] as HTMLElement;
     if (secondaryChat) {
-      secondaryChat.style.display = 'none';
+      secondaryChat.style.display = "none";
+      secondaryChat.style.width= "auto";
+      secondaryChat.style.marginLeft = 25 + "px";
+      secondaryChat.style.backgroundColor = "white";
     }
   }
 
