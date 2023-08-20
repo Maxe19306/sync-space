@@ -1,7 +1,26 @@
-// .container__create__channel {
-//     width: 782px;
-//     height: 450px;
-// }
+::ng-deep .new__channel__matdialog__adduser {
+    mat-dialog-container {
+        position: absolute;
+        top: calc(50% - 540px / 2);
+        left: calc(50% - 842px / 2);
+        width: 842px;
+        height: fit-content;
+        border-radius: 30px;
+        padding: 30px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+
+        @media (width <=922px) {
+            width: 80vw;
+            left: calc(50% - 80vw / 2);
+        }
+
+        @media (width <=576px) {
+            width: 90vw;
+            left: calc(50% - 90vw / 2);
+            padding: 15px;
+        }
+    }
+}
 
 .title__add__people {
     display: flex;
@@ -48,8 +67,7 @@
 
     .name__search {
         font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
-        // width: 80.5%;
-        width: calc(100% - 150px);
+        width: calc(100% - 50px);
         border: 1px solid #ADB0D9;
         font-size: 18px !important;
         height: 52px;
