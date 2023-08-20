@@ -86,6 +86,11 @@
             width: 70px;
             height: 70px;
             border-radius: 50%;
+
+            @media (width <=$mobile__breakpoint__general) {
+                width: 60px;
+                height: 60px;
+            }
         }
 
         .user__text {
