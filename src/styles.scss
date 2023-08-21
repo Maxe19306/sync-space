@@ -178,3 +178,10 @@ emoji-search {
         background-color: #797ef3 !important;
     }
 }
+
+.mobile__active__textlink {
+    &:active {
+        background-color: #eceefe !important;
+        color: #444df2 !important;
+    }
+}

@@ -28,6 +28,11 @@
         border-radius: 30px;
         cursor: pointer;
 
+        &:active {
+            background-color: #eceefe;
+            color: #444df2;
+        }
+
         span {
             margin-right: 10px;
             font-weight: 700;
