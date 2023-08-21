@@ -17,26 +17,11 @@
         </div>
         <div class="channel__header__row2">
             <span class="material-symbols-rounded">tag</span>
-            <!-- <span>{{this.currentChannel.name}}</span> -->
-            <!-- <input [(ngModel)]="this.currentChannel.name" type="text" maxlength="32"
-                value="{{this.currentChannel.name}}" (keydown.enter)="editChannelNameInFirebase()" #channelNameInput> -->
             <div [hidden]="editName">{{this.currentChannel.name}}</div>
             <input [hidden]="!editName" [(ngModel)]="this.currentChannel.name" type="text" maxlength="32"
                 value="{{this.currentChannel.name}}" #channelNameInput (keydown.enter)="editChannelNameInFirebase()">
         </div>
     </div>
-
-    <!-- <div class="container">
-        <div class="container-title">
-            <p>Channel-Name</p>
-            <a (click)="editChannelName()">Bearbeiten</a>
-        </div>
-        <p># {{this.currentChannel.name}}</p>
-        <div *ngIf="editName">
-            <input [(ngModel)]="this.currentChannel.name" type="text" value="{{this.currentChannel.name}}">
-            <button (click)="editChannelNameInFirebase()" mat-flat-button color="primary">Name ändern</button>
-        </div>
-    </div> -->
 
     <div class="channel__view__body">
         <div class="channel__body__row1">
@@ -44,8 +29,6 @@
             <div class="channel__body__row1__right" (click)="editDescriptionName()">Bearbeiten</div>
         </div>
         <div class="channel__body__row2">
-            <!-- <input [(ngModel)]="this.currentChannel.description" type="text" value="{{this.currentChannel.description}}"
-                (keydown.enter)="editDescriptionInFirebase()" #channelDescriptionInput> -->
             <div [hidden]="editDescription">{{this.currentChannel.description}}</div>
             <input [hidden]="!editDescription" [(ngModel)]="this.currentChannel.description" type="text" maxlength="128"
                 value="{{this.currentChannel.description}}" #channelDescriptionInput (keydown.enter)="editDescriptionInFirebase()">

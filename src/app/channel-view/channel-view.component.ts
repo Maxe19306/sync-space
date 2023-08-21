@@ -49,6 +49,7 @@ export class ChannelViewComponent implements OnInit {
 
   editDescriptionName() {
     this.editDescription = true;
+    this.editName = false;
     this.channelDescriptionInput.nativeElement.focus();
   }
 
@@ -64,6 +65,7 @@ export class ChannelViewComponent implements OnInit {
 
   editChannelName() {
     this.editName = true;
+    this.editDescription = false;
     this.channelNameInput.nativeElement.focus();
   }
 
