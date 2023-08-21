@@ -172,3 +172,9 @@ emoji-search {
         overflow-y: auto;
     }
 }
+
+.mobile__active__bluebtn {
+    &:active {
+        background-color: #797ef3 !important;
+    }
+}
