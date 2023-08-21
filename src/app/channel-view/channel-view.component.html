@@ -58,33 +58,21 @@
 
     </div>
 
-    <!-- <div class="container">
-        <div>
-            <div class="container-title">
-                <p>Beschreibung</p>
-                <a (click)="editDescriptionName()"> Bearbeiten</a>
-
-            </div>
-            <p *ngIf="this.currentChannel.description">{{this.currentChannel.description}}</p>
-            <p *ngIf="!this.currentChannel.description">Aktuell gibt es keine Beschreibung des Channels. Füge gerne eine
-                hinzu.</p>
-
-            <div *ngIf="editDescription">
-                <input [(ngModel)]="this.currentChannel.description" type="text"
-                    value="{{this.currentChannel.description}}">
-                <button (click)="editDescriptionInFirebase()" mat-flat-button color="primary">Name ändern</button>
-            </div>
-
-        </div>
-        <div>
-            <p>Erstellt von</p>
-            <p>{{this.currentChannel.founder.name}}</p>
-        </div>
-    </div> -->
-
     <div *ngIf="this.currentChannel.channelId !== 'CzINsCBRsHqVcJCojIDm'" class="channel__view__footer">
         <div class="button" (click)="leaveChannel()">
             Channel verlassen
+        </div>
+    </div>
+
+    <div *ngIf="editName" class="channel__view__footer">
+        <div class="button" (click)="editChannelNameInFirebase()">
+            Bestätigen
+        </div>
+    </div>
+
+    <div *ngIf="editDescription" class="channel__view__footer">
+        <div class="button" (click)="editDescriptionInFirebase()">
+            Bestätigen
         </div>
     </div>
 </div>
