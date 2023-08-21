@@ -132,6 +132,7 @@ export class GeneralViewComponent implements OnInit {
   async openSecondaryChat() {
     this.secondaryChat = document.getElementById("secondaryChat");
     this.secondaryChat.style.display = "block";
+    this.secondaryChat.style.backgroundColor = "unset";
     setTimeout(() => {
       if (window.innerWidth > 1400) {
         this.secondaryChat.style.width = 485 + "px";
