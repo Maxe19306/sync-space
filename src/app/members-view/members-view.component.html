@@ -1,4 +1,4 @@
-<div class="title">
+<div class="title noSelect">
     <h2>Mitglieder</h2>
     <div class="hover-area noSelect" (click)="closeDialog()">
         <div class="transform-circle"></div>
@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div *ngIf="this.data">
+<div *ngIf="this.data" class="noSelect">
     <!-- <p *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)"> {{user.name}}</p> -->
     <div class="result__row" *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)">
         <img src="assets/img/users/elise-roth.webp" alt="" srcset="">

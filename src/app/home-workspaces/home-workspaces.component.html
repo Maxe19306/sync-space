@@ -1,4 +1,4 @@
-<div (click)="toggleMenuSidebarLeft()" class="hidden__mobile">
+<div (click)="toggleMenuSidebarLeft()" class="hidden__mobile noSelect">
     <div (mouseover)="highlightDefaultLogo()" (mouseout)="unHighlightDefaultLogo()" #logoContainer>
         <img src="assets/img/logos/logo-default.webp" #logoDefault>
         <img style="display: none;" src="assets/img/logos/logo-hover.webp" #logoHover>
@@ -9,5 +9,5 @@
     </div>
 </div>
 
-<img class="hidden__desktop logo__mobile" id="logoMobile" src="assets/img/logos/logo-default-no-arrow-croped.webp" alt="">
-<img (click)="foregroundSidebarLeft()" style="display:none" class="hidden__desktop channels__button__mobile" id="channelsButtonMobile" src="assets/img/logos/channels-button-back.webp">
+<img class="hidden__desktop logo__mobile noSelect" id="logoMobile" src="assets/img/logos/logo-default-no-arrow-croped.webp" alt="">
+<img (click)="foregroundSidebarLeft()" style="display:none" class="hidden__desktop channels__button__mobile noSelect" id="channelsButtonMobile" src="assets/img/logos/channels-button-back.webp">

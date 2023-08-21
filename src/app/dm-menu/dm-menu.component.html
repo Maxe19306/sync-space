@@ -1,4 +1,4 @@
-<div class="menu__sidebar__left__body__dm__header">
+<div class="menu__sidebar__left__body__dm__header noSelect">
     <div class="menu__sidebar__left__body__dm__header__left highlight__text__on__hover noSelect" (click)="viewAllDMS()">
         <span *ngIf="viewChannels" class="material-symbols-rounded single-icon">arrow_drop_down</span>
         <span *ngIf="!viewChannels" class="material-symbols-rounded single-icon">arrow_right</span>
@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div id="dmChannelsBody" *ngIf="viewChannels" class="menu__sidebar__left__body__dm__body drop__drown__animation">
+<div id="dmChannelsBody" *ngIf="viewChannels" class="menu__sidebar__left__body__dm__body drop__drown__animation noSelect">
 
     <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect active__dm" (click)="openChat(this.personalDm.DmId)">
         <img src="{{this.currentUser.profileImage}}" alt="" srcset="">

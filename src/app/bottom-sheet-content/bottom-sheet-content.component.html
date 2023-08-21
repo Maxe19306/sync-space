@@ -1,4 +1,4 @@
-<div class="bottom__sheet__container" (click)="closeSheet()">
+<div class="bottom__sheet__container noSelect" (click)="closeSheet()">
     <hr>
     <div (click)="openDialogProfil(this.dataService.id, $event)" [class.active]="isDialogOpen"><span class="material-symbols-rounded">account_circle</span> Profil</div>
     <div (click)="logout($event)"><span class="material-symbols-rounded">logout</span> Log out</div>
