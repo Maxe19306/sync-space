@@ -33,18 +33,18 @@
         </div>
     </div>
     <div *ngIf="this.userDetail.id !== this.currentUser.id" mat-flat-button color="primary" (click)="createDM()"
-        class="button">
+        class="button mobile__active__bluebtn">
         <span class="material-symbols-rounded">mode_comment</span>
         Nachricht
     </div>
     <div *ngIf="this.userDetail.id === this.currentUser.id &&!editMode" mat-flat-button color="primary" (click)="createDM()"
-        class="button">
+        class="button mobile__active__bluebtn">
         <span class="material-symbols-rounded">mode_comment</span>
         Notiz
     </div>
     
     <div *ngIf="this.userDetail.id === this.currentUser.id &&editMode" mat-flat-button color="primary" (click)="overwriteUserDataBackend()"
-        class="button">
+        class="button mobile__active__bluebtn">
         Bestätigen
     </div>
 </div>

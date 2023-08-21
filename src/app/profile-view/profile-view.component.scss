@@ -120,6 +120,10 @@
                     font-weight: 700;
                 }
 
+                &:active {
+                    font-weight: 700;
+                }
+
                 @media (width <= 576px) {
                     font-size: 14px;
                 }
