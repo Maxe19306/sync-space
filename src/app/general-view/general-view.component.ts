@@ -14,6 +14,7 @@ import { HostListener } from '@angular/core';
 export class GeneralViewComponent implements OnInit {
 
   mobileBreakpointGeneral: number;
+  generalViewOnDesktop: boolean;
   windowWidth: number;
   menuSidebarLeft;
   secondaryChat;
@@ -42,9 +43,18 @@ export class GeneralViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMobileBreakpointGeneral();
-    this.windowWidth = window.innerWidth;
+    this.initiateWindowWidth();
     this.dataService.id = this.route.snapshot.queryParamMap.get('userID');
     this.loadCurrentUser();
+  }
+
+  initiateWindowWidth() {
+    this.windowWidth = window.innerWidth;
+    if (this.windowWidth <= this.mobileBreakpointGeneral) {
+      this.generalViewOnDesktop = false;
+    } else {
+      this.generalViewOnDesktop = true;
+    }
   }
 
   getMobileBreakpointGeneral() {
@@ -150,15 +160,34 @@ export class GeneralViewComponent implements OnInit {
     }, 100);
   }
 
+  // @HostListener('window:resize', ['$event'])
+  // onResize(event) {
+  //   this.windowWidth = event.target.innerWidth;
+  //   if (this.windowWidth <= this.mobileBreakpointGeneral) {
+  //     this.changeBtnToLogo();
+  //     this.foregroundSidebarLeftChangeAttributs();
+  //     this.hideSecondaryChat();
+  //   } else {
+  //     this.changeBtnToLogo();
+  //   }
+  // }
+
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.windowWidth = event.target.innerWidth;
-    if (this.windowWidth <= this.mobileBreakpointGeneral) {
+    if (this.windowWidth <= this.mobileBreakpointGeneral && this.generalViewOnDesktop) {
+      this.generalViewOnDesktop = false;
       this.changeBtnToLogo();
       this.foregroundSidebarLeftChangeAttributs();
       this.hideSecondaryChat();
-    } else {
+    }
+    
+    if (this.windowWidth > this.mobileBreakpointGeneral && !this.generalViewOnDesktop){
+      this.generalViewOnDesktop = true;
       this.changeBtnToLogo();
+      this.foregroundSidebarLeftChangeAttributs();
+      this.hideSecondaryChat();
+      this.foregroundMainChatChangeAttributs();
     }
   }
 
