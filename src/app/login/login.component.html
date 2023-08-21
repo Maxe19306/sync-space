@@ -10,7 +10,6 @@
         <div class="login__container">
             <h2>Anmeldung</h2>
             <p>Wir empfehlen dir, die E-Mail-Adresse zu nutzen, die du bei der Arbeit verwendest. </p>
-
             <form action="">
                 <div class="input__container" (click)="focusMailInput()">
                     <span class="material-symbols-rounded noSelect">
@@ -31,7 +30,6 @@
                     <span *ngIf="!validMailPassword">Falsches Passwort. Bitte noch einmal versuchen.</span>
                 </div>
             </form>
-
             <a [routerLink]="'resetPassword'">Passwort vergessen?</a>
             <div class="divider">
                 <span>ODER</span>
