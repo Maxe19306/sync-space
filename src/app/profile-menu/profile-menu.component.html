@@ -1,4 +1,4 @@
-<div *ngIf="this.currentUser" class="container__profile__menu" (click)="openProfileView()">
+<div *ngIf="this.currentUser" class="container__profile__menu noSelect" (click)="openProfileView()">
     <span class="proflie__menu__name noSelect hidden__mobile">{{this.currentUser.name}}</span>
     <img class="noSelect" src="{{this.currentUser.profileImage}}">
     <span class="material-symbols-rounded noSelect hidden__mobile">

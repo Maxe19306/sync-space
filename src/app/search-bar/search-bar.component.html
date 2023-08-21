@@ -1,4 +1,4 @@
-<form class="search__form">
+<form class="search__form noSelect">
     <input [(ngModel)]="inputParticipants" placeholder="Sync Space durchsuchen" id="searchInput"
         (ngModelChange)="this.Search()" name="inputParticipants" autocomplete="off">
     <span class="material-symbols-rounded" id="searchIcon">
@@ -6,7 +6,7 @@
     </span>
 </form>
 
-<div *ngIf="filteredChannels.length > 0 || filteredUsers.length > 0" class="search__results">
+<div *ngIf="filteredChannels.length > 0 || filteredUsers.length > 0" class="search__results noSelect">
     <div class="result__row" *ngFor="let channel of this.filteredChannels" (click)="test(channel.customIdName)">
         <span class="material-symbols-rounded">tag</span>
         {{channel.name}}
