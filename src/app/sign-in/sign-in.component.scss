@@ -19,14 +19,14 @@
                 margin-top: 25px;
             }
 
-            @media (width <=768px) {
+            @media (width <=922px) {
                 margin-top: 0;
                 width: 230px;
                 height: auto;
             }
         }
 
-        @media (width <=768px) {
+        @media (width <=922px) {
             justify-content: center;
             padding: 0;
             margin-top: 25px
@@ -62,7 +62,7 @@
                     }
                 }
 
-                @media (width <=768px) {
+                @media (width <=922px) {
                     display: none;
                 }
             }
@@ -80,7 +80,7 @@
                             font-weight: 500;
                         }
 
-                        @media (width > 768px) {
+                        @media (width > 922px) {
                             display: none;
                         }
                     }
@@ -96,7 +96,7 @@
                             font-size: 42px;
                         }
 
-                        @media (width <=768px) {
+                        @media (width <=922px) {
                             font-size: 35px;
                             margin-bottom: 0;
                             line-height: 1.2;
@@ -114,7 +114,7 @@
                         }
                     }
 
-                    @media (width <=768px) {
+                    @media (width <=922px) {
                         display: flex;
                         justify-content: space-between;
 
@@ -131,7 +131,7 @@
                     margin-top: 33px;
                     margin-bottom: 0px;
 
-                    @media (width <=768px) {
+                    @media (width <=922px) {
                         margin-top: 16px;
                     }
                 }
@@ -193,7 +193,7 @@
                                 -webkit-text-fill-color: #686868 !important;
                             }
 
-                            @media (width <=768px) {
+                            @media (width <=922px) {
                                 padding-right: 37px;
                             }
 
@@ -257,7 +257,7 @@
 
             }
 
-            @media (width <=768px) {
+            @media (width <=922px) {
                 padding: 35px 20px;
                 margin-left: 25px;
                 margin-right: 25px;
