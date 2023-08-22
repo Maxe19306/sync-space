@@ -174,6 +174,17 @@ export class ProfileViewComponent implements OnInit {
         viewChat: true,
         currentDM: id
       })
+      this.hideSecondaryChat();
+  }
+
+  hideSecondaryChat() {
+    const secondaryChat = document.getElementsByTagName("app-secondary-chat")[0] as HTMLElement;
+    if (secondaryChat) {
+      secondaryChat.style.display = "none";
+      secondaryChat.style.width= "auto";
+      secondaryChat.style.marginLeft = 25 + "px";
+      secondaryChat.style.backgroundColor = "white";
+    }
   }
 }
 
