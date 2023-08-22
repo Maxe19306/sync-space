@@ -59,7 +59,8 @@
                 </form>
                 <div class="container__footer">
                     <button [disabled]="!validSigninForm" (click)="createAccount(password, userForm)"
-                        class="btn__sendmail mobile__active__bluebtn" [ngClass]="{ 'blue__button': validSigninForm }">Weiter</button>
+                        class="btn__sendmail mobile__active__bluebtn"
+                        [ngClass]="{ 'blue__button': validSigninForm }">Weiter</button>
                 </div>
             </div>
             <div class="side__right"></div>
