@@ -102,6 +102,13 @@ export class MainChatBodyComponent implements OnInit {
     return `${day}.${month}.${year} ${hours}:${minutes}`;
   }
 
+  formatDay(timestamp) {
+    const date = new Date(timestamp);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear().toString();
+    return `${day}.${month}.${year}`;
+  }
 
   async openThread(messageId, channelId) {
     await this.firestore
@@ -152,7 +159,7 @@ export class MainChatBodyComponent implements OnInit {
     const secondaryChat = document.getElementsByTagName("app-secondary-chat")[0] as HTMLElement;
     if (secondaryChat) {
       secondaryChat.style.display = "block";
-      secondaryChat.style.width= "100%";
+      secondaryChat.style.width = "100%";
       secondaryChat.style.marginLeft = 0 + "px";
       secondaryChat.style.backgroundColor = "white";
     }

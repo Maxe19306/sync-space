@@ -5,7 +5,8 @@
         <div *ngIf="lastDateDisplayed(message.timestamp)" class="separator">
             <hr>
             <div class="date">
-                <span>{{this.date}}</span>
+                <!-- <span>{{this.date}}</span> -->
+                <span>{{ formatDay(message.timestamp) }}</span>
             </div>
 
         </div>
