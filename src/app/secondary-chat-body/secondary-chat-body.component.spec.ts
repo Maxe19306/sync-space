@@ -8,9 +8,9 @@ describe('SecondaryChatBodyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SecondaryChatBodyComponent ]
+      declarations: [SecondaryChatBodyComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SecondaryChatBodyComponent);
     component = fixture.componentInstance;
