@@ -37,7 +37,7 @@
         padding: 20px 35px;
         cursor: pointer;
 
-        @media (width <= 1400px) {
+        @media (width <=1400px) {
             margin: 5px -15px 10px -15px;
             padding: 15px 15px;
         }
@@ -97,11 +97,11 @@
             width: 75%;
             margin: 0 30px;
 
-            @media (width <= 1400px) {
+            @media (width <=1400px) {
                 margin: 0 0 0 10px;
             }
 
-            @media (width <= $mobile__breakpoint__general) {
+            @media (width <=$mobile__breakpoint__general) {
                 margin: 0 0 0 15px;
             }
 
@@ -125,7 +125,7 @@
                     font-size: 14px;
                     margin: 0 20px;
 
-                    @media (width <= 1400px) {
+                    @media (width <=1400px) {
                         margin: 0 13px;
                     }
                 }
@@ -140,7 +140,7 @@
                 span {
                     font-size: 18px;
 
-                    @media (width <= 576px) {
+                    @media (width <=576px) {
                         font-size: 16px;
                     }
                 }
@@ -150,7 +150,7 @@
                 display: flex;
                 justify-content: start;
 
-                
+
             }
 
             .user__text__footer {
@@ -182,42 +182,42 @@
                     }
                 }
 
-        
+
+            }
         }
     }
-}
 
 
 
-.content__left {
+    .content__left {
 
-    .message__body {
-        flex-direction: row-reverse;
+        .message__body {
+            flex-direction: row-reverse;
 
-        .action__messages {
-            left: 55px;
-        }
-
-        .user__text {
-
-            @media (width <= $mobile__breakpoint__general) {
-                margin: 0 15px 0 0;
+            .action__messages {
+                left: 55px;
             }
 
-            .user__text__header {
-                flex-direction: row-reverse;
-            }
+            .user__text {
 
-            .user__text__body {
-                background-color: $main-chat-dark-blue-background-light-mode;
-                border-radius: 30px 0px 30px 30px;
-
-                span {
-                    color: $background-color-boxes-light-mode;
+                @media (width <=$mobile__breakpoint__general) {
+                    margin: 0 15px 0 0;
                 }
-            }
 
-            
+                .user__text__header {
+                    flex-direction: row-reverse;
+                }
+
+                .user__text__body {
+                    background-color: $main-chat-dark-blue-background-light-mode;
+                    border-radius: 30px 0px 30px 30px;
+
+                    span {
+                        color: $background-color-boxes-light-mode;
+                    }
+                }
+
+
 
                 .add__reaction {
                     background-color: $background-color-boxes-light-mode;
