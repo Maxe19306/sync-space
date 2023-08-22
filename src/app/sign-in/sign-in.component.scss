@@ -40,6 +40,10 @@
         justify-content: center;
         align-items: center;
 
+        @media (width <=400px) {
+            margin-top: 50px;
+        }
+
         .signin__screen__container {
             width: fit-content;
             height: fit-content;
