@@ -15,7 +15,7 @@
             width: 289px;
             height: 70px;
 
-            @media (width <= $mobile__breakpoint__general) {
+            @media (width <=$mobile__breakpoint__general) {
                 margin-top: 25px;
             }
 
