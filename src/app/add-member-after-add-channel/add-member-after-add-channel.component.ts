@@ -62,7 +62,6 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
 
   createChannel() {
-    console.log(this.allUsers, this.data)
     
     this.data.founder = this.currentUser
     if (!this.certainPeople) {
@@ -96,7 +95,6 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     if (this.inputParticipants.length > 0) {
       this.filteredUsers = this.allUsers.filter(user =>
         user.name.toLowerCase().includes(this.inputParticipants.toLowerCase()),
-        console.log(this.filteredUsers.length)
       );
     } else {
       this.filteredUsers = [];

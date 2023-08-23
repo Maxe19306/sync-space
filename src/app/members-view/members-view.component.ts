@@ -22,7 +22,6 @@ export class MembersViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAllUsers()
-    console.log(this.data)
   }
 
   closeDialog() {
@@ -55,7 +54,6 @@ export class MembersViewComponent implements OnInit {
   createTheFilterableUsers(){
     const nonMembers = this.allUsers.filter(user => !this.data.members.some(member => member.id === user.id));
        this.filterableUsers.push(nonMembers)
-       console.log(this.filterableUsers)
   }
   
   filterUser() {
@@ -63,12 +61,7 @@ export class MembersViewComponent implements OnInit {
       if (this.filterableUsers[0]) {
         this.filteredUsers = this.filterableUsers[0].filter(user =>
           user.name.toLowerCase().includes(this.inputParticipants.toLowerCase())
-        );
-        console.log(this.filteredUsers);
-      } else {
-        console.log("this.filterableUsers[0] is undefined");
-        this.filteredUsers = [];
-      }
+        )} 
     } else {
       this.filteredUsers = [];
     }
