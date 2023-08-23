@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss']
 })
+
 export class SearchBarComponent implements OnInit {
   allUsers;
   allChannels;
@@ -19,7 +20,21 @@ export class SearchBarComponent implements OnInit {
     public dataService: DataService,
     private firestore: AngularFirestore,
     public Dialog: MatDialog,
+    private _eref: ElementRef
   ) { }
+
+  @HostListener('document:click', ['$event'])
+  public onDocumentClick(event: MouseEvent): void {
+    const clickedInside = this._eref.nativeElement.contains(event.target);
+    if (!clickedInside) {
+      this.hideResultRows();
+    }
+  }
+
+  hideResultRows(): void {
+    this.filteredChannels = [];
+    this.filteredUsers = [];
+}
 
   ngOnInit(): void {
     this.loadAllUsers()
@@ -32,8 +47,6 @@ export class SearchBarComponent implements OnInit {
       if (searchInput.value.length > 0) searchIcon.style.display = 'none';
       else searchIcon.style.display = 'inline-block';
     });
-
-
   }
 
   loadAllChannels() {
@@ -42,7 +55,6 @@ export class SearchBarComponent implements OnInit {
       .valueChanges({ idField: 'customIdName' })
       .subscribe((channels: any) => {
         this.allChannels = channels
-
       })
   }
 
@@ -54,7 +66,6 @@ export class SearchBarComponent implements OnInit {
         this.allUsers = user
       })
   }
-
 
   Search() {
     if (this.inputParticipants === '') {
@@ -69,13 +80,11 @@ export class SearchBarComponent implements OnInit {
         .includes(this.inputParticipants.toLowerCase())
     );
 
-
     this.filteredChannels = this.allChannels.filter(channel =>
       channel.name
         .toLowerCase()
         .includes(this.inputParticipants.toLowerCase())
     );
-
   }
 
   openDialogProfil(userId) {
@@ -88,7 +97,6 @@ export class SearchBarComponent implements OnInit {
   }
 
   test(channelId) {
-
     this.firestore
       .collection('users')
       .doc(this.dataService.id)
