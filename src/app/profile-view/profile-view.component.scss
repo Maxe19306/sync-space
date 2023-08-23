@@ -14,7 +14,7 @@
     align-items: center;
     padding: 10px;
 
-    @media (width <=576px) {
+    @media (width <= 576px) {
         padding: 0px;
     }
 
@@ -43,16 +43,13 @@
 
     .profileImageSelection {
         width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
 
-        .image__selection__headline {
-            font-size: 24px;
-        }
-
-        .image__selection__images {
-            width: 100%;
-            // display: flex;
-            // flex-wrap: wrap;
-            // gap: 8px;
+        div {
+            // margin: 0 8px;
 
             img {
                 height: 60px;
@@ -81,11 +78,11 @@
                 padding-right: 16px;
                 cursor: default;
 
-                @media (width <=768px) {
+                @media (width <= 768px) {
                     font-size: 24px;
                 }
 
-                @media (width <=576px) {
+                @media (width <= 576px) {
                     font-size: 16px;
                 }
             }
@@ -101,15 +98,15 @@
                 border-radius: 10px;
                 margin-bottom: 10px;
 
-                @media (width <=768px) {
+                @media (width <= 768px) {
                     font-size: 24px;
                 }
 
-                @media (width <=576px) {
+                @media (width <= 576px) {
                     font-size: 20px;
                 }
 
-                @media (width <=450px) {
+                @media (width <= 450px) {
                     font-size: 14px;
                 }
             }
@@ -127,7 +124,7 @@
                     font-weight: 700;
                 }
 
-                @media (width <=576px) {
+                @media (width <= 576px) {
                     font-size: 14px;
                 }
             }
@@ -143,7 +140,7 @@
                 font-size: 24px;
                 margin-top: -1.75px;
 
-                @media (width <=576px) {
+                @media (width <= 576px) {
                     font-size: 20px;
 
                     span {
@@ -165,14 +162,14 @@
             margin-right: 20px;
             margin-top: 2px;
 
-            @media (width <=576px) {
+            @media (width <= 576px) {
                 display: none !important;
             }
         }
 
         .mail {
             flex: 1;
-
+            
             h3 {
                 font-weight: 700;
             }
@@ -182,7 +179,7 @@
                 font-size: 16px;
                 margin-bottom: 2px;
 
-                @media (width <=576px) {
+                @media (width <= 576px) {
                     font-size: 14px;
                 }
             }
@@ -200,7 +197,7 @@
                 margin-top: -1px;
                 margin-bottom: 1px;
 
-                @media (width <=576px) {
+                @media (width <= 576px) {
                     font-size: 14px;
                 }
             }

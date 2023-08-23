@@ -7,14 +7,14 @@
         </div>
     </div>
     <img class="user__image" src="{{this.userDetail.profileImage}}" alt="">
-
+    <div *ngIf="editMode" class="profileImageSelection__headline">
+        Wähle dein Benutzerbild
+    </div>
     <div *ngIf="editMode" class="profileImageSelection">
-        <div class="image__selection__headline">Wähle dein Profil-Bild</div>
-        <div class="image__selection__images" *ngFor="let image of profileImages">
+        <div *ngFor="let image of profileImages">
             <img *ngIf="image !== this.userDetail.profileImage" src="{{image}}" alt="" (click)="updateImage(image)">
         </div>
     </div>
-
     <div class="second__profil__container">
         <div class="name">
             <div *ngIf="!editMode" class="name__display">{{this.userDetail.name}}</div>
