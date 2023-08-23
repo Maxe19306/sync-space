@@ -28,7 +28,8 @@
             <div (click)="pushUserToMember(user)">{{user.name}}</div>
         </div>
     </div>
-    
-    <button [disabled]="this.selectedUser.length < 1" (click)="addNewMembersToChannel()">Bestätigen</button>
+    <div class="add__members__footer">
+         <button [disabled]="this.selectedUser.length < 1" [ngClass]="{ 'disabled__button': this.selectedUser.length < 1 }" (click)="addNewMembersToChannel()">Bestätigen</button>
+    </div>
 </div>
 </div>

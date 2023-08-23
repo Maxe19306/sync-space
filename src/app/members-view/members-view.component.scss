@@ -116,3 +116,35 @@
         -webkit-text-fill-color: #686868 !important;
     }
 }
+
+.add__members__footer {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+        border-radius: 30px;
+        padding: 12px 25px;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: inherit;
+        cursor: pointer;
+        transition: all 100ms ease-in;
+        background-color: #444DF2;
+        color: white;
+        border: none;
+        margin-top: 16px;
+
+        &:hover {
+            background-color: #797ef3;
+        }
+    }
+
+    .disabled__button {
+        background-color: gray !important;
+        cursor: not-allowed;
+
+        &:hover {
+            background-color: gray;
+        }
+    }
+}
