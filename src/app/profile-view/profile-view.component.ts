@@ -71,6 +71,10 @@ export class ProfileViewComponent implements OnInit {
     this.selectedProfileImage = image;
   }
 
+  isImageSelected(image: string): boolean {
+    return this.selectedProfileImage === image;
+  }
+
   closeDialog() {
     this.dialogRef.close(ProfileViewComponent);
     if (window.innerWidth <= this.mobileBreakpointGeneral) {

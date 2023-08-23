@@ -12,7 +12,7 @@
     </div>
     <div *ngIf="editMode" class="profileImageSelection">
         <div *ngFor="let image of profileImages">
-            <img *ngIf="image !== this.userDetail.profileImage" src="{{image}}" alt="" (click)="updateImage(image)">
+            <img *ngIf="image !== this.userDetail.profileImage" src="{{image}}" alt="" (click)="updateImage(image)" [class.highlighted]="isImageSelected(image)">
         </div>
     </div>
     <div class="second__profil__container">
