@@ -18,6 +18,17 @@
         </div>
         <span  class="person__add__text">Mitglieder hinzufügen</span>
     </div>
+    <div *ngIf="addMembers">
+    <input class="name__search"  type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
     
-    <input class="name__search" *ngIf="addMembers" type="text" placeholder="Name eingeben">
+    
+    <div *ngIf="this.filteredUsers.length > 0">
+        <div>gefilterte user</div>
+        <div *ngFor="let user of filteredUsers">
+            <div (click)="pushUserToMember(user)">{{user.name}}</div>
+        </div>
+    </div>
+    
+    <button [disabled]="this.selectedUser.length < 1" (click)="addNewMembersToChannel()">Bestätigen</button>
+</div>
 </div>

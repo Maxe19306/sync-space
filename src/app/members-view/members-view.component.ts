@@ -9,9 +9,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./members-view.component.scss']
 })
 export class MembersViewComponent implements OnInit {
-
+  filteredUsers: any[]  = [];
+  inputParticipants: string;
   addMembers = false;
   allUsers;
+  selectedUser: any[]  = [];
   filterableUsers: any[] = [];
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<MembersViewComponent>,
@@ -20,6 +22,7 @@ export class MembersViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAllUsers()
+    console.log(this.data)
   }
 
   closeDialog() {
@@ -54,5 +57,60 @@ export class MembersViewComponent implements OnInit {
        this.filterableUsers.push(nonMembers)
        console.log(this.filterableUsers)
   }
-
+  
+  filterUser() {
+    if (this.filterableUsers && this.filterableUsers.length > 0 && this.inputParticipants.length > 0) {
+      if (this.filterableUsers[0]) {
+        this.filteredUsers = this.filterableUsers[0].filter(user =>
+          user.name.toLowerCase().includes(this.inputParticipants.toLowerCase())
+        );
+        console.log(this.filteredUsers);
+      } else {
+        console.log("this.filterableUsers[0] is undefined");
+        this.filteredUsers = [];
+      }
+    } else {
+      this.filteredUsers = [];
+    }
+  }
+    
+  
+  
+  deleteMember(user){
+    this.filterableUsers.push(user)
+    const userIndex = this.selectedUser.indexOf(user)
+    
+    if(userIndex !== -1){
+      this.data.members.splice(userIndex,1)
+    }
+    this.filterUser()
+  } 
+    
+  pushUserToMember(user) {
+    this.selectedUser.push(user);
+    
+    const userIndex1 = this.filterableUsers.indexOf(user)
+    const userIndex2 = this.filteredUsers.indexOf(user)
+    
+    if(userIndex1 && userIndex2 !== -1)
+    this.filterableUsers.splice(userIndex1,1)
+    this.filteredUsers.splice(userIndex2,1)
+  }
+  
+  
+  addNewMembersToChannel(){
+   this.selectedUser.forEach(user => {
+      this.data.members.push(user)
+   });
+   
+   
+   this.firestore
+   .collection('channels')
+   .doc(this.data.channelId)
+   .update({
+    members: this.data.members
+   })
+   
+  }
+  
 }
