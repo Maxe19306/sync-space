@@ -74,6 +74,8 @@
             .highlighted {
                 background-color: #121CDF;
                 border: 1px solid #121CDF;
+                -webkit-box-shadow: 0px 0px 4px 1px #121CDF;
+                box-shadow: 0px 0px 4px 1px #121CDF;;
             }
         }
     }
