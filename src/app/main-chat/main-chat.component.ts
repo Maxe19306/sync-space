@@ -87,7 +87,6 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
   
           if (index === -1) {
             this.updateMembers.push(memberInfo); // Speichere die aktualisierten Informationen
-            console.log(this.updateMembers)
           }
         });
     });

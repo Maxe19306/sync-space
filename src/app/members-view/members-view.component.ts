@@ -70,10 +70,9 @@ export class MembersViewComponent implements OnInit {
     }
   }
     
-  
+ 
   getCurrentInfoOfTheUsers() {
-  
-    this.data.members.forEach(member => {
+      this.data.members.forEach(member => {
       this.firestore
         .collection('users')
         .doc(member.id)
@@ -84,10 +83,9 @@ export class MembersViewComponent implements OnInit {
   
           if (index === -1) {
             this.updateMembers.push(memberInfo); // Speichere die aktualisierten Informationen
-            console.log('update', this.updateMembers)
           }
         });
-    });
+    }); 
   } 
   
   

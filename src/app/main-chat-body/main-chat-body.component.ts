@@ -5,6 +5,7 @@ import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { timestamp } from 'rxjs';
 import { SharedService } from '../shared.service';
+import { User } from '../models/user.class';
 
 @Component({
   selector: 'app-main-chat-body',
@@ -13,7 +14,7 @@ import { SharedService } from '../shared.service';
 })
 
 export class MainChatBodyComponent implements OnInit {
-
+  user:User
   mobileBreakpointGeneral: number;
   openSecondaryChat;
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
@@ -75,10 +76,14 @@ export class MainChatBodyComponent implements OnInit {
         this.currentChannelMessage = channel;
         this.sortsMessages()
         this.updateLastDate()
-
+        this.getCurrentInfoOfTheUsers()
       })
   }
-
+  
+  getCurrentInfoOfTheUsers() {}  
+  
+  
+  
   sortsMessages() {
     this.currentChannelMessage.sort((a, b) => {
       return Number(a.timestamp) - Number(b.timestamp);
