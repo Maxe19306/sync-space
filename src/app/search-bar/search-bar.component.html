@@ -1,7 +1,7 @@
 <form class="search__form noSelect">
     <input [(ngModel)]="inputParticipants" placeholder="Sync Space durchsuchen" id="searchInput"
-        (ngModelChange)="this.Search()" name="inputParticipants" autocomplete="off">
-    <span class="material-symbols-rounded" id="searchIcon">
+        (ngModelChange)="this.Search()" name="inputParticipants" autocomplete="off" #searchInputRef>
+    <span class="material-symbols-rounded" id="searchIcon" (click)="searchInputRef.focus()">
         search
     </span>
 </form>
