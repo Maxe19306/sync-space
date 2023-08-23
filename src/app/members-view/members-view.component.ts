@@ -10,6 +10,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class MembersViewComponent implements OnInit {
   filteredUsers: any[]  = [];
+  updateMembers = [];
   inputParticipants: string;
   addMembers = false;
   allUsers;
@@ -22,6 +23,7 @@ export class MembersViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAllUsers()
+    console.log(this.data)
   }
 
   closeDialog() {
@@ -36,6 +38,7 @@ export class MembersViewComponent implements OnInit {
       .subscribe((user: any) => {
         this.allUsers = user
         this.createTheFilterableUsers()
+        this.getCurrentInfoOfTheUsers()
       })
   }
   
@@ -67,6 +70,25 @@ export class MembersViewComponent implements OnInit {
     }
   }
     
+  
+  getCurrentInfoOfTheUsers() {
+  
+    this.data.members.forEach(member => {
+      this.firestore
+        .collection('users')
+        .doc(member.id)
+        .valueChanges({idField: 'id'})
+        .subscribe((memberInfo) => {
+          // Überprüfe, ob die Informationen bereits in der Liste sind
+          const index = this.updateMembers.findIndex(existingMember => existingMember.id === memberInfo.id);
+  
+          if (index === -1) {
+            this.updateMembers.push(memberInfo); // Speichere die aktualisierten Informationen
+            console.log('update', this.updateMembers)
+          }
+        });
+    });
+  } 
   
   
   deleteMember(user){

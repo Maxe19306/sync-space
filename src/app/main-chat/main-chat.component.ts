@@ -13,7 +13,7 @@ import { MembersViewComponent } from '../members-view/members-view.component';
 
 export class MainChatComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-
+  updateMembers = [];
   currentChannel;
   currentUser
   constructor(
@@ -63,15 +63,37 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
       .valueChanges({ idField: 'id' })
       .subscribe((channel) => {
         this.currentChannel = channel
+        this.getCurrentInfoOfTheUsers()
       })
   }
   
  get limitedMembers(): any[] {
     const maxCount = 3;
-    return this.currentChannel.members.slice(0, maxCount);
+    return this.updateMembers.slice(0, maxCount);
   }
   
 
+  
+  getCurrentInfoOfTheUsers() {
+  
+    this.currentChannel.members.forEach(member => {
+      this.firestore
+        .collection('users')
+        .doc(member.id)
+        .valueChanges({idField: 'id'})
+        .subscribe((memberInfo) => {
+          // Überprüfe, ob die Informationen bereits in der Liste sind
+          const index = this.updateMembers.findIndex(existingMember => existingMember.id === memberInfo.id);
+  
+          if (index === -1) {
+            this.updateMembers.push(memberInfo); // Speichere die aktualisierten Informationen
+            console.log(this.updateMembers)
+          }
+        });
+    });
+  }
+  
+  
   openDialogMembersView(members) {
     const channelId = this.currentUser.lastChannel
     this.Dialog.open(MembersViewComponent,
