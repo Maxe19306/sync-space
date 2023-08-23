@@ -92,3 +92,27 @@
         }
     }
 }
+
+.name__search {
+    font-family: 'Nunito', "Helvetica Neue", sans-serif !important;
+    width: calc(100% - 50px);
+    border: 1px solid #ADB0D9;
+    font-size: 18px !important;
+    height: 52px;
+    border-radius: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: #686868;
+    margin-top: 16px;
+
+    &:focus, &:hover {
+        outline: none;
+        border: 1px solid #444DF2 !important;
+        backface-visibility: hidden;
+    }
+
+    &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px #ECEEFE inset !important;
+        -webkit-text-fill-color: #686868 !important;
+    }
+}

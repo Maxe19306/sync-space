@@ -12,11 +12,12 @@
         <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
         {{user.name}}
     </div>
-    <div class="result__row result__row__add">
+    <div  (click)="activAddMembers()" class="result__row result__row__add">
         <div class="person_add">
-            <div></div>
             <span class="material-symbols-rounded">person_add</span>
         </div>
-        <span class="person__add__text">Mitglieder hinzufügen</span>
+        <span  class="person__add__text">Mitglieder hinzufügen</span>
     </div>
+    
+    <input class="name__search" *ngIf="addMembers" type="text" placeholder="Name eingeben">
 </div>

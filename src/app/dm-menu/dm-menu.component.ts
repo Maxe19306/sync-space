@@ -68,7 +68,7 @@ export class DmMenuComponent implements OnInit {
 
 
     });
-  }
+  } 
 
   viewNoChannels() {
     this.viewChannels = false;
@@ -99,12 +99,12 @@ export class DmMenuComponent implements OnInit {
         .doc(dm.DMID)
         .valueChanges({ idField: 'DmId' })
         .subscribe(dmData => {
-          const existingDm = this.allDmsFromUser.find(d => d.DmId === dmData.DmId);
+            const existingDm = this.allDmsFromUser.find(d => d.DmId === dmData.DmId);
           if (!existingDm) {
             this.allDmsFromUser.push(dmData);
-            this.determinePersonalChat()
+            this.determinePersonalChat() 
           }
-        });
+        } );
     });
   }
 

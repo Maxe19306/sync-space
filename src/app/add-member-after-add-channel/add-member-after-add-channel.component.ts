@@ -63,7 +63,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
   createChannel() {
     console.log(this.allUsers, this.data)
-    /*
+    
     this.data.founder = this.currentUser
     if (!this.certainPeople) {
       this.data.members = this.allUsers;
@@ -72,7 +72,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     else (
       this.addChannelToFirebase()
     )
-    this.closeDialog()*/
+    this.closeDialog()
   } 
 
   addChannelToFirebase() {
