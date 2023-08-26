@@ -44,9 +44,11 @@
                     <span>{{message.text}}</span>
                 </div>
                 <div class="user__text__footer">
-                    <span (click)="openThread(message.messageId, this.currentUser.lastChannel)" class="answers">2
+                    <span *ngIf="message.lastAnswer" (click)="openThread(message.messageId, this.currentUser.lastChannel)" class="answers">{{message.answer}}
                         Antworten</span>
-                    <span class="last__answer">Letzte Antwort 14:56</span>
+                        <span *ngIf="!message.lastAnswer" (click)="openThread(message.messageId, this.currentUser.lastChannel)" class="answers">keine
+                            Antworten</span>
+                    <span *ngIf="message.lastAnswer" class="last__answer">Letzte Antwort {{ formatDate(message.lastAnswer)}}</span>
                 </div>
             </div>
 

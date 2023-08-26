@@ -15,7 +15,7 @@ export class SecondaryChatFooterComponent implements OnInit {
 
   currentUser
   message: Message = new Message({})
-
+  currentMessage;
   chatFormSecondary;
   chatTextareaSecondary;
   sendBtnSecondary;
@@ -80,16 +80,43 @@ export class SecondaryChatFooterComponent implements OnInit {
       .doc(this.currentUser.threadId)
       .collection('threadAnswer')
       .add(this.message.toJSON());
+    this.updateMessageInfo()
     this.resetFormSecondary();
   }
 
+  updateMessageInfo(){
+    this.firestore
+    .collection('channels')
+    .doc(this.currentUser.channelFromThread)
+    .collection('messages')
+    .doc(this.currentUser.threadId)
+    .update({
+      lastAnswer: new Date().getTime(),
+      answer : this.currentMessage.answer + 1
+    })
+  }
+  
+  
   loadCurrentUser() {
     this.firestore
       .collection('users')
       .doc(this.dataService.id)
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
-        this.currentUser = user;
+        this.currentUser = user; 
+        this.loadCurrentMessage()
+      })
+  }
+  
+  loadCurrentMessage(){
+    this.firestore
+      .collection('channels')
+      .doc(this.currentUser.channelFromThread)
+      .collection('messages')
+      .doc(this.currentUser.threadId)
+      .valueChanges({ idField: 'messageID' })
+      .subscribe((message) => {
+          this.currentMessage = message
       })
   }
 

@@ -80,6 +80,7 @@ export class MainDirectMessageFooterComponent implements OnInit {
     }  
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
+    
     this.firestore
       .collection('dms')
       .doc(this.currentUser.currentDM)
