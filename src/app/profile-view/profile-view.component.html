@@ -11,9 +11,11 @@
         Wähle dein Benutzerbild
     </div>
     <div *ngIf="editMode" class="profileImageSelection">
-        <div *ngFor="let image of profileImages">
-            <img *ngIf="image !== this.userDetail.profileImage" src="{{image}}" alt="" (click)="updateImage(image)" [class.highlighted]="isImageSelected(image)">
-        </div>
+        <ng-container *ngFor="let image of profileImages" >
+            <div *ngIf="image !== this.userDetail.profileImage">
+              <img src="{{image}}" alt="" (click)="updateImage(image)" [class.highlighted]="isImageSelected(image)">
+            </div>
+          </ng-container>
     </div>
     <div class="second__profil__container">
         <div class="name">
