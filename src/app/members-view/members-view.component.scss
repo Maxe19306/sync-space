@@ -85,6 +85,7 @@
 }
 
 .result__row__add {
+    margin-top: 20px;
     width: fit-content;
     display: flex;
     align-items: center;
@@ -102,12 +103,29 @@
     }
 
     .person_add {
+        position: relative;
+        // margin-left: 18px;
+        height: 36px;
+        width: 36px;
         margin-right: 16px;
 
-        span {
-            font-size: 36px;
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 36px;
             height: 36px;
+            background-color: #ECEEFE;
+            border-radius: 50px;
+        }
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: 700;
         }
     }
 
