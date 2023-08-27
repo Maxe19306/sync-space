@@ -132,15 +132,15 @@ export class SecondaryChatFooterComponent implements OnInit {
     this.chatFormSecondary.classList.remove("form__active");
   }
 
-  handleSelection(event) {
-    const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
-    if (!this.message.text) {
-      this.message.text = '';
-    }
-    this.message.text += event.char;
-    emojiPicker.style.display = "none";
-    this.toggled = false;
-    this.sendBtnSecondary.classList.remove("send__img__disabled");
-    this.chatFormSecondary.classList.add("form__active");
-  }
+  // handleSelection(event) {
+  //   const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
+  //   if (!this.message.text) {
+  //     this.message.text = '';
+  //   }
+  //   this.message.text += event.char;
+  //   emojiPicker.style.display = "none";
+  //   this.toggled = false;
+  //   this.sendBtnSecondary.classList.remove("send__img__disabled");
+  //   this.chatFormSecondary.classList.add("form__active");
+  // }
 }

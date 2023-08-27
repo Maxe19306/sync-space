@@ -102,15 +102,15 @@ export class MainChatFooterComponent implements OnInit {
     this.chatForm.classList.remove("form__active");
   }
 
-  handleSelection(event) {
-    const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
-    if (!this.message.text) {
-      this.message.text = '';
-    }
-    this.message.text += event.char;
-    emojiPicker.style.display = "none";
-    this.toggled = false;
-    this.sendBtn.classList.remove("send__img__disabled");
-    this.chatForm.classList.add("form__active");
-  }
+//   handleSelection(event) {
+//     const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
+//     if (!this.message.text) {
+//       this.message.text = '';
+//     }
+//     this.message.text += event.char;
+//     emojiPicker.style.display = "none";
+//     this.toggled = false;
+//     this.sendBtn.classList.remove("send__img__disabled");
+//     this.chatForm.classList.add("form__active");
+//   }
 }
