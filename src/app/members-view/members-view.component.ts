@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, ViewChild, AfterViewInit, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -8,7 +8,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   templateUrl: './members-view.component.html',
   styleUrls: ['./members-view.component.scss']
 })
+
 export class MembersViewComponent implements OnInit {
+
+  @ViewChild('usersToAdd', { static: false }) usersToAdd: ElementRef;
   test = true;
   filteredUsers: any[] = [];
   updateMembers = [];
@@ -17,10 +20,12 @@ export class MembersViewComponent implements OnInit {
   allUsers;
   selectedUser: any[] = [];
   filterableUsers: any[] = [];
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<MembersViewComponent>,
     public Dialog: MatDialog,
-    private firestore: AngularFirestore) { }
+    private firestore: AngularFirestore,
+    private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.loadAllUsers()
@@ -78,7 +83,6 @@ export class MembersViewComponent implements OnInit {
     }
   }
 
-
   getCurrentInfoOfTheUsers() {
     this.data.members.forEach(member => {
       this.firestore
@@ -96,7 +100,6 @@ export class MembersViewComponent implements OnInit {
     });
   }
 
-
   deleteMember(user) {
     this.filterableUsers.push(user)
     const userIndex = this.selectedUser.indexOf(user)
@@ -109,21 +112,21 @@ export class MembersViewComponent implements OnInit {
 
   pushUserToMember(user) {
     this.selectedUser.push(user);
-
     const userIndex1 = this.filterableUsers.indexOf(user)
     const userIndex2 = this.filteredUsers.indexOf(user)
-
     if (userIndex1 && userIndex2 !== -1)
       this.filterableUsers.splice(userIndex1, 1)
     this.filteredUsers.splice(userIndex2, 1)
-
     this.displayClickedUser(user);
   }
 
   displayClickedUser(clickedUser) {
-
+    console.log("clickedUser", clickedUser.name);
+    const newDiv = this.renderer.createElement('div');
+    const name = this.renderer.createText(clickedUser.name);
+    this.renderer.appendChild(newDiv, name);
+    this.renderer.appendChild(this.usersToAdd.nativeElement, newDiv);
   }
-
 
   addNewMembersToChannel() {
     this.selectedUser.forEach(user => {
