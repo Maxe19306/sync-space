@@ -1,4 +1,5 @@
-<div class="title noSelect">
+<div *ngIf="test">
+    <div class="title noSelect">
     <h2>Mitglieder</h2>
     <div class="hover-area noSelect" (click)="closeDialog()">
         <div class="transform-circle"></div>
@@ -18,6 +19,13 @@
         </div>
         <span  class="person__add__text">Mitglieder hinzufügen</span>
     </div>
+</div>
+    
+</div>
+    
+
+
+    
     <div *ngIf="addMembers">
     <input class="name__search"  type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
     
@@ -31,5 +39,4 @@
     <div class="add__members__footer">
          <button [disabled]="this.selectedUser.length < 1" [ngClass]="{ 'disabled__button': this.selectedUser.length < 1 }" (click)="addNewMembersToChannel()">Bestätigen</button>
     </div>
-</div>
 </div>

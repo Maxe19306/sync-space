@@ -9,6 +9,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./members-view.component.scss']
 })
 export class MembersViewComponent implements OnInit {
+  test = true;
   filteredUsers: any[]  = [];
   updateMembers = [];
   inputParticipants: string;
@@ -23,13 +24,20 @@ export class MembersViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAllUsers()
+    this.test2()
   }
 
   closeDialog() {
     this.dialogRef.close(MembersViewComponent);
-    
-  }
+    }
 
+    test2(){
+      this.test = this.data.test
+      if(!this.test){
+        this.addMembers = true;
+      }
+    }
+    
   loadAllUsers() {
     this.firestore
       .collection('users')

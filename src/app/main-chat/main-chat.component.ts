@@ -93,11 +93,11 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
   }
   
   
-  openDialogMembersView(members) {
+  openDialogMembersView(members, test) {
     const channelId = this.currentUser.lastChannel
     this.Dialog.open(MembersViewComponent,
       {
-        data: { members, channelId},
+        data: { members, channelId, test},
         panelClass: 'members__view__matdialog'
       })
   }
