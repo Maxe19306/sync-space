@@ -8,18 +8,19 @@
 
 <div id="dmChannelsBody" *ngIf="viewChannels" class="menu__sidebar__left__body__dm__body drop__drown__animation noSelect">
 
-    <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect active__dm" (click)="openChat(this.personalDm.DmId)">
+    <div class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect" (click)="openChat(this.personalDm.DmId)" [class.active__dm]="this.personalDm.DmId == this.currentUser.currentDM">
         <img src="{{this.currentUser.profileImage}}" alt="" srcset="">
         <span>{{this.currentUser.Name}} (Du)</span>
     </div>
-
-    <div *ngFor="let dmName of allDmsFromUser" class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect">
-        <div *ngFor="let member of dmName.members">
-            <div *ngIf="member.id !== this.dataService.id" (click)="openChat(dmName.DmId)">
-                <img src="{{member.profileImage}}" alt="" srcset="">
-                <span>{{member.name}}</span>
-            </div>
-        </div>
-    </div>
     
+    <ng-container *ngFor="let dmName of allDmsFromUser">
+        <div  class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect" [class.active__dm]="this.dmName.DmId == this.currentUser.currentDM">
+            <ng-container *ngFor="let member of dmName.members">
+                <div *ngIf="member.id !== this.dataService.id" (click)="openChat(dmName.DmId)">
+                    <img src="{{member.profileImage}}" alt="" srcset="">
+                    <span>{{member.name}}</span>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
 </div>
