@@ -41,19 +41,13 @@
     <input class="name__search" type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants"
         (ngModelChange)="this.filterUser()">
 
-
     <div *ngIf="this.filteredUsers.length > 0" class="users__results">
-        <!-- <div>gefilterte user</div>
-        <div *ngFor="let user of filteredUsers">
-            <div (click)="pushUserToMember(user)">{{user.name}}</div>
-        </div> -->
-
         <div *ngFor="let user of filteredUsers" (click)="pushUserToMember(user)" class="users__results__row">
             <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
             <div>{{user.name}}</div>
         </div>
-
     </div>
+
     <div class="add__members__footer">
         <button [disabled]="this.selectedUser.length < 1"
             [ngClass]="{ 'disabled__button': this.selectedUser.length < 1 }"
