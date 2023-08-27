@@ -99,7 +99,7 @@ export class DmMenuComponent implements OnInit {
         .doc(dm.DMID)
         .valueChanges({ idField: 'DmId' })
         .subscribe(dmData => {
-            const existingDm = this.allDmsFromUser.find(d => d.DmId === dmData.DmId);
+            const existingDm = this.allDmsFromUser.find(d => d.DmId === dmData.DmId); //Hier wird versucht, in allDmsFromUser nach einer vorhandenen dm mit der gleichen id zu suchen. Dies geschieht, um Duplikate zu vermeiden.
           if (!existingDm) {
             this.allDmsFromUser.push(dmData);
             this.determinePersonalChat() 

@@ -67,8 +67,22 @@ export class MainDirectMessageComponent implements OnInit {
       this.speaker = member1
     }
     else (
-      this.speaker = member2
+      this.speaker = member2,
+      this.loadSpeaker()
     )
+  }
+  
+  
+  
+  loadSpeaker(){
+    this.firestore
+      .collection('users')
+      .doc(this.speaker.id)
+      .valueChanges({ idField: 'id' })
+      .subscribe((user) => {
+        this.speaker = user;
+        console.log(this.speaker)
+      })
   }
 
   changeSpeaker(newSpeaker) {
