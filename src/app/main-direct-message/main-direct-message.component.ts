@@ -81,7 +81,6 @@ export class MainDirectMessageComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.speaker = user;
-        console.log(this.speaker)
       })
   }
 

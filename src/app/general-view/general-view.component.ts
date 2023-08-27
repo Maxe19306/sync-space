@@ -4,6 +4,7 @@ import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { SharedService } from '../shared.service';
 import { HostListener } from '@angular/core';
+import { DirectMessage } from '../models/dm.class';
 
 @Component({
   selector: 'app-general-view',
@@ -12,7 +13,7 @@ import { HostListener } from '@angular/core';
 })
 
 export class GeneralViewComponent implements OnInit {
-
+  DM: DirectMessage = new DirectMessage({});
   mobileBreakpointGeneral: number;
   generalViewOnDesktop: boolean;
   windowWidth: number;
@@ -72,10 +73,41 @@ export class GeneralViewComponent implements OnInit {
         this.currentUser = user;
         if (!this.currentUser.addFirstChannel) {
           this.loadTheFirstChannel()
+          this.createPersonalDm()
         }
 
       })
   }
+  
+  createPersonalDm(){
+    const currentUser = {
+      name: this.currentUser.name,
+      id: this.currentUser.id
+    };
+    
+    this.DM.members = [currentUser,currentUser]
+    
+    this.firestore.collection('dms')
+            .add(this.DM.toJSON())
+            .then((docRef) => {
+              const chatId = docRef.id;
+              this.updateUsers(chatId)
+            })
+    
+  }
+  
+  updateUsers(docID: string) {
+         this.firestore
+        .collection('users')
+        .doc(this.currentUser.id)
+        .collection('dmsFromUser')
+        .add({
+          DMID: docID
+        })
+    ;
+  }
+  
+  
 
   loadTheFirstChannel() {
     this.firestore
