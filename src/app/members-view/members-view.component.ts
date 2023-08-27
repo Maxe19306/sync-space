@@ -23,7 +23,6 @@ export class MembersViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAllUsers()
-    console.log(this.data)
   }
 
   closeDialog() {
