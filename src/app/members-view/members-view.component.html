@@ -1,5 +1,5 @@
-<div *ngIf="test">
-    <div class="title noSelect">
+<div *ngIf="test" class="noSelect">
+    <div class="title">
         <h2>Mitglieder</h2>
         <div class="hover-area noSelect" (click)="closeDialog()">
             <div class="transform-circle"></div>
@@ -7,26 +7,24 @@
         </div>
     </div>
 
-    <div *ngIf="this.data" class="noSelect">
+    <div *ngIf="this.data" class="results">
         <!-- <p *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)"> {{user.name}}</p> -->
         <div class="result__row" *ngFor="let user of this.updateMembers" (click)="openDialogProfil(user.id)">
             <img src={{user.profileImage}} alt="" srcset="">
             {{user.name}}
         </div>
-        <div (click)="activAddMembers()" class="result__row result__row__add">
-            <div class="person_add">
-                <span class="material-symbols-rounded">person_add</span>
-            </div>
-            <span class="person__add__text">Mitglieder hinzufügen</span>
+    </div>
+    
+    <div (click)="activAddMembers()" class="result__row result__row__add">
+        <div class="person_add">
+            <span class="material-symbols-rounded">person_add</span>
         </div>
+        <span class="person__add__text">Mitglieder hinzufügen</span>
     </div>
 
 </div>
 
-
-
-
-<div *ngIf="addMembers">
+<div *ngIf="addMembers" class="noSelect">
 
     <div *ngIf="addMembers && test" class="spacer">
     </div>

@@ -25,7 +25,66 @@
     }
 }
 
-.result__row {
+.results {
+    max-height: 50vh;
+    overflow-y: auto;
+
+    .result__row {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        padding: 5px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ECEEFE;
+        }
+
+        img {
+            width: 36px;
+            border-radius: 50%;
+            margin-right: 16px;
+        }
+
+        div {
+            white-space: nowrap !important;
+        }
+
+        .person_add {
+            position: relative;
+            // margin-left: 18px;
+            height: 36px;
+            width: 36px;
+            margin-right: 16px;
+
+            div {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 36px;
+                height: 36px;
+                background-color: #ECEEFE;
+                border-radius: 50px;
+            }
+
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.result__row__add {
     width: fit-content;
     display: flex;
     align-items: center;
@@ -38,55 +97,28 @@
     cursor: pointer;
 
     &:hover {
+        color: #535AF1;
         background-color: #ECEEFE;
     }
 
-    img {
-        width: 36px;
-        border-radius: 50%;
-        margin-right: 16px;
-    }
-
-    div {
-        white-space: nowrap !important;
-    }
-
     .person_add {
-        position: relative;
-        // margin-left: 18px;
-        height: 36px;
-        width: 36px;
         margin-right: 16px;
-
-        div {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 36px;
-            height: 36px;
-            background-color: #ECEEFE;
-            border-radius: 50px;
-        }
 
         span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-weight: 700;
+            font-size: 36px;
+            width: 36px;
+            height: 36px;
         }
     }
-}
-
-.result__row__add {
 
     &:hover {
         * {
             color: #535AF1;
+            background-color: #ECEEFE;
         }
 
-        .person_add, .person__add__text {
+        .person_add,
+        .person__add__text {
             transition: all 50ms ease-in;
             transform: scale(1.01);
         }
@@ -105,7 +137,8 @@
     color: #686868;
     margin-top: 16px;
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
         outline: none;
         border: 1px solid #444DF2 !important;
         backface-visibility: hidden;
