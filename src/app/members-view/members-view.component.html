@@ -1,35 +1,45 @@
 <div *ngIf="test">
     <div class="title noSelect">
-    <h2>Mitglieder</h2>
-    <div class="hover-area noSelect" (click)="closeDialog()">
-        <div class="transform-circle"></div>
-        <span class="material-symbols-rounded single-icon add-icon">close</span>
-    </div>
-</div>
-
-<div *ngIf="this.data" class="noSelect">
-    <!-- <p *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)"> {{user.name}}</p> -->
-    <div class="result__row" *ngFor="let user of this.updateMembers" (click)="openDialogProfil(user.id)">
-        <img src={{user.profileImage}} alt="" srcset="">
-        {{user.name}}
-    </div>
-    <div  (click)="activAddMembers()" class="result__row result__row__add">
-        <div class="person_add">
-            <span class="material-symbols-rounded">person_add</span>
+        <h2>Mitglieder</h2>
+        <div class="hover-area noSelect" (click)="closeDialog()">
+            <div class="transform-circle"></div>
+            <span class="material-symbols-rounded single-icon add-icon">close</span>
         </div>
-        <span  class="person__add__text">Mitglieder hinzufügen</span>
     </div>
+
+    <div *ngIf="this.data" class="noSelect">
+        <!-- <p *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)"> {{user.name}}</p> -->
+        <div class="result__row" *ngFor="let user of this.updateMembers" (click)="openDialogProfil(user.id)">
+            <img src={{user.profileImage}} alt="" srcset="">
+            {{user.name}}
+        </div>
+        <div (click)="activAddMembers()" class="result__row result__row__add">
+            <div class="person_add">
+                <span class="material-symbols-rounded">person_add</span>
+            </div>
+            <span class="person__add__text">Mitglieder hinzufügen</span>
+        </div>
+    </div>
+
 </div>
-    
-</div>
-    
 
 
-    
-    <div *ngIf="addMembers">
-    <input class="name__search"  type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
-    
-    
+
+
+<div *ngIf="addMembers">
+
+    <div class="title noSelect">
+        <h2>Leute hinzufügen</h2>
+        <div *ngIf="addMembers && !test" class="hover-area noSelect" (click)="closeDialog()">
+            <div class="transform-circle"></div>
+            <span class="material-symbols-rounded single-icon add-icon">close</span>
+        </div>
+    </div>
+
+    <input class="name__search" type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants"
+        (ngModelChange)="this.filterUser()">
+
+
     <div *ngIf="this.filteredUsers.length > 0">
         <div>gefilterte user</div>
         <div *ngFor="let user of filteredUsers">
@@ -37,6 +47,8 @@
         </div>
     </div>
     <div class="add__members__footer">
-         <button [disabled]="this.selectedUser.length < 1" [ngClass]="{ 'disabled__button': this.selectedUser.length < 1 }" (click)="addNewMembersToChannel()">Bestätigen</button>
+        <button [disabled]="this.selectedUser.length < 1"
+            [ngClass]="{ 'disabled__button': this.selectedUser.length < 1 }"
+            (click)="addNewMembersToChannel()">Bestätigen</button>
     </div>
 </div>
