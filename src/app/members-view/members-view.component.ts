@@ -1,4 +1,4 @@
-import { Component, Renderer2, ElementRef, ViewChild, AfterViewInit, Inject, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, ViewChild, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -72,6 +72,10 @@ export class MembersViewComponent implements OnInit {
   }
 
   filterUser() {
+    console.log("--------------------------");
+    console.log("this.filterableUsers", this.filterableUsers);
+    console.log("this.filterableUsers.length", this.filterableUsers.length);
+    console.log("this.inputParticipants.length", this.inputParticipants.length);
     if (this.filterableUsers && this.filterableUsers.length > 0 && this.inputParticipants.length > 0) {
       if (this.filterableUsers[0]) {
         this.filteredUsers = this.filterableUsers[0].filter(user =>
@@ -122,25 +126,22 @@ export class MembersViewComponent implements OnInit {
 
   displayClickedUser(clickedUser) {
     console.log("clickedUser", clickedUser.name);
-    const newDiv = this.renderer.createElement('div');
+    const userCard = this.renderer.createElement('div');
     const name = this.renderer.createText(clickedUser.name);
-    this.renderer.appendChild(newDiv, name);
-    this.renderer.appendChild(this.usersToAdd.nativeElement, newDiv);
+    this.renderer.appendChild(userCard, name);
+    this.renderer.appendChild(this.usersToAdd.nativeElement, userCard);
   }
 
   addNewMembersToChannel() {
     this.selectedUser.forEach(user => {
       this.data.members.push(user)
     });
-
-
     this.firestore
       .collection('channels')
       .doc(this.data.channelId)
       .update({
         members: this.data.members
       })
-
   }
 
 }
