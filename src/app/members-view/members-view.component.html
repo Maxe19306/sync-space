@@ -28,6 +28,9 @@
 
 <div *ngIf="addMembers">
 
+    <div *ngIf="addMembers && test" class="spacer">
+    </div>
+
     <div class="title noSelect">
         <h2>Leute hinzufügen</h2>
         <div *ngIf="addMembers && !test" class="hover-area noSelect" (click)="closeDialog()">
