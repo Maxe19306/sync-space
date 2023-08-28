@@ -73,12 +73,10 @@ export class MembersViewComponent implements OnInit {
   }
 
   filterUser() {
-    if (this.filterableUsers && this.filterableUsers.length > 0 && this.inputParticipants.length > 0) {
-      if (this.filterableUsers) {
-        this.filteredUsers = this.filterableUsers.filter(user =>
-          user.name.toLowerCase().includes(this.inputParticipants.toLowerCase())
-        )
-      }
+    if (this.filterableUsers.length > 0 && this.inputParticipants.length > 0) {
+      this.filteredUsers = this.filterableUsers.filter(user =>
+        user.name.toLowerCase().includes(this.inputParticipants.toLowerCase())
+      )
     } else {
       this.filteredUsers = [];
     }
@@ -115,10 +113,10 @@ export class MembersViewComponent implements OnInit {
     this.selectedUser.push(user);
     const userIndex1 = this.filterableUsers.indexOf(user)
     const userIndex2 = this.filteredUsers.indexOf(user)
-    if (userIndex1 && userIndex2 !== -1)
-      this.filterableUsers.splice(userIndex1, 1)
+    if (userIndex1 && userIndex2 !== -1) {
+    this.filterableUsers.splice(userIndex1, 1)
     this.filteredUsers.splice(userIndex2, 1)
-    this.displayClickedUser(user);
+    this.displayClickedUser(user); }
   }
 
   displayClickedUser(clickedUser) {
