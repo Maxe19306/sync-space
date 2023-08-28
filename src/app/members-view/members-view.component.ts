@@ -68,17 +68,14 @@ export class MembersViewComponent implements OnInit {
 
   createTheFilterableUsers() {
     const nonMembers = this.allUsers.filter(user => !this.data.members.some(member => member.id === user.id));
-    this.filterableUsers.push(nonMembers)
+    this.filterableUsers = this.filterableUsers.concat(nonMembers);
+    console.log(this.filterableUsers);
   }
 
   filterUser() {
-    console.log("--------------------------");
-    console.log("this.filterableUsers", this.filterableUsers);
-    console.log("this.filterableUsers.length", this.filterableUsers.length);
-    console.log("this.inputParticipants.length", this.inputParticipants.length);
     if (this.filterableUsers && this.filterableUsers.length > 0 && this.inputParticipants.length > 0) {
-      if (this.filterableUsers[0]) {
-        this.filteredUsers = this.filterableUsers[0].filter(user =>
+      if (this.filterableUsers) {
+        this.filteredUsers = this.filterableUsers.filter(user =>
           user.name.toLowerCase().includes(this.inputParticipants.toLowerCase())
         )
       }
@@ -125,7 +122,6 @@ export class MembersViewComponent implements OnInit {
   }
 
   displayClickedUser(clickedUser) {
-    console.log("clickedUser", clickedUser.name);
     const userCard = this.renderer.createElement('div');
     const name = this.renderer.createText(clickedUser.name);
     this.renderer.appendChild(userCard, name);
