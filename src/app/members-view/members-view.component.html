@@ -48,12 +48,19 @@
         </div>
     </div>
 
-    <div #usersToAdd class="users__to__add">
+    <!-- <div #usersToAdd class="users__to__add">
         <div class="user__container">
             <img src="assets/img/users/elise-roth.webp">
             <span class="user__name">Christoph Bahrenburg</span>
             <span class="material-symbols-rounded">close</span>
         </div>
+    </div> -->
+
+    <div *ngFor="let sUser of selectedUser" class="user__container">
+        <!-- <img [src]="sUser.imgSrc"> -->
+        <img src="assets/img/users/elise-roth.webp">
+        <span class="user__name">{{ sUser.name }}</span>
+        <span class="material-symbols-rounded">close</span>
     </div>
 
     <div class="add__members__footer">

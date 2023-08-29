@@ -101,7 +101,6 @@ export class MembersViewComponent implements OnInit {
   deleteMember(user) {
     this.filterableUsers.push(user)
     const userIndex = this.selectedUser.indexOf(user)
-
     if (userIndex !== -1) {
       this.data.members.splice(userIndex, 1)
     }
@@ -115,7 +114,7 @@ export class MembersViewComponent implements OnInit {
     this.filterableUsers.splice(userIndex1, 1)
     this.filteredUsers.splice(userIndex2, 1)
     // this.displayClickedUser(user); 
-    this.displayClickedUser2(user); 
+    // this.displayClickedUser2(user); 
   }
 
   // displayClickedUser(clickedUser) {
@@ -133,9 +132,9 @@ export class MembersViewComponent implements OnInit {
     }
   }
 
-  displayClickedUser2(clickedUser) {
-    this.usersToAdd.nativeElement.innerHTML += 'Test';
-  }
+  // displayClickedUser2(clickedUser) {
+  //   this.usersToAdd.nativeElement.innerHTML += 'Test';
+  // }
 
   addNewMembersToChannel() {
     this.selectedUser.forEach(user => {
