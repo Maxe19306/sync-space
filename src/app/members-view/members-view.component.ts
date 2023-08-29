@@ -127,12 +127,9 @@ export class MembersViewComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   clickout(event) {
-    console.log("click");
     if (this._eref.nativeElement.contains(event.target)) {
       this.filteredUsers = [];  // Das leert die Liste, wodurch das Div durch *ngIf versteckt wird
       this.inputParticipants = '';  // Leert das Eingabefeld
-      console.log("this.filteredUsers", this.filteredUsers);
-      console.log("this.inputParticipants", this.inputParticipants);
     }
   }
 
