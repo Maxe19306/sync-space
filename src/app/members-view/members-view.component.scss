@@ -188,7 +188,7 @@
 
         .user__name {
             font-size: 17px;
-            margin-right: 10px;
+            margin-right: 1px;
         }
 
         .material-symbols-rounded {
@@ -196,6 +196,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 100ms ease-in;
+            padding: 9px;
 
             &:hover {
                 scale: 1.1;
