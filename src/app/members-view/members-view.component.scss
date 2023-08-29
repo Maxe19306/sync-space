@@ -194,9 +194,10 @@
         .material-symbols-rounded {
             font-size: 18px;
             font-weight: 700;
+            cursor: pointer;
 
             &:hover {
-                font-size: 20px;
+                scale: 1.1;
             }
         }
     }
