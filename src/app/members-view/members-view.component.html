@@ -39,13 +39,13 @@
 
     <div *ngIf="this.filteredUsers.length > 0" class="users__results">
         <div *ngFor="let user of filteredUsers" (click)="pushUserToMember(user)" class="users__results__row">
-            <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
+            <img src="{{ user.profileImage }}" alt="" srcset="">
             <div>{{user.name}}</div>
         </div>
     </div>
 
     <div *ngFor="let sUser of selectedUser" class="user__container">
-        <img src="assets/img/users/elise-roth.webp">
+        <img src="{{ sUser.profileImage }}">
         <span class="user__name">{{ sUser.name }}</span>
         <span (click)="deleteMember(sUser)" class="material-symbols-rounded">close</span>
     </div>

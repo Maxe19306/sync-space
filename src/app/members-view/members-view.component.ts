@@ -109,6 +109,7 @@ export class MembersViewComponent implements OnInit {
   }
 
   pushUserToMember(user) {
+    console.log("user", user);
     this.selectedUser.push(user);
     const userIndex1 = this.filterableUsers.findIndex(u => u.id === user.id);  // hier geändert dass nur die id verglichen wird und nicht der ganze user
     const userIndex2 = this.filteredUsers.findIndex(u => u.id === user.id);    // hier geändert dass nur die id verglichen wird und nicht der ganze user 
