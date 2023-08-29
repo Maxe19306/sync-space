@@ -113,14 +113,19 @@ export class MembersViewComponent implements OnInit {
     const userIndex2 = this.filteredUsers.findIndex(u => u.id === user.id);    // hier geändert dass nur die id verglichen wird und nicht der ganze user 
     this.filterableUsers.splice(userIndex1, 1)
     this.filteredUsers.splice(userIndex2, 1)
-    this.displayClickedUser(user); 
+    // this.displayClickedUser(user); 
+    this.displayClickedUser2(user); 
   }
 
-  displayClickedUser(clickedUser) {
-    const userCard = this.renderer.createElement('div');
-    const name = this.renderer.createText(clickedUser.name);
-    this.renderer.appendChild(userCard, name);
-    this.renderer.appendChild(this.usersToAdd.nativeElement, userCard);
+  // displayClickedUser(clickedUser) {
+  //   const userCard = this.renderer.createElement('div');
+  //   const name = this.renderer.createText(clickedUser.name);
+  //   this.renderer.appendChild(userCard, name);
+  //   this.renderer.appendChild(this.usersToAdd.nativeElement, userCard);
+  // }
+
+  displayClickedUser2(clickedUser) {
+    this.usersToAdd.nativeElement.innerHTML += 'Test';
   }
 
   addNewMembersToChannel() {
