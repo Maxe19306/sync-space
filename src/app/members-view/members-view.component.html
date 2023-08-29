@@ -48,10 +48,17 @@
         </div>
     </div>
 
+    <div #usersToAdd class="users__to__add">
+        <div class="user__container">
+            <img src="assets/img/users/elise-roth.webp">
+            <span class="user__name">Christoph Bahrenburg</span>
+            <span class="material-symbols-rounded">close</span>
+        </div>
+    </div>
+
     <div class="add__members__footer">
         <button [disabled]="this.selectedUser.length < 1"
             [ngClass]="{ 'disabled__button': this.selectedUser.length < 1 }"
             (click)="addNewMembersToChannel()">Bestätigen</button>
     </div>
-    <div class="users__to__add" #usersToAdd></div>
 </div>
