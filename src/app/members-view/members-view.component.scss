@@ -187,7 +187,17 @@
         }
 
         .user__name {
+            font-size: 17px;
             margin-right: 10px;
+        }
+
+        .material-symbols-rounded {
+            font-size: 18px;
+            font-weight: 700;
+
+            &:hover {
+                font-size: 20px;
+            }
         }
     }
 }
