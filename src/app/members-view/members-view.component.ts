@@ -1,4 +1,4 @@
-import { Component, Renderer2, ElementRef, ViewChild, Inject, OnInit } from '@angular/core';
+import { Component, Renderer2, ElementRef, ViewChild, Inject, OnInit, HostListener } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -25,7 +25,8 @@ export class MembersViewComponent implements OnInit {
     public dialogRef: MatDialogRef<MembersViewComponent>,
     public Dialog: MatDialog,
     private firestore: AngularFirestore,
-    private renderer: Renderer2) { }
+    private renderer: Renderer2,
+    private _eref: ElementRef) { }
 
   ngOnInit(): void {
     this.loadAllUsers()
@@ -123,6 +124,17 @@ export class MembersViewComponent implements OnInit {
   //   this.renderer.appendChild(userCard, name);
   //   this.renderer.appendChild(this.usersToAdd.nativeElement, userCard);
   // }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    console.log("click");
+    if (this._eref.nativeElement.contains(event.target)) {
+      this.filteredUsers = [];  // Das leert die Liste, wodurch das Div durch *ngIf versteckt wird
+      this.inputParticipants = '';  // Leert das Eingabefeld
+      console.log("this.filteredUsers", this.filteredUsers);
+      console.log("this.inputParticipants", this.inputParticipants);
+    }
+  }
 
   displayClickedUser2(clickedUser) {
     this.usersToAdd.nativeElement.innerHTML += 'Test';
