@@ -68,14 +68,13 @@ export class MembersViewComponent implements OnInit {
 
   createTheFilterableUsers() {
     const nonMembers = this.allUsers.filter(user => !this.data.members.some(member => member.id === user.id));
-    this.filterableUsers = this.filterableUsers.concat(nonMembers);
-    console.log(this.filterableUsers);
+    this.filterableUsers = this.filterableUsers.concat(nonMembers);  //  this.filterableUsers.push(nonMembers)   concat verbindet die beiden arrays. somit entsteht kein array im array.
   }
 
   filterUser() {
     if (this.filterableUsers.length > 0 && this.inputParticipants.length > 0) {
-      this.filteredUsers = this.filterableUsers.filter(user =>
-        user.name.toLowerCase().includes(this.inputParticipants.toLowerCase())
+      this.filteredUsers = this.filterableUsers.filter(user =>            //this.filteredUsers = this.filterableUsers[0].filter(user =>                 
+        user.name.toLowerCase().includes(this.inputParticipants.toLowerCase()),
       )
     } else {
       this.filteredUsers = [];
@@ -91,7 +90,6 @@ export class MembersViewComponent implements OnInit {
         .subscribe((memberInfo) => {
           // Überprüfe, ob die Informationen bereits in der Liste sind
           const index = this.updateMembers.findIndex(existingMember => existingMember.id === memberInfo.id);
-
           if (index === -1) {
             this.updateMembers.push(memberInfo); // Speichere die aktualisierten Informationen
           }
@@ -111,12 +109,11 @@ export class MembersViewComponent implements OnInit {
 
   pushUserToMember(user) {
     this.selectedUser.push(user);
-    const userIndex1 = this.filterableUsers.indexOf(user)
-    const userIndex2 = this.filteredUsers.indexOf(user)
-    if (userIndex1 && userIndex2 !== -1) {
+    const userIndex1 = this.filterableUsers.findIndex(u => u.id === user.id);  // hier geändert dass nur die id verglichen wird und nicht der ganze user
+    const userIndex2 = this.filteredUsers.findIndex(u => u.id === user.id);    // hier geändert dass nur die id verglichen wird und nicht der ganze user 
     this.filterableUsers.splice(userIndex1, 1)
     this.filteredUsers.splice(userIndex2, 1)
-    this.displayClickedUser(user); }
+    this.displayClickedUser(user); 
   }
 
   displayClickedUser(clickedUser) {
@@ -136,6 +133,7 @@ export class MembersViewComponent implements OnInit {
       .update({
         members: this.data.members
       })
+      this.closeDialog()
   }
 
 }

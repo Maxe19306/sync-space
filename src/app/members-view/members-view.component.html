@@ -43,7 +43,7 @@
 
     <div *ngIf="this.filteredUsers.length > 0" class="users__results">
         <div *ngFor="let user of filteredUsers" (click)="pushUserToMember(user)" class="users__results__row">
-            <img src="assets/img/users/elise-roth.webp" alt="" srcset="">
+            <img src={{this.user.profileImage}} alt="" srcset="">
             <div>{{user.name}}</div>
         </div>
     </div>
