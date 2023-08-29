@@ -101,6 +101,7 @@ export class MembersViewComponent implements OnInit {
   deleteMember(user) {
     this.filterableUsers.push(user)
     const userIndex = this.selectedUser.indexOf(user)
+    this.selectedUser.splice(userIndex, 1);
     if (userIndex !== -1) {
       this.data.members.splice(userIndex, 1)
     }

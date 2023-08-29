@@ -8,7 +8,6 @@
     </div>
 
     <div *ngIf="this.data" class="results">
-        <!-- <p *ngFor="let user of this.data.members" (click)="openDialogProfil(user.id)"> {{user.name}}</p> -->
         <div class="result__row" *ngFor="let user of this.updateMembers" (click)="openDialogProfil(user.id)">
             <img src={{user.profileImage}} alt="" srcset="">
             {{user.name}}
