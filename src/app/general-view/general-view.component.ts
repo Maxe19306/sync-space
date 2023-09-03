@@ -69,7 +69,9 @@ export class GeneralViewComponent implements OnInit {
       .collection('users')
       .doc(this.dataService.id)
       .valueChanges({ idField: 'id' })
-      .subscribe((user) => {
+      .subscribe((user: any) => {
+        this.dataService.currentUser = user;
+        console.log(this.dataService.currentUser)
         this.currentUser = user;
         if (!this.currentUser.addFirstChannel) {
           this.loadTheFirstChannel()

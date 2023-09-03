@@ -30,7 +30,7 @@ export class DmMenuComponent implements OnInit {
     const value = style.getPropertyValue('--mobile-breakpoint-general').trim();
     this.mobileBreakpointGeneral = parseInt(value, 10);
   }
-
+  
   loadCurrentUser() {
     this.firestore
       .collection('users')

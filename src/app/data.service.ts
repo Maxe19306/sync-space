@@ -5,4 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
   id: string;
+  currentUser;
+  
+
 }
