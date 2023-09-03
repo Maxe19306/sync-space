@@ -1,4 +1,4 @@
-<div *ngIf="this.userDetail&&this.currentUser" class="main__profil__container noSelect">
+<div *ngIf="this.userDetail&&this.dataService" class="main__profil__container noSelect">
     <div class="start__profil__container">
         <h2>Profil</h2>
         <div (click)="closeDialog()" class="hover-area noSelect">
@@ -37,18 +37,18 @@
                 value="{{this.userDetail.mail}}" #userMailInput (keydown.enter)="overwriteUserDataBackend()">
         </div>
     </div>
-    <div *ngIf="this.userDetail.id !== this.currentUser.id" mat-flat-button color="primary" (click)="createDM()"
+    <div *ngIf="this.userDetail.id !== this.dataService.id" mat-flat-button color="primary" (click)="createDM()"
         class="button mobile__active__bluebtn">
         <span class="material-symbols-rounded">mode_comment</span>
         Nachricht
     </div>
-    <div *ngIf="this.userDetail.id === this.currentUser.id &&!editMode" mat-flat-button color="primary" (click)="createDM()"
+    <div *ngIf="this.userDetail.id === this.dataService.id &&!editMode" mat-flat-button color="primary" (click)="createDM()"
         class="button mobile__active__bluebtn">
         <span class="material-symbols-rounded">mode_comment</span>
         Notiz
     </div>
     
-    <div *ngIf="this.userDetail.id === this.currentUser.id &&editMode" mat-flat-button color="primary" (click)="overwriteUserDataBackend()"
+    <div *ngIf="this.userDetail.id === this.dataService.id &&editMode" mat-flat-button color="primary" (click)="overwriteUserDataBackend()"
         class="button mobile__active__bluebtn">
         Bestätigen
     </div>

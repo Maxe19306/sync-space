@@ -37,7 +37,6 @@ export class ProfileViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUserDetail();
-    this.loadCurrentUser();
     this.getMobileBreakpointGeneral();
   }
 
@@ -54,16 +53,7 @@ export class ProfileViewComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.userDetail = user;
-      });
-  }
-
-  loadCurrentUser() {
-    this.firestore
-      .collection('users')
-      .doc(this.dataService.id)
-      .valueChanges({ idField: 'id' })
-      .subscribe((user) => {
-        this.currentUser = user
+        console.log(user)
       });
   }
 

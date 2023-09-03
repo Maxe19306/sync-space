@@ -28,8 +28,16 @@ export class ChannelsMenuComponent implements OnInit {
     this.getMobileBreakpointGeneral();
     this.loadCurrentUser();
     this.loadAllChannel();
+    this.updateChannelsMenu();
   }
 
+  updateChannelsMenu(){
+    this.firestore.collection('channels').valueChanges().subscribe(data =>{
+    this.loadAllChannel()
+    })
+  }
+  
+  
   getMobileBreakpointGeneral() {
     const style = getComputedStyle(document.documentElement);
     const value = style.getPropertyValue('--mobile-breakpoint-general').trim();
@@ -48,6 +56,7 @@ export class ChannelsMenuComponent implements OnInit {
   }
 
   loadAllChannel() {
+    this.allChannels = [];
     this.firestore
       .collection('channels')
       .valueChanges({ idField: 'channelIdName' })
