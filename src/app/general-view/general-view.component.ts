@@ -71,13 +71,11 @@ export class GeneralViewComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user: any) => {
         this.dataService.currentUser = user;
-        console.log(this.dataService.currentUser)
         this.currentUser = user;
         if (!this.currentUser.addFirstChannel) {
           this.loadTheFirstChannel()
           this.createPersonalDm()
         }
-
       })
   }
   

@@ -26,7 +26,6 @@ export class ChannelsMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMobileBreakpointGeneral();
-    this.loadCurrentUser();
     this.loadAllChannel();
     this.updateChannelsMenu();
   }
@@ -44,17 +43,6 @@ export class ChannelsMenuComponent implements OnInit {
     this.mobileBreakpointGeneral = parseInt(value, 10);
   }
 
-  loadCurrentUser() {
-    this.firestore
-      .collection('users')
-      .doc(this.dataService.id)
-      .valueChanges({ idField: 'id' })
-      .subscribe((user) => {
-        this.currentUser = user
-
-      });
-  }
-
   loadAllChannel() {
     this.allChannels = [];
     this.firestore
@@ -63,7 +51,7 @@ export class ChannelsMenuComponent implements OnInit {
       .subscribe((channels: any[]) => {
         channels.forEach((channel) => {
           channel.members.forEach((member) => {
-            if (this.currentUser.id === member.id) {
+            if (this.dataService.id === member.id) {
               const channelIndex = this.allChannels.findIndex((existingChannel) => existingChannel.channelIdName === channel.channelIdName);
               if (channelIndex === -1) {
                 this.allChannels.push(channel)
