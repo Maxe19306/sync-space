@@ -17,21 +17,28 @@
         </div>
         <input class="name__search" *ngIf="certainPeople" type="text" placeholder="Name eingeben" [(ngModel)]="inputParticipants" (ngModelChange)="this.filterUser()">
     </div>
-    <div *ngIf="this.filteredUsers.length >0">
+
+    <!-- <div *ngIf="this.filteredUsers.length >0">
         <div>gefilterte user</div>
         <div *ngFor="let user of filteredUsers">
             <div (click)="pushUserToMember(user)">{{user.name}}</div>
         </div>
+    </div> -->
+
+    <div *ngIf="this.filteredUsers.length > 0" class="users__results">
+        <div *ngFor="let user of filteredUsers" (click)="pushUserToMember(user)" class="users__results__row">
+            <img src="{{ user.profileImage }}" alt="" srcset="">
+            <div>{{user.name}}</div>
+        </div>
     </div>
+
     <div *ngIf="this.data.members.length > 0">
         <div>ausgewählte user</div>
         <div *ngFor="let members of this.data.members">
             <div (click)="deleteMember(members)">{{members.name}}</div>
         </div>
     </div>
-    <!-- <div class="button">
-        <button [disabled]="!buttonActive" (click)="createChannel()" mat-flat-button color="primary">Erstellen</button>
-    </div> -->
+
     <div class="add__members__footer">
         <button [disabled]="!buttonActive" [ngClass]="{ 'disabled__button': !buttonActive }" (click)="createChannel()">Erstellen</button>
     </div>
