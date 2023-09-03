@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, HostListener, ElementRef } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../data.service';
@@ -16,7 +16,8 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     public dialogRef: MatDialogRef<AddMemberAfterAddChannelComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private firestore: AngularFirestore,
-    public dataservice: DataService) { }
+    public dataservice: DataService,
+    private _eref: ElementRef) { }
 
   currentUser
 
@@ -29,6 +30,8 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
   checked = false;
   indeterminate = false;
   disabled = false;
+
+  selectedUser: any[] = [];
 
   ngOnInit() {
     this.loadAllUsers()
@@ -62,7 +65,11 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
 
   createChannel() {
-    
+
+    this.selectedUser.forEach(user => {
+      this.data.members.push(user)
+    });
+
     this.data.founder = this.currentUser
     if (!this.certainPeople) {
       this.data.members = this.allUsers;
@@ -72,7 +79,7 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
       this.addChannelToFirebase()
     )
     this.closeDialog()
-  } 
+  }
 
   addChannelToFirebase() {
     this.firestore
@@ -84,14 +91,14 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     this.buttonActive = true;
     this.certainPeople = false;
   }
-  
+
   channelWithoutCertainPeople() {
     this.buttonActive = true;
     this.certainPeople = true;
   }
 
   filterUser() {
-    
+
     if (this.inputParticipants.length > 0) {
       this.filteredUsers = this.allUsers.filter(user =>
         user.name.toLowerCase().includes(this.inputParticipants.toLowerCase()),
@@ -100,26 +107,38 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
       this.filteredUsers = [];
     }
   }
-  
-  deleteMember(user){
+
+  deleteMember(user) {
     this.allUsers.push(user)
     const userIndex = this.data.members.indexOf(user)
-    
-    if(userIndex !== -1){
-      this.data.members.splice(userIndex,1)
+    this.selectedUser.splice(userIndex, 1);
+
+    if (userIndex !== -1) {
+      this.data.members.splice(userIndex, 1)
     }
     this.filterUser()
   }
 
   pushUserToMember(user) {
+    this.selectedUser.push(user);
+
     this.data.members.push(user);
-    
     const userIndex1 = this.allUsers.indexOf(user)
     const userIndex2 = this.filteredUsers.indexOf(user)
-    
-    if(userIndex1 && userIndex2 !== -1)
-    this.allUsers.splice(userIndex1,1)
-    this.filteredUsers.splice(userIndex2,1)
+    if (userIndex1 && userIndex2 !== -1)
+      this.allUsers.splice(userIndex1, 1)
+    this.filteredUsers.splice(userIndex2, 1)
+
+    this.filteredUsers = [];
+    this.inputParticipants = '';
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if (this._eref.nativeElement.contains(event.target)) {
+      this.filteredUsers = [];
+      this.inputParticipants = '';
+    }
   }
 
   disableBtn() {

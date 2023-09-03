@@ -32,11 +32,17 @@
         </div>
     </div>
 
-    <div *ngIf="this.data.members.length > 0">
+    <!-- <div *ngIf="this.data.members.length > 0">
         <div>ausgewählte user</div>
         <div *ngFor="let members of this.data.members">
             <div (click)="deleteMember(members)">{{members.name}}</div>
         </div>
+    </div> -->
+
+    <div *ngFor="let sUser of selectedUser" class="user__container">
+        <img src="{{ sUser.profileImage }}">
+        <span class="user__name">{{ sUser.name }}</span>
+        <span (click)="deleteMember(sUser)" class="material-symbols-rounded">close</span>
     </div>
 
     <div class="add__members__footer">
