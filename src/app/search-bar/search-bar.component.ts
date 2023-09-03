@@ -96,7 +96,7 @@ export class SearchBarComponent implements OnInit {
     this.filteredChannels = [];
   }
 
-  test(channelId) {
+  updateUserInFirbase(channelId) {
     this.firestore
       .collection('users')
       .doc(this.dataService.id)
