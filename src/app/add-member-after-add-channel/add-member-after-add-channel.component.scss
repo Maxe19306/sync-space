@@ -101,6 +101,8 @@
     background-color: white;
     border-radius: 25px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+    height: 30vh;
 
     .users__results__row {
         display: flex;
