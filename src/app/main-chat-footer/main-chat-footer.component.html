@@ -9,7 +9,12 @@
             <div class="plus">
                 <div class="hover-area noSelect">
                     <div class="transform-circle"></div>
-                    <span class="material-symbols-rounded single-icon">add</span>
+                    <span class="material-symbols-rounded single-icon add-icon"
+                        (click)="openImageUploader(); this.isUploadEnabled = true;">
+                        <input #fileInput type="file" style="display: none" (change)="readyUploadImage($event)">
+
+                        add
+                    </span>
                 </div>
             </div>
             <!-- <div class="hover-area noSelect reaction__icons" (click)="toggled = true" [(emojiPickerIf)]="toggled"

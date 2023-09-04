@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Message } from '../models/message.class';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-main-chat-footer',
@@ -10,10 +11,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 
 export class MainChatFooterComponent implements OnInit {
-
+  @ViewChild('fileInput') fileInput: any;
   toggled: boolean = false;
-
-  currentUser
+  isUploadEnabled = false;
+  currentUser;
+  imageToBeUpload;
   message: Message = new Message({})
   @Input() channelName;
   chatForm;
@@ -21,7 +23,8 @@ export class MainChatFooterComponent implements OnInit {
   sendBtn;
 
   constructor(public dataService: DataService,
-    private firestore: AngularFirestore) { }
+    private firestore: AngularFirestore,
+    private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
     this.chatForm = <HTMLFormElement>document.getElementById("chatForm");
@@ -70,14 +73,19 @@ export class MainChatFooterComponent implements OnInit {
   }
 
   sendMessage() {
+    if(this.isUploadEnabled){
+        this.uploadImage()
+        this.message.image = this.imageToBeUpload.target.files[0].name
+    }  
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
+    
     this.firestore
-      .collection('channels')
-      .doc(this.currentUser.lastChannel)
-      .collection('messages')
-      .add(this.message.toJSON());
-    this.resetForm();
+    .collection('channels')
+    .doc(this.currentUser.lastChannel)
+    .collection('messages')
+    .add(this.message.toJSON());
+    this.resetForm()
   }
 
   loadCurrentUser() {
@@ -100,6 +108,28 @@ export class MainChatFooterComponent implements OnInit {
     this.message.text = '';
     this.sendBtn.classList.add("send__img__disabled");
     this.chatForm.classList.remove("form__active");
+  }
+  
+  readyUploadImage(event){
+    this.imageToBeUpload = event;
+    }
+  
+  openImageUploader() {
+    this.fileInput.nativeElement.click();
+  }
+  
+   uploadImage() {
+    const file = this.imageToBeUpload.target.files[0];
+    const filePath =  file.name;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    // Verarbeite den Upload-Task hier...
+    task.snapshotChanges().subscribe(() => {
+      fileRef.getDownloadURL().subscribe(downloadURL => {
+        // Hier ist die herunterladbare URL des hochgeladenen Bildes
+});
+    });
   }
 
 //   handleSelection(event) {

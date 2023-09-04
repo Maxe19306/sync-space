@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { timestamp } from 'rxjs';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { SharedService } from '../shared.service';
 import { User } from '../models/user.class';
 
@@ -14,6 +15,7 @@ import { User } from '../models/user.class';
 })
 
 export class MainChatBodyComponent implements OnInit {
+  storage = getStorage();
   user:User
   mobileBreakpointGeneral: number;
   openSecondaryChat;
@@ -77,8 +79,22 @@ export class MainChatBodyComponent implements OnInit {
         this.sortsMessages()
         this.updateLastDate()
         this.getCurrentInfoOfTheUsers()
+        for (const message of this.currentChannelMessage) {
+          if (message.image) {
+            this.loadImage(message.image, message);
+          }
+
+        }
       })
   }
+  
+  loadImage(image, message) {
+    getDownloadURL(ref(this.storage, image))
+      .then((url) => {
+        message.imageUrl = url
+      })
+  }
+
   
   getCurrentInfoOfTheUsers() {}  
   
