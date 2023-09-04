@@ -55,7 +55,7 @@
     .highlight__bg__on__hover {
         &:hover {
             background-color: $background-color-light-mode;
-            transition: color 100ms ease-in;
+            transition: background-color 100ms ease-in;
 
             .dm__icons {
                 color: $text-color-highlight-light-mode;
