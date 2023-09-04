@@ -39,7 +39,7 @@
         </div>
     </div> -->
 
-    <div *ngFor="let sUser of selectedUser" class="user__container">
+    <div *ngFor="let sUser of data.members" class="user__container">
         <img src="{{ sUser.profileImage }}">
         <span class="user__name">{{ sUser.name }}</span>
         <span (click)="deleteMember(sUser)" class="material-symbols-rounded">close</span>

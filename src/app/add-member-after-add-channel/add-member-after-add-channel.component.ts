@@ -31,8 +31,6 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
   indeterminate = false;
   disabled = false;
 
-  selectedUser: any[] = [];
-
   ngOnInit() {
     this.loadAllUsers()
     this.loadCurrentUser()
@@ -65,11 +63,6 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
 
 
   createChannel() {
-
-    this.selectedUser.forEach(user => {
-      this.data.members.push(user)
-    });
-
     this.data.founder = this.currentUser
     if (!this.certainPeople) {
       this.data.members = this.allUsers;
@@ -106,29 +99,21 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     } else {
       this.filteredUsers = [];
     }
+    console.log(this.filteredUsers)
   }
 
   deleteMember(user) {
-    this.allUsers.push(user)
-    const userIndex = this.data.members.indexOf(user)
-    this.selectedUser.splice(userIndex, 1);
-
-    if (userIndex !== -1) {
-      this.data.members.splice(userIndex, 1)
-    }
-    this.filterUser()
+    this.allUsers.push(user);
+    const userIndex = this.data.members.indexOf(user);
+    this.data.members.splice(userIndex, 1);
   }
 
   pushUserToMember(user) {
-    this.selectedUser.push(user);
-
     this.data.members.push(user);
     const userIndex1 = this.allUsers.indexOf(user)
     const userIndex2 = this.filteredUsers.indexOf(user)
-    if (userIndex1 && userIndex2 !== -1)
-      this.allUsers.splice(userIndex1, 1)
-    this.filteredUsers.splice(userIndex2, 1)
-
+    this.allUsers.splice(userIndex1, 1)
+    this.filteredUsers.splice(userIndex2, 1) 
     this.filteredUsers = [];
     this.inputParticipants = '';
   }
