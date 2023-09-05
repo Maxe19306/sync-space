@@ -68,6 +68,7 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
   }
   
  get limitedMembers(): any[] {
+    
     const maxCount = 3;
     return this.updateMembers.slice(0, maxCount);
   }
@@ -75,7 +76,7 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
 
   
   getCurrentInfoOfTheUsers() {
-  
+    this.updateMembers = [];
     this.currentChannel.members.forEach(member => {
       this.firestore
         .collection('users')
