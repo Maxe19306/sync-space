@@ -78,6 +78,7 @@ export class SecondaryChatBodyComponent implements OnInit {
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
         this.currentChannelMessage = channel;
+        this.downloadsCurrentDataFromCreator(channel)
         if (this.currentChannelMessage.image) {
           this.loadImage(this.currentChannelMessage.image, this.currentChannelMessage);
         }
@@ -85,6 +86,17 @@ export class SecondaryChatBodyComponent implements OnInit {
       })
   }
 
+  downloadsCurrentDataFromCreator(channel){
+    this.firestore
+        .collection('users')
+        .doc(channel.creator.id)
+        .valueChanges({idField: 'id'})
+        .subscribe((user => {
+          channel.creator = user
+        }))
+  }
+  
+  
   loadThreadAnswer() {
     this.firestore
       .collection('channels')
@@ -95,6 +107,7 @@ export class SecondaryChatBodyComponent implements OnInit {
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
         this.currentThreadAnswer = channel;
+        this.downloadsCurrentDataFromInterlocutor(channel)
         this.sortsMessages();
         this.scrollMessageListToBottom();
         for (const message of this.currentThreadAnswer) {
@@ -105,6 +118,18 @@ export class SecondaryChatBodyComponent implements OnInit {
         }
       })
   }
+  
+  downloadsCurrentDataFromInterlocutor(channel){
+    channel.forEach(element => {
+        this.firestore
+        .collection('users')
+        .doc(element.creator.id)
+        .valueChanges({idField: 'id'})
+        .subscribe((user => {
+          element.creator = user
+        }))
+    });
+  } 
 
   sortsMessages() {
     this.currentThreadAnswer.sort((a, b) => {

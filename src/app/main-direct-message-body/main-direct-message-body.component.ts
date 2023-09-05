@@ -82,7 +82,7 @@ export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
         this.currentChannelMessage = channel;
-        this.test(channel)
+        this.downloadsCurrentDataFromInterlocutor(channel)
         this.sortsMessages()
         this.updateLastDate()
         for (const message of this.currentChannelMessage) {
@@ -96,7 +96,7 @@ export class MainDirectMessageBodyComponent implements OnInit, OnDestroy {
   }
 
   
-  test(channel){
+  downloadsCurrentDataFromInterlocutor(channel){
     channel.forEach(element => {
         this.firestore
         .collection('users')

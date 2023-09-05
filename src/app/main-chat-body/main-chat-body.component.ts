@@ -76,6 +76,7 @@ export class MainChatBodyComponent implements OnInit {
       .valueChanges({ idField: 'messageId' })
       .subscribe((channel) => {
         this.currentChannelMessage = channel;
+        this.downloadsCurrentDataFromInterlocutor(channel)
         this.sortsMessages()
         this.updateLastDate()
         this.getCurrentInfoOfTheUsers()
@@ -87,6 +88,18 @@ export class MainChatBodyComponent implements OnInit {
         }
       })
   }
+  
+  downloadsCurrentDataFromInterlocutor(channel){
+    channel.forEach(element => {
+        this.firestore
+        .collection('users')
+        .doc(element.creator.id)
+        .valueChanges({idField: 'id'})
+        .subscribe((user => {
+          element.creator = user
+        }))
+    });
+  } 
   
   loadImage(image, message) {
     getDownloadURL(ref(this.storage, image))
