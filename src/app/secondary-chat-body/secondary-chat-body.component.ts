@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ProfileViewComponent } from '../profile-view/profile-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { timestamp } from 'rxjs';
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
 @Component({
   selector: 'app-secondary-chat-body',
@@ -14,7 +15,7 @@ import { timestamp } from 'rxjs';
 export class SecondaryChatBodyComponent implements OnInit {
 
   @ViewChildren('messageElements') messageElements: QueryList<ElementRef>;
-
+  storage = getStorage();
   date = '';
   currentUser;
   currentChannelMessage;
@@ -48,7 +49,14 @@ export class SecondaryChatBodyComponent implements OnInit {
     )
   }
 
-
+  loadImage(image, message) {
+    getDownloadURL(ref(this.storage, image))
+      .then((url) => {
+        message.imageUrl = url
+      })
+  }
+  
+  
   loadCurrentUser() {
     this.firestore
       .collection('users')
@@ -70,8 +78,10 @@ export class SecondaryChatBodyComponent implements OnInit {
       .valueChanges({ idField: 'messageID' })
       .subscribe((channel) => {
         this.currentChannelMessage = channel;
+        if (this.currentChannelMessage.image) {
+          this.loadImage(this.currentChannelMessage.image, this.currentChannelMessage);
+        }
         this.loadThreadAnswer()
-
       })
   }
 
@@ -87,6 +97,12 @@ export class SecondaryChatBodyComponent implements OnInit {
         this.currentThreadAnswer = channel;
         this.sortsMessages();
         this.scrollMessageListToBottom();
+        for (const message of this.currentThreadAnswer) {
+          if (message.image) {
+            this.loadImage(message.image, message);
+          }
+
+        }
       })
   }
 

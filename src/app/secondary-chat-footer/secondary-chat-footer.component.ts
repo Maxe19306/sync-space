@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Message } from '../models/message.class';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-secondary-chat-footer',
@@ -10,9 +11,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 
 export class SecondaryChatFooterComponent implements OnInit {
-
+  @ViewChild('fileInput') fileInput: any;
   toggled: boolean = false;
-
+  isUploadEnabled = false;
+  imageToBeUpload;
   currentUser
   message: Message = new Message({})
   currentMessage;
@@ -21,7 +23,8 @@ export class SecondaryChatFooterComponent implements OnInit {
   sendBtnSecondary;
 
   constructor(public dataService: DataService,
-    private firestore: AngularFirestore) { }
+    private firestore: AngularFirestore,
+    private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
 
@@ -71,6 +74,10 @@ export class SecondaryChatFooterComponent implements OnInit {
   }
 
   sendMessageSecondary() {
+    if(this.isUploadEnabled){
+      this.uploadImage()
+      this.message.image = this.imageToBeUpload.target.files[0].name
+  }  
     this.message.creator = this.currentUser;
     this.message.timestamp = new Date().getTime();
     this.firestore
@@ -131,6 +138,28 @@ export class SecondaryChatFooterComponent implements OnInit {
     this.sendBtnSecondary.classList.add("send__img__disabled");
     this.chatFormSecondary.classList.remove("form__active");
   }
+  
+  openImageUploader() {
+    this.fileInput.nativeElement.click();
+  }
+  
+  uploadImage() {
+    const file = this.imageToBeUpload.target.files[0];
+    const filePath =  file.name;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    // Verarbeite den Upload-Task hier...
+    task.snapshotChanges().subscribe(() => {
+      fileRef.getDownloadURL().subscribe(downloadURL => {
+        // Hier ist die herunterladbare URL des hochgeladenen Bildes
+});
+    });
+  }
+  
+  readyUploadImage(event){
+    this.imageToBeUpload = event;
+    }
 
   // handleSelection(event) {
   //   const emojiPicker = document.getElementsByTagName('emoji-picker')[0] as HTMLElement;
