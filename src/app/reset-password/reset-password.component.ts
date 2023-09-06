@@ -13,7 +13,7 @@ export class ResetPasswordComponent implements OnInit {
 
   @ViewChild('mail', { static: true }) mailInput: ElementRef<HTMLInputElement>;
   @ViewChild('passwordSuccess', { static: false }) passwordSuccess: ElementRef;
-
+  invalidEmail = false;
   validEmail: boolean = false;
 
   validateEmail(email: string) {
@@ -38,16 +38,18 @@ export class ResetPasswordComponent implements OnInit {
     const auth = getAuth();
     sendPasswordResetEmail(auth, email, actionCodeSettings)
       .then(() => {
-
+        this.passwordSuccessAnimation();
+        setTimeout(() => {
+          this.router.navigate(['/']);
+        }, 1600);
       })
       .catch((error) => {
-        console.error(error);
+          if(error.code === "auth/user-not-found"){
+            this.invalidEmail = true;
+        }
       });
 
-    this.passwordSuccessAnimation();
-    setTimeout(() => {
-      this.router.navigate(['/']);
-    }, 1600);
+   
   }
 
   passwordSuccessAnimation() {

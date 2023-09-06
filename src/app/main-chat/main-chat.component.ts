@@ -24,7 +24,6 @@ export class MainChatComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.loadCurrentUser()
-    // this.scrollDownAfterPageLoad();
     this.scrollToBottom();
   }
 
