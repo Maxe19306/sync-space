@@ -46,7 +46,7 @@ export class ResetPasswordComponent implements OnInit {
 
     this.passwordSuccessAnimation();
     setTimeout(() => {
-      this.router.navigate(['/confirmNewPassword']);
+      this.router.navigate(['/login']);
     }, 1600);
   }
 

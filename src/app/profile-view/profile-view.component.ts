@@ -33,7 +33,6 @@ export class ProfileViewComponent implements OnInit {
   currentUser;
   editMode = false;
   @ViewChild('userNameInput', { static: false }) userNameInput: ElementRef;
-  @ViewChild('userMailInput', { static: false }) userMailInput: ElementRef;
 
   ngOnInit(): void {
     this.loadUserDetail();
@@ -99,7 +98,6 @@ export class ProfileViewComponent implements OnInit {
         .doc(this.data.userId)
         .update({
           name: this.userDetail.name,
-          mail: this.userDetail.mail,
           profileImage: this.selectedProfileImage
         })
     }
@@ -108,7 +106,6 @@ export class ProfileViewComponent implements OnInit {
       .doc(this.data.userId)
       .update({
         name: this.userDetail.name,
-        mail: this.userDetail.mail,
       })
     this.editMode = false;
   }

@@ -23,6 +23,7 @@ export class ConfirnNewPasswordComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.code)
   }
 
   code = this.route.snapshot.queryParams['oobCode'];
@@ -51,6 +52,8 @@ export class ConfirnNewPasswordComponent implements OnInit {
       // Passwörter stimmen überein, newPassword0 kann an das Backend übergeben werden, routing zum login
       this.newPasswordsIdentically = true;
       this.newPasswordSuccessAnimation();
+      this.setNewPassword(newPassword0)
+     
     }
   }
 
@@ -59,5 +62,17 @@ export class ConfirnNewPasswordComponent implements OnInit {
     setTimeout(() => {
       this.newPasswordSuccess.nativeElement.style.display = "none";
     }, 1450);
+  }
+  
+  setNewPassword(newPassword) {
+    const auth = getAuth();
+  
+    confirmPasswordReset(auth, this.code, newPassword)
+      .then(() => {
+        this.router.navigate(['/login'])
+      })
+      .catch((error) => {
+        console.error(error); // Fehlerbehandlung bei Fehlern beim Zurücksetzen des Passworts
+      }); 
   }
 }

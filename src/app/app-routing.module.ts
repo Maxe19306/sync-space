@@ -15,7 +15,8 @@ const routes: Routes = [
   {path: 'resetPassword', component: ResetPasswordComponent},
   {path: 'profil', component: ProfileViewComponent},
   {path: 'confirmNewPassword', component: ConfirnNewPasswordComponent},
-  {path: 'channel', component: ChannelViewComponent}
+  {path: 'channel', component: ChannelViewComponent},
+  {path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
