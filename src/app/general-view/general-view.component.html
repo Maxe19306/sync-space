@@ -1,4 +1,4 @@
-<div *ngIf="this.currentUser" class="general__view__container container noSelect">
+<div *ngIf="this.dataService.currentUser" class="general__view__container container noSelect">
 
     <header>
         <app-home-workspaces></app-home-workspaces>
@@ -8,8 +8,8 @@
 
     <main>
         <app-menu-sidebar-left id="menuSidebarLeft"></app-menu-sidebar-left>
-        <app-main-chat *ngIf="!this.currentUser.viewChat"></app-main-chat>
-        <app-main-direct-message *ngIf="this.currentUser.viewChat"></app-main-direct-message>
-        <app-secondary-chat style="display:none;visibility:hidden;" id="secondaryChat" *ngIf="this.currentUser.openThread"></app-secondary-chat>
+        <app-main-chat *ngIf="!this.dataService.currentUser.viewChat"></app-main-chat>
+        <app-main-direct-message *ngIf="this.dataService.currentUser.viewChat"></app-main-direct-message>
+        <app-secondary-chat style="display:none;visibility:hidden;" id="secondaryChat" *ngIf="this.dataService.currentUser.openThread"></app-secondary-chat>
     </main>
 </div>

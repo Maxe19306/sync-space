@@ -48,7 +48,7 @@ export class GeneralViewComponent implements OnInit {
     this.dataService.id = this.route.snapshot.queryParamMap.get('userID');
     this.loadCurrentUser();
   }
-
+  
   initiateWindowWidth() {
     this.windowWidth = window.innerWidth;
     if (this.windowWidth <= this.mobileBreakpointGeneral) {
@@ -71,8 +71,7 @@ export class GeneralViewComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user: any) => {
         this.dataService.currentUser = user;
-        this.currentUser = user;
-        if (!this.currentUser.addFirstChannel) {
+        if (!this.dataService.currentUser.addFirstChannel) {
           this.loadTheFirstChannel()
           this.createPersonalDm()
         }
@@ -81,8 +80,8 @@ export class GeneralViewComponent implements OnInit {
   
   createPersonalDm(){
     const currentUser = {
-      name: this.currentUser.name,
-      id: this.currentUser.id
+      name: this.dataService.currentUser.name,
+      id: this.dataService.currentUser.id
     };
     
     this.DM.members = [currentUser,currentUser]
@@ -99,7 +98,7 @@ export class GeneralViewComponent implements OnInit {
   updateUsers(docID: string) {
          this.firestore
         .collection('users')
-        .doc(this.currentUser.id)
+        .doc(this.dataService.currentUser.id)
         .collection('dmsFromUser')
         .add({
           DMID: docID
@@ -131,13 +130,13 @@ export class GeneralViewComponent implements OnInit {
   }
 
   addUserToChannel() {
-    const currentUserId = this.currentUser.id;
+    const currentUserId = this.dataService.currentUser.id;
     const userIndex = this.firstChannel.members.findIndex(user => user.id === currentUserId);
     if (userIndex !== -1) {
       // Der Benutzer ist bereits im Array vorhanden
     } else {
       // Der Benutzer ist nicht im Array
-      this.firstChannel.members.push(this.currentUser);
+      this.firstChannel.members.push(this.dataService.currentUser);
       this.firestore
         .collection('channels')
         .doc('CTk07uhNkmfsNkGNJgTn')
