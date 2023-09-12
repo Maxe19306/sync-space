@@ -13,7 +13,7 @@ import { ChatService } from '../shared.service';
 
 export class MainChatFooterComponent implements OnInit {
 
-  @ViewChild('myTextarea') myTextarea: ElementRef;
+  @ViewChild('channelTextarea') channelTextarea: ElementRef;
 
   @ViewChild('fileInput') fileInput: any;
   toggled: boolean = false;
@@ -42,7 +42,7 @@ export class MainChatFooterComponent implements OnInit {
     this.textareaEnter();
 
     this.chatService.focusOnTextareaEvent.subscribe(() => {
-      this.renderer.selectRootElement(this.myTextarea.nativeElement).focus();
+      this.renderer.selectRootElement(this.channelTextarea.nativeElement).focus();
     });
   }
 
