@@ -33,7 +33,7 @@ import { CreateChannelComponent } from './create-channel/create-channel.componen
 import { AddMemberAfterAddChannelComponent } from './add-member-after-add-channel/add-member-after-add-channel.component';
 import { ChannelsMenuComponent } from './channels-menu/channels-menu.component';
 import { DmMenuComponent } from './dm-menu/dm-menu.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MainChatBodyComponent } from './main-chat-body/main-chat-body.component';
 import { MainChatFooterComponent } from './main-chat-footer/main-chat-footer.component';
@@ -47,6 +47,7 @@ import { NgxEmojiPickerModule } from 'ngx-emoji-picker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { BottomSheetContentComponent } from './bottom-sheet-content/bottom-sheet-content.component';
+import { ChatService } from './shared.service';
 
 @NgModule({
   declarations: [
@@ -101,7 +102,7 @@ import { BottomSheetContentComponent } from './bottom-sheet-content/bottom-sheet
     MatInputModule,
     MatBottomSheetModule
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
   
 })

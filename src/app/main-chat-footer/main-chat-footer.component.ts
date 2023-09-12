@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Message } from '../models/message.class';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { ChatService } from '../shared.service';
 
 @Component({
   selector: 'app-main-chat-footer',
@@ -11,6 +12,9 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 
 export class MainChatFooterComponent implements OnInit {
+
+  @ViewChild('myTextarea') myTextarea: ElementRef;
+
   @ViewChild('fileInput') fileInput: any;
   toggled: boolean = false;
   isUploadEnabled = false;
@@ -24,7 +28,9 @@ export class MainChatFooterComponent implements OnInit {
 
   constructor(public dataService: DataService,
     private firestore: AngularFirestore,
-    private storage: AngularFireStorage) { }
+    private storage: AngularFireStorage,
+    private renderer: Renderer2,
+    private chatService: ChatService) { }
 
   ngOnInit(): void {
     this.chatForm = <HTMLFormElement>document.getElementById("chatForm");
@@ -34,6 +40,10 @@ export class MainChatFooterComponent implements OnInit {
     this.loadCurrentUser();
     this.textareaInput();
     this.textareaEnter();
+
+    this.chatService.focusOnTextareaEvent.subscribe(() => {
+      this.renderer.selectRootElement(this.myTextarea.nativeElement).focus();
+    });
   }
 
   textareaInput() {

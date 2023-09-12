@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { DataService } from '../data.service';
 import { doc } from 'firebase/firestore';
+import { ChatService } from '../shared.service';
 
 @Component({
   selector: 'app-channels-menu',
@@ -21,7 +22,8 @@ export class ChannelsMenuComponent implements OnInit {
   constructor(
     private dataService: DataService,
     public firestore: AngularFirestore,
-    public Dialog: MatDialog
+    public Dialog: MatDialog,
+    public chatService: ChatService
   ) { }
 
   ngOnInit(): void {
@@ -87,6 +89,7 @@ export class ChannelsMenuComponent implements OnInit {
     if (window.innerWidth <= this.mobileBreakpointGeneral) {
       this.foregroundMainChat();
     }
+    this.chatService.focusOnTextareaEvent.emit();
   }
 
   foregroundMainChat() {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -32,4 +32,8 @@ export class SharedService {
   closeSheet() {
     this.closeSheetSubject.next();
   }
+}
+
+export class ChatService {
+  focusOnTextareaEvent = new EventEmitter<void>();
 }
