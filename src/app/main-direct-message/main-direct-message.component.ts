@@ -51,13 +51,7 @@ export class MainDirectMessageComponent implements OnInit {
       .doc(this.currentUser.currentDM)
       .valueChanges({ idField: 'id' })
       .subscribe((dm) => {
-        console.log("1 this.lastDm", this.lastDm);
         this.lastDm = dm;
-        console.log("2 this.lastDm", this.lastDm);
-        // if (!this.lastDm) {
-        //   this.lastDm = dm;
-        //   console.log("this.lastDm", this.lastDm);
-        // }
         this.IdentifySpeaker()
       })
   }
@@ -87,7 +81,6 @@ export class MainDirectMessageComponent implements OnInit {
       .valueChanges({ idField: 'id' })
       .subscribe((user) => {
         this.speaker = user;
-        console.log
       })
   }
 

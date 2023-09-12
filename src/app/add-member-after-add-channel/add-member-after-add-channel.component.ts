@@ -99,7 +99,6 @@ export class AddMemberAfterAddChannelComponent implements OnInit {
     } else {
       this.filteredUsers = [];
     }
-    console.log(this.filteredUsers)
   }
 
   deleteMember(user) {

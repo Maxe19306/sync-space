@@ -23,7 +23,7 @@ export class ConfirnNewPasswordComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.code)
+    
   }
 
   code = this.route.snapshot.queryParams['oobCode'];
