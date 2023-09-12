@@ -1,10 +1,12 @@
 <div class="menu__sidebar__left__body__channels__header noSelect">
-    <div class="menu__sidebar__left__body__channels__header__left highlight__text__on__hover noSelect" (click)="changeChannelView()">
+    <div class="menu__sidebar__left__body__channels__header__left highlight__text__on__hover noSelect"
+        (click)="changeChannelView()">
         <span *ngIf="viewChannels" class="material-symbols-rounded single-icon">arrow_drop_down</span>
         <span *ngIf="!viewChannels" class="material-symbols-rounded single-icon">arrow_right</span>
 
 
-        <span class="material-symbols-rounded channels__icon">workspaces</span><span id="channelsHeadline">Channels</span>
+        <span class="material-symbols-rounded channels__icon">workspaces</span><span
+            id="channelsHeadline">Channels</span>
     </div>
 
     <div class="hover-area noSelect" (click)="openCreateNewChannelDialog()">
@@ -13,15 +15,19 @@
     </div>
 </div>
 
-<div id="channelsBody" class="menu__sidebar__left__body__channels__body drop__drown__animation noSelect" *ngIf="viewChannels">
+<div id="channelsBody" class="menu__sidebar__left__body__channels__body drop__drown__animation noSelect"
+    *ngIf="viewChannels">
 
-    <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover noSelect" *ngFor="let channel of this.allChannels">
+    <div class="noSelect" *ngFor="let channel of this.allChannels">
 
-        <span class="material-symbols-rounded channels__icons">tag</span>
-        <span (click)="openChannel(channel.channelIdName)" class="channels__channelname">{{channel.name}}</span>
+        <div class="menu__sidebar__left__body__channels__body__row highlight__bg__on__hover" (click)="openChannel(channel.channelIdName)">
+            <span class="material-symbols-rounded channels__icons">tag</span>
+            <span class="channels__channelname">{{channel.name}}</span>
+        </div>
 
     </div>
-    <div class="menu__sidebar__left__body__channels__body__row highlight__text__on__hover noSelect add__channel" (click)="openCreateNewChannelDialog()">
+    <div class="menu__sidebar__left__body__channels__body__row highlight__text__on__hover noSelect add__channel"
+        (click)="openCreateNewChannelDialog()">
         <span class="material-symbols-rounded channels__icons">add</span>
         <span class="channels__channelname">Channel hinzufügen</span>
     </div>
