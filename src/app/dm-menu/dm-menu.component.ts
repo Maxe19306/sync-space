@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ChatService } from '../shared.service';
 
 @Component({
   selector: 'app-dm-menu',
@@ -17,7 +18,8 @@ export class DmMenuComponent implements OnInit {
 
   constructor(
     public dataService: DataService,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    public chatService: ChatService
   ) {}
 
   ngOnInit(): void {
@@ -124,6 +126,7 @@ export class DmMenuComponent implements OnInit {
       this.foregroundMainDirectMessage();
     }
     this.hideSecondaryChat();
+    this.chatService.focusOnTextareaEvent.emit();
   }
 
   foregroundMainDirectMessage() {

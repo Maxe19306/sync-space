@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { DataService } from '../data.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Message } from '../models/message.class';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { ChatService } from '../shared.service';
 
 @Component({
   selector: 'app-main-direct-message-footer',
@@ -11,6 +12,8 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 
 export class MainDirectMessageFooterComponent implements OnInit {
+
+  @ViewChild('myTextarea') myTextarea: ElementRef;
 
   toggled: boolean = false;
 
@@ -22,9 +25,12 @@ export class MainDirectMessageFooterComponent implements OnInit {
   chatTextareaSecondary;
   sendBtnSecondary;
   imageToBeUpload;
+
   constructor(public dataService: DataService,
     private firestore: AngularFirestore,
-    private storage: AngularFireStorage) { }
+    private storage: AngularFireStorage,
+    private renderer: Renderer2,
+    private chatService: ChatService) { }
 
   ngOnInit(): void {
 
@@ -35,6 +41,10 @@ export class MainDirectMessageFooterComponent implements OnInit {
     this.loadCurrentUser();
     this.textareaInputSecondary();
     this.textareaEnterSecondary();
+
+    this.chatService.focusOnTextareaEvent.subscribe(() => {
+      this.renderer.selectRootElement(this.myTextarea.nativeElement).focus();
+    });
   }
 
   textareaInputSecondary() {
