@@ -13,7 +13,7 @@ import { ChatService } from '../shared.service';
 
 export class MainDirectMessageFooterComponent implements OnInit {
 
-  @ViewChild('myTextarea') myTextarea: ElementRef;
+  @ViewChild('dmTextarea') dmTextarea: ElementRef;
 
   toggled: boolean = false;
 
@@ -43,7 +43,7 @@ export class MainDirectMessageFooterComponent implements OnInit {
     this.textareaEnterSecondary();
 
     this.chatService.focusOnTextareaEvent.subscribe(() => {
-      this.renderer.selectRootElement(this.myTextarea.nativeElement).focus();
+      this.renderer.selectRootElement(this.dmTextarea.nativeElement).focus();
     });
   }
 
