@@ -41,6 +41,7 @@ export class MainDirectMessageFooterComponent implements OnInit {
     this.loadCurrentUser();
     this.textareaInputSecondary();
     this.textareaEnterSecondary();
+    this.chatTextareaSecondary.focus();
 
     this.chatService.focusOnTextareaEvent.subscribe(() => {
       this.renderer.selectRootElement(this.dmTextarea.nativeElement).focus();
