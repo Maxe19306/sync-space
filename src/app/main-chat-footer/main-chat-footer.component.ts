@@ -40,6 +40,7 @@ export class MainChatFooterComponent implements OnInit {
     this.loadCurrentUser();
     this.textareaInput();
     this.textareaEnter();
+    this.chatTextarea.focus();
 
     this.chatService.focusOnTextareaEvent.subscribe(() => {
       this.renderer.selectRootElement(this.channelTextarea.nativeElement).focus();
