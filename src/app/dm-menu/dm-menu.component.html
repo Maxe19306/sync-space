@@ -22,7 +22,7 @@
   <div
     class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect active__dm"
     (click)="openChat(this.personalDm)"
-    [class.active__dm]="this.personalDm == this.currentUser.currentDM"
+    [class.active__dm]="this.personalDm == this.currentUser.currentDM && this.currentUser.viewChat"
   >
     <img src="{{ this.currentUser.profileImage }}" alt="" srcset="" />
     <span>{{ this.currentUser.name }} (Du)</span>
@@ -31,7 +31,7 @@
   <ng-container *ngFor="let dmName of finalDm">
     <div
       class="menu__sidebar__left__body__dm__body__row highlight__bg__on__hover noSelect"
-      [class.active__dm]="dmName.dmId == this.currentUser.currentDM"
+      [class.active__dm]="dmName.dmId == this.currentUser.currentDM && this.currentUser.viewChat"
     >
       <div (click)="openChat(dmName.dmId)">
         <img src="{{ dmName.finalUser.profileImage }}" alt="" srcset="" />
