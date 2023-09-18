@@ -95,12 +95,23 @@
                 .header__users__img {
                     display: flex;
                     align-items: center;
+                    animation: fadeIn 150ms forwards 150ms;
 
                     img {
                         width: 36px;
                         border-radius: 50%;
                         border: 2px solid white;
                         margin-left: -12.5px;
+                    }
+                }
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+        
+                    to {
+                        opacity: 1;
                     }
                 }
             }

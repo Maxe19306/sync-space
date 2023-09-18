@@ -12,7 +12,7 @@
 
         <div class="main__chat__header__right">
             <div (click)="openDialogMembersView(this.currentChannel.members, true)" class="header__users hidden__mobile">
-                <div *ngFor="let member of limitedMembers" class="header__users__img">
+                <div style="opacity:0;" *ngFor="let member of limitedMembers" class="header__users__img">
                     <img  src="{{member.profileImage}}" alt="">
                 </div>
                 <span class="users__count">{{this.currentChannel.members.length}}</span>
