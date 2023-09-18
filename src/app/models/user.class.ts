@@ -13,7 +13,7 @@ export class User {
         this.name = obj ? obj.firstName : '';
         this.mail = obj ? obj.mail : '';
         this.uid = obj ? obj.uid : '';
-        this.lastChannel = obj ? obj.lastChannel : 'CTk07uhNkmfsNkGNJgTn';
+        this.lastChannel = obj ? obj.lastChannel : 'NUhNN20heEUcN7gnJuZM';
         this.channelFromThread = obj ? obj.channelFromThread : '';
         this.threadId = obj ? obj.threadId : '';
         this.openThread = false;
@@ -26,7 +26,7 @@ export class User {
             name: this.name,
             mail: this.mail,
             uid: this.uid,
-            lastChannel: 'CTk07uhNkmfsNkGNJgTn',
+            lastChannel: 'NUhNN20heEUcN7gnJuZM',
             channelFromThread: '',
             profileImage: './assets/img/users2/user-neutral-bw.webp',
             addFirstChannel: false,

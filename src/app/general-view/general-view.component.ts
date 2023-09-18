@@ -111,7 +111,7 @@ export class GeneralViewComponent implements OnInit {
   loadTheFirstChannel() {
     this.firestore
       .collection('channels')
-      .doc('CTk07uhNkmfsNkGNJgTn')
+      .doc('NUhNN20heEUcN7gnJuZM')
       .valueChanges({ idField: 'id' })
       .subscribe((channel) => {
         this.firstChannel = channel;
@@ -139,7 +139,7 @@ export class GeneralViewComponent implements OnInit {
       this.firstChannel.members.push(this.dataService.currentUser);
       this.firestore
         .collection('channels')
-        .doc('CTk07uhNkmfsNkGNJgTn')
+        .doc('NUhNN20heEUcN7gnJuZM')
         .update({
           members: this.firstChannel.members,
         })

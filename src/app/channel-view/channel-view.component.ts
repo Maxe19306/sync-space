@@ -102,7 +102,7 @@ export class ChannelViewComponent implements OnInit {
     .collection('users')
     .doc(this.dataService.id)
     .update({
-      lastChannel: 'CTk07uhNkmfsNkGNJgTn'
+      lastChannel: 'NUhNN20heEUcN7gnJuZM'
     })
     
   }
