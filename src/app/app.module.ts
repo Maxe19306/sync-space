@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { GeneralViewComponent } from './general-view/general-view.component';
 import { MenuSidebarLeftComponent } from './menu-sidebar-left/menu-sidebar-left.component';
 import { MainChatComponent } from './main-chat/main-chat.component';
@@ -48,6 +48,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { BottomSheetContentComponent } from './bottom-sheet-content/bottom-sheet-content.component';
 import { ChatService } from './shared.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -102,8 +103,9 @@ import { ChatService } from './shared.service';
     MatInputModule,
     MatBottomSheetModule
   ],
-  providers: [ChatService],
+  providers: [ChatService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
-  
+
 })
 export class AppModule { }
