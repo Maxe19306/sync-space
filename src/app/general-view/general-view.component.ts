@@ -133,9 +133,7 @@ export class GeneralViewComponent implements OnInit {
     const currentUserId = this.dataService.currentUser.id;
     const userIndex = this.firstChannel.members.findIndex(user => user.id === currentUserId);
     if (userIndex !== -1) {
-      // Der Benutzer ist bereits im Array vorhanden
     } else {
-      // Der Benutzer ist nicht im Array
       this.firstChannel.members.push(this.dataService.currentUser);
       this.firestore
         .collection('channels')
